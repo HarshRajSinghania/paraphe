@@ -4,17 +4,20 @@ from __future__ import annotations
 
 import os
 import sys
+from importlib.metadata import version
 from pathlib import Path
 
 DEFAULT_CONFIG_FILENAME = "paraphe.toml"
 HELP_FLAGS = frozenset({"-h", "--help", "help"})
-USAGE = """\
+VERSION_FLAGS = frozenset({"-V", "--version", "version"})
+USAGE = """\\
 Paraphe - the self-hosted owner decision inbox an agent asks and you answer.
 
   paraphe [--config PATH]   start the server
   paraphe ask QUESTION ...  create a card from the shell; prints the request id
   paraphe wait REQUEST_ID   block until the card is answered; prints the answer
   paraphe --help            show this message
+  paraphe --version         print the installed distribution version
 
 `paraphe ask` and `paraphe wait` complete the whole ask/answer loop from a
 shell: ask prints the request id, wait exits when the owner taps (0 answered,
@@ -46,6 +49,9 @@ def main(argv: list[str] | None = None) -> int:
     args = list(sys.argv[1:] if argv is None else argv)
     if args and args[0] in HELP_FLAGS:
         print(USAGE, end="")
+        return 0
+    if args and args[0] in VERSION_FLAGS:
+        print(version("paraphe"))
         return 0
     if args and args[0] in {"ask", "wait"}:
         from .cli import main as cli_main
