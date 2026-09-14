@@ -1,0 +1,24 @@
+# Placeholder values only. Copy to a mode-0600 file or set PARAPHE_* env vars.
+# Environment wins over this file. Do not commit real secrets.
+#
+# Phone destination (taps on a phone):   PARAPHE_BOT_TOKEN / PARAPHE_OWNER_TELEGRAM_ID
+# Local destination (card printed here): PARAPHE_OWNER_ANSWER_TOKEN
+# Always required:                       PARAPHE_MCP_CREATE_BEARER
+# Optional:                              PARAPHE_STORE_PATH / PARAPHE_DEFAULT_TTL_SECONDS
+#                                        PARAPHE_FLOOR_TTL_SECONDS / PARAPHE_MCP_HOST / PARAPHE_MCP_PORT
+
+# --- Phone destination. Omit both lines to run locally on this machine. ---
+bot_token = "YOUR_TELEGRAM_BOT_TOKEN"
+owner_telegram_id = 123456789
+
+# --- Owner-only answer path. Required when there is no phone destination, and
+# must differ from the create bearer. This is the owner's credential and is
+# never given to an agent.
+owner_answer_token = "YOUR_PARAPHE_OWNER_ANSWER_TOKEN"
+
+default_ttl_seconds = 14400
+floor_ttl_seconds = 900
+mcp_create_bearer = "YOUR_PARAPHE_MCP_CREATE_BEARER"
+
+# Optional. Defaults to the per-user data directory of your platform.
+# store_path = "~/.local/share/paraphe/inbox.sqlite"

@@ -1,0 +1,30 @@
+name: Feature request
+description: A decision Paraphe cannot hold today
+labels: ["needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Paraphe is an owner-decision inbox: one agent, one decision, one
+        owner. Requests that make it a workflow engine, a task tracker or a
+        chat client are out of scope by design — see `docs/roadmap.md`.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The decision you cannot hold today
+      description: Describe the situation, not the implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: What you do instead today
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Which contract this touches
+      description: A tool in `docs/tools.md`, a destination in `docs/adapters.md`, or neither.
+    validations:
+      required: false

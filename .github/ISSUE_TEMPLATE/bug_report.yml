@@ -1,0 +1,39 @@
+name: Bug report
+description: Something did not work as documented
+labels: ["needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a security problem use the Security tab → *Report a vulnerability*
+        instead. Do not paste secrets here.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: The exact commands, in order, and what they printed.
+      placeholder: |
+        python3 -m unittest discover -s tests -p 'test_*.py'
+        .venv/bin/paraphe --config paraphe.toml
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Python version and operating system
+      placeholder: 3.12.3 on Ubuntu 24.04
+    validations:
+      required: true

@@ -1,0 +1,502 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:30e669faeed3eee9843c121d2fc627f87b6c63e5f5f1f802f11b4175fa3cfbab",
+  "claims": [
+    {
+      "id": "claim_2e0bf9f232744a149a20aae9be2189f3",
+      "statement": "`paraphe.__main__.main` prints usage and exits 0 when `-h`, `--help` or `help` is the first argument or when nothing is configured, and converts a `SetupError` from the runtime into a single `paraphe: <message>` line on stderr with exit code 2 instead of a traceback.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/__main__.py#L45-L71",
+          "version": "repo-lines-v1:sha256:226f783cd5dd500132cd09c47f19c918c4892cad87e213e8bec1fbde338149b8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0NDBhYmY0ZDM3NmViNGUzYWUxZjNiZDU3Y2FhYjlhMTg1OGJlMjBjNTdlNzRmN2YwNGExOGQ1NTI4ZGZmMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmOGY4ZmQ4Yjg2M2JkOGJhNDJlZTgwNGUxOTE5MDg3Njc4NzIxY2EyNzVkMGVjMTQ2NTkyNGNlMDA1MDIxZjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjljYTM0NTM1MDRiODc0NGY5N2Q1NDQ1YmY2ZWNiYjE1ZDI2YTRkNzNhZTJkY2QwOGRiNjA3NGRjZmRiYmQ0YTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkNDEzNDBjYzIzOWExNTljZTliNjAyMmU5ZjYzMjI4MzJlMmVhZDc2Y2FlOWU0NzU0ZDIxMGViOGZiNmQ1ZTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6bb8b31512a4469a875c6a575ddeeb08",
+      "statement": "`--config PATH` sets `PARAPHE_CONFIG_PATH` before the configured test (and `--config` with no path prints one `paraphe: --config needs a path` line and exits 2), and a `PARAPHE_` environment variable or a `paraphe.toml` in the working directory also counts as configured.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/__main__.py#L39-L62",
+          "version": "repo-lines-v1:sha256:9049017ad9a4b324607a78abb51f667d405c45d5bd4b62bb20f2fff975258d7b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhiODgwZTQwZjg4YmQ0NjljZDY2MmY2MzViOWU4ZWRiZTRkYTAzZjIxMTU4NmI1ODZhODM3OGRlNTYxZDU1NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhMTY4MDljMDc1ZGIzMDllMDliYmM5YWI3ZWZlZTY5ZWZiNWY0MTliZDRkODkzMGQwMzgwNjYwMmRkMDJmZDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM4YWU2MGEwOWE3ODRiNDdlYTA4NTMxNmJmZjkyYzY4MDExZGQ2NzBkODlmMjhkYWY1ZGE5YmI2YWU0MWJjNDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxYzA5YjY1NWUxMDhjM2ExYzgwMTBkMDc0NGM5ZWU1YzFiMTgyMDM1N2E5ZTVhMDEwOTJhYTA3MDUxZDA4NTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0361f3db568743dbbdda4ad0d0c5eff5",
+      "statement": "Settings resolve per key with the environment winning over the configuration file, an absent file is an empty mapping, and a malformed file raises the setup error.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L130-L182",
+          "version": "repo-lines-v1:sha256:fb23e416a9f5cafdb7782b78bbae035e0fb2ec0aff3009b02a638ae2d982e7ea:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxNmUwZDk5MGJhNTUzNTEzMzk0M2I1NTRlMzhmM2M1NzZjYjA3ZTBjYTdiN2NjY2U5MDFiZTY2OGE5MDAwMWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0MDBiZGMxZTUzNGJkMmE4YTdkNGJmZWRjODE0MzAyZTVhNjdhYjNhODg2MTFkNDZmMWEyOGZlNTMzNzVmM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L71-L86",
+          "version": "repo-lines-v1:sha256:74c5517d8ffb9e5889bcd37690bb128bca491ca33418983927379abdda60ff71:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxODI4YWZiNWU4MjlhMjlmMjY3MjhkMjBiMWNkZmIwMTFjYzBkMWFmNDA5MDljODdiMjA3NWFlYTAwODI5Y2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5MzgyZjE4NmVhOWY1MTM2YmJiMGUxNzRmYzlmM2Y1ZTc0MTFiMGZjYmFkNTUyMjNlZjE3Y2NmYjFmZGMxMDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIwMjVlMjA1NDQwNjIzZGJiODI5NjZhNjIzYTAwNzM5MWE4ZDA3OWFhYzEwMDFhM2JmYjI1ZjIyMjBkZTRmYjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5cd1d9c7b40c4d0db56c8866140ba56c",
+      "statement": "The create bearer is always required, the answer credential must differ from it, and a configuration with no bot token and no answer credential is refused.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L130-L182",
+          "version": "repo-lines-v1:sha256:fb23e416a9f5cafdb7782b78bbae035e0fb2ec0aff3009b02a638ae2d982e7ea:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxNmUwZDk5MGJhNTUzNTEzMzk0M2I1NTRlMzhmM2M1NzZjYjA3ZTBjYTdiN2NjY2U5MDFiZTY2OGE5MDAwMWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0MDBiZGMxZTUzNGJkMmE4YTdkNGJmZWRjODE0MzAyZTVhNjdhYjNhODg2MTFkNDZmMWEyOGZlNTMzNzVmM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_35433401e24f4607ad15f7c88689a7cd",
+      "statement": "The phone destination is selected by the presence of a bot token: with one the owner Telegram id is required and must be positive, without one the console destination is used.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L130-L182",
+          "version": "repo-lines-v1:sha256:fb23e416a9f5cafdb7782b78bbae035e0fb2ec0aff3009b02a638ae2d982e7ea:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxNmUwZDk5MGJhNTUzNTEzMzk0M2I1NTRlMzhmM2M1NzZjYjA3ZTBjYTdiN2NjY2U5MDFiZTY2OGE5MDAwMWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0MDBiZGMxZTUzNGJkMmE4YTdkNGJmZWRjODE0MzAyZTVhNjdhYjNhODg2MTFkNDZmMWEyOGZlNTMzNzVmM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L137-L202",
+          "version": "repo-lines-v1:sha256:15ca960dd58c3a76ce94eee0bf7fbf7b7979ed9cde5fbea7bbc00e6f0a7b93e6:eyJzZWxlY3RlZExpbmVDb3VudCI6NjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0MGU1OTY0ZTQ4YmNhNGNjZWM0MWZmZjE3NTdmMTRiZTI2N2M0MzM0Yjc1NWQ0YTUyNzcwNDg5NjhmOGM0ZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUyY2M2ZjI1YWNlZGNiM2U3NzZhMjIxNGYxNmZkNGRkNzYwZGQxZTM1NGRmYjBjMjNhNjVhNTg2YWY5NDU2MWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4OGI5ZGQzNjNiOWQ5YzEwYjc0OTM2MThhNzNmMDMzMzBmNWYzNzdjMDExZTg4N2EwOTYxZTFhZGZkODExNDcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_671586f5595a45ee9cdf7be2b9c0bbf8",
+      "statement": "Startup refuses when the answer path is enabled and the bind is not loopback.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L61-L69",
+          "version": "repo-lines-v1:sha256:af17c1d91256ffad5b0da3ad5de05263396b3337d7028eb6e0d5ffe98ff12610:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjhkM2FiMDM2MTNmNGEwODc5MzdmMTNjNzQyZWFjZmI5ZmRhZmE2M2FiNDc3OWVhNGI4YjE0ODcwNTQ2MTcyYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTBiMjFiZjg5NWZhZTJkNzM5MjBkOTMxNzhjZmQ1ODQxY2RmOGY5NTI0NTE2YzhhNTY1ODQzNmE0YWM0OGYzYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODVmNWZjNThlZjFlMjUyOGNiZDFhODc2MmJjNmRkYTc5NjI3ZDNiMDhkZDM2MjQwYmMyMmM0ZjRmNDUwNjA2OCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L137-L202",
+          "version": "repo-lines-v1:sha256:15ca960dd58c3a76ce94eee0bf7fbf7b7979ed9cde5fbea7bbc00e6f0a7b93e6:eyJzZWxlY3RlZExpbmVDb3VudCI6NjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0MGU1OTY0ZTQ4YmNhNGNjZWM0MWZmZjE3NTdmMTRiZTI2N2M0MzM0Yjc1NWQ0YTUyNzcwNDg5NjhmOGM0ZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUyY2M2ZjI1YWNlZGNiM2U3NzZhMjIxNGYxNmZkNGRkNzYwZGQxZTM1NGRmYjBjMjNhNjVhNTg2YWY5NDU2MWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4OGI5ZGQzNjNiOWQ5YzEwYjc0OTM2MThhNzNmMDMzMzBmNWYzNzdjMDExZTg4N2EwOTYxZTFhZGZkODExNDcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_06d552de072c4b94b415a64ba6bca3dc",
+      "statement": "The default bind is 127.0.0.1:8787, overridable through PARAPHE_MCP_HOST and PARAPHE_MCP_PORT.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L21-L23",
+          "version": "repo-lines-v1:sha256:cf8357c0e728304a6c4d56f0318b1106436778fe73be0c022396e8f047d8ce12:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTE0MWE1NzJmMzIxMGJhNDhkZDI5ZWU1Zjg1MTVlNTlkYmQyZjU4OTRlMjUxMDdjNTRlM2YwNjg3Zjc5YjU5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmZhZTQ3MmM5MDcwMTQzYzFhMzUxMmZhN2RlOTU2OWYwNDVkM2JlYWY4NzdiNmFjODQ5MTZiNWM0NmVkZjI0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzc4MTk4ZDQ5ZTk5MDdmOGI2MWIxODU2NTUxMTk4N2U5NDhjYzljNDNiYmQ0ZTRkNzliZmU2OWQ0YWE0ODdkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDk5NDdlZWY0YTFkZDQwZDUxNTlmNjIxZjcyNDgxYzAyZDVmNjU1Y2YwODRkYzhlMDMyMDNiMDIwNDFjMzI1NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bc87b8989b1b4b4ca3242cc5c9109bde",
+      "statement": "In local mode the runtime blocks on the stop event and serves MCP and the answer path without polling any tap transport.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L242-L253",
+          "version": "repo-lines-v1:sha256:53c993257c3ef68411e0529a5244caee3d421b6cb7825c7266f96b8b71f087cf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlMTdiYjVmMjU2NmRkZDBlZWRlOTdmZTY1MTc4YWRkYzE3ZWFkOGMzOGFlOGRkMThkN2U3NWVkODVjZDUxOTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE4ZjFhNmE2ZjE0ZjE2MzViYjFkMWQ4YjEzMGEyNmIzMjcxYTk0OTA5Zjk2NzRlOWU2ZTVjNDM4ODY1MWMwZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJjZTQ1ZGJkNTQyM2IxNmU1OWM3ZWY0MWRiNzM3MDQ1ZTVkOWQwYzkzNDFmNDk0N2U2ZWFkZjM0NDliYTk0YzQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_04a4dd7c8e2e40c48579b8587f1c063e",
+      "statement": "In phone mode the runtime long-polls, waits one second after a transport error instead of exiting, and persists the next Telegram offset in durable state so a restart does not replay updates.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L221-L241",
+          "version": "repo-lines-v1:sha256:d997f6fe97510cfa34a64b859e386c24a29ec0a2023b27c3bde250cff28b84d1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMDdiZmU1Mzg2NTUyZDljYTA5NzUyYjNhNzE5NjFiOWQzMmFkYTIwMzU0ZDUxZTFjYmI3YzMzYjBhYmQ3NDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzZmU3OWI2MDZkYzIwYWUxY2VlNjAzNzU0MTBiNDRkMGE4MTIyZDQ3NDcxNGM4MTgxYTA3NjUzYmQ2NmJmNTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU2OTRkMDNlZTQzOGNmZjEyNGYwNzBjZjEzNDUxYzkwZjI2MWE2MzJjZDkxMmEwOTVkOWQ5ZTdlNTU0NzJhMTIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/store.py#L134-L158",
+          "version": "repo-lines-v1:sha256:73da02811397013b3b3d195d5caff8fe09681d78e453c2d1ca5aa18f33020c2b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVlZTc4ODg0MjA0YTA0OWNmNjdhNDQ4MjExZWRhYzhhZTU0MGY5OTBhNjQ5NDk1N2M3N2Y4YWVmOTE1ZmQ0ZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNjYTM0NGY4ZjQ3YWI3NGMwMDI1NDVkZjNkMDFlOTAwYmEyNmNiNTQ3ODBiODMwZTNkZmNmNWYwNGNlNTI0M2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMxOGEwNTIyNGZlNDc4MzVhNTA0NGFmNjU1NGE1NjNhZDllODNmZGE1MWIwZTllYmY2YzA2MTQxOTMyMmM0YjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkOTM1ZWFjYWM5YTg1ZjkyYjNiODBlODI3ZjkxNjM2NTUyYTcwZGNlNDg3YTA3N2QxNTE4ODBiZDVlYWY0MWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0ebd0c4e92284bc8b685cb89cdd5b938",
+      "statement": "The ready line names the MCP address and whether the answer path is on.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L268-L285",
+          "version": "repo-lines-v1:sha256:fcb94b6758fc364b8c501c4faf74d790cb06497fafcdce9c0c470366d6a5de33:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiMzk3OTMzYTI0YTgwMWVlOTIzMzI3YmQ2OWEwMTA0OWMwNzc5MTUwMjFjZjJlYzM5ZGRhNGY4MWFhODM3ZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4NjBkNDAwMmQ3YTg2ZGVjOTdkYWVkZmYzMWFlNDQxMjRhNjhkNDMxMTMwNjViYjM1NzA1NjdhMmViYzE3NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZlNGU0MGMxOGFjZTRjM2I1ZTI1YjM4NWQ1MjkxNjIwMTU3YTIwYWIxMjRhODI3ODhmYjU1YjM2MmFlMTM1MWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2MjMzYjNmZmVhMzJhMjNkZjUzMDY1MzQzNDhmMmRlZTc3NmE1YTZmNzRmYjUzMzE3NWRkYzUzOWE4ZmU0NjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_efe006f65b4341f6be4ac3ad3e93cd02",
+      "statement": "SIGINT and SIGTERM stop the runtime, and closing closes the HTTP server before the inbox.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L254-L285",
+          "version": "repo-lines-v1:sha256:ab51671b4a9b8fc40c4cd5123d2d233ead471abc437c10be5a57ee19a14ed6ef:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkYzg1OWNiZTRjZjg5YWFiNTc1ZGRlYjU2OTAzNzU5ODdiZGRkOWQ4MWE2ZDIyMzQyZWQ0OGM3OWQyZTM0YTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4NjBkNDAwMmQ3YTg2ZGVjOTdkYWVkZmYzMWFlNDQxMjRhNjhkNDMxMTMwNjViYjM1NzA1NjdhMmViYzE3NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkxZDFmNjM0NjhmZDYwMzAyZWZhMDM2OGVkNDE4ZDc0Nzc2Y2ZjNjBhZjA0MDY4OTNkYTAyNWRkNDRkYmEwZWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2MjMzYjNmZmVhMzJhMjNkZjUzMDY1MzQzNDhmMmRlZTc3NmE1YTZmNzRmYjUzMzE3NWRkYzUzOWE4ZmU0NjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5b6fe3f108024aca95331a8ccadc3982",
+      "statement": "The HTTP surface serves the MCP path and the answer path from one threaded server, and binding is refused unless the host is loopback or in the tailnet ranges.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L44-L59",
+          "version": "repo-lines-v1:sha256:8eed773d9e7fb3e96b0e9635c97f66aa8954d17993f56d58a878a5f33b3b9ffe:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNzZlNTQ0MGRmOWM3OWZjMjgwYzQxZjM1YjQzN2ZmOTA4MTU1ZjJjMDhiYmNkMTUwNTA3OTM4NWE3MzBhZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBhZjdmODdiOTcxNzBkODdjNTQ2NzQxMTQ1YjIyZjljNTMyODQ2NDBlMTNiNGZkM2YzNjkzMmI1Mjk4MjI2OGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyMzBmMTNmNDQyMWU1NzZiYzdhZWIxZjFhZmMzM2FhZDUzN2FjODhhODM0NWI5MjFhZTAzNTU5NDdmZWNmZWYifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L84-L99",
+          "version": "repo-lines-v1:sha256:ecc8dc5a1ba7e78fcfa22826efad87f7a0369486ac81ff1b771165321cfe94d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNDBkMWVkOTU0MGNmYmUyNTkwNWY0MTM3YzdiNTcyNmU0OWE5ZjQyMmQ1ZTkzZDc4ODQ0Zjc3MWNhZDY2NmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3YmVkYjdiYjg0ZmFiNzYwODQ5MzE1ZDQyOTk2OGUzOWZmZDNjOWVmMTE5MzVmMTZiNjIyNDI2OGM1NDZhMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc4ODIzNWY4YzY3NWU3NGEwNmIzYWNkZWRlOTBjM2Q0YjNmOGQ3YjBlODUyMzUxZjcxMWM0MDM4OWFjZGU4N2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f53376a1dafe4836b6e441a0e7947445",
+      "statement": "One installed `paraphe` command serves both halves: `__main__.main` dispatches a first argument of `ask` or `wait` to `paraphe.cli.main` with those arguments (the subcommand included, the import deferred), while a bare invocation starts the server.",
+      "evidence": [
+        {
+          "resource": "repo://pyproject.toml#L28-L29",
+          "version": "repo-lines-v1:sha256:c03c777d61c1b4a2681bd60304ec747414d66b330cdb9cb7aeb1182bb2dbe48e:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGVhYjRlYzYzZGU1MTdkYTRjZDhlNWM4MzA3ZmIyYzc3MzdkMzkxOTBhYjY5ZjMyYTVlOWVmODFlYTQ0MTZkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFhYzNhZGUzMjZlNDA0OTU3MTlmNDdmOWFiMGFhMzFlNDkyOWQ4YmIxZDJjYjk3NGEzZWE2Y2UzNjhlYmQ3ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTI3YThjOTJlYzg4YmZmNTM3Zjk1M2NjY2FmODc4YTVmMzQ3NmNmOGFkMjc4NjIyN2FkZTQ2YmY3ZDVhOWZlYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzJhZGZkYzUzMThjNzgxY2E1MTA5MzhkY2FjOTQzM2E3ZmZlMTQ0ZDE0ZTg0MGEzZDIwNGU3NTVjNmVmNjEyMyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/__main__.py#L45-L59",
+          "version": "repo-lines-v1:sha256:d4669fb3b77b9c34c83ac65c380c710b5988d9b22baa8d560267fbe0a19d7a21:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0NDBhYmY0ZDM3NmViNGUzYWUxZjNiZDU3Y2FhYjlhMTg1OGJlMjBjNTdlNzRmN2YwNGExOGQ1NTI4ZGZmMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5MGE5M2RmNzg5ZDA4NDJhYTY0MTk5NzIwM2JiNzQ1NGNlMmE1NmE2NTgxZTQxMGEwOGUxZDIwMzZhYmIzMDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjljYTM0NTM1MDRiODc0NGY5N2Q1NDQ1YmY2ZWNiYjE1ZDI2YTRkNzNhZTJkY2QwOGRiNjA3NGRjZmRiYmQ0YTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE0ZGJlMTRlMTc5ZWU0ODAzZTRkYmViOGYzMWM1MDg4YThhMjI3ODQ2YzAxYjllNTY2YmYwNzI0NmVmMTY0ZWMifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L252-L291",
+          "version": "repo-lines-v1:sha256:6d530f38aa1766bff4db28aad4160a6c3acfbd88fb86737d1e4be34d6b118887:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExNThkMzM2MjNkNTk1YmVlMDEyOTA0OTBhNDg0MTdjZTVlMWUxNjIxZmFlZmU5Y2YyZGVmZWY3YmI0ZTBkNjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjYTJjYjE2ODE3NzY5NTQxMTdmMjM0YWUwZjAxMTQzZTg4YTY3MmExMjVjZmU2NzY5NWU2M2QyNzk3MzU4YzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjliMDU5NWFjMDI5NDQ0ZTg1MjJmOWQxMjYwYTY2NzEwYTYxODNkM2Y1ODc3YzY0NGQ3ZTgyN2IxMDAyZGE3OGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a6d979a8ddbc4f4a826c3a297bc53656",
+      "statement": "The `ask`/`wait` dispatch is checked before the `--config` loop, so the client path never consumes `--config`, resolves its create bearer from `PARAPHE_MCP_CREATE_BEARER` or the configured file, and exits with the CLI's own codes: 0 answered, 1 error, 3 expired or not answerable, 4 unknown request id.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/__main__.py#L47-L59",
+          "version": "repo-lines-v1:sha256:a978134e911ad56cdd45e4b2cb96e197020f6b870e84b181501de3750dc6ed1f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzNjFmYmQ5OTNjYjk4ODFhYzM0ZGZkMDZmNjc4ODA5NjI3ODQzNmI4MjcyOTYwYzFlYmI2NWRhOTFiZDhmMjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5MGE5M2RmNzg5ZDA4NDJhYTY0MTk5NzIwM2JiNzQ1NGNlMmE1NmE2NTgxZTQxMGEwOGUxZDIwMzZhYmIzMDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNmMzA5OTQ4NGNiMGM2OWRhMzdlMGM3NmUxODJhNjk4M2U2MDQ4Y2ZhZTgxMjNlMWMzOGUyZDdiYjhjZjhjZWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE0ZGJlMTRlMTc5ZWU0ODAzZTRkYmViOGYzMWM1MDg4YThhMjI3ODQ2YzAxYjllNTY2YmYwNzI0NmVmMTY0ZWMifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L230-L249",
+          "version": "repo-lines-v1:sha256:d36059d44762abffee142c58a6d3dfc217e6351f09bcb448e482c5316468be0f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxYzcwMDNkYjI0Yzg4Mzg4NDQ1YzlkMDUyNjFkMTcxYjU1M2YwZTMwN2VlNTViZmQyMTY5ZWUxZjdmZmZhNjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjNzcxNGUyZDEyYmE4ZWNjZjllMDk1OGEwMGJlOTUxYjMxZTYyNGQ5NDcwMjNlNTZkYWIyMzZjZTJlNDVhMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhmYjU0YWFkODY5ODBkODc2NWQ4OWFjYjdhODZkNmUwNGFkZDk3Njc3MWY4ZDJlNDZiOGM1ZjRlMjY5MTE3NmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYyZGFiYWE5NzA2Y2I2YTMwY2NjZjQxM2NiYTc5OGEzYmQxNWI3YTA2MGFjNTczOGM2ZmQyMWM0Y2FjNmJjODYifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L29-L34",
+          "version": "repo-lines-v1:sha256:c8e4dcee3448cf15876d32d85f2dc87a86e2f0d7588de740784de6a8e351be34:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM1ODVmYjk2MTIwNzc1Njg3ODk5MTZhMzIyMDFhNzVlNjNjOThmOTYwYWUwMTljZTQwZDM3OTMyMzIyZWU0YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFhYjkwZjIwOTk3NWE3N2FjYTAzNDMyZjU5NTg0ZDM0MGYxNjI3OTg2NDVjNDVmODk1OGYzOTQ1YTFiY2RlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzk4YWY5YmU4NzgzODNhZjE5Yjc5YWZhNTI0NDBlNTA2OTU1MWNiMmExYjc3YjBmOGVkODliMjQ3MTVjMzUxMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWZhODk3Mzk1ZWMyZGMyYzgwNTk1N2U3MTJhMzMzMDJlZWVjOTVlYmQxYmYzNmNlYmQyOWU4OWI5ZmFjOGYxMSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L75-L88",
+          "version": "repo-lines-v1:sha256:6ce1209b9b7ef8655c85fd85d9b50742cd5f0c17b87525cfad60ba65d47d551f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA0YjY2ODIyMDc0OGZjN2MzZGVlYWMwNjBhOGNkNzQyN2UzNzUwNDQ4Njg5NTAwMjFiMWQ5ZTc3YjAzYTQzZjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTYwMGE3M2QyZTAyZjM1MmI5MGZlZjFkOGQ2MzgxMWJhNGE4ZWUwYzFiZWFhN2FlNDY1OGYzNmFhMmUxOTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcxZmY4NGZmNDJhNjE5OTMxOTBjMTk2Y2ExZTI0MjA3MTBiOGZlODdhMTEwYmY5YzI3YzRmMjRhODFlYWQ1YmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3NzRhOGQ1ZjQ3OTljNmQyYzM2ZDI5NzI5MWYyMDYwNDExZTMzZmI1YTI4ODg4NTgxODY1YWIwMWQxZDU2ZTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e9d874f9f3384cc49bd141d2d351d697",
+      "statement": "`src/paraphe/inbox/__main__.py` calls `paraphe.inbox.runtime.main` directly, so the `PYTHONPATH=src python3 -m paraphe.inbox` route has no CLI dispatch and no `--config` handling and must be configured from the environment.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__main__.py#L1-L5",
+          "version": "repo-lines-v1:sha256:a3d67c14ef3cb26177bcae7ee38446bbbb186b05ed0bd1451a9a77a73831b755:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzgzYjZmMGJiYjI5ZjU2MzUzODU3NmM4YzVkZTQwZDEzZjUzNWNhZjlhMzQyZDViMDEzYmQ5YjYzMDM5ODUzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2NmOGQ2ODcwMzhlYTMxOTVkY2EzZGU5YTM2MmYzYzBjOGY3ZTRhNWY3YzJmOTFkNmQ2NmY1MTE1ODMzZDllYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f388b06d13f3416b9c4782f8c99ee70a",
+      "statement": "`load_settings` treats an absent config file as an empty mapping, raises `SetupError` for TOML that does not parse or is not a table, lets the environment win per key, and treats an environment value that is absent, empty or whitespace-only as unset rather than as an override of the file.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L56-L84",
+          "version": "repo-lines-v1:sha256:83eb50197cf84283c5eb846baba5d54d38c0bd383a7f6db744fc331752d70db6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzMTFkMjkxMzExODQyNGJmODk3ZWJiMTZlZmU4YjYwYTVmYTAyYjQyZjBiZjExYWU0MDM0ZjdkMDlkNDA0MzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNjZjYxNjViYjAzM2JlNTRhMjE1OGY4YjBlNTcyZDg2ZjJjNTU5ODQzNTRkYjI3NDNmZWNhOWNhMjIzYjVkMGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkMWYwNWMzMTQ0OGMwYjQ0ZWQ1ZjUyN2UxM2FhOGNhMDExMWVjMzAyZDc1OGUyZWZkZGQwNjZmODlkZjQxZjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA4NmMyN2RmNjE5NGUzYzk0ZjA3OGY4ODkzNTVmOTVlYjYyOWFhMzg1MjNmNmJjMWEzMzgzYzdmZmZjMWE0NDkifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L280-L295",
+          "version": "repo-lines-v1:sha256:7db7a1ab0be59603732e2a4ca62122b5a868179e75ecbc54ee8a0bcef6513bd0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM0MjUwMGI3ZWUzYmZlMTIzNmY3MzFjZmMyNWRhYzM3MTJlZTYzMGYwMGIyOTJkMTU5OTM1OWM5MTMyZGJmMDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU3ZGU5MjY3ZTkxYmViOGRmMjk3MTNiYjZiYmYyM2YwZDVhZTUxM2UwNTNmZWQ3Mjc2N2UwYzJlNWNhMTBhY2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlZjI0NzlmZmE3ZjY5MTFkMGFhMjBlYmZkMjg1N2VlM2FlYzMyMzkwMmIzNzUwNjhkMWMwYmY5NDBlZmRhMGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU1YTk5OTFmMTA1NWU0YmQ5MjE2NjY2M2U5ODg4YWFhNjcxMmU2ODE0MzNiNzNiYmY4ZThiMzRkZDQ5OTI0YzQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8c024d63589d46a4b379994ad7fb8605",
+      "statement": "The settings layer always requires a create bearer, refuses an answer credential equal to it, requires a positive integer owner Telegram id whenever a bot token is present, and refuses startup when there is neither a bot token nor an answer credential.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L137-L163",
+          "version": "repo-lines-v1:sha256:b13cca1eb80328ff5dc935f53c7cb56865e597665a681e26346f6d62f2dff63f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA3MmYxMTJlMzE4YmZkZWVmZDMxZmNlNjU3MmE0NmJhZTM2OTI1ZDgyZDUzZDQwZGQ0M2RiZTZhMTY0NzA0MmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUyYjc1ZDcwYTA5ZjIwMDhmNDI0YjRlZGRiYzAzZTkwMWI0YThmYjM3ZTFlNDI4NmZmZGNkYzE3OTJmZTI5MjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkNmJiZjFkZTc3MTRlYjZlZmI0YzQ5YzM4Y2FhOGE3Mjk0NTA1OGRmMzRkNTc3NmE0ZjJiMzlkMjA4MTY4ZGUifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L104-L123",
+          "version": "repo-lines-v1:sha256:4462c89d3fe87d9fd51871af94f8cc602dca43e86ef87e40b864841245afaf35:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjZDljM2ViNjI3YjY2MmY3ODRiODQyODg0NmNkZDQ2NzdlYjBmZjkyNmJmYjMwMTgwODA0OTFjM2MzY2M5ZTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwNjdmNGJlMmIxMGJkOTIzNjUyNDBlMDI5Y2JjNGM5Y2E4ZDJjNDU5NTRmNTcxNTkwYjFlM2E3NDU3MzZkN2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY2YzlhMGM1MDhhYzUxMzJiMDEwNDdjYTBkY2FkNGNmZjhlMWI0YTI1MTMzZWYwZDE2ODBjZTI4YzVlZjBhYTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEwNmUxZDZlODc0ZWJmZmRjMDJiNmY0MGVlNGFiNjFjYWZkNjE4ZDk3ZGEyYjEyNDA1YWQzZjM1ZWU5NTQxM2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d9eb85fb9dc14268a53b7b8cb91402e2",
+      "statement": "Card lifetimes are validated as: default 14400 seconds, floor 900 and maximum 2_592_000, each supplied value inside the floor-to-maximum band, the default not below the floor, and booleans or non-numeric values refused.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L102-L107",
+          "version": "repo-lines-v1:sha256:048401c152db76ae5e36ae397b38250585929156ba4c076004574de0ca26e688:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGZiYjhjOTI4ZGNiNTMzODUyOGMzOTdmZDBmMDRiYWE2YTI2OGRhMmIzNWFjMGE5ZGViODZjZjQ2MjlmZTllMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTkzYTEzMDYyZjEwZWU0ZjEyMThkOTNlMzdhNmY4MWQzNDZmZjExZWM3ZTU1ZGQ1NDJlMmQyZDJlZjA3MTFmMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzhlMTgzMmVkNzc0NjJiNTQwZTAzYWQ3ZjBkZDA5YTE4MjgwYTQzMDM2ZWM2MTk1OTE1OGIxMzczYzEwNTYwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWE3NjhlNWMxYjU4NTI4NTY3NzZhNTA1NjMzOGFkZTk2MjJiZmRiYjYxM2FiZjNiNGY5NTQ4ZTYyZjVkZDIyYiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L12-L14",
+          "version": "repo-lines-v1:sha256:888c41d876860da0da5cb8cf133d79f73d0304be4c1e11ef9efc5830066def3a:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk0ODQ2MGM5MzRkNzM5Zjk5YzFkOGI4YzA5MDQ2OWVhZTg2ZmVkYzNiOTA5ZTVjNmFmYmM2NzZhNDljYzM5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjdjYTY4MmU1ZTMwNTY2NjAzNjBjNjAwMDk3NWFiYmYxNjI2NjE3NTZiMmYwNTRlYzcxNzMyMDllNjAwOGU5YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRlMmRiM2I0ZTA2MDExYTJjOTdkZDM2ZjAzYzc5M2I3OGE5YTAxY2FmYTMzY2MzOTk2MmFlOWYwM2QzZDI3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDUyMDJlNzIxM2ZmZjk1MGQ0MjU5MTg3NmNhZTc1NTY2ZGJiMDk5MzU5ZmY0N2M0NzU0Zjc3MDQyMTdiZjk3NyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L164-L173",
+          "version": "repo-lines-v1:sha256:2150ec5493948cf34240a879362cda4db020e6783f78f9e8a984b3539d030ce7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkNmJiZTAyZTljNjZjMjE3NzFjMDcxMDE2NWZhMDFhOWQ1MjI2MTk4NGRjZDhlMjBiZDU0NmRiMjhlOGVmYWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhMzQzYTFlNGVmNTdmYTQ1MzQ4ZmI2ZWM0YzY2OGI3MTc1NzhkNjY1NzNiMzI2NzM4ODE5NTJhZmViZjIwM2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU3YmI1NWQ4OWEyY2JhOTQzODIzOGJhOGRmMjZmZGJkZmQxYWI3ZDFmMDEwNjRlNWU4ZWUyNjZhZTMzOWNjOGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkZGZiMDI3NTUxMDA0ZWY5MDJjNjRmYzY4MGI2ZmJjZGQ4OWRhM2FhMjhiNDMxNDRmYmViMWM3OTdmMmU0ZDcifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L188-L209",
+          "version": "repo-lines-v1:sha256:bca5eb2461e28625b565ec4433dbde6b151be65fdb9151f7bf14cf320229b9be:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhYzI0NWY3ZTlmZjcwNDNjNGM2NTZhOTMyNDNkYjhhZTg1YTZjMjk2M2RkMzZhMGNhOGI0ZGZhNmRlMjM1OTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1MmYxNmNmZDJkN2VmODRlN2I2MTI4MzEzYTVhMDBjYTVhN2U3M2E5ZmYzOTVmYmRmNDAzZWExODZhZjlkNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQyMThiZDQ1YWUzYWFkNzQyNzAwNTEyYzc2ZDQyNmE3Zjk5OTQ4NDI0NjAwZmEyYmEwN2U5Y2YyZDk0YjkxZTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiMGE4YjdhZGJkODE2MmY4ZThiY2I1NTllZGIyNzU2MjZiNzEzZGEwNGMxNjRlMTMwNzUwMjY0Yzc2ZjU5YTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f2513265263c44019e1f937468169835",
+      "statement": "The resolved `Settings` is a frozen dataclass whose `repr` prints only the owner id and the TTL values, so the create bearer, bot token and answer credential cannot leak by logging it.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L31-L46",
+          "version": "repo-lines-v1:sha256:1b5b091e092e45b7a0d00a50f8cf9ae0015baa091e776a08d988da73ba7bc64f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2OWExMzk3NWMyNTZlYzgzMjBlMjAxNjA4M2M5NmRmNjM3Y2EzZDM1YmViZGUyMzE0YmVlM2E0NzExYjU2Y2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYwYjJmMzYzYzI4ODJiOTE0NDQ1NGZjZjA4NjMyMWVkMGZmZjNkOTM3OGFiOGQ5YmZkMWExZjNlMmFlY2VjM2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFiNzJiOWMwYjQ0M2RjYWE4ODhhYjZmNzUxODYxMmVhYzBhYjgyM2I0ZjVlODljODU2MzRlZjhhNjE4YjBiNjEifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L336-L351",
+          "version": "repo-lines-v1:sha256:8eb3ce915b9c0ef41022785e00eb6f648a13d9c4f6d4d17ec21348f918d0c10e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjljYjRhMTQ2MWU3NzJiOTg1MTg3MmEzYzI5MjMyY2RiZWYzNzQ4OWFmZmJkMmQ1NzM1OWVlYTJiMDFjYTRmYzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ2NTA3MjYzM2Q2N2ZjOWU3N2MzMjAwODgwYjEyNzhjYjQ1YWExNjVkYzBkYTE4NTg5NmI4N2ZlODZiMWZiNjQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjliZDgyODFlM2JkZjJmMzJjZTZiZWI5OThhODYyMWJlNmRkMWJjNDJhOTRkOTI5ZjM3ODA1Nzk4ZDg2NzlmMDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdkZGMxMWVmYzJkMWY1Mzc0OGMxNTc0YjUxOWU4MGUzYTlhNjMyZDUyNmM0MDI3NmNiNTY2ZjIyNzMyODIzYmQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e9a5f35c95c94d1f83ec6f75d0554660",
+      "statement": "`config.example.toml` documents the operator-facing minimum: `mcp_create_bearer` always required, the phone destination as `bot_token` plus `owner_telegram_id`, and the local destination as `owner_answer_token`, with the environment stated to win over the file.",
+      "evidence": [
+        {
+          "resource": "repo://config.example.toml#L1-L21",
+          "version": "repo-lines-v1:sha256:8e36e70b361bea3a8a2649fe7949907bae84729eada27b1e91a237b592c1f7a7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhiYTA4NTVmODM3NjE0YmQzNGExYjM0YTU1OGM4YzEwNzViYjZlNzU3ODEzNzU4OThlMjdjMDdmZDdhMmE0YWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhYWJlZTFiY2RjOTg5YWRjZDgyMjY5NzM2MGIzZTM0MjQ2ZjM3ZDJkOWI0MTYzN2MxYTQwNmQwMWNlMDI0ZmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQwNzk2YTgyNDNmY2VkODAyMzM4MDYxNTU0Y2YzZTliZjVkM2JmM2I1MjdkZDViOWFjMWY0N2ZhMDVmMTkxOGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b54931e4e13140719c57aa98dd15829b",
+      "statement": "`runtime.DEFAULT_MCP_HOST` is 127.0.0.1, `runtime.DEFAULT_MCP_PORT` is 8787 and `DEFAULT_POLL_SECONDS` is 25; `PARAPHE_MCP_HOST` overrides the host without validation, `PARAPHE_MCP_PORT` must be an integer in 0-65535 and `PARAPHE_TELEGRAM_POLL_SECONDS` must be in 1-50, with blank meaning the default and an unparseable or out-of-range value raising `SetupError` before anything is opened.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L102-L154",
+          "version": "repo-lines-v1:sha256:00f134f5213cb98262b5d9c8ee267d797a0955c2e182abbfb49f4e0349c96ee9:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5YWRmMDQwMDQ5Zjc2YTgzY2FjZjczYWViMDI3NzBlYWI4MjBmMDk0ZmJkY2IzNWIwZTAxMjA4OWY1ZjY4NDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIzYmE3MmFmM2E4MmU5MzFhMTY2ZWRjZWNkZTk3YjIwMDI4ZThjMjdkY2RlZDE1MWExYjNjZjIxZGJlZjBjM2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU3NmQzNmIzNmU0NmNmZDg0ZTI4Y2Q4ZmMyYzJhMTQ0YTJjYzJhNTYwMDA0MmJmMDRmNzQwMTViMGZiMjQ1MDcifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L21-L23",
+          "version": "repo-lines-v1:sha256:cf8357c0e728304a6c4d56f0318b1106436778fe73be0c022396e8f047d8ce12:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTE0MWE1NzJmMzIxMGJhNDhkZDI5ZWU1Zjg1MTVlNTlkYmQyZjU4OTRlMjUxMDdjNTRlM2YwNjg3Zjc5YjU5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmZhZTQ3MmM5MDcwMTQzYzFhMzUxMmZhN2RlOTU2OWYwNDVkM2JlYWY4NzdiNmFjODQ5MTZiNWM0NmVkZjI0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzc4MTk4ZDQ5ZTk5MDdmOGI2MWIxODU2NTUxMTk4N2U5NDhjYzljNDNiYmQ0ZTRkNzliZmU2OWQ0YWE0ODdkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDk5NDdlZWY0YTFkZDQwZDUxNTlmNjIxZjcyNDgxYzAyZDVmNjU1Y2YwODRkYzhlMDMyMDNiMDIwNDFjMzI1NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_969ce76c26c346df89c08daf559cd0cf",
+      "statement": "The ask/wait client resolves its endpoint as the `--url` option, else `PARAPHE_MCP_URL`, else `http://<PARAPHE_MCP_HOST or 127.0.0.1>:<PARAPHE_MCP_PORT or 8787>/mcp`, using `cli.DEFAULT_HOST` and `cli.DEFAULT_PORT` and without range-checking the port.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L21-L22",
+          "version": "repo-lines-v1:sha256:76dbf34dfbc536128b35103934e67bff435ac194d9d90f7ac8a66b0377136b24:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2I3NzNkMmY2YmMwZDFjMzk0MWZmY2ZhY2JmZmJhODIzNDE0NzU3ZTE3ZjAxZDk1NjhiZWY2MTliZmNiNzA3OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmJhODViYjI4YzZjMzI2OTM5MzkxODJlYjY3NWUyY2FmNzEwYjQ0ZWE2Y2FjYTYzZDQyOGQyNWIwZjQ2YTlmYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDkzMzhlMjE4MzczYmYzOGU2YTU1NjU0Y2JiNjRlYWExMWNlNWQ0YjU4ODEyMmQzNjgyMjMwMTZmNjkyMmZjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjlkNjRmYjk5OTRjNzY3Mjc5ZjhlZGIzMzI3ZjQ1OWJhZjVjOTNmZTI5YzcxNWM3YjY5YTU2ODA4OThkYzE1ZiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L64-L72",
+          "version": "repo-lines-v1:sha256:b337d084a228ae5e1f19fd425cf264e8f81d0829ba46c6fa3159ae077960f297:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzViZjE3M2NjZTdiYTdhMjM2ZWEyYmE3OGNiODU2MTgwYWIyYzFmYWJhZTUyOTFjNGYwNjYxYzA3NjkyNDcxMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU2YTAxYWZlNzIwZTFmOGNjNDEzODQ0M2M4YWEwZjhmZWVkYjQ3MzI2YWQ4YzA2OTAxYmNiMDgyNTZiYjQyMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGY1MGExZGYxNjdhZmJiYzJlNzRiNjI2MmRmMGIxNjhjNDc5ZTllOWYyNzZmMjg3YTc1YzAyOTExMjMwYzVjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTg1MjNlNjY0YTY4ODY1ZDRlOWYwNzVhZTE0ZWM1OTNlNmQwMjIxM2Y5OWQ1MTBhNmM4MzBhNjdhZmJhMmQ0MSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L312-L322",
+          "version": "repo-lines-v1:sha256:d81d3704582a96869e6dae0654cc7aa03229590b7b800fb40e9dd99af3e973cc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhNDg5ZGIyNGNkMzdlZWFjNTJlZjZhZWZjZDNjODBmNmNlNjBiYmNiMWNjMzAyZjdmNTU5N2Y5YzVkY2EyZjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJkMmI4ZmQzNmUwYTA2NjUzNzc4ZmQ2YTkzNDMyNTUxMTA2NGRmM2VhZjE0ZDJhN2NlZjZhNTFiM2ZiZmQ2NmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI1ZjcxYjI4Mjk3N2VjODNlMDY5NGVkMzRiNDhlYWZkMzFkOWY2MzQ0ZGE5OGZlNjdmZWM5OWVmOGY0ZjkzZTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE5YTAwN2ZiNGJjNTY3YzRmODVjNDdmNWJhNzVmMDg5MTY3MTFmMDgyMjJjNjYyMTk4MDdkMDZhM2U4ZTA2M2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9d568dcae3c9489e922d21771a8408a5",
+      "statement": "`Runtime.start` chooses the destination from the bot token's presence — `TelegramAdapter` with a token, `ConsoleDestination` without — and installs the same object as `inbox._notifier` plus, in phone mode, as `inbox._telegram`, while local mode gets `NullTelegramPort`.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L166-L180",
+          "version": "repo-lines-v1:sha256:c1c1b2e1f039f3f95a99a62aa65a8701c58924c0e8494c415079b09867885d3a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxYTM1MGFkOTYzODcxYWJjOWIyZDRiNGFkMDQ3Y2ZjNjk2MjQxMTAzYmZmYzJkZThlYWYzN2JhNzgzZDlkOGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk4NDc2YzQwNmIzYWNlNmNmNjMyNTFiYmU3NzdkOWYzY2Q2MDY5OGQ3ZDhhMDZlZDMyOGYyNzNiODEzMGEwMWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJhZDUzZGE4OTE2YTk3ZjJjMDZlZDE5MzgxOWYwOWY4ZTJkMWQ5MmI1OTBlYzFlYzBlZWI2ZTEzZDFiYjVhODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiYzRmNThiNGVjMWYwYWEwMWMwNDJhOGVhMDc1MDVlZTY0NjNhMWYxY2ZhZDJjMWE2YTc3MTk5MzZlNGU1MmYifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L82-L111",
+          "version": "repo-lines-v1:sha256:70482618a134958fc0e306f26aa234a258e6c408f93fbb2324c17eee9374dda3:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjExMzQ5YTBlOGIyZWU0MzQwODMxZjBjNzQ2ZDgyYTVhYWIwNWViNDk1M2JkZmQ0NmRiOTYxM2RlNmI1MzY0YjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4MDMyOWZmYTQ4MjAzODczZTk5ZDJmN2M5N2JjZWI2Y2RmMzZkODgwNWQ0ZTVhZDM2NDc2NGRiMTk0MzE5MzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0MDM2NjIzYTg1ZTcyYTI2ZDdhODU0ODI3NmQ0OTQ3N2RjNzdkYzQyOTU3ZmVkYjdlODkwODM2OGJiN2UyOTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyMTg1ZDNjZTk1ODg4YmYwMTIwMDFmYjRkODJiMGZlY2U2OWRmZjNlMzRmYTc5ZWI3OGRiYzM2NTFiOThjMTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_862e034009f940c28e0881023a1e4475",
+      "statement": "`ConsoleDestination` is constructed with the configured host and port rather than the bound socket, so the answer command it prints matches the configured bind.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/console.py#L51-L56",
+          "version": "repo-lines-v1:sha256:9137ff9c736931550f4fa4f628721c14e9a105150dc67050596e5d151e93bcb0:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTEwOGZjZDA0YTA4ZmY0YWI2NWZkNjc5YTBlODliYWI3OTRhNTNlOWE1NTFhMDAwMjcwODYxMGZmNDZjM2YxMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTkwOWE1M2E2MThkMDI4ZTFkMzAwMGMwYTdhYmNlZWNiZTVmYjM3ZjRlNTExZWZlNDY2NDNmYWQ2ZTY2ODcyZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDM1OGQ3NTY1ZGJmMzk0ODdlYzAxZmFjMTEzYzQxOGExZGEyNmJiY2Y0OGNlNGE1ODcwOGNhMTVhMDZiNTU4NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjRmNmNmODFlMDAyM2ZmYTRmNmY3YWY4ZjNjMjI2MmYxMDczNWIxMDI5NGFkY2M2MGFhNTFhZmIzZGYwMDRhNyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L176-L178",
+          "version": "repo-lines-v1:sha256:25ec7ab1c642669861a51737fb832e10bfb72f10bc49e0648dfe5b6f769909c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTdkNzE4OTc4MGFkMWEyZWYwYWY5YWI2MTk1ZTY3NDE4MzlkMGUwZTk5ZDJhNTNlMDQzYzYzZDkwNGRhYjAyZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Q4NjEzNDFlNDJmMWViYzc2OTU5OWRjOTNiY2ZjYzA3OTg1MmE3ZmEzYWFjYTgxMzQzZjY2MWZmNGU5YmM4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjk0YmZiNjNmMDUwMTAyNjUwMmUxNzI3Y2EzNWMzYmYyY2UzMWRhZDlhMzdlZTQ3ZTBjNmI0MDc2YmMwMGE0OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGU5MjUwODU3YTU1ZjlhOTc0MmU2OWYwYzI0ZGJkMDI3ZDZlNmM1YzU2MTgyNjFjMzljZjlhZjE2NWVlNzMyOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_93db413ffadc45f7a2ccbb3aa8131bc0",
+      "statement": "Startup is ordered and rolls back: the inbox is built, a non-loopback bind with the answer path is refused, notifications are reconciled before the HTTP surface is served and the Telegram offset is restored after it, with reconciliation or serve failures closing the inbox and an offset-restore failure closing the runtime.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L164-L201",
+          "version": "repo-lines-v1:sha256:98bb03481b964a50c4712e2b90eba17450b2dc8a3da5936f408e825c6b4d964c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlNzhjNjFiZTM4MzU0YjJkZTE5ZWZlZjc1ZDdmZmRjYjNjOTA2YjBhMzZjMzExMDhmODQ0MDZhYjhmMTRjODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5OTQ1NGM3NWZkMGQ5ODY2MjA0NmZlODFiMTg5ZDY1NjczNDUzY2YwM2IxZjk0NjZkNTYzZDA1MmNkM2QyNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzYmNlZTQyNzZmY2JlMmUyYmRmMWM0MTVlN2Y4ZDRmNmNkMjdjZDk3NGRiN2Q5MzgwOTljMTk5OGM4YTk4MTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ2NDc3NTZmMThkZjdmOGUyNzAyZWRlYjBlZWE2MWQ1Y2I1ZDVlNmE1MmRiYzAzYjNlNmRhMDU1OGNhMjhlNDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bc28621bafb745cebca3a452160c36ca",
+      "statement": "`Runtime.start` refuses to start when an answer credential is configured and the bind host is not loopback, raising `SetupError(\"the answer path refuses a non-loopback bind\")`; the tests cover 0.0.0.0, the Tailnet address 100.64.1.2 and a public address.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L164-L165",
+          "version": "repo-lines-v1:sha256:5cd1655673c2601d9e677ad8abd6108e4a518e4f8317d88053125b461dec2926:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU3OGM2MWJlMzgzNTRiMmRlMTllZmVmNzVkN2ZmZGNiM2M5MDZiMGEzNmMzMTEwOGY4NDQwNmFiOGYxNGM4MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGZjMWQ1YTYzYWQwMTk5YWUyZGI4MjQ1NjgwNGM5OGU4MmE5YzM2ZGI4MmJhNTFkZmYwZTU1NzcyNjM4ZTRhYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTNiY2VlNDI3NmZjYmUyZTJiZGYxYzQxNWU3ZjhkNGY2Y2QyN2NkOTc0ZGI3ZDkzODA5OWMxOTk4YzhhOTgxNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTIxYTI4OTRhOGY2NzZmM2E1NDAxNTU5ZGRiYWUwYjJiNDM1YmNmNGY1M2Y0YjljNDgwMjBlMmQ2NWQ1YzA2ZSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L131-L149",
+          "version": "repo-lines-v1:sha256:a2ab3c0c3a0aa011bc89697572d16162fa221a06edc2c4e2bfa01a8c40b37757:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlMzAzNTFlZTBjODI2Njc2ZTJhYmRhOWI1YzlkY2ZiMDBhYzA3MWM0NDcwMTJiYjNmOThlZDdhZjRkMGMyY2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ZTE1OGQwOWE2MGQ4MzU2ZWZkMDAzNWYyZGRjMjM3ZDIyMDM3NWYzMGM1ZjBhNDgxMjA5ZTk3MWQzZDU2YjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYwMDVkNjdjNTRiMTBjMjc0ZDU5NjE0NzNmYTVlMjA0NzZkYjRiNjZhMjVmZGU1MDdjMDVjYWRiMzcyMDY2NWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwZmQ1NzQ3NWE4NGEzNGQ5Y2YzYzU4OGExZjZkMTk2MTZjZTgyZGI0NDQ4ZjE0ZjJkYzdhMzkyMmVjNGExOTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c3d44289e4d74d3db2520cfe13e4690e",
+      "statement": "`serve_inbox` raises `BindError` unless the host is localhost, 127.0.0.1, ::1, a loopback address, IPv4 in 100.64.0.0/10 or IPv6 in fd7a:115c:a1e0::/48, and `BindError` is not a `SetupError`, so a refused bind is not converted into the entry point's one-line exit-2 message.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/__main__.py#L64-L71",
+          "version": "repo-lines-v1:sha256:3ad2e4270c70b5713100fcb75bfb86ec1c6343d77fddf3d7096529777e124264:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWZlMGE3YWQxNjgzZGJiMTFlZTA2YjY1YmU2MGIwYjRjM2M5OTNlOTQ3MGE1YzY0YWU1MmM5MjBlMTE1NGZiNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWY4ZjhmZDhiODYzYmQ4YmE0MmVlODA0ZTE5MTkwODc2Nzg3MjFjYTI3NWQwZWMxNDY1OTI0Y2UwMDUwMjFmOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjg3M2FhM2ZkYmVhMjg3Mzc1ZTQwNzM2NmQyOTRhMWU4YzExMmU5ZDNhOGQ2YmI0MjEwOTA1MDU2MmFiZDdkZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Q0MTM0MGNjMjM5YTE1OWNlOWI2MDIyZTlmNjMyMjgzMmUyZWFkNzZjYWU5ZTQ3NTRkMjEwZWI4ZmI2ZDVlOCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L18-L19",
+          "version": "repo-lines-v1:sha256:914b73288ca04ab93af53009b21570b52b9279936d91bc88275197c84d8275d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWZjNTBjNGI2Y2UzYWUyZTg0MDliZDZhNmMxNDAwM2IxM2MxMGJhY2E0ZGQwZjQzNjMwNjcxZWE2MGQ2NmIzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWZhYTExNmU4OWE4YWE3MjVkMzcxYWJhMWM1MzdkYzIzOWZhMzdlNWRjOTU3NzQ1OWRkN2EzNGY3OTk4NGYyNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGQ2ODVlNWM4NjliMWU5N2I2YzcyZjJkMThlZTJjMWY1M2Y1ZTQ0NGFhOWQxNWQ2NTU4MjllZjIzZmNmNmVlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzU4MjY4NjRkMDE5ZWUzZDI0M2E4NjM2NDA4ZjVmNGU4YTA4YzViNWFiZDM1Yzk3ZTVmODYwZDlhZTdiZWY1MyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L44-L58",
+          "version": "repo-lines-v1:sha256:294e7e11ac359df05526de599424da21be7fe02a45fdc8e98ca41d0e66079a7b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNzZlNTQ0MGRmOWM3OWZjMjgwYzQxZjM1YjQzN2ZmOTA4MTU1ZjJjMDhiYmNkMTUwNTA3OTM4NWE3MzBhZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1YmM0NzExZWNjYTA0NTBhZmM4MzI3NzlhODg2NzZhN2M2OTYwZmEzZGE1YWY0MTBlZTAyZDFlMDE1MTU5MWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBhZjdmODdiOTcxNzBkODdjNTQ2NzQxMTQ1YjIyZjljNTMyODQ2NDBlMTNiNGZkM2YzNjkzMmI1Mjk4MjI2OGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2OGJkMzYwZmEwNzg1YTBlYmY0ZTY1YzkzZjk0MmQ0ZjQ0NzBhNmYxZTJhMzgyNjg3MDQ3MDIwYTQwYzZlZjEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L84-L97",
+          "version": "repo-lines-v1:sha256:325edff0b433dc2be195bbe5f1255fdf041aca2d19692e94e2331866dce8f393:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNDBkMWVkOTU0MGNmYmUyNTkwNWY0MTM3YzdiNTcyNmU0OWE5ZjQyMmQ1ZTkzZDc4ODQ0Zjc3MWNhZDY2NmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjZDc5YTVkNTA2NDI1NzExM2RmMzg5N2MwMTE1MzEyYTQyODE2ODU2NTQ5MDczZTUwNWQxNGY5OGI2ZDhiMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3YmVkYjdiYjg0ZmFiNzYwODQ5MzE1ZDQyOTk2OGUzOWZmZDNjOWVmMTE5MzVmMTZiNjIyNDI2OGM1NDZhMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1ZjVkOWYzZWYzZWYwNzA0Mzk2OGNjOTJlMDYyMDhjNDAwYWY5ZTcwZmZkZTdlNTVlMjgzMmQ3ODViNDlmYzYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e4bccf58cd2c4514856e56c394a77de7",
+      "statement": "In local mode `Runtime.run` blocks on the stop event while the HTTP surface is served from its own thread; in phone mode it long-polls and swallows `TelegramAPIError` and `NotifyRejected` with a one-second stop-aware backoff, while any other exception escapes the loop.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L242-L252",
+          "version": "repo-lines-v1:sha256:4b423487da0da60ee8257a85b097fa4fa695bf58bedb7157c4e39bb1d02dd745:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlMTdiYjVmMjU2NmRkZDBlZWRlOTdmZTY1MTc4YWRkYzE3ZWFkOGMzOGFlOGRkMThkN2U3NWVkODVjZDUxOTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiNWU2OGQ3NmE3MmM1ZDg5Y2FiMDY5NjBmY2E3N2Q5YzQyMWZiZWRkYjc4YTI1ODNkYTA2MDliMThjMWRmMmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE4ZjFhNmE2ZjE0ZjE2MzViYjFkMWQ4YjEzMGEyNmIzMjcxYTk0OTA5Zjk2NzRlOWU2ZTVjNDM4ODY1MWMwZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYwN2FkYzFmZjg4MjM5ODFlMjBmM2UxNjI4MGVhODc5YjdkYmRhYmIxZDVkNDc2YTU1NDZkY2FhOGU1Mzg5NTcifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L127-L139",
+          "version": "repo-lines-v1:sha256:08360698d88cfb6636c0c1d648f00385a87781a435164cb7d369f9eba4aa9d3b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlOGVjYzQxMGFiNTljZGZhZjJjOWM5YTZkZGM1NTE1NmJjZWRlODVjY2M0NWFmY2ZjN2M0NWRiY2M2Yjc3M2MiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRjMWMyZDFkZDg1MjQ4NDYyNThkMWY0MjY3NmYyZGQ5M2NkODVlNWIxZTZlZTZkZGVmYmNkZDFjZDg5ODcxOTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdiNjljYjAyM2YxYTA2OGYwYTZiM2M2N2NlNjllZjg2MzU1NWEzM2IwYmNkMWVmYmQyNGNhNmUwMDE4N2M3NjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNjNWY2YmEyZjVlYmEzMGE0OTQ0NjQ4OGUxZDhjYjllYmE3ZTk2NGY1NTkwNTFlMGE5NTk3YjJiNjQ4NGI2ZmMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2d5b79c6f8184ed89b24cf55188b8d39",
+      "statement": "An update whose `update_id` is not a plain non-negative `int` — strings, floats, booleans, `int` subclasses and `IntEnum` are rejected — makes the poll raise `TelegramAPIError`, keeping entries already handled in the batch persisted and not advancing past the malformed one.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L213-L219",
+          "version": "repo-lines-v1:sha256:146d7569cf8e7e606682a305a1a92e04c5ac22889f86454a7482da49d2304bc1:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTE2MTllY2I2NjVhZGNkNDk1MDIwNWRmZTA4MTJmOTFlYjc1OWI0ZjUwMTEyZmJiMmMwMTE0YzQ3NjZjMzgyYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmEwMmE3YTBlMDg4NTY4NGI5NmFkNGU0OGIzNGE5ZDE3YzdhODJhMzc1NDkwNzJmY2M4MjlmODc3OTEwNmE5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzliZDY4Y2EzYzBiYmJkZDY4YzQ1YjlmMzcyODJkZmY3NDIxMTI4ZmY5MWFhNWEwZGFiYTJlM2Y2MGNlMjg4NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWRkODJmMGMwMGJmYzMxMmQ2OTNiYTA1NDlmNzA4YWFlZjA2MmJiZDAxZTJkOGUwMDcxMTM0NGY1MzBiMDg3MyJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L334-L341",
+          "version": "repo-lines-v1:sha256:7dee00baf09bdc206b2b816c982d1dcb29bc866f2f5f4531df6de48f2570d96c:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjVlY2FkZGYwZGNlZDE2MDk1MTAzNzA2NmZmMzA3MTFiMGMyYzY5YzViYzRmY2Y2YWFjMzk2Njc3M2Q2Mzg0ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmJhMmNhNWU0ZjQ3MTAzNDEyYmFhN2UyNzNhNDlhODA1ODFjMWIxMjc5NWQzY2JhNmRlYzEyODA3YWU5N2Q1OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2MzMWE0OTFjNGQ1ZTEyYjFmMzNlYjgyNTE5NTJmYTNmMTQ5ZWMwNDg1MjgxYzg5ZjU3YzExNjljZmMyNDY0ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzEyNzVhMzBmMmI5MjU1ODI4M2ZhMjE0MDdlNmZjZTg4MjIxMjE1ZDVlZmIyZTAwMmU2ZmQ2OTFlZjdhMGM1YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_df901a9ee8e54dab835981a9077237c4",
+      "statement": "The Telegram offset is persisted after each handled update as `max(current, update_id + 1)`, so an update that fails during handling is retried after a restart rather than skipped or replayed out of order.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L233-L240",
+          "version": "repo-lines-v1:sha256:386bf71df0e9a57f9d94ac4a17d4d69694d86f4b84b025b7acb085cf3a252c54:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzZhYTU5MThhNjg3MDAwMjk0NTk3M2NjZWFlZjhlZWVhZTNjMWE2YWM2NTE2MTk1NjkyYzM1Y2E2ZDVkMjE3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWJkOGI1M2ZjMWJjMjcwN2NjMjc0Nzg0YTk1NjE1ZjhlYzFjZmQ0ZGQxZDM0NTQ0MjM1YjgzZThiMThlNjBiMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWYyMjhkNWM5ZjAwYzBlNjIxM2IwM2YwYmI0YmQ4ZmEyNTNlMTBlZDc5OTljNTI0MDc4MjIzOThjOGNlN2VjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTZmYjkwNWJmYzIwMDA3YWQ5Mzc0NjczMTJlZjk0ZGNkN2YxZTYyYjUzNWNkMjlhOGJhNzg4MDE2NzY5YjE1OSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L440-L484",
+          "version": "repo-lines-v1:sha256:0d910e49da3c7cd6de9c5c3f56214da48a2c5aa669f1689dd521a0c373b5b647:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiMDllZTgwYmVmMjQ5ZDExM2JhM2E0MmEwMjY0YWRlOWRhMjJiOWM2Y2VlMTliZTg4MGU1ZjQzOTQ3YjMyOGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjYmUwYzFjMzI0YjNmMDMzNWFiOTk3YWMxYmYzZjA2YjA4ZTIwMjM3YmEwYTc2MzQ2ODdmN2JhMTMzMDgwNjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0NzljY2U2ODdiMTVjMmY5NDgyNGRiMTVjYzlhOWMwYjMyNzc4ZTQ2MjdhMzkyZjMxNGY3OWEzZTRlZjMwNmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRjYjBhOGFjNTVjZmJjMTAzYTAzZTYyMmNjY2FlOTkyNjViYjRkZmU5MDk0ZDM3Y2QwNzc1OTQ0OTAzOGM5NWMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_89cf5a34f65c4ffda188f65e3b8c850f",
+      "statement": "On a first boot with no stored offset the runtime calls `getUpdates(offset=-1, timeout=0)` and persists `newest + 1` (or 0 for an empty reply), so updates queued while Paraphe was down are skipped rather than dispatched and later starts resume from the stored offset.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L221-L231",
+          "version": "repo-lines-v1:sha256:84d72c5f137004e4826882ceebbb339751fb36b1b6fc2a3d301512b5c4e5b6b7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMDdiZmU1Mzg2NTUyZDljYTA5NzUyYjNhNzE5NjFiOWQzMmFkYTIwMzU0ZDUxZTFjYmI3YzMzYjBhYmQ3NDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjODAxYmYwNzUxZTQyMjkxOGE4MTczMTcyYWFkMDYyMDFjN2IzMTBhMGVjYjJiOTI5MTY2MzUzODcyOGE4NDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzZmU3OWI2MDZkYzIwYWUxY2VlNjAzNzU0MTBiNDRkMGE4MTIyZDQ3NDcxNGM4MTgxYTA3NjUzYmQ2NmJmNTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljYWVjYTQ3ZmFmZjE1NDgyNzAxYjgwZWM0ZjkyYmY3MWE5NjFmNzczMWI1ZDYxZTRmM2M5YzU0OTQ2M2Q3ZDcifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L212-L272",
+          "version": "repo-lines-v1:sha256:6b724de7475f9afe5a5af9601ad692727704cdd87b593e6f090a8d2bc570507f:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkMDI1YTM4YmJjNjdlNzY5NTE1YTkwMjMyY2IyNGY3ZjJmYWQ5NmU2YWQ0Zjc4ZjczNjIyNzVjNWQ0OGViNWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMzdmNzFlYmI1NGNhODM1MTZmZWVjNzFkYjYwYjU4OTE0NGY4YjI3YTJmNWQ2ZTJjYTNhN2U5ODU0ZGY4NDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA3OGQ4NTNlNDFkYmY0M2UyZDJlY2M4NTc0MDc2MWE4YjM2NTA1YzQ3MDcxYjEzZTBkZGVlMDU5MzMwYjM4NjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM1YjdjZjMwODAyOGU4Y2E0MDkzOGQwZDBjZjllNDFhNWY3Y2JkZjA2YTVkMmNlNmI3YzFiNmQ4OTM4MWNiYzMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1712cd7cce504321aa930457e38cdd9f",
+      "statement": "After installing the signal handlers and before entering the loop, `main` prints one ready line, `Paraphe ready: mcp http://<host>:<port>/mcp answer-path on|off`, built from the actually bound host and port with `answer-path` on exactly when an answer credential is configured.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L268-L285",
+          "version": "repo-lines-v1:sha256:fcb94b6758fc364b8c501c4faf74d790cb06497fafcdce9c0c470366d6a5de33:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiMzk3OTMzYTI0YTgwMWVlOTIzMzI3YmQ2OWEwMTA0OWMwNzc5MTUwMjFjZjJlYzM5ZGRhNGY4MWFhODM3ZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4NjBkNDAwMmQ3YTg2ZGVjOTdkYWVkZmYzMWFlNDQxMjRhNjhkNDMxMTMwNjViYjM1NzA1NjdhMmViYzE3NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZlNGU0MGMxOGFjZTRjM2I1ZTI1YjM4NWQ1MjkxNjIwMTU3YTIwYWIxMjRhODI3ODhmYjU1YjM2MmFlMTM1MWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2MjMzYjNmZmVhMzJhMjNkZjUzMDY1MzQzNDhmMmRlZTc3NmE1YTZmNzRmYjUzMzE3NWRkYzUzOWE4ZmU0NjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a6194e1e94394ffe9468cce11e08a6fe",
+      "statement": "`SIGINT` and `SIGTERM` both call `runtime.stop()` to set the stop event that the local wait and the Telegram backoff wait observe; `main` closes the runtime in a `finally` around the loop, and `Runtime.close` is idempotent and closes the HTTP server before the inbox so no request is served while the store closes.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L38-L41",
+          "version": "repo-lines-v1:sha256:d133f8fb1ca581ff1a78943072d2efc3d5043d6d70909d32f1ce4f68197669cf:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmY3Nzc1MDk3YjhkODViMjY4NjJkYWU2MGFjZDJkMWU5NDlhYTdjODBkMzc2OTdmNmZmZjBmY2JjZGM3YjUyNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWZmMWU4NjhjZjNmMzRkODI1MDE0NjI0YjQ5YWU5MWQ4Y2ZjYTkzNGE4MTUxYjIwNTRhZGQ1YTQ1YTRhNWU3YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWU2NmFhNWFmZWJiYzY0ZDNhYzBmMmVmMGYxMmNkY2UyZTdmYzAzMTdiOTkzN2Q5Y2JiNjZmNGIzMGY5ZDg2ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDFmMTgyM2Q2NWQ4YTExYTdkYzM5Y2M2ZGU2Y2Q2NTM5MWM4ZmFiODdjNThhZDY2OTc5OTE0Nzk5OTMxNzMyZSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L254-L265",
+          "version": "repo-lines-v1:sha256:eea06d6f58f46c00c5d21f3c2473f653c8741f80676168d9343758d4245e919d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkYzg1OWNiZTRjZjg5YWFiNTc1ZGRlYjU2OTAzNzU5ODdiZGRkOWQ4MWE2ZDIyMzQyZWQ0OGM3OWQyZTM0YTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1MmYyMmJhMjkxYjU2NjE2ZGIzMjkyMWYzZTBjZTk5NzFmOTg5ZDZiNDJhNGRiYmU4Yzc1OTFhNzUyMWM2ZTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkxZDFmNjM0NjhmZDYwMzAyZWZhMDM2OGVkNDE4ZDc0Nzc2Y2ZjNjBhZjA0MDY4OTNkYTAyNWRkNDRkYmEwZWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0OGQ3NDgzZDA2MGYxNzIyZTI0NTM2ODg4MzM0MjU2YjU0OTBlOGJiZTg2OTgyMDY3NmNhOWVhZjM1MDljYzkifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L282-L286",
+          "version": "repo-lines-v1:sha256:4ca70611d26f6eb6cd08128624190e498b300ba756f93aa1935044cb0ff67c2d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRhNWM2NmUxN2IxNDUzOTc4MzRiOGM4NTRkYzQxOTNlMjEyNTE4MGE4OTk2YTE0YzMxODgzMzI2YjJlZmJjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTYyMzNiM2ZmZWEzMmEyM2RmNTMwNjUzNDM0OGYyZGVlNzc2YTVhNmY3NGZiNTMzMTc1ZGRjNTM5YThmZTQ2NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDI4NWUxNTNkMTA1ZTc1OGIyMzc2N2U3NTRjNzVkYTViMjJmMDI5OWJkN2NlYWIzOWYwMmJjMGFlY2FlNGMyYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L195-L210",
+          "version": "repo-lines-v1:sha256:09439bbb85f751fd9f8ace2fb9e53fa7e1b859cd1d3343c6a23d16f50bd0f93d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiZjU0NWY5OWYzNTBlMjZmMzg4N2VlMGQ4MjQyNDQzYTBkMDMxZDM1MDU4MDg5YWE3MDRjMDNjNjlkNWFkNTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI5MDU1ODJiODM2MzJmZjdiMmRkMDE4NjhlMGM3ZThkN2E3MTdiMDYzY2JjOWI3ODFhNDE4ZTE5ZjMwMDJhNWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIyN2M0NjhiNzYyZTNjNGQ1ZDQ5ZWY0ZjMzYTk5M2U5ODkzMWRiNjdlNWViNzQ0OWMxMWIxYWNmYWNlNDFiOTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYyYWIwZTVmNWNmM2FiMjYzYmQ3NmRmNjcxYWNjNzc0NmRlZGJiMzMyYjZiZTljNTU1Y2M3ZTI2ODU4Mzc2NmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c652600c656248d7a98080e0d6e6af41",
+      "statement": "`TelegramBotAPI` classifies failures without quoting the token: an `ok: false` body becomes `NotifyRejected` while transport, timeout and unparseable bodies become `TelegramAPIError`.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L73-L99",
+          "version": "repo-lines-v1:sha256:9e532dfdc90fa7dc6dcaf02198b0b590aa784e2a0167b31d3b948569ef7df5ac:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0YTdhMWM2MWY4Y2E5NzM4NTlmMjdlZGY0YmZhMzI1ZjExMjA5ODQwN2ZiZjMzNDhmNjlkOGYwMTUyYjAxNDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhNzFiODcyMWZlMjkzZjIzMzk2MTE1ZGI3NGEyZGJlNTlkZTY0ZmM4OWNmNjhlOTMyNjU1MWI1YTFiZjQ3MDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZlOWI3MDc1ZjBjMTU1N2FjNjM4ZmZiMTllZmM0MTQ2N2RlZjY3NTc0NTFmZWZkYjk2YjlmYThhMWFmNDI2MTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYzZDZiMzY2NzU2MTk3YzE0ZmFhYTZkNjNlNTM3ZmI2YzdhZTg2Y2RiY2EwZGI2OTllYzcwNWFkZDUxNzM1ZDEifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L507-L549",
+          "version": "repo-lines-v1:sha256:05c399df5093a3fdd14a0e6d4107ef553c0204e749324dceec420c1712db4f72:eyJzZWxlY3RlZExpbmVDb3VudCI6NDMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5MGU5ZDA3NWU4YmViMzUxMzk1NDE1YTlkNDA1YjhjMDkyNWJiYjBjYzIwMGNhODE3NzQwYzgwYjYwODBiMzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExNzlmOTU1N2M5MzAzMDQ5YjM0OTU5M2NmZWFlZWJhNWM4ZmU2YzdjNzMyMzE0MjgyNzU3ODYxYzUyNWExM2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE3MGEwNjU3ZjUzNmVjNmE1ZGViMzhlMThlMTRhYjg2YWZmMmM1MDBkMTA0MDNlZDc2MDZjMWQ2M2VmNDhlODciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkNDEzNDBjYzIzOWExNTljZTliNjAyMmU5ZjYzMjI4MzJlMmVhZDc2Y2FlOWU0NzU0ZDIxMGViOGZiNmQ1ZTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_59e740ddcda14909b5cbf1dd16869610",
+      "statement": "`tests/inbox/test_setup.py` drives the entry point directly: an empty environment prints usage and exits 0, while an environment holding only `PARAPHE_OWNER_TELEGRAM_ID` exits 2 with a `paraphe:` line on stderr.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L322-L334",
+          "version": "repo-lines-v1:sha256:9ffd234a6e2d8f92584216d0e1c8427df26c116a2fe6aabdcd538fbcf493b801:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzOWU3OGZjYzljMDY4NGNmMTk5OTJmNDBhODljMzExNmIzZTBkNDE4MmRmMDI4NzFjMDc4N2NjMWZmZDJmMjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2NzVhOTcyM2NiYTkxNTU3NGQxYjk2ZWM2N2RiMTA3YmRkZDg2MjBkMWY0MGU0MjJkYzZlOWVlNGE3NzYxNTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1YWI5YzAyMjFlNWRkOWYwNDIwODJjZTY0NzVkOGZiYmIzMGIyNWRlZjIzN2YxZjUwN2VjZmVhNWE2NGZiYWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNlNzQxYTk3ODNhZmRlNDEzMDdjMTYwYWY0ZDliMjFjM2U5N2ZlNjkxYmY2NzFmOTY4OTExODM4NzEzODUwZDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_339f9d1af25d434080c9c88bfc50f302",
+      "statement": "`tests/inbox/test_wait_engine.py` pins the ask/wait client behaviour behind the entry point's dispatch: the request id printed by `ask`, exit 0 for an answered card, 3 for an expired card, 4 for an unknown request id, the per-call wait window loop, and the config-file bearer fallback.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L331-L438",
+          "version": "repo-lines-v1:sha256:d4c317e15aad7e029eb0c4f4afd21ddafb409fb91f6283ea6bc752d7fcc22c72:eyJzZWxlY3RlZExpbmVDb3VudCI6MTA4LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIwYzMwOTRlNTQzOTY2N2JjMDIwYjRjYTliNjA4MzU2MDU0ODQ3MjZjYWE3NjZjNjRlMWM4NTBiMGYwYTE0MThmIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJhY2RmMjIzZjVhYzg5OWFjZTM5YzM4ZDQ0NjM5ZTkwNTc2NDk3NmM4ZDIxMTcyMGFiNGJjZThkMmUzYjIzYTM4IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI1M2Q0ZmRhYjRiYWJhMTNmZmZlYjJiZWQ2Y2FlN2ZhN2I5NWZkMGIwMjU0OTUxZTc0MmQzYjQwZTE2OGVmYTdlIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIzZDQxMzQwY2MyMzlhMTU5Y2U5YjYwMjJlOWY2MzIyODMyZTJlYWQ3NmNhZTllNDc1NGQyMTBlYjhmYjZkNWU4In0"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-11T13:38:17.169Z"
+  }
+}

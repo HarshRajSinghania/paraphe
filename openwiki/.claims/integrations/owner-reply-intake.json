@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:009341b1cf1ab1704a7195250e94a34f9f2caeff063ad70eec98d2c414e1bceb",
+  "claims": [
+    {
+      "id": "claim_1efc8974aff14603894f894131aaaac8",
+      "statement": "TelegramAdapter.handle_update treats a private-chat message from the owner whose reply_to_message carries a positive integer message_id as a reply attempt: it calls _on_reply with the chat id, the replied-to message id and the text, and returns an empty list, so nothing is ever sent back to Telegram; a non-private or foreign chat, a non-owner sender, a non-string text, or a reply target without a positive message id is dropped before any claim runs.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L367-L403",
+          "version": "repo-lines-v1:sha256:41d9e55dc958dd5a2e1a60f678379175e42a193b40f8e6537a8d07ecfddf7175:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQzYTdmYTc1NmM5NDExYmRlZjQ5ZjA1YzU2Y2UwMDY2NmJiZDY3MTZhMWE4OTZmMzIyMzAxNzMzY2U2MjFlOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiMWJmOTJmNWMwNDFkN2FkNzcxNGUwMDM5ZGI5NzBjMmU4ZDViY2ZmZjFmN2RiMTIwY2YzNDkzODJmNWNlY2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ5ZDgxN2E1YjExZTZiNmEwZDA1YzM5OTVjZGY0YWE0OTE2ZTUzODIxMzljOTgyZTI5OGE2YTEwOGRmNTMwYzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU0NTY0YzE5ZTc3ZWEzMTk2MDI3Y2ZhZTBjM2IwNzk0N2I3YzJmZDI3NDUyNzNkMWZlNTI1ZGNmNmI2NDJhODkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_86e8203773084871a2fb3c55583aacb0",
+      "statement": "Inbox.claim_reply requires both from_id and chat_id to equal the inbox's owner_telegram_id and then resolves the target card with _card_by_telegram_message, a scan of the loaded card state for a card whose stored telegram_chat_id and telegram_message_id match the replied-to identity; a replied-to message no loaded card records resolves to nothing and is refused ClaimRefused(\"unknown\").",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L520-L554",
+          "version": "repo-lines-v1:sha256:95b2b6caccda273a52d1d8afa23831a151f3786e9a022b3ff45788a0ad729d67:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4MTA1OGE2ODk3MTRkMjBmYTdhNDllMzk2NjFhZjVjY2VlYzlmNTVmODAxYWExZjE3MjExMGU3OWNiOGZiNjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlN2M5NTdiY2I0NGZiNjczYzk4YjAwNTBhNzVkMzgwODJkYjgxZDkxOGRlMzEzYTNmMDdjMTIzNTMwNmQ3ZWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZmYmIyOGI1YTJjODRkYmFmNjhlMGExZDZiYzhhM2Q2Yzg3YmI2NzY4YmFjYWMwOTljNmZlY2IwOTc0NGMzYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ5MjU0NTAxNDUwZmFkYmQzZjE4OGU1NThlNWEwMjUxMGI5MmM5MzJkMTQ0YzM3YjI0ODZlMDU4MTM4ODQ5YWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_21d6abb237dd4c1bb37ad82e3af91ecc",
+      "statement": "Reply resolution survives a process restart because the binding lives in the card's stored telegram_chat_id/telegram_message_id columns, written by record_telegram_message at send time, and _ensure_store loads every card row into the inbox on first use after construction — the adapter's in-memory location map is never consulted for resolution.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1169-L1190",
+          "version": "repo-lines-v1:sha256:679c45c8ca8ead8a7492f437455d9d995bba325d52c355fbc996763efce7cdf1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjljMTRlMWQ5OTYyMmM1YWI1YmRiMTA0ZjdiMGZhMTFmMWYwNTBmZDVhNjhhNTBlOTllMDM0ODZkM2Q1ZWVmM2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwYmNkMjA1YTE0NTg4YzFlNWQ4ZTNjNWQyN2M4MWJjNDk3NTA1ZWZiMTk0YTE4ZmE4ZTE1MDgyMjY0MDNiMmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAyMTI1ZDk4MTVhNGQyMmZjMzRlYThmZGMxZTMwNTg1YTYwYTUzYjQ5YmM2MTc0NzUwNmJkOGVjYmRiZWIwODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU2MzUzNDA3MzUxNzIyM2MyNTMzYmI0YjdjNjJlODQyZjY0MjVhMTc2Y2VlMDljZTU5YjY3ZTI0ZjdmNTY5MTMifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L378-L396",
+          "version": "repo-lines-v1:sha256:130ea7ae64ba3e4ff1e8a70ca26fe00f23576305f2650f6a969f0477df9e7e32:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5YmJkZGJlODM0MTQ1MzkxZDY5NGI3MTkzZWU4NWQ0ODk1NGI2Mjk1MjA4ZDJmYzg3ZjhiN2MzMWZhNDlmOWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExNmI5NTc5YTUwNmI2MDNmM2IyNTM3YWY4NTE5NzYwZmYyYTU1MzJjNWVmMDViZjg5NDUyZmE3MzIyMWI3MmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY2ZDU2ZDVjMzZjNzU3ZGMxNzQ4ZjdkYTViYjRjOTVkYWFiMGM2Mzk0ZWRkYzMxZjU0ZjAwM2I4MGQwZGRjZTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmZjMyNThjMDE3ZWMzMDVhOWQyMGJkYWJmMTk3MTI1Zjc2ZjA1ODA2ZDc4NDg3NjQ5NmU5YzYwMjRhNzUzMWIifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py#L216-L235",
+          "version": "repo-lines-v1:sha256:0662c922643085c9a344718083bb587bb898235b6a842edf5767abb07c984520:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRmYWQyMjUzM2ZmNmE0N2NlYjUyZDg3M2Y1ZTg2YmQ4MmFjYzIyYmYwNDAzNjZlZTZlZWM2OTU4ZWYyNDFlNjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM0OWY3ZDY4NjdkNzQ5YWJmOTFmYzhmZWQxNzNmMDFkOTc1MDFkYTgxMzU4ZWZkN2MwMWYxZWNiYmE2YWMxMGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkNDZmNjkxYThlZjY0ZDU5YjhlOTJhNGJhODNkMmQ1MGZmNmUyNWJjNzA1NzczNDc2NjdiNWNmZjQyNmE4NjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJmMTNkYjM5OGMyN2IyNjViNDMzYmY5MzQ0MTczNzgwMDNiYWIxNGI0NjNmYWU1OGFhMDU2MzBiMDMzZjMyYmQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bf2aff79e34f44c38303bbbc0e4aaa84",
+      "statement": "The keyboard strip that follows a reply does not depend on the adapter having sent the message in the current process: _claim_locked asks the port to remember_message for the answered identity before _request_strip, and reconcile_notifications re-remembers every stored identity at startup.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L349-L362",
+          "version": "repo-lines-v1:sha256:b0149fdc6b170f9e6ff925bd0e5d2ad88e609c247387464411c337cb172263be:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYzYWEwZTMyNmM3YzYzYzk4YmQ1MDZhYjgxZDdkYjMyM2JjMDhhZTc2ZDdhY2FlOTI1YmUzY2RiOWE1NjdkMzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhZDZjOGVhYTg1M2RmYjcwNzIwNTFhNWY1OTYyOWJiNzZmMDJkMTMzMDQyZjY0MTQzNDNmYTAxOWFiOGU2ZDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg5YWRlYmNhZjk2ZTEzNTkwZjBkMWI0YTE2ZjY5ZDkzMzBjOGE5MGY0YTU4MDU2NzQzODI0OTlhYjg5NWI0MmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRmMjE5ZDEwOTQ1ZDg3OTIwOGUzOTg1NTJlZGExMmNlM2EzZmRjNTg4NzY1NGQ5ZTE2MGFmZDY0ZDIxZTFkYmUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L628-L638",
+          "version": "repo-lines-v1:sha256:86e03ba07e2f2a280b87eddb8051d3ba042cc0f8be5d7b0f3a490803c734ad8b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlNjdiNjRlMzU3MjJkZTcwNGNmMWNlZDBhNWVkYTIzNDc0NTllOTUzMzc5MTIxOTUwYjA0NDZiMDUxMTU5MWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczYWNlMmMwODA2MGViOGM0ZDc0NmY4NzMxOTc5NjA4ZjRjOTViMzg3YWUyNTYxYmRkYTY3N2UzMGJlMzA2YWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5YTI2ZmNkZjAxMzdkNTEyY2NjMWJmZWZmYmE4MmU3YjQ2NzRjYTdiMWE0OTliZGE3MTFmNGNhOGE0Y2JlZWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQwOTRmMDc3OTU0N2RmZTMzYzM0ODAwODIyNDZmNTU1ZTA1MDA1ZDJiZTM0MDBiMGJkYTY1OGQxMmNhNTNjYWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e2b0d58a1af84b6682bec2beb337e152",
+      "statement": "The reply door hands the resolved card's own version, the message identity it was found by and responded_via=\"telegram-reply\" to the same _claim_locked method a tap reaches, which makes stale_version, stale_message, invalid_message and invalid_choice unreachable on the reply path — staleness surfaces as unknown at the lookup instead — while not_owner, expired, cancelled, already_tapped and invalid_answer remain reachable.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L520-L548",
+          "version": "repo-lines-v1:sha256:50aa0f27877bab20b951863055c741f9c676c744fb39a28b1297e97afd9bbe0f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4MTA1OGE2ODk3MTRkMjBmYTdhNDllMzk2NjFhZjVjY2VlYzlmNTVmODAxYWExZjE3MjExMGU3OWNiOGZiNjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MDMyZTk2NGQwOTMyMzUxZTVkMTg1MjY5MjgxYjE3MWEzYTA5YjA4YjI4NmU2NjFlYTQ3MDMyM2M4MmViNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZmYmIyOGI1YTJjODRkYmFmNjhlMGExZDZiYzhhM2Q2Yzg3YmI2NzY4YmFjYWMwOTljNmZlY2IwOTc0NGMzYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA3OGRkYWEzMDVjNGZlNjVjZDBmOTQ1MjMxM2IxYTRhMGZiNzlhYzBkNzQ2NjE3MmU1MDU5MmI5ZGJmNjg1NjkifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L556-L614",
+          "version": "repo-lines-v1:sha256:092ae65509d6a4431515bcddff5affe5364c03c252c3aa20811337bebe0cf348:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhkMjU0YTI0ZTBjYTlkY2YyMGZhYjQ3ZGMyMDU5Nzc2YmU5NWM5OGI1NDU4YTVhNGNmYzcxN2ZiZWM3MTI4NWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhN2VlOTViNTU0ZTM1NmYyNGJiYTkxMmFjYTk5YjRiNDVmODY5YWFkN2U3Njc1NmRjMTk1ZTlhNzQ1NWM0MGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUxYjVjYTk1NTI2N2Y2ZDAyZThjNmZjODkzZDc3NjljYWFmNTM4ZDUxNTgzM2RhMWQzZjI3ZDM1ZjYwOTE1MTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjExNDViOTVhZjRlMWIxNWI1MzI3OGRkZDU1NjRiZDJlNTcyNzQyYTlmNzI0ZmUxZjkzMTQ5YTY4OThlYzQyODIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a54bfff77f3407db0fe394884752733",
+      "statement": "An accepted reply writes exactly the lifecycle a same-moment tap writes minus the choice — state tapped, response_text holding the owner's words, responded_at, responded_via telegram-reply, the message identity with telegram_keyboard_attached true, and no response_choice — followed in order by the durable _save, _notify_waiters so parked calls return, remember_message on the port, and _request_strip.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L615-L638",
+          "version": "repo-lines-v1:sha256:ee2c975aba3d54ea86ba584a188209b6f31ca8d73e6af3fef5dd837faeeb059f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5YjdlYjk0OWU1ODFhYTMyYzlmNjlhMWVmZjNhOGUxMjdjM2ZlMTdkZWQzMmJiZTFiYzZmNzkxMjQ5NmY2ZDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczYWNlMmMwODA2MGViOGM0ZDc0NmY4NzMxOTc5NjA4ZjRjOTViMzg3YWUyNTYxYmRkYTY3N2UzMGJlMzA2YWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYzYzQ2NDRjMjEzMzlhZjQ0MzJhYTIwYzY5ZDAxNzkzN2EyNGUxYWJkZjc5YWE1YThhMWQ5MGE0NDE5NTgyMDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQwOTRmMDc3OTU0N2RmZTMzYzM0ODAwODIyNDZmNTU1ZTA1MDA1ZDJiZTM0MDBiMGJkYTY1OGQxMmNhNTNjYWEifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py#L149-L184",
+          "version": "repo-lines-v1:sha256:20fa6b5d34799936b2bf8445ccc21a0e324ea4daf5a5a2575359947feee861c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlY2UzYzdjYjBmMmFjZmIyZTc3M2JlNTJiNjIzYTlkOGE3NjdiOWI1MTk0NGNlOWY2Yzg1MDg0YTExMzAzZTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg2YWRiY2ZlOGNhYTdmYzE2YzAxYzU0MTc3YTY0ZmNlMDFhN2IyMDJjYThhMGM2M2Q3ZjFjZGRlZGFlNGYxOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM5NjE0ZTA3OTk5ZGY5NmUyNzFiYTUyYjVlZDdhYmEyYTFlZGQzYmE0OGZjYWU3ODYyYzQ5OGY5ZGI0NjI1OWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_67fab9f1287e4a7a99ea40129045a97f",
+      "statement": "Reply text is recorded verbatim with surrounding whitespace preserved and no choice index, while blank or whitespace-only text and text longer than 4096 UTF-16 units are refused invalid_answer, a refusal the adapter swallows.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L591-L598",
+          "version": "repo-lines-v1:sha256:75d3e89c6c92ba733f12ce8424d7d97fd9f06e7966e7cc37765580b16d6be35b:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGMzOTlhNzlmNDI1ODM1NDE1Y2ZkOWI0MDIyZGUzZTU0YWUxNzk0MGMwNWIwYjA3NGNmNjVmM2ZkOTM3ZDdmZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTliMzgxOGFhNTBmNjEzYjIyOTZjMTgzNzZkZDgxZWM1NmE2MWNmMWZjNjU1ZmQ5ZWJmMDYxZDQ1MThiM2MyYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzFjMGVkMWFmMjBhMDM5ZjRjZTRmNjYyMTg1YmQ2YzgxMjE3MjUzMmY2ZmJhMjk1ODM2NDJmYjRiMzcwOWY2NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGQxMjI5ZTJlNjNlZjMwYjkwODFjZjhkNDU5MGFmYmU4ZTA0NjMyMTUyMmRlZmI1NGJmMzUxODFhNTdhZTlhOSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py#L135-L147",
+          "version": "repo-lines-v1:sha256:b96b502c1a75d22bb3fdbd7d4ceacdc9893d9a4ad52c1b8e3b7fd66a8e706248:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0NjBjODc0NmEyNzZkZGE0ZTk5MjJlYWU0OGYwYTU2M2I2MzY0YzA3ZjNmMDlhMGJlY2FkZDFkYmRjNDg2ZjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlMmEzZmE1MWNmNmNiYjJjYzFlYTFlYjhkMjhiYTQ4MjRjMWY2OGY5MWMxMmJmNzg2MTY1N2I2MjhlNGJkZjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY3MWFkNjQ2ZDg5ZDQ4MGY2OGJmNTY5ZTczZjE5Nzg3MzdkM2RlODY0MThkYmQ5ZTYxYmM5MmQ2YzY5YjJkYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUwMjdhMDE5YTdiNzlmZmE0NTFmMzU2MjYwYzI5MWUzNzczMzgxMzZiMGZlM2Y0YzcyODk3ZTA0NDRjYzQ5MDMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a2ca7e9262984dca8bb2f21235946ab0",
+      "statement": "Because the ladder refreshes expiry before the state check, a reply to an open card past expires_at first writes the card as expired (waking waiters and stripping) and is then refused expired; a reply to a cancelled card is refused cancelled, and a reply to a card that already has an answer is refused already_tapped with no new card state written — only the strip is re-issued — so the first answer stands.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L568-L580",
+          "version": "repo-lines-v1:sha256:2f2d06f1b12ad905192022414a7d7725d425a0f480083ddcb0d395b5b3729abb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcyNTVjMzhkYTZhZTY0M2VhYWMxNjU2MzJkNjRlOWY2ZWRhNmNhYTM2YTNmZDM4ZTEwZjliYmZjNTliMjVmNTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZmFhODEwYjk0NGI2YWE1MjZjZDFkNTkzMzNlZTM5Njk1MjFlZDcxNTMyNTA2MzE2NDE3ZGI0ZTFmYjljNjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY1YzgzOTgyMjNjNmZiYWU4NDM1MWIzZTcwN2M5NjA5ODkyZTVkNjNlM2NjYjZmN2U0MTZmYjQzNTBhOTQyZjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkYTQ1NGQ1OGNjYWIzMDFmYzRhNDJiMTY2ODc0NGEzZGJhZDYzNzIyMmY3NGU2YTQ5MzY3NTM2NjkwNzdjMGEifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py#L237-L265",
+          "version": "repo-lines-v1:sha256:0c91db62fc0621647a193562331b754dcfec739cca879a2d7b2ea7779bed0df5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ0NmI3Y2FhNTE1ZGVkNjQ0NDY1MDNhNDZkNWIwMTY3MGI1MGY0Yjg1YjM0YjU4MmM5OGU4YmMxMWFiYzkyZTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUyNDNkNGQ4MWU1OGE2M2I1NWI2MTExYWU5OTUyNmI4MzkxODFhOTQyZmMzMjQzNmIyYTNjYjQxYjFmNzgwMjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhNThlMmQ3YmU1MGQ2Yjk5ZjRlZGMzOTJkNjQ2YTFiZDljMDExMTZkMzExMDQwZGI2ZjNkZmY4NDVmZWFhZTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYwNmEzNTRjNDhlY2Q1Y2FkYzcyMmZlYWI1OGJhYjc5NjEzZmE4ZWE5NDIyYzAxOTc3MGM2ZTc2NDk5YmI3YmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f9b3184fb4dd441dab6ba9dc20550dd4",
+      "statement": "The adapter recognizes claim refusals by class name and swallows ClaimRefused for a reply, re-raising any other exception, so a refusal records nothing, wakes nothing and raises nothing while a real failure such as the durable write escapes _on_reply and handle_update to a poll loop whose narrow catch covers only TelegramAPIError and NotifyRejected, closing the runtime.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L405-L417",
+          "version": "repo-lines-v1:sha256:a944cd94589a9a0c207c6164e2b24c5cd3234224155d080a1b169dc7f5706aed:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3ZmFjNTg4MDMwMjM0NjZlNWQzZWJmODYyYmU2Y2ZhM2U2NThkZDE2YzVjZDM0YzI5Zjk0NWYzMTM0MzkzNDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxNjFjZTliMTJjOGMxZGQwOWU3MTcwMWUzNzU3Mjk3OGU1MWU3YTQ3ZDA4ZDAwYzEwM2JkODE2NmU3NTFjNzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY0NzdmMzY5NmMxNWE5ZjhkM2YwNTU4Yzg1NzhkNDdkOTllMjVmYzIwZmNiOTY4M2EyNzA1NzYxYmJlYmFhNWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkyMTNhNDk3OGE2YzE5MzE0ZWYyNzI5NjYwOGFkMDA3Yzk2YWRkMWU5MjAzYjgyOTA0N2RhYTgwYzgzZTM5NWEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L248-L258",
+          "version": "repo-lines-v1:sha256:4b423487da0da60ee8257a85b097fa4fa695bf58bedb7157c4e39bb1d02dd745:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlMTdiYjVmMjU2NmRkZDBlZWRlOTdmZTY1MTc4YWRkYzE3ZWFkOGMzOGFlOGRkMThkN2U3NWVkODVjZDUxOTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiNWU2OGQ3NmE3MmM1ZDg5Y2FiMDY5NjBmY2E3N2Q5YzQyMWZiZWRkYjc4YTI1ODNkYTA2MDliMThjMWRmMmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE4ZjFhNmE2ZjE0ZjE2MzViYjFkMWQ4YjEzMGEyNmIzMjcxYTk0OTA5Zjk2NzRlOWU2ZTVjNDM4ODY1MWMwZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYwN2FkYzFmZjg4MjM5ODFlMjBmM2UxNjI4MGVhODc5YjdkYmRhYmIxZDVkNDc2YTU1NDZkY2FhOGU1Mzg5NTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2eff5612bd16447883b526ee076eda20",
+      "statement": "A reply to a status message records nothing and raises nothing because notify_user never writes a card: no card carries the status message id, so _card_by_telegram_message finds nothing and the refusal is unknown.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L829-L864",
+          "version": "repo-lines-v1:sha256:9f832b3f2ae4ed5a9565ecf77e332af6ab400ed3d4e77b72b4aeefc0097449a5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkN2JiYjhkZmMzMjY1NGE3ZDM2MjVlZWFmYWZmZTU3MjUxNmY3NGYwYmIyOTFhY2JjNzc1ZDljOTUxNzMxMzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdjMTY2MzMwYzNkZTc5NjUzZWIxMjc5NDc1ZDRhMjk3YTI2YjkwNWVjMzViYmEyM2M0NGNlYmE4MjdhNGM0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0OTEzNjg4OGZjY2RjNjdjMTZlYzY2MzRjMTk0OWVkMzY2NWFmNmI0N2YyNTMzNmIyOGI3ODY5ZjBlYTU1ZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1MTYyMDUxOWUyZTA0NGE0NzczN2E1NmMxMWIyZTE3NWZjOTYzOTBjOGFiZjNiNjM5ZjZlNjNlMzM0MDljOWIifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py#L267-L276",
+          "version": "repo-lines-v1:sha256:ba4d9120cbc86566e863c932e225c30e4ef62a9b132b6a3452f9d257675135d1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRkYzhjZGEyN2M3YzdjNGRmM2Y1MmNkODU3MzljZDNlNWRjMGQyZThmYWY0M2U4M2ZjM2E0MmY2M2U5OTdlY2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4NDEwOTJlODIyMmUyNmIyNWM5ZGZiNzNmZGRmZmRjYTI3ZDVjMmUzMTFmZDA2ZDhhMjhmMGExYTdlZjkxNGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3NzRlY2ZhMWVhODFmY2E5ZmNjYzY0MGJiNmY0OTQwODhlNjFjNjA0MDYwZGJmZjNjYWQxYjI3MDE1YTlkMWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE0ZjRhZmVhNTYzYWZjNDMxNjA2Y2QwYTJmYzRiMGViYmNkZDQ4OTU5OWEzYzZjYzlkMWQ4OWNiN2RhODkyOTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_21523e1c927c4ae3a53ae6e3ed37edd7",
+      "statement": "A reply to a message that update_request or a renotify superseded resolves to no card, because the revision clears telegram_chat_id and telegram_message_id and resolution uses the card's current identity, while the live message still answers.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L962-L969",
+          "version": "repo-lines-v1:sha256:1503ffd667ab463e96e09d66136925055f6b460c28aa6489d8e562452dbaca47:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTVjZTA1MzE5YTJhODZmYjYyNjE4MzM3YzA0NmJmYzhhOTQ5YzEyZWI5ODQ5ZWQ5NDU3YjZiNjhmOWI2NjUxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhmYzZhZDQyN2ZhZjE2NTkwMTY3YTVkZGEyZGNlYTM4NGI0NDQwNzJhY2Q4NWEwZDI3ODkyZDQwYzIyMTc2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTEzMDFmNGM4MGIzOTgwZGEyZDgyMTE0MWQ1ZDUxNTUzZmUzOWQ1ZjRlODczZTlmZDczMmY4MTY1Njg0ZjU1YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWQ0ZWRiOGM2MjAxZDE5YzZlNGIwYTdkMmJmOTRjNWM1MDJhNDJkMzBhZDJkM2YyYTZmOWY5OTYzZjY3Y2VmYSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py#L278-L300",
+          "version": "repo-lines-v1:sha256:87aaee6a7a05dcf934ae2d2442f92039e3078cfa25c1ffad404998c6e0a2ba45:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjYWViZTY5YjYwZjg5YzM5ZjY4YWE0ZmY4NWJmYmQxNjAxNzY5ODVmYzM0NTlkMTY0ODcwYmQ2YzBmZGFjZTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyMWEzNTMyMTI3NDkwZDM5ZDQ0ZTY3ZjNiNjA5MWE5YzZhNTk5NWMyZThhZjBjNjkxOGI2MDEzNjI4YWQ4NDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU5YmFhMTdlMTE2ZDljZjBmYzYyZjI2MzEzZDVhNmI2ODkwMjVmYmZiMzA2NDVjOGQwOGU4NDNhYjcyMjMyZGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkNDEzNDBjYzIzOWExNTljZTliNjAyMmU5ZjYzMjI4MzJlMmVhZDc2Y2FlOWU0NzU0ZDIxMGViOGZiNmQ1ZTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_38e74e93dcdd44559b498e6e5cda2888",
+      "statement": "The reading envelope reports a reply as status answered (acknowledged once mark_processed sets processed_at) with response.choice null, response.text holding the owner's words and response.responded_via \"telegram-reply\", and that same envelope is what get_response, list_unprocessed, a call parked with wait_seconds and paraphe wait return, so the asking run learns the answer without any new transport.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L176-L227",
+          "version": "repo-lines-v1:sha256:5d2e7295480db39a5a5e64ee8cba2eda66107bc2fe3a7915c878594ecd761ab8:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5ZjZhMGQ0Yjg4NTM4ODI2N2VlOWRlN2FmMzRhNWNhYTQzM2Q0ZThiN2E5OTZjMzZhNDM4ZGUzY2Y5OTkzZjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzNTFiYzY5NWY5YjBlYmNlMDZmOTNlZmU1YzAwZTEwN2E4NjViMDQxZTMwYzk1MTYyY2FhYjI1YmU4ZmU5NjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFkZDFhNDkwY2NhYjFjNzQ0ZjhiNDE3YzU2YjI0MTMyYzMxMmMyZjA3NTc3Y2NkMzEyY2UyMmEzNWY0NmQ4ZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyOWJiNGU0OTU4MDE0MTQ0Yzc4NDI0ZGEwYjljYjZhN2QwNjU4MmY3YWU0YTNjM2U5MjRiZmQyZjExZDdlOTEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1117-L1146",
+          "version": "repo-lines-v1:sha256:dc1b13f228a9c558337258fad68f9ff225d11a83d1ecd02864e5ac18893a8d69:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkYmRiZGIyNTEwZjljODc5N2YyNzFiMTNhYzk1ZTQ4YjM5ZTFiNmJkMjI5MWM1NmJlYThjNmUzMTE1MzRkYzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5MWY3N2FhNDU5YzdhY2FiNGJhYTA3YTJiNTMwZTA3MTgyMWNkYzQzNmI0NWVmMWZkZDQzMzgyZTVkOGVlMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIyYzQyNTdiYzMxNzAwYmJkMmZjMGIyYWQ0ZTJmZDk4NjBiYzdlZGNiZWY1MzA5MzBmY2M2MjA3YzUyN2RhMzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3YTEzOTlhODdiMTZmZTE0NzMxYTEyZTYxODhmYjMxODM0ZjQyZTIwNjA5ZDVlYjNkMTI1NGU4MmJlMGE1NWUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L873-L881",
+          "version": "repo-lines-v1:sha256:88e7e46ee88990bb10908cb800f5318d22409c194050060f53e2daa3c99ae130:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGNjMTUwMWQxZTlmNzFkYzYwNDhiMjQ2NGUxMzljYzlhZTA2YWUxOTQxMTYyNDY4OGExMzkzZTcxNjUxN2EzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmFhZThhMGNhNzZmOThmN2I3ZGM3OTg0OTUxZDYzZTU3ZGIzYzY0NTU3OWNhNTFiYWQ2YTUzOWQ2MTRlZGJiZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODM2ZDRjNzFlY2Q4MGZiOTEzNzdhNGM0MzkyMGE4MWNiYmQ2NDcyMWIxNzllNmI4NjQzZDBlODE0MzhkM2ExYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWUyMzJjMmY3YjY4MGZiYjE2ODRlMmNiYmZmMzBiNTRhMTFhNjllNjNiMGQ3YjhiZmQ2MGU1ODAzNWVlYjUwMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_aab42f97709344b1a2476a14248035bf",
+      "statement": "Nothing server-side classifies reply text: the served how_to_use guide, the get_response descriptor and docs/tools.md instead carry the protocol rule that an owner reply arrives as response.text with responded_via telegram-reply and closes the card exactly as a tap, and that a reply which is a question or not a decision must not be executed — the agent explains and re-asks with a fresh card.",
+      "evidence": [
+        {
+          "resource": "repo://docs/tools.md#L145-L149",
+          "version": "repo-lines-v1:sha256:72a1528e000752cfb03c3dbae2f8157d0c685302caab2ae065b2b90dcf3103f3:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQ3NGI0N2JhOGM3ZTYwODk1YWE3MDMyZjllZTUxOWMyMmI5MDkwNGU0M2U3NzBiOGM0ODQwZjA1YzEyODIzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGJmNjBjMTM2ZGU1NGE4YmEwYmVkNDdjNWYyY2IxMGFhMGU2MTg2ZDA3NDk4ODhiYWY0MWYwNTcwYmI0ZTg1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODgwOTE4YWM2NDMwNzA0MDMwMDQzMjc4YWJiMTY3MDAxYzY4MzQzZmM1YTNhZGY3ZjgyYjYxNjk1MjliODRhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGU2MTY2M2JhMThmNDhjMTg0ZGEwNDRhYWZlOTUyNGQxNDEwOGFjMzZmZmJlY2JmYzYwNjhhNjUzZmY3M2Q1OCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L231-L237",
+          "version": "repo-lines-v1:sha256:a00a2a25251e9c347cc20a1b777fb910a54822907aa85f5a56bdbd72c39e044d:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjEwZWRhY2ZkYTY4OWEzMGJjMTc2Zjk1ZDY3YmU2MGZlZTBkOWQ4MzlkZDliOTA4ZDk0YjllMTgxNDVjMDYyZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzAyYzQxNGI1NGNmODZkZmI0ZjkwZGZlN2Q3YmRiZmE2NjZiN2RkZGQzMmYxMjg2ZjIzMGE1YjUzMjQxODE4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzBmODU0ZmEwYzBiZmI4NzE4OTk2MmQ4NWUzOTM1ODdhMmUzMDY2YzI0YmI2NjhiYzk3ZTEwNDgwYjc1YzU0NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjllYTY4MGI0MzQwMzRkOGI5NTc1MDI5YmVhNDkzOTU4ZTdlMmZmM2I3OTU4MjZmZjEyNTRiZTg0NjA5ZTg2MyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L769-L773",
+          "version": "repo-lines-v1:sha256:d3cc7c4fd5bccaa422fff4b4a2d60d1119ffb20b541bed2d090a4389ea10313a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTc4N2E1YWIyYjMyYjJkZTM0OTVlZTI0MWI5Y2IxNTg4NjJiZTRkYmM1YWYwZjhlZWJhMmQ0NDg1NDgzN2U3ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTY5NzU1MDkxYjcyNGM1NDlmMTM3YmViYTg1ZjJkMjEwZGRmMWRlZWJmYzYzNzExMWQ1OWIyODZlNTgwMzYwMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzdlMDVhYWFlMTE1OWUzMWFlY2Y1ZTcxNDcyMWE1N2NlNzMwODg4ODZhNjA4Yzc1YWRlZTM1NDNlZGRjMzdjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTQ0NDYyZDBiODY5NThlMTFhNzc2Zjk4NjY4YTVhM2EwNjA3OTJiNjBkYjA1YmQ3OGU1OTMyZDgzYjdlZWRiYyJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L129-L136",
+          "version": "repo-lines-v1:sha256:829589484da899ca8dd9455e59bdaed8f7bac406a9531349284d0072216d93be:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzc0NjkyODM1OGIzNTIxY2M1Y2YwNzBiZmRkZThjOGNlYjZlNWFmMzJlYWI5NDVlNDlkYWIwOTA0YzEwZWM4NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2QwNjY3OWNmODIwOWQ3MmMyNDgxN2Y5NjdlMWMwNmQ0YzdkOTBiMTQ5MWY3ZGViYmQ2Y2I2YmNiOGZkOWMwNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmNkZjA2YTExZDgwY2U2YTJkNWE0MDc4MmI1OGVlOWU1YjkxZjM5NTMwMGRiOTQ1OGM5NmYzZTFiNzg2ZWM0OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGMxNzFhYjRmZmU5MzM0Nzg1OTBkZTY3YzIzZDA0NDBmYTFiZWJlN2E1MWFiMzQ3MTI5MDc0MDY4MTU0ZGEyMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0752658a737a4aff86f6b47d7170ac1f",
+      "statement": "A re-ask after a question-like reply must use a fresh external_id: a create whose external_id matches an existing card returns that card marked duplicate and re-notifies nobody, because _notify_owner returns early while the card's notified reservation is on record.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1235-L1240",
+          "version": "repo-lines-v1:sha256:147c7b8296666470b8bec19975fe8ae268c069ee1f48f9085a82578549b27c3a:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODJlNjk5YzE0OTUwOWE3MDc1M2UxYjYwYzk0ZGVkMGQ2MzVlNTljODYzOWE5YzI1ZGQzNDBmNjJmNmM1YTc3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjcyMzllNTVlMjNjMWQzMDhiZWZlODNkYjgwODI1YjI3YTdiMTc2OWFhM2NiNzJmMWFhYzZiMzI5M2E0Y2MwNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDAxMzdlZDkwZDljMTBmOWIzMzg2NzY3NTkwMDU0MzVmN2IzMjYyNjdjNmYyZTdhMmE3NmMxMWY0ZTRiNjdjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzJjNDMwOWVjNmM3YjFhZTI2ZjBhZDNhMDkwMTE4MWU1ZDViMWNjYjFlNDg2MGZjYTg3MmQ5MTMzMTg3NTU2MyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L998-L1008",
+          "version": "repo-lines-v1:sha256:cb642cc55ed8f46ad8f04208ed6115ea50b884aeaf989bffccd1d0c186012f7e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1YzY5Y2NhZjQ1Y2NiYWQwMGMwZTEyZmQ2NWMzYzIwNGJjYzJjZmNkYzZjZmM4ZDc0MTAzYWRhM2M4Y2ZmOTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJmMjhiMzcwZTcwNGE4MDMwMTk1YTA4NjJmNDZiMGU2NTA5ZDNlOWVhMWViYzA3YmRhOWQyMGE0ODIxNjIzNzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0ZTU2N2RlMTkxNjcwY2Y5ZmI1NDE5NjM5YTkwNDFiNjZkNjQzNTNkZDI1NzI0NTg2ZDA3YzQ1OWEzZWY1ODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJmNzQxNjdmM2IwOTAwNWIxMzJiNTYwZTFiNDViMWI3MTRjYTU2ZGQ4MjhkODIwN2FiZWI4Y2Q5MjU4MzBmN2IifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_aca933896b9e4a16a65425ce32dcaeda",
+      "statement": "claim_reply takes no bearer and is not an MCP tool — its authority is the owner's Telegram user id and private chat, checked by the adapter and again by the door — and no served tool name carries answer or claim as a segment, so the create credential still creates and reads and can never record an answer.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L41-L54",
+          "version": "repo-lines-v1:sha256:d3833ebbaaa9b4fe8c3902afd4aab3eca3b46fbe4f3db5650f135e74ba917548:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBkZDRmY2ExMzQ2M2U4YjM5ODE4Mjc0ODcwMTAzZDIxMGE0ZGY5ZmVlYmY3MTE5NzVlNjIzMTk5MWM1NjYxOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5NDE2ZTA5Zjc4YmEzMTZjMDMyNTY4MjEzYjg1NWVlNzU2ZTQxNTY1ZDkxOGYwOTUxOWM4MWZkNjIwZjQwNjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhhOGMzMmE3NjZlNmRjYTYxOTU4NjY0NzFjZDIzNGNlNzBkNjNjMzdmYWI2YTU3YTY4NDg3M2FhMTljMGE4OGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNjNDY4ZjRjM2YzMDVkMTk3NTgyNDEwNjQ4OWVjMzRkNmI0MmMyOWFhMGM4OTA4YjJiMTE1ZTgyZjJmNDQ3NDUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L520-L536",
+          "version": "repo-lines-v1:sha256:6bc51a0ec486fc4a2116e93477cddea5ea555d71f77ec83576a60a5d775bf3b9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4MTA1OGE2ODk3MTRkMjBmYTdhNDllMzk2NjFhZjVjY2VlYzlmNTVmODAxYWExZjE3MjExMGU3OWNiOGZiNjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjOWRjYmJjMDI1YjhjYjdmNTgzZTM5Nzg0MGYzZjcyMTNmYzM2MzNmY2UzMDY0YjZjMmZlMGE1MmVkMzQ5N2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZmYmIyOGI1YTJjODRkYmFmNjhlMGExZDZiYzhhM2Q2Yzg3YmI2NzY4YmFjYWMwOTljNmZlY2IwOTc0NGMzYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQwNzVmMWMyNjJlMWQ5N2M1NDNhYjlmZGQ2ODVkODdiYmNkODdhNGU1ZjRmY2NmYmRiODc5MDAxODRkZDkxZTQifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L138-L141",
+          "version": "repo-lines-v1:sha256:55d94647f8ec1bf46b058aa7c274815c2a350c4db30ea6bcd17456af0a124cc7:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNmNDAxMjI2MzlhNjliNzY0NjUzMzQ1MjUwNzQ3MDk2ZWM0Y2JhMWY5MDZjNjdjM2I3MzM1YjJhNWMyOTJiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNThiOWU2YjUxNWI4ZjU3MTI4YmE0MDgyYmEyYzU2MmUxMmZmNjc3MjE5MzAwMTY5MzI4OTVhMTNlOWIyMTVkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmY3NTNlNjdiZjNmMjg4NDc5ZjY1M2JjMWY2YTJhNTIwMWZlZmE4MzhjMGY3ZTJiYTViMDk0NDdhYWIzMjljZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWFhMGU3MzU5YThlY2RjYWI3YjQxYjA0NTE4ZGQyOWExYTk1MTA0ZjM3YWJmZTU5YWRiNjExNDU4ZGI1YjMyZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0bf44d12f9654d7186213c13562c84e7",
+      "statement": "The card renderer appends the reply hint line \"Reply to this message to answer in your own words or ask a question.\" to every decision card and omits it from status messages, which is how the owner learns the reply gesture exists.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L18-L22",
+          "version": "repo-lines-v1:sha256:f412a1adabdeaaf6e96d741ccd692e3bc9cf38b2f3a4db113ec6ed915191e38f:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTg3ZmIwNTQxNzg0ZjI0ZmM5MjU4MmI2ZGU2YzQ1MGY2NWE2NDRmM2JmODg3NmYxY2Y1YjRjZDlkYjFhNTQyZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQwNWRiMWE4MzNiYWEzZDI0NmRjOGNmZDExZDY5M2MzNDc1ODQyODFhYTQ5Y2M2MDI5MDAyY2UxYjc2OTVlZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWFlNDg5NDZjZGE1MDQ1Y2IzYzZlNDgzMTNhMmQ1ZjU3NjdjY2FhYzI2ZmI4YTg3NjRjN2E5MjNkYmNhOTkwZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTI5MDllNzgxNmE5Y2QzZWM5ODc5NzY5NDMzNGFjZGYyODIxY2M2YzY4ZTEwNzhiMWM0MzhjNWY0MDIxYWY2MCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L236-L247",
+          "version": "repo-lines-v1:sha256:48f8188af0063b13ee45e38943f45ca5fe684da1471ca078ea61830fc3588f50:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3MmNjZTY4MDRlY2Y0ZTlmN2FkMjg0ZTA1ZTdiNGM4MzQyOTI5YzNlZGYxNWVmM2Q2MTI0MTE0NjdiZDQxODUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4NDRkZmE0YjA0MTVhYWU2MjU2Y2I3Njc4OGU2MTIwYzc4ZWViMzZmNzA0ODE2ZmE1OTVjMjQzM2UzNzdlOTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1MGFhZjk0YTM4MGQ5Yjc4ZjAzMDc1NmMxNWNlNTQ3NDNhNzNiNDg4MGYwN2VkN2E5ZjRkY2E2MDgyYjNjODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwYjZjNDVhMTU1MzFlM2QzZjNkZWJhNmVmYzg2Y2NkZTc2OWI2ZmFkZDc5MTVkYWM3NmU2MTBlNmY0OTQ1ZmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e3639e5790884f52b564435b1c0c4397",
+      "statement": "Reply intake reuses the existing Telegram long poll and the shipped return path: getUpdates asks only for message and callback_query updates, and poll_once hands each update to handle_update and discards its return value, so the reply channel added no transport and no per-runtime integration code.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L239-L246",
+          "version": "repo-lines-v1:sha256:386bf71df0e9a57f9d94ac4a17d4d69694d86f4b84b025b7acb085cf3a252c54:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzZhYTU5MThhNjg3MDAwMjk0NTk3M2NjZWFlZjhlZWVhZTNjMWE2YWM2NTE2MTk1NjkyYzM1Y2E2ZDVkMjE3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWJkOGI1M2ZjMWJjMjcwN2NjMjc0Nzg0YTk1NjE1ZjhlYzFjZmQ0ZGQxZDM0NTQ0MjM1YjgzZThiMThlNjBiMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWYyMjhkNWM5ZjAwYzBlNjIxM2IwM2YwYmI0YmQ4ZmEyNTNlMTBlZDc5OTljNTI0MDc4MjIzOThjOGNlN2VjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTZmYjkwNWJmYzIwMDA3YWQ5Mzc0NjczMTJlZjk0ZGNkN2YxZTYyYjUzNWNkMjlhOGJhNzg4MDE2NzY5YjE1OSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L34-L45",
+          "version": "repo-lines-v1:sha256:ae158734d4c1f4b236d71e6b73e103f37d8e864bc7aa5bae3f9ed1106d95090d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZDM4MDVlMGNjM2U2ZDI1MjRkM2E4NjIwOWExOTdlZTU5NTA0MWJjMWFkNDVmNDdiN2I0OGU4N2JmMDk5MzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3MmY5Njk1Yzc0NjdjNzQ3NzNjOWNlN2ZjNDI5YzVkMGQwZTQ4N2YzYzUxZDE1ZDY2NjhhM2QyNDA3MmJiOTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkxZTBmNjlkNjk4MDlkNTI0MzgzMDcyNGVlZDRhZmEzYWY0OWFmMjhhOGFhZjBhNWViZDM5Mjc2MjNiZDEyZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiMjAwMWRiNmFlZDViMmMwY2ZkMjZhZTUxZGJhMDQ0NWJhNWU5MTE0Mjc1YjYyNzBiZGQ1YjNjOTVkZGY2ODMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-11T14:44:51.273Z"
+  }
+}

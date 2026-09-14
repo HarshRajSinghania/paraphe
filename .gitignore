@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+paraphe.toml
+.codegraph/
+
+# Run companion briefings are private operating context — local only, never tracked.
+docs/plans/*.companion.md
+# The run goal brief is the companion's sibling — local only, never tracked.
+docs/plans/*.goal.txt
+# The OpenWiki run state exists only while a run is in flight — never tracked.
+openwiki/.run.json

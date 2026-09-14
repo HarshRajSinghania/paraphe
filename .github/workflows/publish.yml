@@ -1,0 +1,50 @@
+name: publish
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: build the wheel and the sdist
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: build
+        run: |
+          python3 -m pip install --disable-pip-version-check build
+          python3 -m build
+      - name: the dist is one wheel and one sdist
+        run: |
+          ls -l dist/
+          test "$(find dist -maxdepth 1 -name '*.whl' | wc -l)" = 1
+          test "$(find dist -maxdepth 1 -name '*.tar.gz' | wc -l)" = 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    name: publish to PyPI (trusted publishing)
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - name: publish, no token, OIDC
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # A re-cut release of a version PyPI already serves skips the files
+          # that exist instead of failing on the duplicate upload.
+          skip-existing: true

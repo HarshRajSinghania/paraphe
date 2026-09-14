@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:cbf39e5ef99b03b40732b978797e15ea8c2b0cafd3a12ab9a93991323e0890dd",
+  "claims": [
+    {
+      "id": "claim_06a28ebbed1447c2b098a1875ff541ae",
+      "statement": "One function resolves the data location for the validator, the composition root and the tests, so the path that is checked is the path that is opened.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L110-L128",
+          "version": "repo-lines-v1:sha256:b05eecf447c7a37796146980b286d923172d891dbfd6062cdca64d9e3a5efeea:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyOTkwMjU1NDQwM2M3MmE1YzIwZDMyN2Y1OGI0Y2I4OTM4YjU2ZTQ5ZTI3NjFlNjNiYmZlM2Q4MTRlMGZjNGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI5ZWUxOTMyODRlODJmYjc2YWY0ZjRmNTgzZTQzZjA1MDdiNWYxMzJiMTY0ZTZkMzUyM2JhZmI5NGMwYzdiMWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ2Y2RkNzE1ZjA2NzY0ZDJjMmFhMzVjMjAzZTI1MzVmOTUzZWMxNWE5ODYzNTFiOTUwZTRiZjVhMWZkMThlZGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8f9a43efff07400c9b43361e0c6e623b",
+      "statement": "The default data location is the platform's per-user directory, XDG_DATA_HOME/paraphe or ~/.local/share/paraphe, holding inbox.sqlite.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/store.py#L21-L31",
+          "version": "repo-lines-v1:sha256:223194394553a49f3eefd3f03f6e669c442d9b9ec04152eac5ac15f458826f55:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAwMWY1Y2U5YmY2MDBiNzFlMTNlZDUyODg0ODc4ZmI5MmE5ZjQ5YjU1NmQ5ZWRlYzU4Zjk4NmFjOTIyZThmMjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQwMzUzYmZjOGVkYzkyYzllNTM2NDc4M2M0NjQzODE3NGY1NDQ3MDA0YmEwZGQzNjUxNTQzMDY5MmRlYjVhOWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxM2YwYzExYWUzMjU2Y2I4ZGYyMWEzOWYxYzYyOWM0MTQwY2NiZTgxM2ViY2FjOTgyOTMyYjcwYjU3YWYzOTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e2f12ad0aaa244de87039496da7afef6",
+      "statement": "An explicitly configured location is honoured even while a store exists elsewhere, while the default refuses and names both locations instead of beginning a second empty inbox.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/config.py#L110-L128",
+          "version": "repo-lines-v1:sha256:b05eecf447c7a37796146980b286d923172d891dbfd6062cdca64d9e3a5efeea:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyOTkwMjU1NDQwM2M3MmE1YzIwZDMyN2Y1OGI0Y2I4OTM4YjU2ZTQ5ZTI3NjFlNjNiYmZlM2Q4MTRlMGZjNGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI5ZWUxOTMyODRlODJmYjc2YWY0ZjRmNTgzZTQzZjA1MDdiNWYxMzJiMTY0ZTZkMzUyM2JhZmI5NGMwYzdiMWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ2Y2RkNzE1ZjA2NzY0ZDJjMmFhMzVjMjAzZTI1MzVmOTUzZWMxNWE5ODYzNTFiOTUwZTRiZjVhMWZkMThlZGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c97f1b206ea24dd89619e1a896096e3c",
+      "statement": "An unreadable path is treated as holding no store, so a permission error cannot masquerade as a store to strand.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/store.py#L33-L38",
+          "version": "repo-lines-v1:sha256:e8126ef03ce6152c7da098222814964782f454427fbcf3f577971586a1354013:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjIwNDcxMDM4MDJlNWI1ZTQzYzI3NWFlNTNlM2I2OGQzOTMyNTZiZGRiMmY3ZWMxOWFlMmFmNGM1YjMyZDEyNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk3YzcxMjQ3YWYzY2QxZWRmNTU1YTdkMTA3NTkzMTU3ZjZkYzJhMjJhZjBkZTgyZTc3NzRhYmYxMGY4YWRlMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDU1MjMwZTc5MmQ4YWQwOTkwODdmODdjZDNkZDM5YWM2ZDJlMDhlM2MyNmFlNzVkOWQ1ZDBiZjJlYjM4ZGZlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzg4ZTdlODBiY2FmMDg4OTM4ODg2YTI5OTZiMGViNGY4YTFhMmI3NTQxMzBmMGQwZjNmYjdhM2ZmMTNiOWFlNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_50e182c4b1be467d8e86607ecada5193",
+      "statement": "A data directory Paraphe creates is 0700 and the store file is 0600, both set explicitly rather than left to the umask.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/store.py#L53-L67",
+          "version": "repo-lines-v1:sha256:9d4c36ca5b572f3589f4067c73e73fae39e3d666469d73e39a41bfd262a86ee4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUwNjM2MTM0MTA2OWVkZGJlODRiNDM4YjNmMzk4MzAwNDk5ZDRkM2YyZGFkMGY2ZjNkMmQ2NjlmNzkxNDEyMmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzOTEyYmVhODgwZmJhMTQzZTZjZWUwYTU2NmI5MjBiY2IwYzdlZTBmMWEyNDY2NWZjNDEwMzgwZmVkYmRmNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0NDkzMDM0MDVkYWY1ZWU3MTNhMDI2NWE1ZTBmODM4NzY3NmU5NzgxZmMyMjBlNjM1OGE0NjMyNmYxOTFiOTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ2NjViZmRmNmRkNDRkOGE0NGYwMGM4MTA5OGFmNDEyYTFjNWRkNDA1YjMyZDUzODRlYWY5NWQzNGVjODhhOTMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_73ea040cc8f540c5b09ab9fe6d78c00d",
+      "statement": "A permission failure while preparing the location surfaces as the product's single-line setup error rather than as an OSError later inside a request.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/store.py#L41-L45",
+          "version": "repo-lines-v1:sha256:304325b647efa92964bd29353bc1b926ac7abb5d28438f0b22ece9c3a9ae42e6:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDE0NDM0MmE1ODNhOTMyOTFhZjk3YzMzMDllNGE5NGQxMDQ3MWQxMjIyYTUyYzNkODUwNWJlYTc0ZGMxNzgyNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjk5ZWZlZGZkMmQ5NzA2ZDg5MWM3YmE5ODNlN2Y4NGUwNWFkMGUwMTkxYzEzMjc5OGJlNWUzYzFjYzUzMDQyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTcyYmMwMmJkNjAzMWY0NjkxNWMzNjliMWRhMzYwOTY5Y2E5NDE3YTA1OGMyYTU0OGRjZDVhNjkyOGUyM2I4NSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/store.py#L53-L67",
+          "version": "repo-lines-v1:sha256:9d4c36ca5b572f3589f4067c73e73fae39e3d666469d73e39a41bfd262a86ee4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUwNjM2MTM0MTA2OWVkZGJlODRiNDM4YjNmMzk4MzAwNDk5ZDRkM2YyZGFkMGY2ZjNkMmQ2NjlmNzkxNDEyMmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzOTEyYmVhODgwZmJhMTQzZTZjZWUwYTU2NmI5MjBiY2IwYzdlZTBmMWEyNDY2NWZjNDEwMzgwZmVkYmRmNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0NDkzMDM0MDVkYWY1ZWU3MTNhMDI2NWE1ZTBmODM4NzY3NmU5NzgxZmMyMjBlNjM1OGE0NjMyNmYxOTFiOTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ2NjViZmRmNmRkNDRkOGE0NGYwMGM4MTA5OGFmNDEyYTFjNWRkNDA1YjMyZDUzODRlYWY5NWQzNGVjODhhOTMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7f0093292cfc4abdbd25a466f4907728",
+      "statement": "The store keeps cards, already-notified external ids and durable state in three tables created when the store is opened.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/store.py#L69-L88",
+          "version": "repo-lines-v1:sha256:bf82dbee26a9d2ce5b37a6f317469d52da56bfa9965ac5bdff3e8fcf0758ec70:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVlMjhiODc4OWY3NWYzOGYwMzliNzdmNjk0M2JjMzIxZTg0YWRlNjgyODA0NTU0ZWIwNDJjMGQ4MmM2M2ZlYTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUyNzg4Y2RiYmU4MGVjMzczZmFjMmYyOWEwNWZiYjk5MGU2OTE5NDllOWZkMzM0ZjQ5NzlkNmJlNmQ3ZjViOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0MDk5MDNhZTg4N2U2OWJjNDZiNjU5NjU2YTcxOGE3MGViODc4Y2I1ZWYzZDk5MTI0NTE0ZTgyZDE1ZTBiMGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhNGVkOWM4ZTg4MDM0MDg0OTRlYTZlZmVhNGRjN2Q1ZjAxNWZlOTQyM2E3NmVlMzk4YzFmYTllOTM0YTFkNTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_95781d4314d84ce7bc6124682ca7797c",
+      "statement": "The container keeps the data location outside the image as a mounted /data volume with PARAPHE_STORE_PATH pointing inside it, and runs as an unprivileged user.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile",
+          "version": "repo-file-v1:sha256:159d42d83d3d01974ce82eee5a9b411aad0e1aca9c9bd2e237c0f5fd135689d0"
+        }
+      ]
+    },
+    {
+      "id": "claim_f1eb732187e443308955af09728ecfb2",
+      "statement": "The decision record fixes the store as a SQLite file owned by a dedicated service user, snapshotted consistently before the daily backup reads its include list, with the include-list line an operator prerequisite rather than something the product adds.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0005-sqlite-restic.md",
+          "version": "repo-file-v1:sha256:34befe861f0a92a2926f9b45c1faf51e78e5c3ae814d12f8c1d6a4f21d54b793"
+        }
+      ]
+    },
+    {
+      "id": "claim_70dbf51499d443dbbc89061ea781a253",
+      "statement": "Restoring is documented as installing the service user and unit, restoring the data directory preferring the snapshot when the live file is dirty, then starting.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0005-sqlite-restic.md",
+          "version": "repo-file-v1:sha256:34befe861f0a92a2926f9b45c1faf51e78e5c3ae814d12f8c1d6a4f21d54b793"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-10T10:36:31.915Z"
+  }
+}

@@ -1,0 +1,732 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:ad25cb4c9853bdb3c8b46653fae67188609d884e72e53e4587b5541bf7371998",
+  "claims": [
+    {
+      "id": "claim_8ba46fdbfe2f4720a775cf9c995b6d54",
+      "statement": "The suite invocation is pinned in the contributor and agent instructions because a bare python3 -m unittest discovers nothing, runs zero tests and exits 0.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md",
+          "version": "repo-file-v1:sha256:743d6dc4f4da87ee2f26e217c5532c4cf16bc61a8e57faf38d5e2b9c44777abd"
+        },
+        {
+          "resource": "repo://CONTRIBUTING.md",
+          "version": "repo-file-v1:sha256:8ca9eeb011986840b8c8bc2b8b5559855a816ad1cec99bf3624c8a8efc2d0ad5"
+        }
+      ]
+    },
+    {
+      "id": "claim_d6a77c65f65e41e8864a9308ab62a31a",
+      "statement": "Tests import the product package by name after putting src on the path, so the modules under test are the shipped ones rather than files loaded under invented names.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L13-L19",
+          "version": "repo-lines-v1:sha256:483b97d60938311dd0c28d02f794b11199ff0b6800da99cb6101067f496e472a:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFiZWEzYzVjZmM3NWM0MjVkYmIzZDgzY2Q5ZGE0ZDkzNTFjYzk4ZjUxMGEzMjQxZTE0N2QxY2JhZTBmMmI3MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTI1OTgxNWI5ODFkMmU3OWFhMWYxMDFjZWI0ZDYxMGViY2Q0Yjg1NjQyYmE2NTM3MGU3MWZhM2RkY2NjMGE0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2Q4ZTA3MDcxOTY3MGI2MTI4N2Q5OGRlMWE5ODczY2QzOGRiNDdkNGU3NzBjMDhkNjljOWJlYjgwNjM4MzFjYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTU4ZmRkZmYyYWFkNTFhOTk1NWZmZDJlM2RkMWE4ZGZjYjhiMmIyYTI1NmE0MDM3ZDFhM2VkOTAyNjA2ZWIwYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8e219413e8ff49569c7fabf6a75f0ab6",
+      "statement": "The suite is the only witness that a change to the storage, the credentials or the namespace altered no behaviour, and it stays green in every commit.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L47-L48",
+          "version": "repo-lines-v1:sha256:c766bec0131c7eabbe7fd258610bc7bf756bffb6420d50fc71967307df98247f:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTlhOTRiMzYwYTNhY2M0NDgzN2FlOGVkYzZiNjIxNDE5MjUyNzk3OGZiOTY1MDFiZWRhZTk2NzI0NThjZjAwYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWNlMTMwNzYzNGJkZDczOTRiZTYxNDE3ZjQ2YWFlOGIwYzNhZDU4ZjYwMWY5NDkxMzc5M2RmOTc3MDRhNzYyMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjlhZmE3ZmM3ZGE1NTAzMjkwMGQ0NmMyN2ZiMzY1Y2FkNjdlNTYwODdmZDA4NzNjOGNmZjI3NmE1MWU0Mzg1NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDM4MDJlMGYyODcyYmIyZTc2NTg4NGY1ODZkNGZkMDAwM2U1NjQzM2Q4ZGEzOWE2ZWE0MjkzYWJiMzU2ZDMyMCJ9"
+        },
+        {
+          "resource": "repo://CONTRIBUTING.md#L17-L19",
+          "version": "repo-lines-v1:sha256:14cf0280d2e372c214c0f5b69b6b50b7ffe68076d6ebd53bcf5e891f8e9cada0:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGNkNzdiYmRiNmYyZDQ1YWFkY2EzNzQ5MGJlZmUwZmMyNzI1MTkwZDhjNzEwZjYyMTNhZDZmYWM5MzAyNjI1OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjU0Y2NjMjkwY2RiM2E4ZTMzMWNlMjQwZTMxMmQxNzg3MWE0MTg5ZjVhOTBlZjViY2E4ZjcxYjhmMjZiNWU4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWNkNTlmOTk1MDk2YThjYzZkODY1MjkwMTAyYjkzZTdjOWEyMmE1ZjA1OTg0YjQ4ODk0OWMwMjFhYjk1MDFiMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWI4NjE1ZDFmYmY4ZTJmNWMxZWE1YTNjNjE4YmM1NzUxMjdlZmFkMTFjZTljMTFjYTY2Y2U1NThmOWJkYmNhZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_53f0d2fb98ec451ba6d5d04a460153b9",
+      "statement": "The contract tests pin the stored source_thread as descriptive metadata: nothing is woken from it, so the value the caller sent is the value the card keeps.",
+      "evidence": [
+        {
+          "resource": "repo://docs/specs/paraphe-v1.md#L174-L174",
+          "version": "repo-lines-v1:sha256:a2ad858b2a77be26cf6942595b420e2dd3afd293a15c9d7f12365168890e48dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTJhZDg1OGIyYTc3YmUyNmNmNjk0MjU5NWI0MjBlMmRkM2FmZDI5M2ExNWM5ZDdmMTIzNjUxNjg4OTBlNDhkYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTJhZDg1OGIyYTc3YmUyNmNmNjk0MjU5NWI0MjBlMmRkM2FmZDI5M2ExNWM5ZDdmMTIzNjUxNjg4OTBlNDhkYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmI0ZGFmODYxMDgyM2U1MGIwY2IxMzJhMzY5MmNkZjhhNGQ2OWViZjIzNzJhOWQxZmFlNjQyNGNjMTYxMzBjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWRiMGY1ZmFiNGZkYTAwMDkyNWUyZWFhMjM2MGNmMzRmOWU3MjM0YzcwMzE2Y2MwNTU3OWE1NmFhMWQ0NWEwZSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L47-L57",
+          "version": "repo-lines-v1:sha256:d8a52a308b261395bf4b011430b5d187b17390ab2e146a9d297aa9c56580ed93:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0NTI2MDJiM2U3YWI1MjRjZDM2NGFlZWE4ZDNmNzFjNDFlNzE0YmUwMDY4NmE1MTVjMWNjNzA4YTkzOTgyMmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlNTViYmVmNWQ3NTJjYTZhODhlZTZjMmZmNzBiNmNjODI4NGFlYjYyODMyZTFmMTljODJkNDZkNmQ5NTIzYmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRlNzE1NTY0MGQ1YmM3OGYzMzcwZWQ3NDRjMTdiYzZjM2E1NDM5ZWNhYmEyMGZhOTRjZjYwYmRkNDliODQ4NmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxNGE5ODBlNzgzMWJlMmQ5NDExMDIwZDdhNmFmMTBmOGU4MDY5MmEzZmE1YmViNWIwMTM2YjNlMWQzZjJhMzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c535e306ea414e58a59cb096ff038ecb",
+      "statement": "Integration runs the suite on two operating systems across three Python versions, from a bare checkout with no install step.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml",
+          "version": "repo-file-v1:sha256:ef29c7ae3dfa785ae37bce3ea8577ca3ae952722414fffb7673442e3261dfa64"
+        }
+      ]
+    },
+    {
+      "id": "claim_2b258c81157442caa4169a9bf41a8c74",
+      "statement": "A distribution job installs into a clean environment, runs the console command and asserts exactly one top-level package is installed.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml",
+          "version": "repo-file-v1:sha256:ef29c7ae3dfa785ae37bce3ea8577ca3ae952722414fffb7673442e3261dfa64"
+        }
+      ]
+    },
+    {
+      "id": "claim_e9c1d45420594031835ebe18350b3972",
+      "statement": "A container job builds the image, runs it with a mounted data location and fails when the ready line does not appear.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml",
+          "version": "repo-file-v1:sha256:ef29c7ae3dfa785ae37bce3ea8577ca3ae952722414fffb7673442e3261dfa64"
+        }
+      ]
+    },
+    {
+      "id": "claim_c1691efd398b4fa3b57a528a35ae697f",
+      "statement": "The private-term scan takes its term list from outside the repository, reports the file and the category without ever printing a matched value, masks a filename match, and refuses a list that lives inside the repository.",
+      "evidence": [
+        {
+          "resource": "repo://tools/scan_private_terms.py",
+          "version": "repo-file-v1:sha256:04af0be799a068c72bf47717ab5a566e6fa8516265485cec3f0b5bc34c571035"
+        }
+      ]
+    },
+    {
+      "id": "claim_d3e4c21b936b4a55a069a41de766c151",
+      "statement": "With no term list the scan exits 2 reporting that it did not run, and the integration job fails with an explicit message when its secret is missing, so the gate never passes silently.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml",
+          "version": "repo-file-v1:sha256:ef29c7ae3dfa785ae37bce3ea8577ca3ae952722414fffb7673442e3261dfa64"
+        },
+        {
+          "resource": "repo://tools/scan_private_terms.py",
+          "version": "repo-file-v1:sha256:04af0be799a068c72bf47717ab5a566e6fa8516265485cec3f0b5bc34c571035"
+        }
+      ]
+    },
+    {
+      "id": "claim_5667c32e87734d0fa5fd38eeca40725c",
+      "statement": "The setup tests cover the relocation refusal naming both locations, the created directory mode, a card surviving a restart, and both entry-point paths.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_setup.py",
+          "version": "repo-file-v1:sha256:997cd8ccec7136db23a8a8ac72639a7693bafe4a283243459a96afa556e2fd66"
+        }
+      ]
+    },
+    {
+      "id": "claim_8c7a0d34ea3e4d5ebda875481127252e",
+      "statement": "The runtime tests exercise startup and long polling against a temporary store and Telegram API double, including offset durability across a restart.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L63-L95",
+          "version": "repo-lines-v1:sha256:bac12ab0389dd9ab26d822f83cb4484bec47418fa337d4f4902c9a8d0a8147f7:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlN2M5NTdiY2I0NGZiNjczYzk4YjAwNTBhNzVkMzgwODJkYjgxZDkxOGRlMzEzYTNmMDdjMTIzNTMwNmQ3ZWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk3OTMxZWY0MTFjNzkxOTlmZGY3MWJiZmVjZTlkOTcwMjhiZjJkYzdhNGVjN2Y2MmMyMTE1MmY0NGM0OGZmMTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM4NDc5YTdlNDU1YzY2YzZmMzE0NjY4OWY1YzFiMTZhMzkzYWRhNzhlZmRhMzUxZGE2YWZlZTc4NzM1MWMwYzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4e8b1136a5064b3ba4d22634173f99f6",
+      "statement": "The pinned suite invocation is the same command in CONTRIBUTING.md, AGENTS.md and the CI suite job, so a local run and the gate discover the same modules rather than two different sets.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L22-L23",
+          "version": "repo-lines-v1:sha256:accf36332dfb54ad0fe09d0c925c9c96f5797e66e4b69e9265cc6f0d7e95be6a:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTczMDA0NDg2MmRhZGQzNzc2MzY3NDE4NzRmNTk4MjhmOWRmNjgzNjE2YmNhOGU2ZWI3ZThkYzcxOGQ4NDVlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU2MWY5YjA5YTY3OWEyZmJjNzg0MGViZmFjZTc3NzFkYWJkOGYzNDRlZThjZTU2ZDkzMjY0NTY5NzZjMWNiMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTI5MGIxYTk2ZWQ5M2QwYzI5ZmRkZTJmYmE1OWU4ZDVmMDMxYTM0NWI4NTQ2MzI4ZDdlODg2NmYwOWI1MzdhYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYThmZTgyYWM0NjNiOGRlNDAyNTUxNDg4MjhlZTgzMzhmZDBmMGMzM2FjNzExYzFjMDgyYThiMjk2ZGRlYjU4ZCJ9"
+        },
+        {
+          "resource": "repo://AGENTS.md#L36-L37",
+          "version": "repo-lines-v1:sha256:88f17c5efa9a6cf8ac521711ee34957ee29d24d7b9def29c1423c592f704273b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWRlMmY1MzI4ZWU2ZTgwNTBlOGFhZmQ4ZGM4NjlhMDY5Y2Q5NTg0ZWRhYWY1NGZlNTg5ZDczYzNiN2RjZDc5OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTg3ODBmODRmNmNmMjU3OWY0NDUzMDQ5YjU3NmE3NjlkOWFkMzY0ZGNjYWE3MzAzYmJiODNhNjFjMTEzNTcxMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmI5YjRjOWFiZWQ5OTM0MjAzZjYxNzRkMTI2Y2IyY2I3NTEwZTFlYzE3ZjNjMjQ5NDIyMWYyYzc3NTZhMjczOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2Y0ZjRlNzg2OGQxMmI2MWU4YzUwN2QyMmNjZmQwMmM3YTgzNjNhYzc4ODBjYWY5YjhjYzg0OGVhYzI0OTU4OCJ9"
+        },
+        {
+          "resource": "repo://CONTRIBUTING.md#L8-L10",
+          "version": "repo-lines-v1:sha256:d19217c57cdb77a2d2032aceba21e3459df815441191463058c52bab12492121:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWRlMmY1MzI4ZWU2ZTgwNTBlOGFhZmQ4ZGM4NjlhMDY5Y2Q5NTg0ZWRhYWY1NGZlNTg5ZDczYzNiN2RjZDc5OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDdjMDZjNTYxZDVjMzI3MzQzNjg1MjY4YTQ2YjMzOTFmMzk5OGVlZTg5MGQyYmU1MWYwZDIxY2M0YTUzYWU2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmI5YjRjOWFiZWQ5OTM0MjAzZjYxNzRkMTI2Y2IyY2I3NTEwZTFlYzE3ZjNjMjQ5NDIyMWYyYzc3NTZhMjczOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2ZjYzY4NjMzY2ZjM2IyYmQ4NWM1MGI1N2MxNDVjZDQ4ZDI3Y2VhZGZiZGViM2UzZDJlODBmMDJjNGNjNDc4YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8472afdaf673492c9f2495f4cb854a75",
+      "statement": "Contributors are told to read the test count, because a green run that ran fewer tests than the previous one is a red flag rather than a pass.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L40-L41",
+          "version": "repo-lines-v1:sha256:f902ab760d130cb6e0941968dc9751f2c9237299d562e67572569f815f353ab7:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTg2OTI0MGJkZDg2YjQwYmM5OGM3Y2Y1ODg4YjQ4NjJjZTFhYjVkZWJlYjBlOGFkM2IzY2NmYTNiYWE0Y2FiOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTkyYzY2NGU2OGE4ZTk4NzkwNDFmNzQ1MDk0YTUzYzQ5N2JiMWJhNDY4MDQwOTliMTQwNDVkZWE1NzIwYjQ2NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTViMDg3OWE1ZDMwNzczNjJlZGVjOTBiYWNlOWY3ZGIyNzM4YjZlNWIyMzRmMGQxMzFjNDA4ZDgyMDExY2VhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmUwMmI4ODM4NDljNjc4YTZhNjYxNWMwNmZjYjE5OGRkNGFjOWFjMTBhNDI5YTY5YzljMjRiMjgwNjFkZTc0MCJ9"
+        },
+        {
+          "resource": "repo://CONTRIBUTING.md#L17-L19",
+          "version": "repo-lines-v1:sha256:14cf0280d2e372c214c0f5b69b6b50b7ffe68076d6ebd53bcf5e891f8e9cada0:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGNkNzdiYmRiNmYyZDQ1YWFkY2EzNzQ5MGJlZmUwZmMyNzI1MTkwZDhjNzEwZjYyMTNhZDZmYWM5MzAyNjI1OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjU0Y2NjMjkwY2RiM2E4ZTMzMWNlMjQwZTMxMmQxNzg3MWE0MTg5ZjVhOTBlZjViY2E4ZjcxYjhmMjZiNWU4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWNkNTlmOTk1MDk2YThjYzZkODY1MjkwMTAyYjkzZTdjOWEyMmE1ZjA1OTg0YjQ4ODk0OWMwMjFhYjk1MDFiMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWI4NjE1ZDFmYmY4ZTJmNWMxZWE1YTNjNjE4YmM1NzUxMjdlZmFkMTFjZTljMTFjYTY2Y2U1NThmOWJkYmNhZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c364ad4725a045be8986d4941390db7d",
+      "statement": "Paraphe declares no runtime dependency and each test file puts src on sys.path itself, so the suite runs from a bare checkout and the CI suite job proves it by installing nothing.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L17-L23",
+          "version": "repo-lines-v1:sha256:b050e5dac99ac6a138f58e27ab8a1fa72f4154abfb3af9054b487de3606fcf06:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzg5OTkxMTAzZjZiYTg4OGUzZGU3NjUxYzVhMzA1Yzc3ZTU1NDc2NzczYWJhODM5NTkxZWNjNWJkMGYyYWIxZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU2MWY5YjA5YTY3OWEyZmJjNzg0MGViZmFjZTc3NzFkYWJkOGYzNDRlZThjZTU2ZDkzMjY0NTY5NzZjMWNiMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDZjN2Y4ZDFlODJjMzEyZWMzNmU3NTc4OWMyYWQ2MDViYjU2ZDg3MWVmNWJiN2VhYjE3NjQxYjY4N2RmODAyMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYThmZTgyYWM0NjNiOGRlNDAyNTUxNDg4MjhlZTgzMzhmZDBmMGMzM2FjNzExYzFjMDgyYThiMjk2ZGRlYjU4ZCJ9"
+        },
+        {
+          "resource": "repo://CONTRIBUTING.md#L32-L34",
+          "version": "repo-lines-v1:sha256:a6188d035dab209d75c70d85addb5c43ec839fb1b9da9f473a2f1e0ba9d34cc7:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ0YWU4ZmVlN2U1YzkwZmFkMTM1NTIzOGI4MTQyMWIzYWFiZjNlMjE5ZTllMjJiZDI1NThlMTBmOWY3YzIzMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTQ2YTViZjU3NmE3ZGQyZmVhMWJmYWI3MTk2MWU1N2U5M2YxYjhjMDNiMDRiYzhhMmIxOTZhODYxMDBhYmU4OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDhiYjVmM2Q2ZmEwZTRhZGU1YjhiMTdiMDk3NjdlYzQwZTU2MTkxZjQwYjJiYmI2ZDg0ZGYwOTc4NGNjZTU2OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzdkNGIyYTQ2ZmFhODkxNTA1MjMzMDM4MWMwYzIwMjYwMDg1NzA2OWI0YzU5Nzc3MGYwZGRlM2M4YTE0YjVmNiJ9"
+        },
+        {
+          "resource": "repo://pyproject.toml#L13-L13",
+          "version": "repo-lines-v1:sha256:8bfea17e6b2d7883cf14a2a33d25532281b01c08658f2349179dbae7ec9a5b7c:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGJmZWExN2U2YjJkNzg4M2NmMTRhMmEzM2QyNTUzMjI4MWIwMWMwODY1OGYyMzQ5MTc5ZGJhZTdlYzlhNWI3YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGJmZWExN2U2YjJkNzg4M2NmMTRhMmEzM2QyNTUzMjI4MWIwMWMwODY1OGYyMzQ5MTc5ZGJhZTdlYzlhNWI3YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTNiYjAzYTg5N2VhNTNjMzI3YmQ2YzE3YWYzYjIzOGFiY2YyMDc0MjQ5YTk3YWU3MGQwNTUyZWI3NzllZjcyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmVjODQyYzVjNTU3OTU4NzJlOGVhYjBjNzRiNDk2NjliZjMyZjU4NjA3MjEzMWUwMTUzOWEwNGVlN2RhMWQyMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c9b4ba49ffe446cbb709989bad9f7f1c",
+      "statement": "Tests live in tests/inbox, which is a package, so discovery from -s tests imports them as inbox.test_* modules, and a new test is expected to go next to the behaviour it covers.",
+      "evidence": [
+        {
+          "resource": "repo://CONTRIBUTING.md#L21-L22",
+          "version": "repo-lines-v1:sha256:ada93b0eba7413177ecc77570c3e1bdd63b5184a38deddbf1ba78ad05aaee7b7:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE2YTU4OWZjNWVmMmZjYTRiNTFhZWMzNjQ4NTViZjUyNjhiN2EyYzMzNTMwZTk3ZDAwZTRkYWZjMzdkZDM4MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjliNmExZmFiY2JkNmQwNzM4MDhhMjA1OTdjNjVkNTliNWE5Mjk0YTc3MWYwOGE0NTczNDJiOGFiMWU4MzZkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTY3MDdlZDE4ZGRkMjZkMzRlYzE5YWYzODdiMWUwNTJmNzRhOTQ1MmUzZWVlODk2ZTUwNzNjYWMyMjUyZDhiMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODgwZGVjNjYzMzBmZDkwOTI4YmE2MGJhMTM3MjYyZGQzNDIxYTFjMGIxNTQ0YjE2YWM4YTk0ODY5MzU0YmJiZSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/__init__.py",
+          "version": "repo-file-v1:sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "id": "claim_983aeb3ecbd94f2495c62e97ece03442",
+      "statement": "The suite has no fixture layer: a test builds its own inbox against a temporary store, and host-dependent state such as the legacy store path is patched away so the run is host-independent.",
+      "evidence": [
+        {
+          "resource": "repo://CONTRIBUTING.md#L21-L22",
+          "version": "repo-lines-v1:sha256:ada93b0eba7413177ecc77570c3e1bdd63b5184a38deddbf1ba78ad05aaee7b7:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE2YTU4OWZjNWVmMmZjYTRiNTFhZWMzNjQ4NTViZjUyNjhiN2EyYzMzNTMwZTk3ZDAwZTRkYWZjMzdkZDM4MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjliNmExZmFiY2JkNmQwNzM4MDhhMjA1OTdjNjVkNTliNWE5Mjk0YTc3MWYwOGE0NTczNDJiOGFiMWU4MzZkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTY3MDdlZDE4ZGRkMjZkMzRlYzE5YWYzODdiMWUwNTJmNzRhOTQ1MmUzZWVlODk2ZTUwNzNjYWMyMjUyZDhiMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODgwZGVjNjYzMzBmZDkwOTI4YmE2MGJhMTM3MjYyZGQzNDIxYTFjMGIxNTQ0YjE2YWM4YTk0ODY5MzU0YmJiZSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L43-L54",
+          "version": "repo-lines-v1:sha256:4c8a5b187e8c0b2f34f9b30185bba6565456609c1ac80259fbb329649dda407e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZhZmI3YzE0OTg0YWUxYjE5OTA0NjAwZWZjNDhmYTY1Y2JiZjMxYWE3NDQ1Y2U0OGNhNzc2ODhmNTM5ODJiMzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRmNDNjOWM5OTQ4ZjRlMmNkNjZhMmNjOWQ2M2FjZTUxMTgzYmQ4ZmIyZDgwMzMyNWJiMGM3MDg3M2E1MDc0MDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjM2QxYWYzNDhhZTgyYjQzMjBhMmQ5NzcyZGNiYjI4OThiMzgzNjA4ZmMxOWE2OWYzNjNmZTQ5ZDlhMDA0NmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY1MzI4M2YzYWU3OTVmYTY4MDQyMDcxMjgxN2NjNGMyN2I1ODRiZGJmZjQ2MDRmYTY5MGYyOTljMzRiYzE1MTMifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L31-L45",
+          "version": "repo-lines-v1:sha256:4d78594266610bad44f3b62e54a42218ba97dd6ecf290ee2e6883ef7ee4cf435:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmOTZkNmQ4ZDlkOTFlMzViNjUyMTU1NzkxOGE3YjdhY2EzMTdlMmNhNjM1ZTQ5ZGRmYTY0MGQxYmU0ZGRlMjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImViODkwMjE5M2M2YTdjMTdiYmY3NTAzZTRmYjE1Nzg1OTIyZjcxYjU4OGRmMzk4NzZmOWM5Y2IzMTZlYWE5ODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU2MmExMTAyNTNhM2I5NWRkOTMyYjkzZDAxZmI3Y2JlNTYxNDNkZTU2Y2YzMWJhYTJhM2I2ZThjYWExZjhhZWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7bd8ccb17e444f479b8480f78f7e078a",
+      "statement": "The contract tests read the documented tool table out of docs/tools.md and assert it equals the served tool names, and assert that every served tool carries a description that is not its own name.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L25-L28",
+          "version": "repo-lines-v1:sha256:200116cd774c226f5df922a2f70f7c489205483e124580408c185a4c13ddee9d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk0YTJmOGE4NDczOTdhYjgwNDBhNjc5ZTIxM2FiMDQyMGY2Nzk0MzRhYTY5NzBjZGU5OTBiYjE1NDAwMjY1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmZjNGU1ODgxZTU4MDcwMDVmOGZlY2VmOTAxZjZkZDI1ZGFkZGEzNmE5NGVmYzFmZGRlMDk4YWIxOGE2NDYzYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2Q3ZDZhMTAzNTI1YTY2NzQ5ZjUwYWZjZTI4YzgzMjdhZTg3MmMzZTU3Yzk2YzZkNGZhNThiNmJlOTdjMDc0MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTU1ZmJhY2Y4ZDVhNWE4YzFlZDY5MTY0ODU5OTNlYWUwN2U0MDFmODA4NzA3M2YyNzhkZGZmMzM0ZWVlMzQxOSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L59-L71",
+          "version": "repo-lines-v1:sha256:fb60c7b466135d0ae35a3bb747399e3f961cc47021190d0f86e2d063cc74fa65:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUzNWJjYmY2YzZmOGIyNjNmY2RkYjI3MDI0MDdjNTZlZTlhYTdhZGMwYTA2YjY5OTE3ZjBkMWUwNjBiNmJiODIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NjE4ZTdhZDIzZWI0ODYyMThhYWRmNzM1NmQ5ZDQ5MDc0MzMwYWU2MzcwZDg0ZTQ1MDZiYzFmZGRhZTNiNjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY5N2RhMWE5ZDVmNTYwY2Y3OWE5ZjdlNDBlMTg3MjNiNGUwZmZlOWZjNWUyZGNiODUzOGViNWFlMjJiMzE4MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAxZjNlOGIwZmY4ZjY1NmY0NDM1MGNkYTMzZTQzNWY0NWM0NzlmODIxNTA5MTFjMWVhMDQ5NzQzNWI2MTZiNWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_05fd692c11174a9eacd5f5c9ad5d2e25",
+      "statement": "The contract tests assert that the served how_to_use text and tool descriptions carry the async protocol (record the request_id, wait_seconds, get_response, list_unprocessed, paraphe wait, drain) and that no served tool name answers or claims a card.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L138-L141",
+          "version": "repo-lines-v1:sha256:55d94647f8ec1bf46b058aa7c274815c2a350c4db30ea6bcd17456af0a124cc7:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNmNDAxMjI2MzlhNjliNzY0NjUzMzQ1MjUwNzQ3MDk2ZWM0Y2JhMWY5MDZjNjdjM2I3MzM1YjJhNWMyOTJiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNThiOWU2YjUxNWI4ZjU3MTI4YmE0MDgyYmEyYzU2MmUxMmZmNjc3MjE5MzAwMTY5MzI4OTVhMTNlOWIyMTVkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmY3NTNlNjdiZjNmMjg4NDc5ZjY1M2JjMWY2YTJhNTIwMWZlZmE4MzhjMGY3ZTJiYTViMDk0NDdhYWIzMjljZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWFhMGU3MzU5YThlY2RjYWI3YjQxYjA0NTE4ZGQyOWExYTk1MTA0ZjM3YWJmZTU5YWRiNjExNDU4ZGI1YjMyZSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L73-L85",
+          "version": "repo-lines-v1:sha256:28ce142a0030ecff83b86e6d9eae2de6d004d64b64463b719ec210731ff17213:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzMzM3NWVkNWE4YzkzNDUxNTQ5OGQ1NDczYjA0N2ZmMDY5MzFmMzRkNTc5OTdlYzFmZTU2YzI3MWFiYzVjZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI1ZWI3ODExYzU3ZmY2MjNlZTJmMGI4ZGJhYTcxMzIyNWZlNTY5YTQ1MDkxODBjZTUwMjAwNTJjZTJhNWVlMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjljY2MwNGYyY2YxZWJjYzQ0ZmMxZGYwOTc5YzgzNWNmNmMwMWQ1ZDRkZWMxNGZlZThhOWRmMWI5NTE3OGI3MzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhjNjAyZTk0YjgzZTJkNGUwZWRlNjQ2NDI2ZGUzMTczY2U2OWRjMjcxYTYxNjNkM2RiMzlkMGJmNjNlNjFhNTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c08349180ee548f5a0c522287258d752",
+      "statement": "The contract tests pin the console destination's two-method contract: notify and edit_and_strip both print the card's request id.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adapters.md#L11-L23",
+          "version": "repo-lines-v1:sha256:065bba40d84905d17858f6185c471f5411d0bcbd3bf1f99e169c636f6ccbcf71:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlM2I0ZDVhZjU0ZWUxZjA5ZWM5OWNhZTRmMzg5NWVhYjI4MTkwY2RjZTAxNzdlNTY1ZmEwNzU2NzhjNzA4ODciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUwMzdhMGVkZjJlODEyNDM0YzU5MjhhZWQ4ZDRlY2Q0YzYxYWI2MDdmZWUzZmI0NjM0OTc2OTY2YzRiZThkYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU3MjJmMDBmMzFiMGExMjI4ZGFmM2ViY2U2NWM4ZjQyNzk3MGI3ZjBjNmE0NmFiZTg1YzJkZjljODYxNDhjY2UifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L143-L151",
+          "version": "repo-lines-v1:sha256:b952ca623fd2cf919b9892766371b265c09e64e3f80db5f0ad01d6f3f0d8de09:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGUyY2JiNGJhMjViOGZiYTdhODY3MjQ5ZmUzMzdjYTBmMmU1YTRmNjg1YjU1YzRlNTYwZGUyZDI2YmIxOTlhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDhkM2NiNzU3OWQ2MjI3MWMyYTYxMzE1NzJhZjQ3MzM5NTMzYWRlOGFhNThkZjAzMzI5Mjc0ZTEwN2JjMWRlMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWQ5NTQ5NGJiYTY3NzZlM2FiZTZjNGI3ZmM0MmJjZTRlZjMwNWY5MTdiMDhlNGViM2I3NDZmM2FmNTI1NWVhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Q0MTM0MGNjMjM5YTE1OWNlOWI2MDIyZTlmNjMyMjgzMmUyZWFkNzZjYWU5ZTQ3NTRkMjEwZWI4ZmI2ZDVlOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9ab1197bfb6043a8b8f51b8093d1314a",
+      "statement": "A change to the create/answer credential boundary must come with a test proving the boundary holds: tests/inbox/test_setup.py pins that the create credential is refused on the answer path with 401 while the card stays pending with no claim recorded, and that configuration refuses an answer credential equal to the create bearer.",
+      "evidence": [
+        {
+          "resource": "repo://CONTRIBUTING.md#L26-L31",
+          "version": "repo-lines-v1:sha256:53408909225d9dbecdd0a657d95b1964b2e2c10147d785ba128eb8f0cd24c6f3:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDQyMDM5MzU3ZTRmZTc3ZWU4ZTUwNzM2OWM4YmQyZWRmZTczMzRlZWNjOGRiNzExMmYwYjNjMjI2ODMzZTg2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjAwZGVlOWE2NGZiYWRmNTg1MzNhYmEzNGZmMGMxNjBlODgwOTg5MDEyNTQyODg2M2UyY2Q1ZDg1MDU3YzgxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODgwZGVjNjYzMzBmZDkwOTI4YmE2MGJhMTM3MjYyZGQzNDIxYTFjMGIxNTQ0YjE2YWM4YTk0ODY5MzU0YmJiZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTYxODhkMDM1ZGFiMjA5ZDc1YzcwZDg1YWRkYjVjNDNlYzgzOWZiMWI5ZGE5ZjQ3M2EyZjFlMGJhOWQzNGNjNyJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L112-L119",
+          "version": "repo-lines-v1:sha256:b69e15ef36679a28553c7b587d009b4fde43a8c6e889499618df074a8b73f1d2:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWZkMDNlYzZhM2M0OWEyZGQ1ZDQ1ZmQ2Y2EyMjBmMjU5MTNkM2E1MjYyYzQ0N2I0MjY2OTZjYzJjYjg3M2VhZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTVhYjljMDIyMWU1ZGQ5ZjA0MjA4MmNlNjQ3NWQ4ZmJiYjMwYjI1ZGVmMjM3ZjFmNTA3ZWNmZWE1YTY0ZmJhYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzg4NTY3MGQ0MzRmMmQxNTM5ZDI5ZDBjYzk1YWUxMTM5MTQ5MzExNzZiYTU1OWJmNWU0NTA1ODYyMDNiNTZjMSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L400-L410",
+          "version": "repo-lines-v1:sha256:5337b65979d43e2c6248cbf9f29815dee2bd398166f893acf9fb31e05d7c6940:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3ZWZkNDc5NzQwZjFjNjJiZDQ5MDY3OTlmN2Y1Yzk1MTFiOWQzMGViMTFiYjk5MWM1OTAzZjkwZjVjY2UyNjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2YzQ2ZDU2MTc0MmI2NWQ5OGRhODgyYjFkMDgyZWZhYWFmMDM1MmM4YWY2NWU2NWU4MjIzZjlhOGNjZDI4OGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE5MGJkOTU4MjZlMmNhZjBiYTQxZmEzMjAxNjhiMjU1MTkyODhmYWQzNDY5NjhiYTY4ZjBkMmIxZWJkNzA3NjEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_692099d5954a4343a59315a2f67510ac",
+      "statement": "ADR 0011 withdrew the WakePort seam, so no delivery seam and no wake-port test module exists; the return path's witnesses are tests/inbox/test_wait_engine.py and tests/inbox/test_reply_intake.py, and AGENTS.md's Layout table is the last place that still names a wake port beside the destinations.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L17-L18",
+          "version": "repo-lines-v1:sha256:b77b99915a866fa669b3bcc7d261301b2cff6a155050e59dfb2b547935918143:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzZiZTc4MDAyM2FlMmU3MzBkYTQ0ZjhlOTk3ZDgwMDhiMDZhZDBmOThkZWExNDcxMTA5M2Y0YmQ5MDg3NWRkMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2UxODk0MGY1YTFmMzg1MGQ3ZTg1ZTJjYWNhMjA3Mzk3NzY4YTU4M2JhYzVjN2VkOTk5MjY2NDg5YWJkZTVhNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjEzODA2MDkyZjMzN2NkYTEzMTljZGQ3ZWRjMjdjMWQ5ZDMwODI2NTc5ODVmNWY0ODQ3ZTM4ODRkYjU0NDdiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjIwMzQ2NTE0ZmM4MDlhYjUyYzM3NTE2Y2YzMDgwMGE3ZWRlNTc5YWY5MWZkNjgxZjVkNzM3MmYxZDdlZmRkYiJ9"
+        },
+        {
+          "resource": "repo://docs/adapters.md#L53-L59",
+          "version": "repo-lines-v1:sha256:58e462cc5d95267b89a10b51b933b2f7424edf2bac694786da88df38f8e904ff:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODk4Zjc3NjkxZTYyOTE2OTZkM2U3NjZiZGQ3YzhhNzI4ODUyYjg4YTBkNzZmMDdiZWUzMWJiOGUwNzM0ZjhmNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMThiNDBmZmMxMjk2YTI3NWVkZDZmZWY4NDg0ZmJkMjg3NDUxZTA4NGU1MTBhOGZkZWMzM2RjMzE3Y2Q5OTcxNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmY3N2VhMTBkYzc3NDZkNzU4MGUyZjYxZWY4ZTI3N2ZiODI0NjU0MDlmZjMzMDY3NWEzNTViMzkwYWVhZjcwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://docs/adr/0011-answer-returns-through-the-ask.md#L44-L46",
+          "version": "repo-lines-v1:sha256:822d81e2fc2be92d4add4699b51c4674598308dd11d83711027aec59cdfb2625:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1YTRkZTNmNjA2YzdiYjdkMjY3NjkyMWNhOWYyODg1MGQ2NTEwZTE2MjRiZDkwOWExYjk4MTM2MmNjZDNmNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E3YTdkZjk0MmE3MDc1NzRmMGY2MTliNjllZGU4MTQ3OTM5OTYzZjhlMTk5MjY0NTkzNDZkMWQwMDM1OTY0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTI4MjNlYWVmYjM0NGNiMzNlMmI1M2Y4M2Q3YzZhZDY0MDczZDA3YzMxMzc3Y2ExNDYxZmI5ZGE4NmEzNDcwYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWY3MzI4OWRlMWJiNWUzYTg0MzRjZmYzNjE2NzM4Zjg1ZTdkNDMyYzkxMzZjYTgwOTQwYjQ1OTgwYThhZWI4ZSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py#L186-L214",
+          "version": "repo-lines-v1:sha256:f2f3ff7fff9a6a9815591334183c431ca94ea03f61180be49f9fac84bab38a3a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzYjkxNjhjODUyZjg5ZWY4YzJhZGUwZDM1YzI4MTNjZjgyYTU0NWFiZGNjYTM3ODA0MTY2M2ZmYTdlNjZhYzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZlN2I4Zjc2OTRmMzZmNzA2NDE3NjMzZDM4MWZkMmJhNGVjYmQ1YjI5ZTI1MDE5MjRmYzAyOTg2NjY0MmU2YzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2MGM0NjVjMDBjODE1MWJmYWY4NGY2ZjlmNjFhYjlkYjc1ZDlmNThjMGVmZjk1YjdjZGZmYWRjZWMwZjk1MTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI4M2FkOWExZTZkZWJhMjIwNGFiZTlhY2YxNDAwY2NjOGZlMjA2N2RiODIwMTVjYjQ0MDQ1ODZlNTY1MTI4NDYifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L99-L199",
+          "version": "repo-lines-v1:sha256:d608bc5095726d50f3c95f68b6567c78276f9266f081c0f8cb293557419bbd52:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIwNTJkMmRmOWJkYzE5YmUyNDJmMTM4YTEzNDZmYWE3NjQyNzFhZjI3YWVhMTNhMDc2MWY1MGE2YjM3ZWIwMTU1IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1MWVlMWRjOTg1YWMzNTVlMTU4MmNmYWNlMWI3MmU2NjhjNWU1OGQwZjY4MjdkYzRjNTg1M2M0OTFiZmI4MDdhIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0OTZlMzVkZjA3ODU0MmJhZmE1YTQ1MTMxY2UwMmYwYjQyZTdlOGM0MDNjM2MyYzFiMjIyMWVkNmUzZGI3MzJkIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIwZDU2NGUwYmU0YjVjZTBmNzc1YWI4MWUwYWRhOGYyYTBjYWE3YzczZjQwMWUzMWFjZmFjODAwNmM2ZTc2NDI2In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_6eaa426fd9b3487092b6ebf7e2f192f7",
+      "statement": "tests/inbox/test_wait_engine.py covers the wait engine at three seams: park and wake at the Inbox seam, a parked call over the real served HTTP endpoint while other traffic proceeds, and the paraphe wait CLI exit codes (0 answered, 3 expired, 4 unknown request id, 1 without a create bearer).",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L202-L309",
+          "version": "repo-lines-v1:sha256:ee3ed4455a6ec88fff4eec5d45ec4b8bb20a1e9e0d43345369bb5f517909854a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTA4LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJkN2Q4MDA5MWFjN2QyYjcyYjhlYzA1Yjg3YzNjN2IxOTJmNmZmOWVlZjQ4YzEwODZhNmNkYzI5YTkyNDVkNTBkIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1MWVlMWRjOTg1YWMzNTVlMTU4MmNmYWNlMWI3MmU2NjhjNWU1OGQwZjY4MjdkYzRjNTg1M2M0OTFiZmI4MDdhIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIyNWY3MWIyODI5NzdlYzgzZTA2OTRlZDM0YjQ4ZWFmZDMxZDlmNjM0NGRhOThmZTY3ZmVjOTllZjhmNGY5M2U4IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJiN2E2ZmQxMWFiYTIzY2RkNGVjMWU0ZjMwNDM4NjI4MDMxZWY0NjkzOTg4YTEwMTFhY2MwZDM0ZGRjOTZkZmQ2In0"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L312-L438",
+          "version": "repo-lines-v1:sha256:c8ed24591ebb8271b46965c9f616ef394ee45ee70d23a1d4e20520e4b0b9e4f0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTI3LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJkYTQ4OWRiMjRjZDM3ZWVhYzUyZWY2YWVmY2QzYzgwZjZjZTYwYmJjYjFjYzMwMmY3ZjU1OTdmOWM1ZGNhMmY5IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJhY2RmMjIzZjVhYzg5OWFjZTM5YzM4ZDQ0NjM5ZTkwNTc2NDk3NmM4ZDIxMTcyMGFiNGJjZThkMmUzYjIzYTM4IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIyNWY3MWIyODI5NzdlYzgzZTA2OTRlZDM0YjQ4ZWFmZDMxZDlmNjM0NGRhOThmZTY3ZmVjOTllZjhmNGY5M2U4IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIzZDQxMzQwY2MyMzlhMTU5Y2U5YjYwMjJlOWY2MzIyODMyZTJlYWQ3NmNhZTllNDc1NGQyMTBlYjhmYjZkNWU4In0"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L99-L199",
+          "version": "repo-lines-v1:sha256:d608bc5095726d50f3c95f68b6567c78276f9266f081c0f8cb293557419bbd52:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIwNTJkMmRmOWJkYzE5YmUyNDJmMTM4YTEzNDZmYWE3NjQyNzFhZjI3YWVhMTNhMDc2MWY1MGE2YjM3ZWIwMTU1IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1MWVlMWRjOTg1YWMzNTVlMTU4MmNmYWNlMWI3MmU2NjhjNWU1OGQwZjY4MjdkYzRjNTg1M2M0OTFiZmI4MDdhIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0OTZlMzVkZjA3ODU0MmJhZmE1YTQ1MTMxY2UwMmYwYjQyZTdlOGM0MDNjM2MyYzFiMjIyMWVkNmUzZGI3MzJkIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIwZDU2NGUwYmU0YjVjZTBmNzc1YWI4MWUwYWRhOGYyYTBjYWE3YzczZjQwMWUzMWFjZmFjODAwNmM2ZTc2NDI2In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_ddbb09d1fd024809a98c29dd54ff9c21",
+      "statement": "Every push to any branch and every pull request is gated by four jobs in .github/workflows/ci.yml: suite, distribution, container and private-terms.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L1-L8",
+          "version": "repo-lines-v1:sha256:e10571ade3aa5dea8f7b51c16ee2c538c4df2255ec934f5fee8630ba6ebd709f:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTU5ZTNiOWYyY2VlMGMwODA5YmY0MDY2MWZmZjNlMmZlZDI2NDRlMWQwZTA3Y2UyMjA0ZWQyYmEzOWVhMTFiMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTlkODAxNTRlZDQyZmM1Yzc3OWIxMzMxNTc4YjU4Yjg5YzgwMWVhY2U3NGYyNGNkNDhlYjRhMjM1Nzk0MGE5NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDE2ZDI3NjFhYjRjZTIwNTI0YzI4ODViM2M5OTcwNmVhZTY4NDBmOWU2NzMzY2YwNDk1MDJhYjY2OGRjNTlmYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_704f524ee4a54a9aa024e2bcacdddf9c",
+      "statement": "The private-term scan takes its list from ~/.config/paraphe/private-terms.txt unless --terms or PARAPHE_PRIVATE_TERMS names another path, parses category:regex lines with blank and comment lines skipped, raises rather than returning a pass when a line is malformed or no usable lines exist, and the integration job writes the PRIVATE_TERMS secret to a path outside the workspace.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L83-L96",
+          "version": "repo-lines-v1:sha256:165deffdc8697f627aa207670499f21f556f27bf0dfe3add3ade9a1838a74d6a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiNmY5ZTZjNWQ4ZTVmZmE3MmNmMGIwNGM5MWYxYjE0Nzc1OWM0ZWI0NDY0MzM2MzFhNDkwNzFjMmUzZWI5OWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0MTIxNDExOWQ3MTg5M2RhZTA2NmU5MTYwNzVkY2YxNWEyNGVmYTJhOGJjMWI3NDFlN2ZkZTFlNDg4MDllNGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0Y2YyOGYyNmRlMDI1NWM1ZDAzOWViZjQyNWJiOWE5OTcwNzZkNTJhYjhjYjZmYjU3OGZkN2EyNjU3ZmY1ODYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVmMGQzYTI1NzA4YTQ3NTY2MjA1Y2NiNzcxNzhlNzI1NDgyYzYwM2ZkZmFlZjE5NmE1NmJiM2VhMzIzYWM1NGYifQ"
+        },
+        {
+          "resource": "repo://tools/scan_private_terms.py#L21-L33",
+          "version": "repo-lines-v1:sha256:01ca678af1a2af51aa611646ee925e376ebca28d7c7e410e8c539e91417955aa:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxN2ExMzE4ZTQxMTdmOWY4ZGQwZmIzNDBjZDEyZGRhYzMxZjJjMDgwMGU2MGU2MmI1NzIyNGU5MGRkMjA5M2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjOTdlZjBkY2ViYTg3ZjZmZjI4MzMxYWQyYzAyNmFjM2IwNTFiOTM2YWZjYjBlM2U4MGYwYjMzZjIyZmExYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJlNmZiMmJhMWZiMzU4NDU2ZmE4NTVmMTM3OTEwYzdiYzVkODZiZDc2NDZkMWZhNTgzNzhlYmUzNzM4MzBlMDQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ3OTcyZmMxZmU4Njg1OTNkYTYzNDFhYmI1Njg1YjU2YmY0ZWRjYWRjYzNlM2E3MGZmODMxNjVlNDg1ZDZmY2MifQ"
+        },
+        {
+          "resource": "repo://tools/scan_private_terms.py#L68-L83",
+          "version": "repo-lines-v1:sha256:7765060656d370e917358508a5f3e5283cee1bc154b4dcdf66aae3f27141d47c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0NDBhYmY0ZDM3NmViNGUzYWUxZjNiZDU3Y2FhYjlhMTg1OGJlMjBjNTdlNzRmN2YwNGExOGQ1NTI4ZGZmMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmOGY4ZmQ4Yjg2M2JkOGJhNDJlZTgwNGUxOTE5MDg3Njc4NzIxY2EyNzVkMGVjMTQ2NTkyNGNlMDA1MDIxZjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0ZTJlOTIwMDY0Mjk5NWFlYzMyYmU3NzM3Y2U1YzM5MzEyOThlY2Y4YWVjZGI2Y2QxZDhhYzU2MmEwMTA0NjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEwODU3YjAxZTNiMzlkOWEwYzBmNmVlZWVlMzgwYzQwNGY2MjA4ZmVjZTQ1MzZmMDc0YTVjN2Y5MzRkOGU3N2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fa5525df7390493fb221e3d325fe5969",
+      "statement": "The suite contains a card-renderer witness: tests/inbox/test_card_renderer.py pins the full-card fixture, the identity line built only from fields that are present and in order, escaping of markup metacharacters, the message budget with its trim marker and longest-free-text-first trim order, lone surrogates that must not fail a render, and the status-message layout with no decision sections.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_card_renderer.py#L82-L240",
+          "version": "repo-lines-v1:sha256:7c1d49ce515118dad4c0aab04ce55750c11a83f11b09dce323339bc5166ce893:eyJzZWxlY3RlZExpbmVDb3VudCI6MTU5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI0NjIzMDRmMGEyYzk1Njc3YjBlZWI4MTNjZjlmNjcxNDJmZmY2NTA4ZDM1OTI5MDA1YTRiZTM0MTllN2JiZjFmIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJmNDg2ZmY1Y2Y5MzYzYjQ0MjkzMzY4MDNiMmM5NjBlNzNkYThjNDdmYTBjNmY2NzY1OGQxNGIzMjNjZDIyZDM0IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJhOThiMDYzZDliNDdlNjUzNzk2MjU1NzJjY2UxOTc2NjlkNTc2N2UxMmMxOGJlMDc1NjUyYjhjZDk4MWNlOGQ1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MSwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJkZTkzZDg5MzkwNmVlYWYyY2FkY2M2NTU4NTk3YmQ5MzMwZTJlYjY5ZGZiNjBhOWM4MTc1MjE4NTI3ZTcyNjgxIn0"
+        }
+      ]
+    },
+    {
+      "id": "claim_051b2c6e9e064c148e52665eb22cc99a",
+      "statement": "The suite contains a reply-intake witness: tests/inbox/test_reply_intake.py pins that an owner's private-chat reply to a card message is recorded verbatim as the answer with responded_via telegram-reply, that it writes the same lifecycle fields as a tap at the same moment, wakes a parked waiter, resolves after a restart, and that refusals (non-owner, group chat, wrong chat, unknown target, missing reply target, a second reply, and a reply to a superseded or status message) record nothing.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py#L135-L300",
+          "version": "repo-lines-v1:sha256:639de70ac5a980aee444a12a9df9b39d0a34a66c1d985ba832bd58046b185857:eyJzZWxlY3RlZExpbmVDb3VudCI6MTY2LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI5NDYwYzg3NDZhMjc2ZGRhNGU5OTIyZWFlNDhmMGE1NjNiNjM2NGMwN2YzZjA5YTBiZWNhZGQxZGJkYzQ4NmY0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI5MjFhMzUzMjEyNzQ5MGQzOWQ0NGU2N2YzYjYwOTFhOWM2YTU5OTVjMmU4YWYwYzY5MThiNjAxMzYyOGFkODQzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI2NzFhZDY0NmQ4OWQ0ODBmNjhiZjU2OWU3M2YxOTc4NzM3ZDNkZTg2NDE4ZGJkOWU2MWJjOTJkNmM2OWIyZGFkIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIzZDQxMzQwY2MyMzlhMTU5Y2U5YjYwMjJlOWY2MzIyODMyZTJlYWQ3NmNhZTllNDc1NGQyMTBlYjhmYjZkNWU4In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_5b5e28b35d074fa5a1d3c23349ce2307",
+      "statement": "Test doubles are injected at the seams — a fake clock callable, fake Telegram bot APIs, notifier recorders, and patched runtime TelegramBotAPI or legacy store path — while the objects under test are the shipped Inbox, TelegramAdapter and Runtime, including a real inbox.serve(\"127.0.0.1\", 0) endpoint that the wait and lifecycle modules speak JSON-RPC to over HTTP.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py#L29-L93",
+          "version": "repo-lines-v1:sha256:016ef389c23d5b70088f4d4b454ea91b7b6015afcf4a927c0bbd13c4c13b99df:eyJzZWxlY3RlZExpbmVDb3VudCI6NjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2YTVhYmM4OTY0MjdhOThkMzFlN2EyMDM1ZTBlYjU5YmQ2N2ZlZTgwMmU4YWEyOWNmNzQ2ZTFmNmFiZDJjNDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM5NWY0ZjM4OGFhMmZmYzc4Mjk1OTQ5ZTE5NTBlYjZjMDhjYWRjMDM2N2I0ZWY2OTc1ZjAwZWE1ZWQyOGNiODQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgzMGUwZmNhMDU2NDg1ZTI5MTQ0NGRlMjkwNzM4MWRmNjU2Yjc1NWVkMjZiMmU4MTZkZjYwYjNjMDE5NjNmODIifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L83-L88",
+          "version": "repo-lines-v1:sha256:10685163803077c7eee52680a5c95bdc6cea3a8095871bcae587a76b10f233ea:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTEzNDlhMGU4YjJlZTQzNDA4MzFmMGM3NDZkODJhNWFhYjA1ZWI0OTUzYmRmZDQ2ZGI5NjEzZGU2YjUzNjRiNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTU5Y2FjODhhMjRkNjYyZTZlODQ1ZTg5NWIyZDVlZWFmOWIyMjhjMTA0MDNkOWMzMjYyM2VmZDA3MDQ0Yjc0NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjQwMzY2MjNhODVlNzJhMjZkN2E4NTQ4Mjc2ZDQ5NDc3ZGM3N2RjNDI5NTdmZWRiN2U4OTA4MzY4YmI3ZTI5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjlhYWJiMjBlNGEwYmZkZGNmODNmYWM4YzMzODJhYTIzYWEyMDAzMDlhMTA4MDc4ZWVlYjQxZjc4Y2Q0OWFhZSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L202-L223",
+          "version": "repo-lines-v1:sha256:c2559be127c2d4be99d84ef4f4e8d64052cd9230d9f061255ad410595ba4d99e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3ZDgwMDkxYWM3ZDJiNzJiOGVjMDViODdjM2M3YjE5MmY2ZmY5ZWVmNDhjMTA4NmE2Y2RjMjlhOTI0NWQ1MGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhMzQ3M2ZmZWJiNmMzYzgwM2ExOWEwNmE5YzUzOTY3ZDM2YzMwMTdhMzgzNTA5YmRmZmM2ODkyZmM1ZmNiYWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI1ZjcxYjI4Mjk3N2VjODNlMDY5NGVkMzRiNDhlYWZkMzFkOWY2MzQ0ZGE5OGZlNjdmZWM5OWVmOGY0ZjkzZTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2MjU1ZmZmOWVkZDE4M2YyM2Q5MTU5NzhjZmU1YWMwMDMwOGNhNTk3NTE4ODE3MjFiOGQ4MmFkOWVhNTUwY2EifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L48-L80",
+          "version": "repo-lines-v1:sha256:7146d13a73111cbc86c8a0de16640149ff0152f1b4c7f50a2c53bf55f300cef8:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ4YjYzZGZhZDM1NTVhM2IwMTcxZTlhNjdmNzM1Nzk2NTNhODYzMTQ1YTMwNmU5NzMzNWNjZDM5NTNkYTFkY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Njk0NDJhYjNlNzJiMzA2YTJlYmQ2M2YyNzlmZjY3YjUzODljNzkyYWUyZDg3NWU2NDc0NjAwYzU3MjZhOTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5YmY0ZTg1MjMxY2RhZGQ2ODc0NDg2ZjA2MTkyYzU4MzA3M2Q1NjZkNTQxYjY0YzNhZTg5OTA2NDNmZWI4NWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ2NzA3MjdkYTgzNzlkNjFmMmRjODFhN2MyMGNiZjJlY2QwMzUyOWFjMzgzOTIyN2YyYzU1NzY3NjM3YWM3ODYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_86ef16de13fd492fb5db4f79897661f5",
+      "statement": "The contract tests also assert that the served text teaches provenance tokens and the reply rule and that a created card renders its identity line from the payload it was given, so the served surface cannot drift from what the documentation promises.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L87-L136",
+          "version": "repo-lines-v1:sha256:c8c418d603519da68a519a8eb5c6c8ee55bc40f4c1fe1ca434b2971144578416:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmOGQ4NGUyOTg5YjQ0Mjc4MGJkNTE4ZmFmZjgxMGQ5NDM5NWZiNzRmNWYwYzA0ODM0NjU0NzNhMWMyNjYyYWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkMDY2NzljZjgyMDlkNzJjMjQ4MTdmOTY3ZTFjMDZkNGM3ZDkwYjE0OTFmN2RlYmJkNmNiNmJjYjhmZDljMDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0NjAxYTkzOThmODE0M2Y0YjFkNDY3MDcyYjMyZWZlMjdkMmU5ZmQzNDg0ZWI5MzQ2NDg4NDVjNDYxMGEzZGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRjMTcxYWI0ZmZlOTMzNDc4NTkwZGU2N2MyM2QwNDQwZmExYmViZTdhNTFhYjM0NzEyOTA3NDA2ODE1NGRhMjEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1a96311af84146d9bff90e6b957568cf",
+      "statement": "The container job exercises the image the Dockerfile describes: the package installed on the Python 3.11 floor, /data as the data volume with PARAPHE_STORE_PATH pointing inside it, and an unprivileged user — which is why the job mounts a data location and passes both credentials through the environment.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L55-L78",
+          "version": "repo-lines-v1:sha256:49036d9b75ee403442d83724695b92fdf68621db02a8d23e1e6abb46c6bfbd38:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxMWMyZDA1NDAwY2NhMDgzMzE2MmE2NTFkYjIyMTgzNzA2NTE0ODgyNGU1YmFhNjA3MWRmNTA5M2EzYWU1YjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxODdjZTRmMDJhYjRmY2Y3Y2Q4MTc2ODMxNTgzNDVjN2ZjNTI0OTc5MzEwMWMxYWVkNWM4NGMxNGViMjg3ZmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI2NWMzNDc4NjkwOTRmYjVkM2IxZThkNzZmMTVkZjU4ZGYyMTEyMmU0NTIwMmY4OTZkZjk1OWNjMWJhOWU0NGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNjNzU0NGE0NWRlYWE2M2Q0MzhmNGIyMjQ3NGY1YjdjMTAwZDVlMGYzODJlOGQ5MzQ3YjhhZGQ1MDM1MTQ3ZTYifQ"
+        },
+        {
+          "resource": "repo://Dockerfile#L1-L19",
+          "version": "repo-lines-v1:sha256:159d42d83d3d01974ce82eee5a9b411aad0e1aca9c9bd2e237c0f5fd135689d0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhMzNhOWY4N2VhOTY5MGQxNDM2MDhjNmNiMDg3Mjk5ZjhkNTI1OWJlNjgwMDVhYzhkODAzZGM0YzZkYWI3NzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlNzY3NjliOGFhMWM5MDEwY2JlN2UyYzliYzY2ZDMwNmU1YjAxOThhMTkxNGIxNjc3MGM0ODIwNDZhOTBhZjgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_014d0813ae4d447394f9e9ea4f5bf71e",
+      "statement": "The distribution job's exactly-one-top-level-package assertion matches what pyproject.toml packages: the single src/paraphe wheel with no runtime dependencies and the paraphe console script, so a leaked dependency would surface as a second top-level package and fail the job.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L33-L53",
+          "version": "repo-lines-v1:sha256:fac2097dccbce4251ecc8cebb2db2cdab03dfdd972885031678cb942d116a80f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5MWQ2MDEwNWU0N2U0ZmZmMjE1ODI4MjRmNzQ2MmFjODM4NzkwZDg4MzliNjI5Njg4YWEyOWM2NjA5NTg3NjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkYTEyMzEwNzQzYWIxM2M4MjQ5NWE3NDU4NWZmNWU2YjcyYzAwMjIzMmE4OGU3ZTdlZDUzYzQ1Y2FlMzMxNmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNlYzQyZmRhMDdiNDY1OWRjYWZhMTIyZjBkZThmOGE2NTAyMTIzMjA5ZmJlODZlYzBkNzA0OWRiNjhiZGU4ZjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY4NTJjNzBjOTNlNzkyNmFkYWM4YWE0MWYyNGE4Nzg3YTljMmJlMTU4NzhlMDdhNzBjNzEzYWUwYjMzM2YzNjMifQ"
+        },
+        {
+          "resource": "repo://pyproject.toml#L13-L32",
+          "version": "repo-lines-v1:sha256:2a47b0ef69a5a7a95397e44a3cbfecebd0952b8a7172286bed87effad63dc8af:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhiZmVhMTdlNmIyZDc4ODNjZjE0YTJhMzNkMjU1MzIyODFiMDFjMDg2NThmMjM0OTE3OWRiYWU3ZWM5YTViN2MiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAyZWE1MjlmMTU3NTExYWZmYzcxMTMxMWIyNWM4ZGUxZGRkNjJiNWUxZDVjNGNmYTQ0NjM3Mjg1OWQwMjBiNTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzYmIwM2E4OTdlYTUzYzMyN2JkNmMxN2FmM2IyMzhhYmNmMjA3NDI0OWE5N2FlNzBkMDU1MmViNzc5ZWY3MmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFkMDNhZGEyYmE1OWU3MmZlOWMwYzNiOGYyOGI3NzM4ZGJhYWNlZjVmMTAwNmQ5NmM3MGZjNDU1ODk5ZjQ0ODMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d89d135703454b43abbf1bf14969af56",
+      "statement": "The suite job runs the pinned discovery command on ubuntu-latest and macos-latest across Python 3.11, 3.12 and 3.13 with fail-fast: false, so one failing leg does not cancel the others.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L9-L23",
+          "version": "repo-lines-v1:sha256:9fa47e8530bee9411db6f8b910e6fe202ce987301caadad401cb3ba6dc1e941e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2OGU5MGJkNjAyYWU2MDM3YjIwZGJhM2NmMzUwZDQyM2RjYTYwNDU4NzNkNGQwZTExOTU2Y2U0ODI5NWUxMTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1NjFmOWIwOWE2NzlhMmZiYzc4NDBlYmZhY2U3NzcxZGFiZDhmMzQ0ZWU4Y2U1NmQ5MzI2NDU2OTc2YzFjYjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlYmUyODEzYjUzZjM3NGM0NmM5OGMyYmQxOWQ1MDg0NWFmZTUyYTdmZTE4ZjUxM2RkNjVhYTQxYzliZmU5ODciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4ZmU4MmFjNDYzYjhkZTQwMjU1MTQ4ODI4ZWU4MzM4ZmQwZjBjMzNhYzcxMWMxYzA4MmE4YjI5NmRkZWI1OGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7e4232e4918e4c22bde6faa33943d734",
+      "statement": "AGENTS.md is the repository's canonical instruction file (CLAUDE.md is a one-line pointer to it), and together with CONTRIBUTING.md it states the rules a change must satisfy: standard library only at runtime, the suite is the witness and stays green in every commit, a create/answer credential-boundary change needs a test proving the boundary holds, the create credential may never answer a decision on any surface, sending to a destination is best effort with the store as the source of the answer, no secrets, no private reference in a tracked file, and one failure mode per change.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L1-L5",
+          "version": "repo-lines-v1:sha256:03af54594e72a8f5db915d2680f8bf81f97bb19b66d372983902453b734a3a18:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE3ZTg1YjFiYTNhMGE5NDM4ZjgzYWI1OTQ3ZGNiOGI5OWZiMDk0NWE0ZWJiZTkzMDZkNmI5NzI0NTEyNzRkZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODkyODMwZmI5YzQ2MmYyNTFlMmE3NjkwNmNkZTVkNzY4ZDQ3MjJiYTkxY2Y5N2NjNGNiNWQ0ZTAwYzVmNTQ1OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDYzYWM0N2I0NTBiNTgyMmYzMjVjNDE4MWM0NDk4OWQ2MzBiODczOGQzMjMwMTMxMzdjYjEzNWM2MDEyOGUxZiJ9"
+        },
+        {
+          "resource": "repo://AGENTS.md#L43-L57",
+          "version": "repo-lines-v1:sha256:78f5265128e9d2c60008cf509a13c31172675db295ea0fb8265b9347aa3da1ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUyNGIwODdjNGMwNDIyZmE4NDQ1MTQ2ODA4OWE4YWM3M2MwZmIxYWM0Y2E4NzhmZTJlNDM1MDlmNDg2YWJiNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE5ODVhODU3ODllODllYmRkNzQzMzE4Zjc1NzBhYjliOWVjMDRmYTYwYjEzMWNjNjNiYzU5MDNmN2JjMTAzMGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY3MWU1NjIzYzY3YmQ0MTdjYWRjZWQ0ZTlhZDE1OTJhNmQwNmEzNDViNWYwZWMzMGVjMDM4ZDk1ODhmN2YwZjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlmOTU4MDI4M2YyZDZiMGU1MjRmM2RmOGJkYjg3Y2FiOWJlMzU0MDIzNjFjNzliOTZkZTg3ZTQ0NmQ5NDAxODYifQ"
+        },
+        {
+          "resource": "repo://CONTRIBUTING.md#L24-L38",
+          "version": "repo-lines-v1:sha256:bcf574d111ab5aa4b9d363dc5a1b5066ce8f5be64641bf029e01bbb208b3b783:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI1N2QwMTcyYjQ1NGU2M2QzYzkxNzQ3NmI4M2MyZGZiYTMwZjZlYTVhYmQyM2Y2MTBiMzE3YzllYTFiZWI0MjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQzNWMwYTdmYmIxYjVlNGM0ZjE0ZDcyOGI0ZjBhZWI0NDQ1MDZlN2UwNjRhMmY4ZjE5ZDBjY2U0YmExYTM4YmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAyNWZjMTMxYzk1ZmE0Y2RkY2Q0ZDBiY2YyNmRlZjgyOTI3ZTBmZjU4Mzc5NWZjODUzMzBjMWYyYmUyZDMxNDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4MmU1ZmYyNDNjZDA5MzkwMTMwMTNhZWRhNDFjMTU3ZDQ1ZTRiN2Q2OTBmMGQxZTU0MmI1OWE4YTJlNDIxY2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_29ad6361700a4d76ab749c3f20d3c589",
+      "statement": "AGENTS.md also carries a Card surface section (the Telegram renderer's ordered rich sections and the owner's long-press reply recorded as the card's text answer on the same claim path as a tap with responded_via telegram-reply, on an owner-side seam that never gives the create credential a way to answer), the private-term scan command to run before every push, and an OpenWiki note stating that openwiki/ is generated optional context and that source code and tests are authoritative over it.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L24-L31",
+          "version": "repo-lines-v1:sha256:87218f255e7461dfa14d6dac9275cd758a9ade85bd5a61fc5df9ceb10c9731fd:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM2NmU1MmUwOTMyMTQ4N2YwYmUyNWQ3NTUwNzcyMDE3NWMyZjQ3MDAzZmRiNDM4ZmZiYzBiODFmOTk3ZGI3NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmMyZDFhYjRhN2E5YmZjZDZjNTlkMjhiNTI4MTFhOGI4MDFhYzcxOTJjMDE1MmQwMDMzMGU3Y2JhZGVjOWRmOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDgwYTgzYTlhMWNlZmM1YzM3MmZlOTkwODAzM2Y5MTA0MGM3ZTA2MDg2M2Q2MThjMDkxYzNhYmExYzJjNTRlYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWRlODY4ZWE0NmM3ZDUyNTgzMmQzMWE2YzE0NTdmODI3MDQ4NGNiYTk5MDE0YjU3N2MyMDI2ZDAwMTQ0MmJmNCJ9"
+        },
+        {
+          "resource": "repo://AGENTS.md#L67-L75",
+          "version": "repo-lines-v1:sha256:f65d3bcf7c07da8941688a95f32062e4662da553015aec52fa1bf4909fa02706:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWZkMzRkOWEyN2E5MGY2ODliYzJmMzY0ZThiMjFjM2IzZWY0NTJlZDhiZmQxY2MyY2NkZGQ2ODNhNWZlN2NkOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2RhODYzNmFmODdkMzA0NmM5ODBkMjg4NWI4YzMxODJmMmUyNDc1N2ZiYjFjNTdhMzBjNzU2M2I0YzdkYzhiMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWIxYmM1YmM0YTIzN2Y1NzhlNmFmNGE0MTVkMDY0N2Y5OTEwYjAzYjM2NGUxZTI3YzFmMWRiYWE3NDNkMDNiYSJ9"
+        },
+        {
+          "resource": "repo://AGENTS.md#L77-L87",
+          "version": "repo-lines-v1:sha256:2066111756019639fd4ad6a1c6bd7323a3db5fdcf9d2b66a57aa9fac5e0ba943:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMTgwZjljMTI2OTAzYmNjMzMxYWE5NTQ1NmU0OTQ0NGE3ZDRkMDExZThhMmE4M2Y1ZGM4NzAyMzkxODEyZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI2ODA4MTFiMjBjNDI4Mzc5ODNkMTIwYTRhMTBiZTczYzg0NTJjNmIzNWQ0Mjc1YzNmMDk0MWQ2MTk4M2UyMjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA5Zjc4NzE0ODkzYWE3Nzk0MmNlYTFjNGEyZTAyMzFkYmI3ZmEyYTQxYTcwYzgxNDYwYTNjNjc1NjJkYTNhYWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_858eebe1dcf34564867f47d70e56a8f2",
+      "statement": "The suite is exactly nine unittest modules under tests/inbox/ — test_card_renderer.py, test_mcp_lifecycle.py, test_reply_intake.py, test_runtime.py, test_setup.py, test_surface_contract.py, test_tap_claims.py, test_telegram_port.py and test_wait_engine.py — with no third-party runner and no fixture layer.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/__init__.py",
+          "version": "repo-file-v1:sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "resource": "repo://tests/inbox/test_card_renderer.py",
+          "version": "repo-file-v1:sha256:dc6e9366849b6055725025af4466b391f25a872e5d8e37796b0b185f0374c66d"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py",
+          "version": "repo-file-v1:sha256:dda26ec6a315f9de7fb1557fd12ef700dc6d823b7a99b67d1ed03b13e652699e"
+        },
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py",
+          "version": "repo-file-v1:sha256:2357a27623da4eb9ad3711e9a46ec8116f11038339beb3ba736e7effecb0dd22"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py",
+          "version": "repo-file-v1:sha256:9eef90478ca4093fc16d507d6eed44c99f9f5fb6b84c57b65583d04a633ceb3a"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py",
+          "version": "repo-file-v1:sha256:997cd8ccec7136db23a8a8ac72639a7693bafe4a283243459a96afa556e2fd66"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py",
+          "version": "repo-file-v1:sha256:80aba6fbf5acdad9826ed5e3d6b105c9815aac3dee4f1d4cf29d8b24b388fdb6"
+        },
+        {
+          "resource": "repo://tests/inbox/test_tap_claims.py",
+          "version": "repo-file-v1:sha256:b9a3ae3ba807a2c9a4b199e27c23c45e87f398ca2ef15d19798db02f94b78c3e"
+        },
+        {
+          "resource": "repo://tests/inbox/test_telegram_port.py",
+          "version": "repo-file-v1:sha256:2b6ea67113b695196dcaae64faca5492506be7fba5eb3e5a284ca30b8f8bf849"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py",
+          "version": "repo-file-v1:sha256:730b76a82b3faa8316d62cac2cec0816914ece912d016796fa5b95f7197a78d8"
+        }
+      ]
+    },
+    {
+      "id": "claim_c4ec7575d0dd40f1a98a4719855c892d",
+      "statement": "tests/inbox/test_mcp_lifecycle.py witnesses the twelve-tool card lifecycle over the Inbox seam and the served HTTP/SSE surface: the default TOOL_NAMES list, duplicate external_id resolving to one card and one notify (including two concurrent creates), field and TTL validation, provenance round-trips, tap-only closeout, expiry moving a card off list_pending, the served inputSchema inventory, 401 without a bearer, SSE POST answering while GET is 405, wildcard-bind refusal against tailnet acceptance, the 413 oversized body and keep-alive poisoning, and fail-closed durability (no ghost external_id after a failed save, one notify per card across rejected or ambiguous sends and restarts, a corrupt store load refusing to serve a prefix, and failed saves leaving tap, mark and renotify state unchanged).",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L1107-L1154",
+          "version": "repo-lines-v1:sha256:060dac3def14eecbaf430b718572152add1903fb0b0790686e85e21a7f502ec5:eyJzZWxlY3RlZExpbmVDb3VudCI6NDgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyYWMxOGY3ZjcyMTRlNTQwOThiNzI2NTFkOGI0ZDllZDc3YTQ2N2I4MzY5MmM1MzM2MDJlYWE4N2ZiN2U5ZDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImViNzM3OTViOWE0MzJkZDMzM2VjMWRlZWViNGI4YzgyOWUzYTAxMDcxMGFjOGE0OTBjZWM1ZDAzMTIxZWFlZTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg1MjkwMTgxMDI0NmJkYzRhNTY0ZjJjYmIyMjQyMjFiNWUyMDBkMTA2ZDYxNjc0MmE4NGYxYjIwYzg0MjVjNTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhNDg0NWEyNDVkMjMxNWUxOWI1ZDg5OTIwNGI2YTQ2OGQ4MWUyYTA5ZDhkMTBhMDBkMGYyM2RiZjdlNWIxZmQifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L145-L190",
+          "version": "repo-lines-v1:sha256:2a52110c5179b69872a91a0634ed77f363fc29a0296b99fc7d1d2c7b5c6a7c20:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzODVlYmE0MDFiZGNmNjNiZWM1ZDYwYjg0Njk5YTk4ZmE1ODg5NDc2YTZiOTU5NGVhNzY3ZjE4NjFkZmNmMTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk4YzJlNWYwOGUzMTQzMDI1YWU4OWI3YmIxMGQwMzZhMGU5ZDg1NzY1ZmYzYzliYWRkM2U0NTk3ODA5YWE2NjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlNmQwNTU5NmViODViNGJhYmRiNjZkZTU3NjVlYWE1MWU0MjFjNGNjMTM1OWRjNjg1NTczZWIxYjFhODU2ZTUifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L191-L352",
+          "version": "repo-lines-v1:sha256:a227fbce9105a27be673f299e701eb96c680efaaa4f163e06a46e623cb904b55:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYyLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzNjFjMWRkYmVkMzdkNjcxMjAxNTMwNzI4MWQxYjlkNzVhYWExNzAzNzE0MDFiYzRlN2VkNGI2YjZmNzQ1ZjIyIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJkZDc4ZjhmYjQzYTU0NjVmYTk4ODYyNGUxNDVkZjBlZDI0ZGU2YzA4Nzk0NWExNzU4ZjQ1YTA2ZTZiY2I1M2Q3IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzMjkyMjhkODExNjBkMDM2N2Y3Nzc3MDUxM2U1YjIyODgyNGM1N2ViMmI3Y2M4Y2M2NjMxMGZlZGFkNTE4OWQ0IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlNjZlYjkxN2M1ZGU1OGMxZDM5MzM1MTcxNjVhMDFkNjgyOTlkODE1Njg0NDFkMzIxMjRhMzU0NTg0MjczODRlIn0"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L466-L534",
+          "version": "repo-lines-v1:sha256:54fbf2199ea844bd254cce1cb60feb36e5b83eb77d4574705f92ae31c9d4bce1:eyJzZWxlY3RlZExpbmVDb3VudCI6NjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5NjhkODRjODkyMDMyNGUwZTRmOTQ1YWYzMzllMTY0N2U5YjQ0ZTU0NWJlZmM0NzMxZjVmNjI3ZDI1OWM1OGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3MDJmNzc1OWEyMDk0MzBkMTMzZTc4NDJlNWJlNjgyODYzNDg1M2JjMzRjMzk4N2ZkYmNmN2E0NmM2YzRiYzkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2NDc3MzU0ZmRjNGRhYjg5YzY2OGRmNDFjYTY1ZmI5ZTBlMTYzOGE1ZWUwMzc4MjFmNjkwMjg4ZjRkN2ZjOTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyZDJlNGVkMmYxNzlkYjYwMTFiNzE3Yzk2Yjg3NGFjNTRmYjQ0M2U0Y2Y3YTY4MWI1ZmIwYTFlMGI2YTBlODgifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L644-L757",
+          "version": "repo-lines-v1:sha256:0633c31d52c662620ad251edf2c5a859c86e806ba2ddf2faf3486b4e28796385:eyJzZWxlY3RlZExpbmVDb3VudCI6MTE0LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJmNTgxNDYzNjk5M2IzZTA1NGM2ODJjNzM1YTU2MjExYTY2Yzg4OGUyODU0M2ExMDc5YjE1ZGVlZTYwODhhZWIzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIyODM0NTkzODllMGExODBlY2UxNTg5MWZmODg1YWU4NGM0YjkzZTdhODk2MDRkODBiYTVlMTAwNzk2YzExZDk3IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJmM2E1YzlkNGI1NTFjZTRmMzRiMWZmNWU2MjQ2ZGI4YTdkNjUxNTllZmE1N2U2MjQ1ZDFkODFkZmFlNGQwNjdjIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIyNzNmYzQ5MjM3OTdiM2M0NDM2ZWJhNzA0NDZlMWJmNzk3ZTNhYTBkOWFiNmE1ZTc1NjBiYmY1OGMyMzMwNDljIn0"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L759-L871",
+          "version": "repo-lines-v1:sha256:85b183fda3bc9deb26125b12010d5b0b890f2019bcc9ae28e085b06da62193a1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEzLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJkMmRkMmEwNWRhODAzMmRlMmViMGI5ZjdlNTFmNTQzNmFkM2UyZmNmNDdlNDMxZWE2MWUzNzYwNjc0NmUwZDM5IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIwMWJhNDcxOWM4MGI2ZmU5MTFiMDkxYTdjMDUxMjRiNjRlZWVjZTk2NGUwOWMwNThlZjhmOTgwNWRhY2E1NDZiIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlOGMxNjZkMGZhOWM4ODk0Y2FkMDE1ZmNjNzAwYzE2NGQxMDY4ZDFiMjVhNzRkZDVjMWViNzNhN2M5YzNmZjFhIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI2ZTViMmM0NTA0M2VlMmNiOTk2NzFlZTE4MzY3MmFjOWM3ZjY2Y2Q2YmIzNTI2YzlmNzQ2NjY2Mzk1N2ViNDFhIn0"
+        }
+      ]
+    },
+    {
+      "id": "claim_00fc3899c35b418d83c155ec1ee18964",
+      "statement": "tests/inbox/test_telegram_port.py witnesses the Telegram destination: callback data carrying the card id, version and choice index with a compact callback for long UTF-8 choices, renotify sending the complete updated card, stale callbacks stripping only the stale message, cancel and expiry keyboard stripping including during keyboard attachment and after renotify, retries from the read-back version after a refused renotify, restart reconciliation of accepted-but-unknown sends, callback answering, and stranger and non-private refusal.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_telegram_port.py#L179-L208",
+          "version": "repo-lines-v1:sha256:2caa5ab1b59d24db47b848336b3b47d93359380969213a1a86a4567c9dfe6f0b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2NWFkMjI3ZjI3NzEzMDZhN2UxNzZhYTM2NjkzZTZjNmYyYzc3YzEyYThiNGYxMDA3ZWIyOGMzMjlhZWRiNjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEyZDk3ZWI5MmY4Mzc0Zjk0YTUwZGI2ZDQ3MGRjMDJiYmZhZTk2YjY4NjYyMWI2OTZhZGVkMDY2MGZjZGI2NzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3N2I2ODE1MTUxZTUyZTUwYTE5NjcyZjlmMjhkMDE0NzgxYzQyZGFjMDFhYjNjMGI1Mzg4NjViMzUxMmJkZjMifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_telegram_port.py#L209-L372",
+          "version": "repo-lines-v1:sha256:b33b29de9ca8d61dcf9c3010d3b962b0c5e54ab2a61d04b929ea153597623d81:eyJzZWxlY3RlZExpbmVDb3VudCI6MTY0LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIxY2ExMGZhMjhlY2I1OGVjOGJmMGRiZTkwZjIyYjNiYjM2ZDI5NDM1MTM3YTQ0ZGM5YWMxMDljYmE3NTI1ZWE5IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIwMWJhNDcxOWM4MGI2ZmU5MTFiMDkxYTdjMDUxMjRiNjRlZWVjZTk2NGUwOWMwNThlZjhmOTgwNWRhY2E1NDZiIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlNWQwYzY3YThkYTkyMmZkZmI4NzVkNjI3YTgzOTEwYzg3NmE1Y2E4NzVhOWNlMjI4MTM5YjYxOTVkMmY0OTdhIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI0MjZhZmY0YTljOTYzZjQyMmRhMWM1YmFlZjQ3YjQxN2Q5ZTljYjg3ZGQ2YmRjZmY0ODJjYzg2ZDZmZjU4MDM3In0"
+        },
+        {
+          "resource": "repo://tests/inbox/test_telegram_port.py#L373-L452",
+          "version": "repo-lines-v1:sha256:23ae05f763a92799f3aa1f4c2b2da5d587c4f6eb35450e3960c3deb2d67540dc:eyJzZWxlY3RlZExpbmVDb3VudCI6ODAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzdlMjgxMzk2ZDU0NWYzODg2M2E3Mjc0MjEzNWJjYjFhOGUwNzdhZjY4YjU2NWZjNzc1MDllZmQ5ZWUxYjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU2OTBlMDFkYWViNGJhYjkwM2IyMWI3MjJmNzIyMjg5ZmUyODEyN2YyNmI3NDMwOWY1Y2IxZTRmMzVhMWZlYzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNhZGEwNzkyMmI2MTZmYjNiYzIwNDIxMzc2M2NhMTkyMmE3MGE5Y2E5YmZjZjk1ZTA0NDNkOTNkNWIxZGEyZDUifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_telegram_port.py#L494-L660",
+          "version": "repo-lines-v1:sha256:ff0f9641abe571140b9d5d388fa30c02ef4489f42a85125f8859ee03e7a575fb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTY3LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI3NmQyMzhmMjUzNDdhOTFkNzExN2E3Y2U1NjNjYWVhNDE0NDhhNTFkZTY0ZDAzZjdmNDU5N2U1M2JmY2UxMzQ0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIwMWJhNDcxOWM4MGI2ZmU5MTFiMDkxYTdjMDUxMjRiNjRlZWVjZTk2NGUwOWMwNThlZjhmOTgwNWRhY2E1NDZiIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0MTBhOWUzMGNmM2VmMjAwMGVjODkzMzhlNWEzYjBlN2ZjMTQ0NTI2YzUxZWI1Zjk3YWFkNjcxMTgwZDFmMjRmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJiOTU3MjA1NmFmYzU2ZjJmY2EyYzY0OTZkMTYxYWFmMzk5YjE3MmM4OWEyYTQxOWY4YWM5YTAzYjQ3MzJhOWY2In0"
+        },
+        {
+          "resource": "repo://tests/inbox/test_telegram_port.py#L735-L843",
+          "version": "repo-lines-v1:sha256:8ba4227a0980529a76fc366ddc83cbd67347c4716d21d831c777a45ab957e761:eyJzZWxlY3RlZExpbmVDb3VudCI6MTA5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI3NWRhMDcwZTUxNDBiYTlmNDUzZTk5Y2NlOTI5ZDkxOGYxYjIxMjQ1OGFiZGVhNzJhNTBhMWVjNGEwYzY5ZTdjIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIwMWJhNDcxOWM4MGI2ZmU5MTFiMDkxYTdjMDUxMjRiNjRlZWVjZTk2NGUwOWMwNThlZjhmOTgwNWRhY2E1NDZiIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlN2E1MzRlZDM1NjQ1MWZmODlhMjA3ZjcwYWFlNjU0ODFhMDFjNDJiMzExZjQwMzA2N2MwNTEzMmZkMTU3NmFkIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIyMDY1NjJiODVkNmM1ODAzZWRlMDkwZTJkZmU0MTE0ZTVkMDliOTlhMzdiNDI0ZWRhZmFhZDE4NWRjZDg4MDZhIn0"
+        },
+        {
+          "resource": "repo://tests/inbox/test_telegram_port.py#L844-L1020",
+          "version": "repo-lines-v1:sha256:00f3f83dfbd95d941418c58a0535647984c7aced3414df3a3c7a427fc6e7e5d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTc3LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI5MDQ0MjMwMjM2YjkwYTY4MDFhZDFjOWJhZmY0NDE3NGNkYjhlMGJmOGE0OTJkMjUxMGNhOTJkZWNmZDhjYWNlIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIzZDk3ZWQ3Y2FjNGI4OTk5ZGQ3OTE4M2QwNGNjODdiMjMwNTlmM2JiOTMyMzBmYzJlNWMzNDg3NjlhNWFhYmFmIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJmY2M5MWYwNjZjODAzYWMyZDhmNzc3MWU0Y2FhZTIwODNiZDFiMjA5ZDFkOGMxODYwY2QwYzYwMThmZTZlMjA5IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIwMjEwZWVjOTEzODk1MTA5NzM1NmYyNzI1Y2MyOWU1NzE1OWUzMjJmM2Q0ZTQ3OWVkNjdmOWNkNjg0NzY1Nzg3In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_fe53303e18764d4585aedf5cbeca2895",
+      "statement": "tests/inbox/test_tap_claims.py witnesses the Inbox-seam claim refusals — not_owner, expired (including the expires_at boundary), cancelled, already_tapped and stale_version — through a FakeTelegramPort that also records which cards were asked to strip, and pins that a failed keyboard strip neither authorizes nor unrecords a tap.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_tap_claims.py#L39-L207",
+          "version": "repo-lines-v1:sha256:91387d42670f7c1ea5a5d5431938d44fda972466d8e70c8fcb67f18f8f452ed5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTY5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI4MmY5NzQ4ODNkZGE5Y2MwZWQzN2I1ZWRhNGRlYjgyNWVjMTBhNDNjODQ0ZDUzYjkyZmY4ZmQ0ODcyNGIzZTdmIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NTdlNWUzMWVjYTM1ZjViZmUwOTZiYWU2NzQxMzQzZjBmYTM5NmE3MDAyNzU3MWQ0MTFjYTdjZTE5MTU0NTYwIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI3OWJmNGU4NTIzMWNkYWRkNjg3NDQ4NmYwNjE5MmM1ODMwNzNkNTY2ZDU0MWI2NGMzYWU4OTkwNjQzZmViODVlIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIzZDQxMzQwY2MyMzlhMTU5Y2U5YjYwMjJlOWY2MzIyODMyZTJlYWQ3NmNhZTllNDc1NGQyMTBlYjhmYjZkNWU4In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_8256cb28c56b45a1b823809ff93ef26e",
+      "statement": "The answer path is exercised over real HTTP in tests/inbox/test_setup.py: the create credential and a wrong token are refused with 401 while the card stays pending, a superseded version returns 409 stale_version, a second answer returns 409 already_tapped, and the owner token records the answer with responded_via answer-path.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L400-L457",
+          "version": "repo-lines-v1:sha256:c6d11c43b826d3cc3bed5af9ff57b2a667e3c5f371e9485018d71425564c094e:eyJzZWxlY3RlZExpbmVDb3VudCI6NTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3ZWZkNDc5NzQwZjFjNjJiZDQ5MDY3OTlmN2Y1Yzk1MTFiOWQzMGViMTFiYjk5MWM1OTAzZjkwZjVjY2UyNjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3YTUwNzM0NWFiOTliZWM4YzU3MDFlZDgyYzVjNWU3NWM1MzMwMGVmZmJiY2IwMzIxNDRkMjczN2QzZDIzMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2YzQ2ZDU2MTc0MmI2NWQ5OGRhODgyYjFkMDgyZWZhYWFmMDM1MmM4YWY2NWU2NWU4MjIzZjlhOGNjZDI4OGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgxMDBjNGMyYWNhYzlkODI5MDFjYTIwZjQyZGRlODlmODVhOWU5MGU3MjBmMjlmMjAyZDhkYjdjYmIxY2M1ZjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_59b51247b4a949a487a901d82a54cd6f",
+      "statement": "tests/inbox/test_setup.py also pins TTL resolution (default 14400, floor 900, PARAPHE_DEFAULT_TTL_SECONDS overriding the file while an empty environment value does not erase a file value, and a below-floor value refused), store-location resolution (the per-user default that is not under /var/lib, a configured path honoured, and PARAPHE_STORE_PATH winning over the file), and the refusal of a non-loopback bind whenever the answer path exists.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L131-L149",
+          "version": "repo-lines-v1:sha256:a2ab3c0c3a0aa011bc89697572d16162fa221a06edc2c4e2bfa01a8c40b37757:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlMzAzNTFlZTBjODI2Njc2ZTJhYmRhOWI1YzlkY2ZiMDBhYzA3MWM0NDcwMTJiYjNmOThlZDdhZjRkMGMyY2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ZTE1OGQwOWE2MGQ4MzU2ZWZkMDAzNWYyZGRjMjM3ZDIyMDM3NWYzMGM1ZjBhNDgxMjA5ZTk3MWQzZDU2YjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYwMDVkNjdjNTRiMTBjMjc0ZDU5NjE0NzNmYTVlMjA0NzZkYjRiNjZhMjVmZGU1MDdjMDVjYWRiMzcyMDY2NWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwZmQ1NzQ3NWE4NGEzNGQ5Y2YzYzU4OGExZjZkMTk2MTZjZTgyZGI0NDQ4ZjE0ZjJkYzdhMzkyMmVjNGExOTAifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L174-L238",
+          "version": "repo-lines-v1:sha256:b2693efd5614caaf45dc23d4e79cbd3803c0ae01f63ef30bd5223e3f20e21288:eyJzZWxlY3RlZExpbmVDb3VudCI6NjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExNDgwMzZjNmQ2YTIzYWUwOWEzMmNmZGZjNzMxNjE3OWI0N2NmZTJmM2ZlMWYwYzczODE1YmZmY2U4NzY3ODUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE3M2FkY2JlZjM3MmU0NjE2NWQzYWI0MDRjYmRiYWMyNzZmZTA2MDI5OWNlODcwZmZiN2Y0MmJiMWUzYmRhMDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1YWI5YzAyMjFlNWRkOWYwNDIwODJjZTY0NzVkOGZiYmIzMGIyNWRlZjIzN2YxZjUwN2VjZmVhNWE2NGZiYWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNlZTJlMDM5YjQ5NjhmOWFiMzI5OWRlMWFkOGE2MjlkZTkzZWRkNjA0MjExYTZmZjllNTBhNzc4MjgwNWNlZDkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_572c683655d74e3a9fda738ed26c35e5",
+      "statement": "tests/inbox/test_runtime.py also pins first-boot bootstrap recording the offset of queued updates without dispatching them, rejection of malformed and coerced update ids without replaying an earlier update or skipping the failed one, an idempotent close() that stops HTTP and closes the store, and TelegramBotAPI's error mapping (ok: false to NotifyRejected, a timeout or invalid JSON to an ambiguous TelegramAPIError, ok: true to the result).",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L196-L292",
+          "version": "repo-lines-v1:sha256:161fa9ef3a94afacbba88c8085a93edd13edd8c763d715539d4cea48c426a3bd:eyJzZWxlY3RlZExpbmVDb3VudCI6OTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiZjU0NWY5OWYzNTBlMjZmMzg4N2VlMGQ4MjQyNDQzYTBkMDMxZDM1MDU4MDg5YWE3MDRjMDNjNjlkNWFkNTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxNzA4YmYxYjUwYWNmYmNmNmUwMDNhMDQyYWRkZTYwMDQ3NjcwYzAyZGIyMjYzNTU5MjUzODY1MzZlOTQ2NzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIyN2M0NjhiNzYyZTNjNGQ1ZDQ5ZWY0ZjMzYTk5M2U5ODkzMWRiNjdlNWViNzQ0OWMxMWIxYWNmYWNlNDFiOTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFkNDZhZDdmMDMxZjgzOWIwNTYwMzc1MDcyNDJhODlkZGZmZmUyNGFlOWEyZWZlMWRiZGFlN2QwOWJlNWEzZWMifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L335-L410",
+          "version": "repo-lines-v1:sha256:23bdab853cf269be31b49526dcb0cafb8e7dd58df7ab084ac52fb6c9b09b1d69:eyJzZWxlY3RlZExpbmVDb3VudCI6NzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1ZWNhZGRmMGRjZWQxNjA5NTEwMzcwNjZmZjMwNzExYjBjMmM2OWM1YmM0ZmNmNmFhYzM5NjY3NzNkNjM4NGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzYTQ2NDNjODlkMjc0NGExZGRkYzEzMGZmMGY4Njk4ZWY2M2ViNTJlZTEwZTVmNDA3MDhhOTdlMTM3NWFjMGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNjMzFhNDkxYzRkNWUxMmIxZjMzZWI4MjUxOTUyZmEzZjE0OWVjMDQ4NTI4MWM4OWY1N2MxMTY5Y2ZjMjQ2NGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU2YWY4OWViNDk0ZTU4ZGRkNTM4M2NiMDJiMTc1Nzc4MzI1Y2NjODEyZWU5MzcxM2YxNjAyMDBkOTJmNzlkNGQifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_runtime.py#L502-L551",
+          "version": "repo-lines-v1:sha256:89b09e134eb438f0413f108e3d486996128dec4e6811c8ce07950d2605bf1ba5:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1OTk2MGI5ZTM0NzcyMzBhZTlmMGFlMzQ3YmUwYzVmMjBkZjE3Y2VmMzE4MGQ0ZjViMDgzYjEyMWQwYmZjNTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5OWVmZWRmZDJkOTcwNmQ4OTFjN2JhOTgzZTdmODRlMDVhZDBlMDE5MWMxMzI3OThiZTVlM2MxY2M1MzA0MjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImExOGUzZjNlMjNmNDk0OGY1OTY0MDkwMjcxNTZkMzJiYjRmODQyNjhkNGM2OTU2ZTliNDRiMThmOTI3NzIxYjAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_200221977c2e4e16b2a1216ea5fbbbb2",
+      "statement": "tests/inbox/test_wait_engine.py additionally pins that a create without wait_seconds (or with wait_seconds 0) does not sleep, that an already answered card returns at once to a waited read, and that a tap writes identical card fields with and without a parked waiter.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L130-L163",
+          "version": "repo-lines-v1:sha256:04ca5fcd3e04aa5766c91b81c732f791e613a9d52d66a76c7d99470c04b7ac46:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmYzRlNWFmNWQzYzcwZjU0ZjczM2ExMTkzMzA4NmVhYzM0NGI3Mjg4MGEyNjA0ZjkzZTc1NTM3YmE3MjVlZDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3ODg4N2MyMDk0OTQ2OTBkZmQ0N2ZiOGM1YzdlYzZlNzRhMmVjZTVlMzg1N2NmNzEwYjQ0MzE4NTY4OGU1ZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM4ZWJmMGViMWNhMzQwOTY0MDkxZmEyNGRjNDliYzdiZTA5ZWJjYWJkMzBlMDZjNmQ3YmRhYmIxZTIxNjIwMDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJiNDVmYmU3YTI0MmRlMDdkZWEyY2MzMjRkNWEzNWE2NDRiNWM2MDJiNWExZDMwOGI4M2NkMmE2NzA3YmVjNjEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_30e6871e6f32425989b95b34c287d52f",
+      "statement": "The distribution job's package check ignores .dist-info, underscore-prefixed entries and bin/pip before requiring exactly paraphe, and the container job polls docker logs once per second up to 30 times for the Paraphe ready line, printing the last 20 log lines and failing the job when it never appears.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L41-L53",
+          "version": "repo-lines-v1:sha256:e5fcb949769c8f8987a53eabfaa9c8fb72233134c19a39c03b6c70dc3931d907:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEyMGJmMDVkYWUyYzllYjQwZGFmYTFjZTY0ZTg2NTE1YWUzNWY1ZGUxNWM2YjhkNmU5NzFhYjAwYTkyZWNlMmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkYTEyMzEwNzQzYWIxM2M4MjQ5NWE3NDU4NWZmNWU2YjcyYzAwMjIzMmE4OGU3ZTdlZDUzYzQ1Y2FlMzMxNmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAzMzZkYWRkNGY0YWFmMWE5ZjQwMWVkMDA0MDg0MzJmNWFmODQ4NzRjZWE5MjFjNjBmMmEzZjcxM2VlOWYzYTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY4NTJjNzBjOTNlNzkyNmFkYWM4YWE0MWYyNGE4Nzg3YTljMmJlMTU4NzhlMDdhNzBjNzEzYWUwYjMzM2YzNjMifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/ci.yml#L62-L78",
+          "version": "repo-lines-v1:sha256:4b86a7594553c6cb41fc912db1d63465a60fe9e5670ce1202e24ac65d0fb0dc4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxODdlZTlkZGM2YzI2OGE5YTg1OTM4NjA2NGM4NzI4ZDY5MjNiNWVhZjNjZTVhOGYzMGYyODNmN2RlMDM1NmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxODdjZTRmMDJhYjRmY2Y3Y2Q4MTc2ODMxNTgzNDVjN2ZjNTI0OTc5MzEwMWMxYWVkNWM4NGMxNGViMjg3ZmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEzY2FjNTc2MjJkMWQwNGQxYWNiODE0NDExODA0MDI1N2VlNGNiMDUzYWVhMGEwZGI1YzIzMzFmYjc3NzUzMjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNjNzU0NGE0NWRlYWE2M2Q0MzhmNGIyMjQ3NGY1YjdjMTAwZDVlMGYzODJlOGQ5MzQ3YjhhZGQ1MDM1MTQ3ZTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fb2a329cf45242c5a7c59b30693fc31d",
+      "statement": "AGENTS.md's Tracker section points to this repository's own issue tracker and its triage labels in docs/agents/, and its Domain docs section describes a single documentation context: root CONTEXT.md plus docs/adr/.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L59-L66",
+          "version": "repo-lines-v1:sha256:d19d60d17c634b0d63d763445a109ab35d7ad5643a8458cc76f6fdffd5d66794:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDIwYmIxMTJjOTM5ODRiYTIyMjg5NjBlZGNkOWUzMzQ4NjhjNjllZjhmZDk4N2I2ODQyMDcxYzFhMDEyMTRjNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDNhMDIyMWViZDFiNmVlNjhmZjNjOWVjODJiZWQzNGRkZmYxZmE4MDE2YjY2YjQ5MzU2ZmVmMTgxY2I0NzNkZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjRlNTc3ZThhNmRjNjdlMmNhMWY5YWVhZGU1YzA1ZDk4ZTM5YmNkYzU3ZDA5ZWY5YWI0YWI5M2ZlYWFmOTA5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjMxMDc5ODU4OTkzN2Q4NGNhNDI1M2E2NjgwNjk4OWQ5MDZhZTYzMzg1ZGE5M2Y2YjI3MDI3MWI3YzY4NjNlMyJ9"
+        },
+        {
+          "resource": "repo://docs/agents/domain.md#L5-L9",
+          "version": "repo-lines-v1:sha256:0d40b2fe1b9d8d32a2f1add635075922dd20c6b71ac9d5f899d483bc2546ef6c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODRkZjY5ODY3MzdhMTRiN2IyYzNhYWMwMmI3MGU2MTY3OTQzYzIyNzFhZWEyYWI1N2YyZDhiMTA5MmI3ZGQ0YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmYxZTU3NjM5YjU4ZjZiZjkyMGM3ODFjZTUwZDU2NDNmNTlkNWYyMTU3NDFjNGU1NDFiMjQ3OTUxZWZhNmQ5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjdkODVhMmVmZWIyODlhZTc2ZmFiMjZlOWFkMTFiODk5Mzg4YWI5MjU4YmZlNDhjODkxYjdlYjc5NGY4ZmZhMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTBkNTZhYjZjZTIxNjE1YzMyZGJhYjczMDdjNTQxMWE5ZTZiMzc3MDY5YzE5NTJiODkxYzg5MWQxZjAzM2NmZCJ9"
+        },
+        {
+          "resource": "repo://docs/agents/issue-tracker.md#L1-L11",
+          "version": "repo-lines-v1:sha256:c2a2f2a94e09624bf6877c6983c4b4be76da8d94e99bcdcd9bc3100d84187b0d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUyNDYxODAxMGNiZGFlNGFiZWZjNGIxN2JhYjk3MTRmZDNjY2VmNDNmNDY0MjU5OGYzZWI0YjE4ZjNmODliMzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU3MDkwMTBkMmY1YWRmNDBmMzQ3MTJjMzNhMDk4MjViNjJjZWQ4NmJmZWUyOTEyOTllOGE3MzdjMDgyZmZmMmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2NWEyMzAzOTA3ZTZlZWFlMTUwMWVlOTQ1MzkyMDY3NzgyNTU4MTg3NjMwZDVhOWQzZTY3NTBlYTg4ZTYxODcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_16f1d33c35744879b3aa3ea7819b6afc",
+      "statement": "AGENTS.md's CodeGraph section requires running CODEGRAPH_TELEMETRY=0 codegraph init -y when .codegraph/ is missing, running codegraph explore before greps and file reads, never running codegraph install, and never committing .codegraph/, which .gitignore already ignores.",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L4-L4",
+          "version": "repo-lines-v1:sha256:d53a4691d85f497485bbaf680ef114bcf30c16470ddec12ad024232c9f57a18d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDUzYTQ2OTFkODVmNDk3NDg1YmJhZjY4MGVmMTE0YmNmMzBjMTY0NzBkZGVjMTJhZDAyNDIzMmM5ZjU3YTE4ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDUzYTQ2OTFkODVmNDk3NDg1YmJhZjY4MGVmMTE0YmNmMzBjMTY0NzBkZGVjMTJhZDAyNDIzMmM5ZjU3YTE4ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWQ3ZTJmZWVjODI4ZmYwYjk2ZmM4MmM1ZjY5OGJjM2YyNTVhZmRmNGQwODhjOTc0YjRlNGNlZWMxMTM5YThiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTVkZDFmYzEzYTcxZWE4NzFjN2JlOTYxNDExMDhlZTMyYWQxMzExYzdmMTIzMGM1M2Q1NmQ1M2Q1YWM4MjZiZSJ9"
+        },
+        {
+          "resource": "repo://AGENTS.md#L7-L11",
+          "version": "repo-lines-v1:sha256:aef30bb5b626e94f18a494e90f99178d772740413054dc78b0cb325f8c5e770b:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJkZGVhMThlZWQ4ODJiODc0NDZjMDc4OTE2YzIzMzVhMzkxM2ViNWNmNGQ5Yjc4YjYyODQzMWNlYTY1ZTY0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFiNzQ0ZGMxMTA2MTg5YmI1M2UxMTJiZGVjMGI5MTgzNmM2MTJmNTFlNWI3YmVkNzZhYzBlMjc5NTk1YTgzYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmRkNzAxZWM0NmRlNmE3ZTI4MDdlMTQ1ZjA2NTZlYTM1Y2VlNmYwMzI5MTZiN2U3ODcwZDA4ODM3NGY4MDExMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGVjOTA2ODU2ODFiNDFjMjZmNDdjODUzZGZjOWMzYTMyMWEwYjQ0ODYxZGY1MTdmNmQzNDA0N2RmNzI2NWU1NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_15d5e12698b94d69b59bfb5741a9ccbb",
+      "statement": "AGENTS.md's OpenWiki note calls the wiki refresher a scheduled workflow, but .github/workflows/openwiki-update.yml triggers on workflow_dispatch only, so nothing refreshes openwiki/ on a timer.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L5",
+          "version": "repo-lines-v1:sha256:e0e295775511f5ff278611a6dec8f8d81bb1a79a0b7280e40b50bd7f043a8041:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDYwMjc4N2FmNmRjYzA4MzRkZTEyMWNiYjFjYjk1Zjk0NTliNzIxZWFiMDM0OWYxMDUwMWI5OTZjMWM3N2ZmZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGNjNGJiNzlmNmViYzg1NTU5NzVmODdjMWJiZmFkYjQ0ODFmNzBiMDNjMWE3YjBjOWNjYjRlZTNkYWM3N2Q2MSJ9"
+        },
+        {
+          "resource": "repo://AGENTS.md#L77-L87",
+          "version": "repo-lines-v1:sha256:2066111756019639fd4ad6a1c6bd7323a3db5fdcf9d2b66a57aa9fac5e0ba943:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMTgwZjljMTI2OTAzYmNjMzMxYWE5NTQ1NmU0OTQ0NGE3ZDRkMDExZThhMmE4M2Y1ZGM4NzAyMzkxODEyZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI2ODA4MTFiMjBjNDI4Mzc5ODNkMTIwYTRhMTBiZTczYzg0NTJjNmIzNWQ0Mjc1YzNmMDk0MWQ2MTk4M2UyMjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA5Zjc4NzE0ODkzYWE3Nzk0MmNlYTFjNGEyZTAyMzFkYmI3ZmEyYTQxYTcwYzgxNDYwYTNjNjc1NjJkYTNhYWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9d6f210b65b149399ab919ae909b2962",
+      "statement": "When started, the OpenWiki update workflow checks out full history so the update can diff HEAD against the commit it last documented, installs Node.js 22 with openwiki@0.5.0 plus mermaid and jsdom for diagram validation, runs openwiki code --update --print against OpenRouter, deletes the transient openwiki/.run.json run state, and opens or updates a pull request on branch openwiki/update whose add-paths are openwiki, AGENTS.md, CLAUDE.md and the workflow file itself — and a failed generation run still creates that PR before a later step fails the job.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L14-L74",
+          "version": "repo-lines-v1:sha256:f6f8aff8ca7dae30e7e98f833c5169d417af2b3401c010e6c33e553919e4c99f:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1ZDZjZjdkNDI4Y2E4MTE1ZmM0YmFiYjY4MDczOTAyMzMyN2E3YTlkOTE2M2Y3MDZhMjc2ODdkZDUxNmYzOTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3MmQwMTE2OGE0NzZmN2EwZjk5YmJjNGUyZDA1YzYxMjkzMGEwZGRkY2NkMzRhNjc4ZDk2Y2NhYWQ0ZGE2NDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVjNWE4OTI3NzBhZTRmNTMzM2ZkN2M5ZTEyZTBhNmJjNDViMjZiNWJiNzc1M2UwMzlkZjhlZDQ5Yzk3Yjk2MDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2NzE4ZjA2N2I1ZTVjMWYwOTkxYTZlNzQ3MjZmZTJhMjNkMjY0MzQ1ZTA4ZTRlYWQwNGZhZjczYzI3ZWQ0NDMifQ"
+        },
+        {
+          "resource": "repo://.gitignore#L10-L11",
+          "version": "repo-lines-v1:sha256:909aa1719b87044ffddfb8e36812f1ce816c4ddadbf51ce74985a930f2f29e10:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzMyOTQ2ZGQyZGVjMDdjZDEzYTcwZmEzZTM1ZmNlY2VmMzVjNGIyZDg1ZTRkNmM3ZDg3ZjA3NDdkY2I2NTY5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmRmZTU4OTY5MTk5OTdjYTI1ZGQzOWJiZGQ4M2IyNzQ3ODRhNDhmOGQwMzVkNzk1Y2MzMmE4MDYxNjk1NTNkMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzY5Y2Q4ZWQxYjdmYzU2MjY2MjVlOTNjYzllYmI1Y2MwNzVkYjUwNDk4MzMzNjRmYzg5ZjI5MjVhOTc2ODkxZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fd4361db7ca84648a454acff705adb9b",
+      "statement": ".github/workflows/ci.yml is the only workflow a push triggers — it gates every push to any branch and every pull request — while the repository's other workflow file, openwiki-update.yml, is manual-dispatch only and gates nothing.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L1-L8",
+          "version": "repo-lines-v1:sha256:e10571ade3aa5dea8f7b51c16ee2c538c4df2255ec934f5fee8630ba6ebd709f:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTU5ZTNiOWYyY2VlMGMwODA5YmY0MDY2MWZmZjNlMmZlZDI2NDRlMWQwZTA3Y2UyMjA0ZWQyYmEzOWVhMTFiMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTlkODAxNTRlZDQyZmM1Yzc3OWIxMzMxNTc4YjU4Yjg5YzgwMWVhY2U3NGYyNGNkNDhlYjRhMjM1Nzk0MGE5NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDE2ZDI3NjFhYjRjZTIwNTI0YzI4ODViM2M5OTcwNmVhZTY4NDBmOWU2NzMzY2YwNDk1MDJhYjY2OGRjNTlmYyJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L5",
+          "version": "repo-lines-v1:sha256:e0e295775511f5ff278611a6dec8f8d81bb1a79a0b7280e40b50bd7f043a8041:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDYwMjc4N2FmNmRjYzA4MzRkZTEyMWNiYjFjYjk1Zjk0NTliNzIxZWFiMDM0OWYxMDUwMWI5OTZjMWM3N2ZmZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGNjNGJiNzlmNmViYzg1NTU5NzVmODdjMWJiZmFkYjQ0ODFmNzBiMDNjMWE3YjBjOWNjYjRlZTNkYWM3N2Q2MSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-11T15:38:02.291Z"
+  }
+}

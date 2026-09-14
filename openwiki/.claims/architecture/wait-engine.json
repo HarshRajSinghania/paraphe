@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:18dd160f6544d293c0e9c04dec40c7b57f43cdc28a53e9fdc859913f8faf54cf",
+  "claims": [
+    {
+      "id": "claim_1c8d20d6b59c47ff998194e968d84034",
+      "statement": "Only ask_question, request_approval and get_response park (WAIT_TOOLS), and call_tool applies the wait after the handler returns: the wait is taken only when the tool is in WAIT_TOOLS, the handler returned a dict carrying request_id, and the validated wait_seconds is greater than zero; the parked card's reading envelope is then returned instead of the handler's own result, so a create that waits never answers in the create shape (request_id/duplicate/read_with) and a duplicate create that waits reports the existing card's current state.",
+      "evidence": [
+        {
+          "resource": "repo://docs/tools.md#L46-L53",
+          "version": "repo-lines-v1:sha256:9e7e728cb357003572fb3fa53bd9bc56982e622c902487696119ee4ddb3b0047:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA5NWQzODQxZjFlYTk0OWE2NmJhMTBkZTFkYTAzODE2NTVkYzczYWYxNjkzMjZmNzM2OWE2YzA4YjhmYmJkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzNmYTM2OWE0OGUzMzRjOThkM2RhMjk3ZDZkZGI2YjE5NTE4ZmJlY2IyNmVlMjNkMzA5NTU4YWFmNjI1NzAxNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjJlMzUzMTgzOTQyMjJhYTM0ZDkyMjBjMDBiNWNmOGQyZTZiYjkwNjE4ODE2NTNhZWRkMWI2ZmUzMjQ4OGU4YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjI4MDJkMGU1ODliZDRhYjU1YjM3NmM5NTk2Y2EyNjZmMTIyNGZiMzkxZWE0MjAzYWE3NTBlNzdhNzYyNGI5MiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L438-L445",
+          "version": "repo-lines-v1:sha256:5c2a837e98e34a35f1e1ada4055f5df343450e310c47e2af85cb779a85c9445f:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjE4YTQ5M2E1MTFmYzgxZDk5OWYzMTkxMjNjYWRhNzg1MDBiZTFlN2UzMjBkOWI4MDdkOThjMTBhOTM4NTZmYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzcyZjk2OTVjNzQ2N2M3NDc3M2M5Y2U3ZmM0MjljNWQwZDBlNDg3ZjNjNTFkMTVkNjY2OGEzZDI0MDcyYmI5NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjNhZDM4MmEzMTE2NTYwZTg5ZDBlZTVhODhkOWY1N2Q0YTlkOGExOTBjMWY4YjYxNDQ0NjNhMTI2MGUzOWU4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzQzOTViZTI0NDhmYzY4YTNhYTUxNWM3ZTNjN2RlNDk2MWM0OWM5N2JlMGVhYTA0MzExZDA4OTQ3ZDFjZjhjNyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L56-L58",
+          "version": "repo-lines-v1:sha256:496a59488c1244d386420d770893dd236c86d8f2868124c1040e578cb5c578d6:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA5ZDc2NzUyOWQwNzhkMzE5NDM4NDljOGJjZGU5ZDRkNTU3ZWIzNTE2NGMxMzdmMzlhNTcyNzVjMmQ2NDhhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzBhODcyY2Y4NjZkZTI2Yjk2OGI2Yzg3M2ZjNzBjZjg1OGQxZTUxMjNhN2MzYmEwN2ViMmZkMDg4YzVmMzk2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTY4YTM2OTBjNGRjZmI0ODU1YzMxMTkwZDUzMmNlZjI3NGZkMjc3MTY3NzIyYmM1ZTE5ZDgyOGVjYzU5Y2FhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTg2NTJlNTJkY2EwOGY3Njk1MWE4MDRiYzM4OGE5MzJhZWUyYmQ3ODI3ZDhiNDEwNTBlMWIxMWMxOGYxMjRhMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_decd7a943d554a40a81ab6d4b020453e",
+      "statement": "wait_seconds is validated by _opt_wait as an int or float between 0 and 60 inclusive, refusing booleans, other types and out-of-range values with InboxError(\"wait_seconds is invalid\") and returning a float; the served schema advertises the same bound as {\"type\": \"number\", \"minimum\": 0, \"maximum\": 60}. The field rides SHARED_CREATE, so every create accepts it and _opt_shared validates it there (including notify_user and request_feedback), and get_response accepts it explicitly; it is not in UPDATE_FIELDS, so update_request refuses it as an unknown parameter, and only the WAIT_TOOLS sleep on it, so request_feedback accepts it like any create and does not park.",
+      "evidence": [
+        {
+          "resource": "repo://docs/tools.md#L95-L95",
+          "version": "repo-lines-v1:sha256:ba93a722c4467ec24a2227a85017d485734be095e4d756e0d2d6e62a944c3b91:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE5M2E3MjJjNDQ2N2VjMjRhMjIyN2E4NTAxN2Q0ODU3MzRiZTA5NWU0ZDc1NmUwZDJkNmU2MmE5NDRjM2I5MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE5M2E3MjJjNDQ2N2VjMjRhMjIyN2E4NTAxN2Q0ODU3MzRiZTA5NWU0ZDc1NmUwZDJkNmU2MmE5NDRjM2I5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2I3ZWIxZmU2MGI4NmYwY2U0MDRmOTRkMzg4ZTFhM2RjYWI0MmVkN2YwZTdlNmJjMzlhYmQwZTVmNThmNDQ5YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjFiMmQ5YjNiYTlmYTNiNTQ3YzdlYzJkOGViZGMwNmM0YjE2NDllODNjZDEwMzgwZTEyZjc2YThiZTczN2YzZCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1028-L1029",
+          "version": "repo-lines-v1:sha256:72fccbc3f113b4bcc93be3728e62837603a0eaebcc8d437794473f5d3b77c143:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzEyMGU2YTVjNzhhMDMzOTdkOGZkYTI0Y2E1MmU2ODczOWU5ZmZmZjc5ODVlNzNiZDFjODFhZTI4ZDJiODliNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmZiOTc0ZWE5YTY0MDBhNGMxOGZhOWU3YmRiMTgzYjI2ZjcxYWFlZjIzN2NhYmE4NmZmMGJjOGM0NmYxZDk0MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTY4YjcwMzAyMTU5M2MxM2Q5OGYxYzBlMjc4OWQxYjU2ZmI2MjIxNjcwNjBiMjY3MGI1ZmJhMTJkYTFmM2M5NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDQzZjY1MjhkYzBlN2JjZTViMWY2NzZhY2Y0MDAzNzg1ZGJjNjg4YjMxZDAxMmViZTRhYzI2NTE3NTgwYjY2YyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1365-L1373",
+          "version": "repo-lines-v1:sha256:0659386fc45bf372ff65782ffa7feb7ca86188f9107b56bb5d4df9b517eecd6e:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDZjNmUxZTgyMGUwZGIzYTdhNGJlYTYzYjZlYWI5MTQxZDFiYTFmNWQ0NDQyNWJjMGUzYjliYmE3ZGE4ZTVlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdmMWM3MzUzMjA5M2YxZDlkODIzMTc4YTYzMTBlODYwMGJhMWRhOTI3Y2I1NmE4NTBhZjY1OTZlN2JjNjVhMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmY1ODVmMTc3ZjJiNTJjZWVlZDI4ODFjNmQ3MjcwMGI5NmQ3NmI4NjUwZjQ1YTQ4ZGQyNTMzZTg1Y2UwNDFkZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzRmOTI1ZDk4N2FkNmI2OTNiZTljOGViMGFhYjVjNzE4NzY3N2M2OTI3ZjRmMjE3YjcwOGYyYjFhMzAyYmI0YiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L151-L152",
+          "version": "repo-lines-v1:sha256:3e4549e5cbefef67ce14d3437ff57788de3c1dedb121a2e73275d8031c0bb358:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGIwZDExY2NmN2QxZGU3NTRiNzBkMmI1ZWYyOTE1MDA2NjAxZmVhZmQwNTE4MmIwOWFlMDI3OGNjYzk3YjFmOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2UyODI5ODBmNWIxNWFmZDQ2ZWY3MGE3ZGU1MGEzNjgxYmM3NDMwY2NjZGVhZGQyMTQxMzQ4YzVjYmMxZDlhZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzViNDk4OWE5MzA3MWJmMWE1ZGUyMjc2ZmE4YTAyZmQwYjQzNDdhM2NmZjU0NWFiODQ0Y2M1MTYxZjAwYzY1NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjQ1MjUwNDUzNmJlZWNlYjIyOGNjMTQ0ODYwYjg4ZjgzNWQxZjliYWRhNDc5N2Q1ODk1ZWMyOWZiNjEwZTYyYiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L64-L80",
+          "version": "repo-lines-v1:sha256:d0f25d19273d53fae04ecb575412c61e4b1531bba247abd915d8095a97ea01da:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjZGEzMjY5NjZlY2RhOGM4ZDMwMWYwMjk4MDY4ZGYwMDZlY2I0MzhkODRlMzFiNjMzMDM5ZmFhYzI0NzkwNzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVkZTU4NzcxMWQzZWE4OTE0NDA3NWRlMTNmYmE0ZWYwMTA2ODMzZTJmOTI0ODUxNTE4ZTljYmRjNDkwYTU4NWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZlZDQ3MmRlZWY4MTQ5MzRmMDQzYmM1NThkZGM0YzcyYmU2YTU5OTU0YWIyNTY3ZGM0MjM3NmIxZTNjMWU2MzkifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L84-L109",
+          "version": "repo-lines-v1:sha256:3d010f48c0cb3facd28b80b7bf70569948e5848112403ceef13d52040882ed87:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwNzdkZmZmMTJjYTBjNTkwZTljNWM1NzIzZDZkYjA1MjZhMjM5YzEyMDgyNmQ1Njk5YjA2MzE0M2JiMDE0OWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlZDQ3MmRlZWY4MTQ5MzRmMDQzYmM1NThkZGM0YzcyYmU2YTU5OTU0YWIyNTY3ZGM0MjM3NmIxZTNjMWU2MzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkOGMwOTRkMWJjMWQzZjAyNjYwYzZjYzUzZDRhNjE5NjQ4ZDIxMjBkMjVmOWQ5NWE3ODBlOTkyZjdkZjUxYjIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L866-L871",
+          "version": "repo-lines-v1:sha256:acfc27478e8429fab5a97d892fe2b2c4fb1af46a319543c2ec4da7b35bcbff9d:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQwZjc0OTBkMjY4MTA2MTlhZWJjYjcxMDY4YzQ0YzIzY2IzMDg5YjM0ZmQ2MzFhNzM1MTZiNTUxN2ZkYTBhZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjAwZjBlZDMwYzY1NzUzMjVkMzUzNmEwODMwZTBjYzkyNTUxYTUxOWRkMDQ2OWQ1Yzc5ZWIzYWY5MTNlMGY0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTAwY2U5MGFlNzFmZjFhNjdiOThhOGMwYWVkMzAyMjZlODA2YzM4MTZhMWI5M2YxZjUxMjJmZWE1OTA2NTNkZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTY5M2M3OGE1ZWY1MTM2Njk0ZTQwMDU0YjJiZWNlZWQ1MjU5ZGVjNWY5ZTM5MjdkZmIzZWVhMzkyMWZmZjU1ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_384fef2c16584056b7b6e3cf76fc1ce9",
+      "statement": "Parked calls are tracked in Inbox._waiters, a dict[str, list[threading.Event]] keyed by request id (a list, so several calls can park on one card at once) guarded by the dedicated _wait_lock rather than the inbox lock: _register_waiter appends a new Event, _unregister_waiter removes exactly that event and deletes the key when the list empties (a missing key or event is a no-op), and _notify_waiters copies the list under _wait_lock, releases it, and only then sets every copied event.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L287-L289",
+          "version": "repo-lines-v1:sha256:4ca5fa1a153a1ed6dadeac7223a1bd491797cb9e717dc9f52379c7dfde9f168a:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDllMjI5ZjUyNmY0NGNjODU0ZmU0NmFlZDljMzFiNGU0ZmZkYjhhMzk2YjhkZDM5Nzc4NGZmYTA0NzIwZTM1YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmYyODdhOWUzMzY2YTU4MWRkMzIxZWFhZTEzMTY5ODgzZGVhNDIyNDFhMGM3ZWUwMGY0Yzg2NjQ5NjMyMjFkYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTFkYTFmNzM4NGEzM2NmNDQxZjAwYjdhMWMwYTk5ZmQ4NzI1NTk1OTZhNWEyY2Y2YjM3ZmZjYmQyYTQwYzY2ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjYyY2VkN2Y0YmM2ODQxOGY1NTQyMTU5Y2U2YjdlYTM3YTIzYjZkN2Q0ZWUwMmQ0YmRkOGE5MDYzNDE3M2I5ZSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L580-L603",
+          "version": "repo-lines-v1:sha256:18e9b5580e07d4d381e53305d96f3779f69df0172510d55bc814a44d791f1956:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiNWRhMjMwMDkwMzhlM2ZkNzhmOWMzN2U2ZWNhZTMxYmIzOWJkMjhmZDk5MmYxYWU1MzkxNDlkN2FjZDlhNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczNWUwNTlhMDAzZTg5ZDk3ZWQ3ODAxYjg0YjllZDU1MjE5Zjc4MjFhODJmNmMxODMwNTJhY2VjNjgxMGM1NjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE1YmMyMDBlNThlZTZhYzY5YjY0NGJkMTY2NDU5Mzk4MjgwYmZlMTM3YmZiNTdhOTJiYzI4NmRmODIwMDdkZTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRlYjFiNGIwNDk3NDgxZDBiYmNhOWM5NGM3YzE4ZTdmYjliYmY2YTVkM2IwZjRmNDk4ZTYyMDAyYjFiMjhjMGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a04487b29d864a919a49fc9d741bec2f",
+      "statement": "_park is deliberately run outside the inbox lock while the tool handler runs inside it, because every wake path is itself a lock-held body that writes and then notifies — claim and claim_reply both delegate to _claim_locked under self._lock, and _cancel_request and _refresh_expiry take it too: a park holding self._lock could never be woken, since the writing thread would block behind the parked call and the call would always run to its deadline.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L440-L465",
+          "version": "repo-lines-v1:sha256:d4b4431bec3bc2d711ae885698f6aa2501012acb82f32c2e7f093c2c716a9827:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5OGUyMzJjMTQ5MzJhMTg4Y2ViMGNkMGQ3OTgwYTg0ZjU1NDVlMDM4YmFiNWNjN2IzNDk1YmY1MWVjYWJjZjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3MmY5Njk1Yzc0NjdjNzQ3NzNjOWNlN2ZjNDI5YzVkMGQwZTQ4N2YzYzUxZDE1ZDY2NjhhM2QyNDA3MmJiOTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIyZGUzMTA1YTA1MmUxMzQ5MzJiM2FhZmVjM2NhODBkZGZkODBhMTBiN2ExYmRlODg0ZWYxYzUyYzg4ZDFhMTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0Mzk1YmUyNDQ4ZmM2OGEzYWE1MTVjN2UzYzdkZTQ5NjFjNDljOTdiZTBlYWEwNDMxMWQwODk0N2QxY2Y4YzcifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L488-L518",
+          "version": "repo-lines-v1:sha256:3cee981c45cb6d4125b2aaa4f0441efe99c58526d376230616ac967278d7d577:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM3NWY4MzliOTYxZTc1MmJjNDZkMzRlZWVkZDBkY2NkYzU5ZWMyMTdiNDA1ZjNiMDRiY2FhNmYwZjliOGZiZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MDMyZTk2NGQwOTMyMzUxZTVkMTg1MjY5MjgxYjE3MWEzYTA5YjA4YjI4NmU2NjFlYTQ3MDMyM2M4MmViNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ0MDFmYzQwODdlYzViZjMwOGYyMTE0MGZkYzBmNTEyZmM3NGY3MzlhMmEzMzQ2ZjljMTg3NzQ1YmQ1NjMzODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU1YzEwNDFhZTM5YzA1YTM1MjNkNzFlMzNmMGI3YWNmNjRjMzJmZDZiZDQ3YmM2YTRiOTJjMDFkNzcyMTdhZGUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L520-L548",
+          "version": "repo-lines-v1:sha256:50aa0f27877bab20b951863055c741f9c676c744fb39a28b1297e97afd9bbe0f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4MTA1OGE2ODk3MTRkMjBmYTdhNDllMzk2NjFhZjVjY2VlYzlmNTVmODAxYWExZjE3MjExMGU3OWNiOGZiNjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MDMyZTk2NGQwOTMyMzUxZTVkMTg1MjY5MjgxYjE3MWEzYTA5YjA4YjI4NmU2NjFlYTQ3MDMyM2M4MmViNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZmYmIyOGI1YTJjODRkYmFmNjhlMGExZDZiYzhhM2Q2Yzg3YmI2NzY4YmFjYWMwOTljNmZlY2IwOTc0NGMzYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA3OGRkYWEzMDVjNGZlNjVjZDBmOTQ1MjMxM2IxYTRhMGZiNzlhYzBkNzQ2NjE3MmU1MDU5MmI5ZGJmNjg1NjkifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L556-L638",
+          "version": "repo-lines-v1:sha256:900ae982e63924f65dd5dce3f552df14b477f74dd233f387169f1adcd62301c3:eyJzZWxlY3RlZExpbmVDb3VudCI6ODMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhkMjU0YTI0ZTBjYTlkY2YyMGZhYjQ3ZGMyMDU5Nzc2YmU5NWM5OGI1NDU4YTVhNGNmYzcxN2ZiZWM3MTI4NWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczYWNlMmMwODA2MGViOGM0ZDc0NmY4NzMxOTc5NjA4ZjRjOTViMzg3YWUyNTYxYmRkYTY3N2UzMGJlMzA2YWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUxYjVjYTk1NTI2N2Y2ZDAyZThjNmZjODkzZDc3NjljYWFmNTM4ZDUxNTgzM2RhMWQzZjI3ZDM1ZjYwOTE1MTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQwOTRmMDc3OTU0N2RmZTMzYzM0ODAwODIyNDZmNTU1ZTA1MDA1ZDJiZTM0MDBiMGJkYTY1OGQxMmNhNTNjYWEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L646-L668",
+          "version": "repo-lines-v1:sha256:9d2a0ba0f3b521f9ee0a2af3429aa36569913c3498665a9625a7caebfddf382e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwMTI2Y2U0YTU5YjNkOGFlMTkwMzllNWRmOTJkZTQ1OWI0OGI0YWY0M2E3OGFiZDI4YWJiZWRkMGZkZjQ5MjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyNjA1YTc1ZWQwZDFmMjg4YjkyYTliNTEyNTg2Y2Y2OGM2MmRhYzUyODZkZTcwNThmN2NmNTVhMTFjZmViMmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwODE3NWVjMWRkMzYwMzMwOGE2ZmY2MGUwMzQ5YjgyODc1ZTM0ZGEwYzJjNjI4NzRjZWMwOGEwN2UwNTE4NmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ2ZTI4MWUwZWUyNjQwYjg1MTgxMjU5MDk3ODg4MzgzMmViNzk2ZWY1OTllYTYzZTFlYmYzMjcyOTNiODUyMmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5f8d207c8855421c9b62461654e31f95",
+      "statement": "_park orders its work as read the card, register the waiter event, then read the card again, so an answer that landed before registration is caught by the re-read and an answer landing after registration sets the event; both reads go through _require_card, which carries the expiry check, so the parked thread can itself be the one that persists an observed expiry and calls _notify_waiters (its own event included) and the envelope returned is built from that last read.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1024-L1043",
+          "version": "repo-lines-v1:sha256:3bc5d964db0cec490433b2937b574abac67c941f8ae851a7a9bf810cada60ef4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3YjRkMmIwODE4YmM1ZDYzMmIxMmQ1NmIzNmViMzU0OWVkOWI0ZDY5YTYyZjZkNjFmMjk2YTM2MjIzZDVlZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjZmQyNmU1ZmQ5MTA1NGQwYmE4NjlkMmE2ZDdlNTc0OWUxMTNiMDFlOWY3ZDk1MGFiZWE4YTRmYzkwNGU3ZDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVmYzBkOGU5ZDA4YWY2NTJkZTM1ODkwYzlkMGM0ZGMwYzlmNzA1OWE5NGIxNjhkMGVjZTczNTZmM2JiYzg2NzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkODIzYzhmYjQ3ODA4ODU5NWRlOTI0MjQ4MDgwODc5NmQ5YmU5ZWY0NGFjNDEwYjExODhmNzVlYWRjNTFjN2EifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L556-L578",
+          "version": "repo-lines-v1:sha256:9d2a0ba0f3b521f9ee0a2af3429aa36569913c3498665a9625a7caebfddf382e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwMTI2Y2U0YTU5YjNkOGFlMTkwMzllNWRmOTJkZTQ1OWI0OGI0YWY0M2E3OGFiZDI4YWJiZWRkMGZkZjQ5MjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyNjA1YTc1ZWQwZDFmMjg4YjkyYTliNTEyNTg2Y2Y2OGM2MmRhYzUyODZkZTcwNThmN2NmNTVhMTFjZmViMmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwODE3NWVjMWRkMzYwMzMwOGE2ZmY2MGUwMzQ5YjgyODc1ZTM0ZGEwYzJjNjI4NzRjZWMwOGEwN2UwNTE4NmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ2ZTI4MWUwZWUyNjQwYjg1MTgxMjU5MDk3ODg4MzgzMmViNzk2ZWY1OTllYTYzZTFlYmYzMjcyOTNiODUyMmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_79d71bd1d67648209284f143533ce5bd",
+      "statement": "Each park is bounded per call: the deadline is time.monotonic() + wait_seconds taken inside _park (so the handler's earlier work is not charged to the window and no injectable card clock can extend or truncate it), remaining time is recomputed from that same deadline on every loop iteration, event.wait(remaining) is given only the remaining time, and the loop returns the card once the deadline passes even when no notification ever arrives.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0011-answer-returns-through-the-ask.md#L48-L54",
+          "version": "repo-lines-v1:sha256:d247ee69c5949d0133ced53c380885cd6f53677f2a5f75293ae6c1807e54a2f1:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODYxMDViNDE3ZjE5NTg5NGJmNTE5YmRlZDdmY2M0NzgyOGJkZDZkN2IyNzMxNDI5NzJkNjRkMDAzMjg2NDRiNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWY2M2FmOTQwZTRhNTQ1NmI5OGM2NmE1OTEwZTk3OTExMGIwMzk4MjlmYmVhYTEwODcxMzBhY2M4OTMxMDE4NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDE2MjgzNGYxZjBkOGY1ZTE3ODJmZjMwMWE5YzJmZjBhOWJmMGExNDMyYmJjZDdkNDNlNmFkMjhjMzFlMDcyOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzAzZTgzYTExZDJkYTExM2JlODBlYjlmNzJjMTNiNDQ3M2JmOTcxZTI2ZGExYmE1NmRmNThjNDI2NWVlYjY0MCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L556-L578",
+          "version": "repo-lines-v1:sha256:9d2a0ba0f3b521f9ee0a2af3429aa36569913c3498665a9625a7caebfddf382e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwMTI2Y2U0YTU5YjNkOGFlMTkwMzllNWRmOTJkZTQ1OWI0OGI0YWY0M2E3OGFiZDI4YWJiZWRkMGZkZjQ5MjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyNjA1YTc1ZWQwZDFmMjg4YjkyYTliNTEyNTg2Y2Y2OGM2MmRhYzUyODZkZTcwNThmN2NmNTVhMTFjZmViMmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwODE3NWVjMWRkMzYwMzMwOGE2ZmY2MGUwMzQ5YjgyODc1ZTM0ZGEwYzJjNjI4NzRjZWMwOGEwN2UwNTE4NmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ2ZTI4MWUwZWUyNjQwYjg1MTgxMjU5MDk3ODg4MzgzMmViNzk2ZWY1OTllYTYzZTFlYmYzMjcyOTNiODUyMmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8f83170e91004e50b3a2d756dfdf5ed6",
+      "statement": "Waiters are notified only after the card state is durably written: _notify_waiters is called from exactly three sites, each immediately after its _save — _claim_locked (the shared lock-held body behind both claim and claim_reply) after writing tapped, _cancel_request after writing cancelled, and _refresh_expiry after writing expired — so a woken call can always read the written state and a failing save notifies nobody.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1155-L1166",
+          "version": "repo-lines-v1:sha256:09c255faa094be2486a82faef9362b1b3b766a480d0ca7f3fc73981d2728dd6c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzOWY3M2FlMDIwZGI3YzIyMGZiZDVhY2ZlZmNhNmM1NGUwYzk4MzU3OTc3N2FiMGUxODUzNWVmNmJiNTQ0ZTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkZGQ3NjMwOGM2MTM1MjZhODgwNjQ1ODY0ZGI3YjU4NmM4YTIyNGM3MmNkMmRhNmE4MTQ2ZTNlNzQzMmEyMWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0OTkwMTJhOTY4Mjg0OWFlMGFjNzM3MjU3MTMxZDZkZWU4Mjc4ZDk3NjUwYjk2Y2RiOTY5NjZmNDcwNTMwZjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYxNTkzZjU5OTQzNzBkODY1MTQxOGI2MDVhMGY5YTliNzVmNTUwMTI4ZDFhOTJiYmJjZTZmNTcxYTUxYmE1MDkifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L509-L518",
+          "version": "repo-lines-v1:sha256:14406d96c82ddea83c4099f3ea9b73f0a154c0ecfe11defbcd3f284203e272cd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxOGMxNjVlNDg1OWQ0OGUzOTcyZmUxZWYyZDk4NWZlNjg4YTZjZWI5YTE4ZDEwMWU0ZGZhYTVkZTY4MDFjYTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MDMyZTk2NGQwOTMyMzUxZTVkMTg1MjY5MjgxYjE3MWEzYTA5YjA4YjI4NmU2NjFlYTQ3MDMyM2M4MmViNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ3YmM5NDViZmI2MDhmZTI0MDVmZGNlNTQwNDQzY2EzYzdjMzkwYmNkMDc0ZGI0Yjg5N2M0NmUxMzkyMDA2NTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU1YzEwNDFhZTM5YzA1YTM1MjNkNzFlMzNmMGI3YWNmNjRjMzJmZDZiZDQ3YmM2YTRiOTJjMDFkNzcyMTdhZGUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L541-L548",
+          "version": "repo-lines-v1:sha256:916f932c3b9ba726482b07063f15b1335d19c5f56915e2a227033611c3986ed7:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDE4YzE2NWU0ODU5ZDQ4ZTM5NzJmZTFlZjJkOTg1ZmU2ODhhNmNlYjlhMThkMTAxZTRkZmFhNWRlNjgwMWNhOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTUwMzJlOTY0ZDA5MzIzNTFlNWQxODUyNjkyODFiMTcxYTNhMDliMDhiMjg2ZTY2MWVhNDcwMzIzYzgyZWI0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzYyMzk2MWZkNTljZDIwOGMwYTA4OWU4Y2E2ZWExZGM5MTMxZDRiODgxZjg4MGMzZjVkYWI2N2VkMDQ4OWFmYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDc4ZGRhYTMwNWM0ZmU2NWNkMGY5NDUyMzEzYjFhNGEwZmI3OWFjMGQ3NDY2MTcyZTUwNTkyYjlkYmY2ODU2OSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L626-L627",
+          "version": "repo-lines-v1:sha256:e4a042e422b1101188d8bebe4f5bdbe47a8310ce07414e99884e5939c0f93036:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhmYzZhZDQyN2ZhZjE2NTkwMTY3YTVkZGEyZGNlYTM4NGI0NDQwNzJhY2Q4NWEwZDI3ODkyZDQwYzIyMTc2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTk0ODQ0YmM5MTY4NTllNjRlNmQxYTRlYjI1NTkwNDRmMjczYzMzZDg2ZGZlNjliNjgwOWFkODJlMzdhNDVhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTg0ZjBjZTNiMWM4M2FkM2YxODNkZDI2Y2MwNWEwYjM2MmU0Y2JhNDA1NDU2YTFiYzAxMjk2ZDdiODRkNDBhNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjg4MzYxOWJlOWRiODNlYTEzZWNkYjRmNDI1NDUxZGViYzlkNjI3ZTliOTUzYWUzZTliNjdlYTczNjliNWMzNyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L688-L693",
+          "version": "repo-lines-v1:sha256:17a8e3928646d5388f6da5b056b84debe260a51b36c21e1b4d10376de980b49d:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTFiYWNmNGVmMDc3OTA1YjliMjEwMzE1OGM0M2Q2MDEwNTY1YmFkMWUwMDg1MTc4NzZhYTJhMTA3OWJhOGQ0MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzM1ZTA1OWEwMDNlODlkOTdlZDc4MDFiODRiOWVkNTUyMTlmNzgyMWE4MmY2YzE4MzA1MmFjZWM2ODEwYzU2MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDI3ZTk1NGQyMjNkMTk4NmZhOWE1Mjc1ZTljNmQyMGZmOWJmMjFiNGQ5N2I2NjU2NDc3NWNhYWZkOGE4OTk2MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGViMWI0YjA0OTc0ODFkMGJiY2E5Yzk0YzdjMThlN2ZiOWJiZjZhNWQzYjBmNGY0OThlNjIwMDJiMWIyOGMwYiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L988-L994",
+          "version": "repo-lines-v1:sha256:e7d2e92458b968dcb930853456367f8cf646206249dee08d8d31a69303b0ce77:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjU0ZGRmN2M1ZWY5OGJjOTY1MzZlNWQwN2VkNzM4OWY4NmQwNDNlOTY3MzA2Y2ExMmU0NDEwODg2Nzg5NzJhOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGRmZWQ3YmYxMmI3YWQ5OTUyYzc5MzczZGNlOTkxMDg4OWVhZTU5MmFhZDRlN2Q3OTllOTJiZGMwMTJhZDg5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNhZjg0ZTFkMGEyNmU2OTM0ZDY4YTZmOGNiOTEwOGNiY2MxNjAyMDY5M2VmYjY5ZWZlMGQ4OTkzZDE0NWUwOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjRlNTY3ZGUxOTE2NzBjZjlmYjU0MTk2MzlhOTA0MWI2NmQ2NDM1M2RkMjU3MjQ1ODZkMDdjNDU5YTNlZjU4OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1b8e743ef7794b4e95939c910c4fb858",
+      "statement": "The owner-only answer path is a wake path by construction rather than by a second implementation: Inbox.answer calls claim with owner_verified=True, so the local POST /answer route wakes exactly the same waiters with the same owner and version checks and refusal reasons as a tap from the destination.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L629-L650",
+          "version": "repo-lines-v1:sha256:9a4705207396fe2d8a57a9f98ccff45d0c63d9ed33a1f54546dcea892c93d535:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliMDBmZDFjN2UzY2RjOTk1MGRmYzU2ZGM1MWRjNWUxM2FlYzNiNWRkNzI4ZWE4ZTI2ZmFmNjQ2ZGVmMzIzM2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3YTQ0M2UyZDVmMDk1MjEwYmY1MjhmZWIwNDU5YWM1MTI4YTFjODkyODBhNjZkNmJjZTNjZTRlYmYwOWNkZjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk3MWY3MjE0MGRiZTdhOGU5NzQ4MzViYjg1MGVkZTEwY2JmMDAwNmNhN2JmNDVhZTc0MTJkZjBkNTUxMTVmYjEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L166-L202",
+          "version": "repo-lines-v1:sha256:16761d4e9497b90f4e45390e367af70c53cf996fa0f8e14e93dfc75b4566085e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxZmMzMmIyODUwNmUzMWM1MTgyMjFhY2E2Yjg5ZmI1NDY5MzViZTM2ZjcwYjVhMjI4MGIyYzZhNjJiM2YyZjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjN2Y1MzU1NjllZjUxZGI2OTEyMGIxMzg2YmVmYjBhZWU3YmIxYzgwZDc0ZGJmNmU2YzgzY2ZjODliMmQ2NGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFkNTMxMWI1MDY1YTA5ZTEwYmI4ZGU4Y2M2MTFmMTc4OTI2M2IxNDhjZjc3MjRjN2U1ZTc0OTc0MTIxZmEwOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNlNDIwNmM5OGIxYTUwN2JmNWIxOWQxNTE2OTNmZWQ3ZWU5NTZkMDAwZjY1ZWNhZThiZDBiMDNhZjE3YjkwY2QifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7892b72685404324afdaae487dea54dd",
+      "statement": "Several paths end a card's waiting question without waking any waiter: record_tap writes a tap with no notification and has no production caller (only tests use it as a shortcut to an answered card), update_request leaves the card open so the park correctly keeps waiting, mark_processed and report_execution refuse a card that is not already tapped and notify_user writes no card at all, so none of them can end a park, and a duplicate create only re-runs the owner notification while leaving the existing card's state to the same observed-expiry path.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1002-L1008",
+          "version": "repo-lines-v1:sha256:557140984730cce098395354a4ed0e8c79a3cba2edf07d77dd8c23b5d6c92af6:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTgzMzMyNzc4ZTBhYThjZjRhMmNlNTI4ZDRhOWRlNDgyMGE0Yzg4NjUzOThjYWI3MTgzNWJmMTY0ZjM3NzE4NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmYyOGIzNzBlNzA0YTgwMzAxOTVhMDg2MmY0NmIwZTY1MDlkM2U5ZWExZWJjMDdiZGE5ZDIwYTQ4MjE2MjM3MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjQ5OTc3ODU2ZDc1ODAzYzA3OGNlNzQwNzk3OTU3N2YzMTBkNmFkNTZjMzc1ZWI4ZGQwMzM2YzlmNmVkNWFjYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmY3NDE2N2YzYjA5MDA1YjEzMmI1NjBlMWI0NWIxYjcxNGNhNTZkZDgyOGQ4MjA3YWJlYjhjZDkyNTgzMGY3YiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L467-L486",
+          "version": "repo-lines-v1:sha256:d09b0cfdd688428db29215ceee7c5daa3e6abfcc21e2d779f1c82501dcf76708:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBiMDhkYzY5NzhlMzkwNjNjYmFiZmMxYjRkM2QzNDk2OTE3ZTZjOTRhNWEyM2YyMmM3YjQ2NjMzOTVjN2ZiNzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExNmI5NTc5YTUwNmI2MDNmM2IyNTM3YWY4NTE5NzYwZmYyYTU1MzJjNWVmMDViZjg5NDUyZmE3MzIyMWI3MmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYxZDUyYmM0NTFiZmU3OWViN2E2YmRjZmY5YzBlMTk1MzdjNDUwOTA3NmJlNGNiYTk0NDcyYTdkNDRjMDcwNzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQyOTQ3NWVhYmZjMDNmYjY1NTI1Nzc5OTk1YmMzYmJiYTFkNjg0NWZhZTU3MzE3ZjFmOWE4NzYyN2U0MmI4NjIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L829-L864",
+          "version": "repo-lines-v1:sha256:9f832b3f2ae4ed5a9565ecf77e332af6ab400ed3d4e77b72b4aeefc0097449a5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkN2JiYjhkZmMzMjY1NGE3ZDM2MjVlZWFmYWZmZTU3MjUxNmY3NGYwYmIyOTFhY2JjNzc1ZDljOTUxNzMxMzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdjMTY2MzMwYzNkZTc5NjUzZWIxMjc5NDc1ZDRhMjk3YTI2YjkwNWVjMzViYmEyM2M0NGNlYmE4MjdhNGM0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0OTEzNjg4OGZjY2RjNjdjMTZlYzY2MzRjMTk0OWVkMzY2NWFmNmI0N2YyNTMzNmIyOGI3ODY5ZjBlYTU1ZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1MTYyMDUxOWUyZTA0NGE0NzczN2E1NmMxMWIyZTE3NWZjOTYzOTBjOGFiZjNiNjM5ZjZlNjNlMzM0MDljOWIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L893-L905",
+          "version": "repo-lines-v1:sha256:13acbe4c62022272bae3689dc9b50ec6e242bf58572d78e8918f13bb83b05bf3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1YmQzNzJiOTMyMWI4MDk1Mjc3OTBjNzFhZTNlYWVkZDlkNDc1YTVkZDk4MjU4OGEyYzU0MzkxYzMzOTU3MjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjOTZiODJlNzc3NWRkMzBlMDhhODliYTUzNmEzYjk4MTdhMmI3YWMwZGM4MzZjNDBlZDViNGI5OWJmNDg1YzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIzNGMzZTFkYzQ2NDkwNWQ2ZmM0OTM0M2FhMTVmNjUwMjcxZjE0NGI2ZmQ4YTk2MzI1ODQ2N2I1Nzk0NzRkYWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFiNjVlM2JhODU1Y2YzMGMxY2U5OTE3YzBlMzg3OTdjNGU3MjUzYWJmMGRjMDBlMjFlYjE2ODQ3N2M3MDUwZTIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L907-L927",
+          "version": "repo-lines-v1:sha256:e4e60ff52f3b08ada15096aa8685f623ae57ab3d47c6f7035b39b13fb9a34bd0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyN2M4M2NmNTRhYTA2NTE4YThmZDkxMGE4ZDBlNThjODk5MDRlYzhhN2ZhMzZkZTlhNTQwYzYwNjc3ZDEwNDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczYWNlMmMwODA2MGViOGM0ZDc0NmY4NzMxOTc5NjA4ZjRjOTViMzg3YWUyNTYxYmRkYTY3N2UzMGJlMzA2YWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0ZTU2N2RlMTkxNjcwY2Y5ZmI1NDE5NjM5YTkwNDFiNjZkNjQzNTNkZDI1NzI0NTg2ZDA3YzQ1OWEzZWY1ODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIzMzU3ZjQ5MmU0YjA0YTUyNjA3YTQ4ZTZjOGZmZjM0MzM5YjRkNTBmOTZlNjM0ZGIzOTI0OTM5NDI1MWJjZjcifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L929-L978",
+          "version": "repo-lines-v1:sha256:4cb19d3b734b5fab5b26ddfffde354c2f81c0e86a97635878617ef5ffc50b1ef:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5NDJjOGYxZWRmZTFmYWNiMDcwNjViYTQ1NjIyYjg0Y2UzZTdiNmRiOGE1ZDBkNmNmYTQwODcyYzg3MTFiNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkMzBkNTJkNzgzZGJkNWI0Y2I1MjJlMWVkZjIyNDA1OWQ4MzAzYTEyMWM3OTQ4NmIyM2Y0ZjhjNDM5NDgyOGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ0ODY3ODEyZTRlMGU2YWIyY2RjZTkxZDVlYjQ2NTgzMGRlOGNkZTE0YzJlNDg5YjQwYzM2NGNmMmFhMDhhNTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkYzFhODdlNzM5YTFhYTIzZGI3MzhmYjRiNWM1NmRiMzAwMTQwMDkzN2VmZDFhODIyY2FmNDM1NDMzY2UzMzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8fe3b4b8700c48d4af61d0d688dfc2e1",
+      "statement": "A client disconnect while a call is parked is not detected and does not cancel the park: there is no cancellation or disconnect hook, so the request thread stays parked until its own deadline and only then fails to write to the closed socket, while the waiter entry is removed by the same finally that every other exit runs and the card is left unchanged (still open, same version). The per-call window, not any cleanup, is what prevents residue.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L570-L578",
+          "version": "repo-lines-v1:sha256:a686810a6aa1a014c263abaf591d5e244c687e556eb67ead7b8d41576077d171:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM5ZWEyNjQ3ZTBiY2U4NzVmNmY3YTMyNjVhNzk4ODdmZGY2MmM4MWQ4M2U3ZTEyNzBkMWU2ZDc0Mzg1OGQyMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTI2MDVhNzVlZDBkMWYyODhiOTJhOWI1MTI1ODZjZjY4YzYyZGFjNTI4NmRlNzA1OGY3Y2Y1NWExMWNmZWIyZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTYyYjk2YWVjOThlNjZhNTBkYjY1NDk1N2ExMjRlNDUwOTAwYThhMTg5MTAxYTllMjY0YTk1OTA3ZGRlNGFhMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDZlMjgxZTBlZTI2NDBiODUxODEyNTkwOTc4ODgzODMyZWI3OTZlZjU5OWVhNjNlMWViZjMyNzI5M2I4NTIyZiJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L275-L309",
+          "version": "repo-lines-v1:sha256:a01be17626365f34eab7596438bfad4af986348c5ddc9ed858131ff2ba495dca:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxMTQwNWVmNjE4Y2IxNTdjYzE5ZWZmMDAwNWNiZWQ4YjMzZmI2ZTllOGNiMTg1NTZmOWUxNmYyNzgyMTFmNGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxZWUxZGM5ODVhYzM1NWUxNTgyY2ZhY2UxYjcyZTY2OGM1ZTU4ZDBmNjgyN2RjNGM1ODUzYzQ5MWJmYjgwN2EiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE3ODQxYjI1YTlmMzM4NGU2N2U4MjU0NjY4OTkzZGE3OGNkY2I5ZWQ0YTExZTc5MzEwNzRkMWNlYTBkZDExMmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI3YTZmZDExYWJhMjNjZGQ0ZWMxZTRmMzA0Mzg2MjgwMzFlZjQ2OTM5ODhhMTAxMWFjYzBkMzRkZGM5NmRmZDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_845ec04e63054850a4c6967cf4e0e8ca",
+      "statement": "Waiter state is in-process only and never persisted — the store holds only cards, notification external ids and durable state — so a restart or a second process pointed at the same store parks nobody and cannot wake another process's waiters. The waiter is an optimization over the durable read, which remains the ground truth for an answer.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0011-answer-returns-through-the-ask.md#L39-L42",
+          "version": "repo-lines-v1:sha256:de8ce4da7dc402613c6e5f474fb422ef3444445982eed64b52d5c6b0befc54cc:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzc0ZDEyOGUzZTFkNDk3NzM4NWU0MGU3ZTY1ODM0NGMyZjUyZjY5MjY3YjFlMmUwMDJmOWY4MTEyZmQ2ZmVkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjAzY2NmMjg5NzJkNzMwNjMxMzkxNzJhODM4YzEzOGJkYTVmYWEyZGE5M2YxMmM2OGUzNGM1MjcyNTQ5ZTFkNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTlmZmQ2ZDVmYjNjYzA5OTkzZGFkMWM2NDVmNGI4ODYyMDI1ZjIwOWE4ZDFjMWZjYWU2MDQzYmQzNTE2ZjlhNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWY5ZTY3ZTdkMmUzODI5MTQyMGI3MzgzODkwNTA1OTcxM2M5MmRkNWUyZWQ3ZGMyMGEyNjMwNGM0MTQ5ZTY4OCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L256-L289",
+          "version": "repo-lines-v1:sha256:a0f507b0d7eab066f93728729cd33c91ddcc9d59aa4b128be1a10951bbb46bc5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRlMGY0YjNiYWQ4YWM1MWY0NTJmODlhOTBkOTE2ZGZmNDE3Mzk2MmIyMTNiOGQ0YWUzYzQ3YTU3OGQ5MWVlNTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmMjg3YTllMzM2NmE1ODFkZDMyMWVhYWUxMzE2OTg4M2RlYTQyMjQxYTBjN2VlMDBmNGM4NjY0OTYzMjIxZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczM2U4NDg3Yzg1ZGZkY2Y5ZmE3YjkzYzc0NmM5NDYyNWFlNDdlMTIwYzc5N2U3OTFlNzM3ZjllZDdmZmM3M2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2MmNlZDdmNGJjNjg0MThmNTU0MjE1OWNlNmI3ZWEzN2EyM2I2ZDdkNGVlMDJkNGJkZDhhOTA2MzQxNzNiOWUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/store.py#L69-L88",
+          "version": "repo-lines-v1:sha256:bf82dbee26a9d2ce5b37a6f317469d52da56bfa9965ac5bdff3e8fcf0758ec70:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVlMjhiODc4OWY3NWYzOGYwMzliNzdmNjk0M2JjMzIxZTg0YWRlNjgyODA0NTU0ZWIwNDJjMGQ4MmM2M2ZlYTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUyNzg4Y2RiYmU4MGVjMzczZmFjMmYyOWEwNWZiYjk5MGU2OTE5NDllOWZkMzM0ZjQ5NzlkNmJlNmQ3ZjViOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0MDk5MDNhZTg4N2U2OWJjNDZiNjU5NjU2YTcxOGE3MGViODc4Y2I1ZWYzZDk5MTI0NTE0ZTgyZDE1ZTBiMGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhNGVkOWM4ZTg4MDM0MDg0OTRlYTZlZmVhNGRjN2Q1ZjAxNWZlOTQyM2E3NmVlMzk4YzFmYTllOTM0YTFkNTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_70fa6fced7094114a97b7e9a5f5f2138",
+      "statement": "The HTTP surface is a ThreadingHTTPServer, one connection thread per request, so a parked call cannot stall the listener: tools/list, other tools/call requests and the tap or owner-answer path that will end the park keep being served while one call waits.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L91-L97",
+          "version": "repo-lines-v1:sha256:06a27d6183f7d44aad434413e73a399209991d6e596f01d93cec5b6f9f540642:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmI2NTZhOWZkZjU5OWM4M2U3MDY4OGU0ODM2NmIxM2I2Mjk1M2IwY2I1NTM2Y2E3NjVhYTI4ZjE0NTNjMDY3NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGNkNzlhNWQ1MDY0MjU3MTEzZGYzODk3YzAxMTUzMTJhNDI4MTY4NTY1NDkwNzNlNTA1ZDE0Zjk4YjZkOGIxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTE0ZTBkNTBiYTE0MGMyODlmZTI1ZGFkY2M0Mzk3N2M5MzU5Mzk2NTlkMGUxNjk2NWQ3YmYyYjZlYzI5N2NhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzVmNWQ5ZjNlZjNlZjA3MDQzOTY4Y2M5MmUwNjIwOGM0MDBhZjllNzBmZmRlN2U1NWUyODMyZDc4NWI0OWZjNiJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L251-L273",
+          "version": "repo-lines-v1:sha256:8837cca3446b5364e626df7f772ebb17fee2fe2508a74375eed090f22c53e43b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlZmM5MzUyMDE2ZDIxY2JlYzMxMGJmYzdmZmRkMGQzYmI3OGRhMGE1YmFmZGI1MGFkNWI0ZTBiYTZiMjdiNDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxZWUxZGM5ODVhYzM1NWUxNTgyY2ZhY2UxYjcyZTY2OGM1ZTU4ZDBmNjgyN2RjNGM1ODUzYzQ5MWJmYjgwN2EiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5MTQzNmVhNGQ0ZjQzMjQ2ZTgxMDY2OTI0ZjVhODc3MGNkY2NiZWUyMmY0YzFiNWJlMzI3M2M5N2NlOWEzZDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZlOTU1MmU2MGI2NGMzODY1Y2Q0Y2I2NDg0ZmMwNzRhNjk2YzYxMGVhYjBiYzQ5ZDFjMjkzNDRhOThhMjY1NGEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_91783a19208644fcbf14a86750e2f4e8",
+      "statement": "ADR 0011 fixes the return path as the waited call, the paraphe wait command and the poll read, with no per-runtime integration, no server-initiated turn and the gateway-wake machinery withdrawn; paraphe wait composes the bounded window from outside the model loop by issuing a fresh bounded get_response call per window, clamping its window to 60 seconds with a 90 second client timeout, and exiting 0 on answered/acknowledged, 3 on expired/cancelled and 4 on an unknown request id.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0011-answer-returns-through-the-ask.md#L27-L46",
+          "version": "repo-lines-v1:sha256:246f89de51f55bf5f1091ecdd6d8e713dddb2154f9923e8d0ee9c541e4c59dd8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkM2RiYzRlN2U3Y2JlNWRkYzg5MWIwODA3MTJmNjM1MWM5NGI3MjhlYzhiZDg1NTZmNDYxMmIwNzBkMjdiNDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhN2E3ZGY5NDJhNzA3NTc0ZjBmNjE5YjY5ZWRlODE0NzkzOTk2M2Y4ZTE5OTI2NDU5MzQ2ZDFkMDAzNTk2NGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU0ZGE4NzVmMWQ4MzQ5NDc1YjRjMTE1NTRjYzYyNjBjNzFhODVlOGNiMGJmZGU0YWJiZGZmNjdhZmY0MWEzNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVmNzMyODlkZTFiYjVlM2E4NDM0Y2ZmMzYxNjczOGY4NWU3ZDQzMmM5MTM2Y2E4MDk0MGI0NTk4MGE4YWViOGUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L176-L227",
+          "version": "repo-lines-v1:sha256:5d2e7295480db39a5a5e64ee8cba2eda66107bc2fe3a7915c878594ecd761ab8:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5ZjZhMGQ0Yjg4NTM4ODI2N2VlOWRlN2FmMzRhNWNhYTQzM2Q0ZThiN2E5OTZjMzZhNDM4ZGUzY2Y5OTkzZjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzNTFiYzY5NWY5YjBlYmNlMDZmOTNlZmU1YzAwZTEwN2E4NjViMDQxZTMwYzk1MTYyY2FhYjI1YmU4ZmU5NjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFkZDFhNDkwY2NhYjFjNzQ0ZjhiNDE3YzU2YjI0MTMyYzMxMmMyZjA3NTc3Y2NkMzEyY2UyMmEzNWY0NmQ4ZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyOWJiNGU0OTU4MDE0MTQ0Yzc4NDI0ZGEwYjljYjZhN2QwNjU4MmY3YWU0YTNjM2U5MjRiZmQyZjExZDdlOTEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L24-L32",
+          "version": "repo-lines-v1:sha256:44d947eb524dc00bcef0a22e602bf0af64bf2f229e315d4bc07edc381f71cb0b:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDIxNzEyMjE3YWZjNmQxZWE2YjJiODE0MjJjOWIyMTRhYzRjZTMxMWZjN2U2Y2QwZmJiYTkwYjBjN2FiZGU4MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTMyNmE3NzQyZjk3OWVjYWE3ZjEwMGY2MzU5MTU1YmNiMDBlNGRlMjQyYmVjZjc1YzVkM2E3NmMyYmVmMjc5YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzYxMDU2ODc5NGYxMjgyODk4ZWNiODAxMGM3ZTU1ZTZhZGQxNmNhOTkzY2M0MDhjMzkwNDdiMWRkZjU3ZDhmZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzQyNDNhM2Q2NmZjMWRkNzA0MzJkODY4Nzk0OGE2YWIwZjllOTgwYzE0YWE2NzU4ZGIzNTE0OGNkNzZkODg5MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_dc1dd28fc04a408e8be674005da8b15f",
+      "statement": "tests/inbox/test_wait_engine.py pins the park semantics: a tap inside the window returns the answered envelope and leaves _waiters empty, the window end returns the pending envelope while a later read still answers (and an unobserved expiry is reported expired at the window end), a call without wait_seconds or with 0 does not sleep, a waited read on an already-answered card returns at once, a cancel and an observed expiry wake the park promptly, and the same tap writes identical fields with and without a waiter — so the wait never changes what is stored.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L99-L199",
+          "version": "repo-lines-v1:sha256:d608bc5095726d50f3c95f68b6567c78276f9266f081c0f8cb293557419bbd52:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIwNTJkMmRmOWJkYzE5YmUyNDJmMTM4YTEzNDZmYWE3NjQyNzFhZjI3YWVhMTNhMDc2MWY1MGE2YjM3ZWIwMTU1IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1MWVlMWRjOTg1YWMzNTVlMTU4MmNmYWNlMWI3MmU2NjhjNWU1OGQwZjY4MjdkYzRjNTg1M2M0OTFiZmI4MDdhIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0OTZlMzVkZjA3ODU0MmJhZmE1YTQ1MTMxY2UwMmYwYjQyZTdlOGM0MDNjM2MyYzFiMjIyMWVkNmUzZGI3MzJkIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIwZDU2NGUwYmU0YjVjZTBmNzc1YWI4MWUwYWRhOGYyYTBjYWE3YzczZjQwMWUzMWFjZmFjODAwNmM2ZTc2NDI2In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_0c6dfce044344c21bc8b5eb1061d5f8e",
+      "statement": "An owner's long-press reply wakes a parked call on the same path as a tap: claim_reply resolves the card by the replied-to message id over the loaded card state, passes the card's own version and responded_via telegram-reply, and hands off to the same lock-held _claim_locked body claim uses, so after its _save and _notify_waiters the parked call returns the answered envelope carrying the owner's words in response.text with no response_choice.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L520-L554",
+          "version": "repo-lines-v1:sha256:95b2b6caccda273a52d1d8afa23831a151f3786e9a022b3ff45788a0ad729d67:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4MTA1OGE2ODk3MTRkMjBmYTdhNDllMzk2NjFhZjVjY2VlYzlmNTVmODAxYWExZjE3MjExMGU3OWNiOGZiNjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlN2M5NTdiY2I0NGZiNjczYzk4YjAwNTBhNzVkMzgwODJkYjgxZDkxOGRlMzEzYTNmMDdjMTIzNTMwNmQ3ZWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZmYmIyOGI1YTJjODRkYmFmNjhlMGExZDZiYzhhM2Q2Yzg3YmI2NzY4YmFjYWMwOTljNmZlY2IwOTc0NGMzYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ5MjU0NTAxNDUwZmFkYmQzZjE4OGU1NThlNWEwMjUxMGI5MmM5MzJkMTQ0YzM3YjI0ODZlMDU4MTM4ODQ5YWIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L615-L638",
+          "version": "repo-lines-v1:sha256:ee2c975aba3d54ea86ba584a188209b6f31ca8d73e6af3fef5dd837faeeb059f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5YjdlYjk0OWU1ODFhYTMyYzlmNjlhMWVmZjNhOGUxMjdjM2ZlMTdkZWQzMmJiZTFiYzZmNzkxMjQ5NmY2ZDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczYWNlMmMwODA2MGViOGM0ZDc0NmY4NzMxOTc5NjA4ZjRjOTViMzg3YWUyNTYxYmRkYTY3N2UzMGJlMzA2YWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYzYzQ2NDRjMjEzMzlhZjQ0MzJhYTIwYzY5ZDAxNzkzN2EyNGUxYWJkZjc5YWE1YThhMWQ5MGE0NDE5NTgyMDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQwOTRmMDc3OTU0N2RmZTMzYzM0ODAwODIyNDZmNTU1ZTA1MDA1ZDJiZTM0MDBiMGJkYTY1OGQxMmNhNTNjYWEifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_reply_intake.py#L186-L214",
+          "version": "repo-lines-v1:sha256:f2f3ff7fff9a6a9815591334183c431ca94ea03f61180be49f9fac84bab38a3a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzYjkxNjhjODUyZjg5ZWY4YzJhZGUwZDM1YzI4MTNjZjgyYTU0NWFiZGNjYTM3ODA0MTY2M2ZmYTdlNjZhYzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZlN2I4Zjc2OTRmMzZmNzA2NDE3NjMzZDM4MWZkMmJhNGVjYmQ1YjI5ZTI1MDE5MjRmYzAyOTg2NjY0MmU2YzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2MGM0NjVjMDBjODE1MWJmYWY4NGY2ZjlmNjFhYjlkYjc1ZDlmNThjMGVmZjk1YjdjZGZmYWRjZWMwZjk1MTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI4M2FkOWExZTZkZWJhMjIwNGFiZTlhY2YxNDAwY2NjOGZlMjA2N2RiODIwMTVjYjQ0MDQ1ODZlNTY1MTI4NDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_45cd68ab439148d1ad6c23a470cd8db1",
+      "statement": "The expiry wake happens only when something observes the deadline: _refresh_expiry persists expired and notifies the card's waiters when reached through _require_card (get_response, mark_processed, report_execution, update_request, cancel_request, record_telegram_message and the parked call's own reads), through _claim_locked before its version and state checks, or through list_pending; list_unprocessed calls _refresh_expiry only on cards already filtered to tapped, so it can never persist an expiry, and an expiry nobody observes wakes nobody because the parked call reports it at its own window end.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1148-L1153",
+          "version": "repo-lines-v1:sha256:af743abdab8dc9052d34743ebfc7869eb24cb85045a0ea1028f91ab041b1aac6:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTdiNGQyYjA4MThiYzVkNjMyYjEyZDU2YjM2ZWIzNTQ5ZWQ5YjRkNjlhNjJmNmQ2MWYyOTZhMzYyMjNkNWVkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI0NjA5YzViYzg4YmIzOTYwNjRkYTM0NjBiNzUxYTk5MDU5MmI2NzljY2U3MTczYTRiMzkxOTdkOGY1YzkxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWZjMGQ4ZTlkMDhhZjY1MmRlMzU4OTBjOWQwYzRkYzBjOWY3MDU5YTk0YjE2OGQwZWNlNzM1NmYzYmJjODY3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWZhYWJlZWZiNWY0MWVhNzM0Njc1MTdiYWRhOTMwZTE0MDQwNzgxZWRlZDk5ZmU3Y2ViOWIwYzRmMjdkMTA4MSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1155-L1167",
+          "version": "repo-lines-v1:sha256:7e583d1f14e590e3f5c49c47bd9230e8f1349e636a9b95e7b2dcfe16dc264ada:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzOWY3M2FlMDIwZGI3YzIyMGZiZDVhY2ZlZmNhNmM1NGUwYzk4MzU3OTc3N2FiMGUxODUzNWVmNmJiNTQ0ZTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjZmQyNmU1ZmQ5MTA1NGQwYmE4NjlkMmE2ZDdlNTc0OWUxMTNiMDFlOWY3ZDk1MGFiZWE4YTRmYzkwNGU3ZDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0OTkwMTJhOTY4Mjg0OWFlMGFjNzM3MjU3MTMxZDZkZWU4Mjc4ZDk3NjUwYjk2Y2RiOTY5NjZmNDcwNTMwZjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkODIzYzhmYjQ3ODA4ODU5NWRlOTI0MjQ4MDgwODc5NmQ5YmU5ZWY0NGFjNDEwYjExODhmNzVlYWRjNTFjN2EifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L873-L891",
+          "version": "repo-lines-v1:sha256:7ca509a44712e50b718043a54c44f31244b2200e7b069d8085de6f6055b5ba42:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRjYzE1MDFkMWU5ZjcxZGM2MDQ4YjI0NjRlMTM5Y2M5YWUwNmFlMTk0MTE2MjQ2ODhhMTM5M2U3MTY1MTdhM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJhYWU4YTBjYTc2Zjk4ZjdiN2RjNzk4NDk1MWQ2M2U1N2RiM2M2NDU1NzljYTUxYmFkNmE1MzlkNjE0ZWRiYmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgzNmQ0YzcxZWNkODBmYjkxMzc3YTRjNDM5MjBhODFjYmJkNjQ3MjFiMTc5ZTZiODY0M2QwZTgxNDM4ZDNhMWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYyMzBiOTEyNTkyMjRhNmJhOWY5MmMzZGZhNTQxMzYyOTQyZGE3YWFkNDdjMWEwYmE4MThkNTIzZDYyYTg2NmQifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L177-L199",
+          "version": "repo-lines-v1:sha256:01cc86b8cdf58917403c2f813f59da9abfd8a14eaf11fba1d67b921e0837da52:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZlZGRkNjE5YTMwMjkzMmRlNWJmMWFkMjc1YmI0ZGNkNzFjYzkxMTlhOWVmNDA5NGUxYTQ5ODNiYjUxNzM5ZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxZWUxZGM5ODVhYzM1NWUxNTgyY2ZhY2UxYjcyZTY2OGM1ZTU4ZDBmNjgyN2RjNGM1ODUzYzQ5MWJmYjgwN2EiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRhMjYzZTY5ODk4MjVmYTg0NjA1ZDBmM2UzOWQ2NTYxOTM4ZjEzNWQxNjY3ZTZjMzIzMWY4NmVhYTEyNDBlMjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBkNTY0ZTBiZTRiNWNlMGY3NzVhYjgxZTBhZGE4ZjJhMGNhYTdjNzNmNDAxZTMxYWNmYWM4MDA2YzZlNzY0MjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4e79f608cdbc47dbab4615323cb2df4d",
+      "statement": "Waiter registration never takes the inbox lock, and the engine has exactly one lock order: _register_waiter and _unregister_waiter take only _wait_lock, while every _notify_waiters call is issued from a writer body that already holds self._lock, so the order is inbox lock then _wait_lock and it cannot invert.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L306-L309",
+          "version": "repo-lines-v1:sha256:a8064f1c11579a4f1f129decb2aece82b82c62c54f5f1dbfdbf02f9b5a491e85:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI3MTJkYzhmMGQ4NWQzNmZmOWJlY2QyOWY2YzA5Zjg1NGFlOWJhNTY3NWFmMmVjZmIzYWQ0NGE0YjA1ZWM0ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmYyODdhOWUzMzY2YTU4MWRkMzIxZWFhZTEzMTY5ODgzZGVhNDIyNDFhMGM3ZWUwMGY0Yzg2NjQ5NjMyMjFkYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTk5ODNlNDFkZDA3OGNlODY0NTA0OGRjZGYxMmJjNjAyNjEyOWZlYTcyMjc1ZmFmZDlkYjM1YmJiMzgyYjAzNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjYyY2VkN2Y0YmM2ODQxOGY1NTQyMTU5Y2U2YjdlYTM3YTIzYjZkN2Q0ZWUwMmQ0YmRkOGE5MDYzNDE3M2I5ZSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L670-L693",
+          "version": "repo-lines-v1:sha256:18e9b5580e07d4d381e53305d96f3779f69df0172510d55bc814a44d791f1956:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiNWRhMjMwMDkwMzhlM2ZkNzhmOWMzN2U2ZWNhZTMxYmIzOWJkMjhmZDk5MmYxYWU1MzkxNDlkN2FjZDlhNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczNWUwNTlhMDAzZTg5ZDk3ZWQ3ODAxYjg0YjllZDU1MjE5Zjc4MjFhODJmNmMxODMwNTJhY2VjNjgxMGM1NjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE1YmMyMDBlNThlZTZhYzY5YjY0NGJkMTY2NDU5Mzk4MjgwYmZlMTM3YmZiNTdhOTJiYzI4NmRmODIwMDdkZTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRlYjFiNGIwNDk3NDgxZDBiYmNhOWM5NGM3YzE4ZTdmYjliYmY2YTVkM2IwZjRmNDk4ZTYyMDAyYjFiMjhjMGIifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-11T15:27:48.076Z"
+  }
+}

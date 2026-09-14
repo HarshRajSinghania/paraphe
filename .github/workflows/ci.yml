@@ -1,0 +1,191 @@
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  suite:
+    name: suite (python ${{ matrix.python }} on ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: run the suite
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+
+  distribution:
+    name: the distribution installs and the command runs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: build and install into a clean environment
+        run: |
+          python3 -m venv /tmp/paraphe-ci
+          /tmp/paraphe-ci/bin/pip install .
+      - name: the command runs and prints usage
+        run: |
+          /tmp/paraphe-ci/bin/paraphe > /tmp/usage.txt
+          grep -q "Paraphe" /tmp/usage.txt
+      - name: exactly one top-level package, and it is ours
+        run: |
+          tops=$(/tmp/paraphe-ci/bin/python - <<'PY'
+          import pathlib, sys
+          sp = pathlib.Path(sys.prefix) / "lib" / ("python%d.%d" % sys.version_info[:2]) / "site-packages"
+          print("\n".join(sorted(
+              p.name for p in sp.iterdir()
+              if p.is_dir() and not p.name.endswith(".dist-info")
+              and not p.name.startswith("_") and p.name not in {"bin", "pip"}
+          )))
+          PY
+          )
+          test "$tops" = "paraphe" || { echo "unexpected top-level packages: $tops"; exit 1; }
+
+  container:
+    name: the container builds and reports ready
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: build
+        run: docker build -t paraphe:ci .
+      - name: run with a mounted data location, then check readiness
+        run: |
+          mkdir -p /tmp/paraphe-data && chmod 0777 /tmp/paraphe-data
+          docker run -d --name paraphe -v /tmp/paraphe-data:/data \
+            -e PARAPHE_MCP_CREATE_BEARER=ci-create-credential \
+            -e PARAPHE_OWNER_ANSWER_TOKEN=ci-answer-credential \
+            paraphe:ci
+          for _ in $(seq 1 30); do
+            if docker logs paraphe 2>&1 | grep -q "Paraphe ready"; then
+              docker logs paraphe 2>&1 | tail -2
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "no ready line:"
+          docker logs paraphe 2>&1 | tail -20
+          exit 1
+
+  private-terms:
+    name: the tracked tree carries no private term
+    runs-on: ubuntu-latest
+    env:
+      PARAPHE_PRIVATE_TERMS: ${{ github.workspace }}/../private-terms.txt
+    steps:
+      - uses: actions/checkout@v4
+      - name: write the term list outside the repository
+        env:
+          PRIVATE_TERMS: ${{ secrets.PRIVATE_TERMS }}
+        run: |
+          if [ -z "$PRIVATE_TERMS" ]; then
+            echo "the term list is not configured, so the scan cannot run."
+            echo "Add the PRIVATE_TERMS repository secret. This job does not pass without it."
+            exit 1
+          fi
+          printf '%s\n' "$PRIVATE_TERMS" > "$PARAPHE_PRIVATE_TERMS"
+      - name: scan tracked files and filenames
+        run: python3 tools/scan_private_terms.py
+
+  messages:
+    name: the pushed commit messages carry no private term
+    runs-on: ubuntu-latest
+    env:
+      PARAPHE_PRIVATE_TERMS: ${{ github.workspace }}/../private-terms.txt
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: write the term list outside the repository
+        env:
+          PRIVATE_TERMS: ${{ secrets.PRIVATE_TERMS }}
+        run: |
+          if [ -z "$PRIVATE_TERMS" ]; then
+            echo "the term list is not configured, so the scan cannot run."
+            echo "Add the PRIVATE_TERMS repository secret. This job does not pass without it."
+            exit 1
+          fi
+          printf '%s\n' "$PRIVATE_TERMS" > "$PARAPHE_PRIVATE_TERMS"
+      - name: resolve the pushed range
+        id: range
+        run: |
+          set -euo pipefail
+          fetch_main() { git fetch --quiet origin "+refs/heads/main:refs/remotes/origin/main"; }
+          resolves() { git rev-parse --verify --quiet "${1}^{commit}" >/dev/null; }
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            range="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+          elif [ "${{ github.event.deleted }}" = "true" ]; then
+            # the branch is gone; its messages were scanned when they landed
+            echo "a branch was deleted; there is no pushed range to scan."
+            range="${{ github.event.before }}..${{ github.event.before }}"
+          else
+            base="${{ github.event.before }}"
+            head="${{ github.event.after }}"
+            if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then
+              # a new branch: scan the commits it adds on top of main
+              fetch_main
+              range="$(git merge-base "$head" refs/remotes/origin/main)..${head}"
+            elif resolves "$base"; then
+              range="${base}..${head}"
+            else
+              # a force-push or a rewrite: the previous tip may not be in this
+              # checkout at all. Fetch it when the remote still serves it;
+              # otherwise scan a range that resolves here, and say which.
+              echo "the previous tip ${base} is not in this checkout; fetching it"
+              git fetch --quiet origin "$base" 2>/dev/null || true
+              if resolves "$base"; then
+                range="${base}..${head}"
+              else
+                fetch_main
+                fork="$(git merge-base "$head" refs/remotes/origin/main 2>/dev/null || true)"
+                if [ -n "$fork" ] && [ "$fork" != "$head" ]; then
+                  echo "the previous tip is unreachable; scanning from the fork point with main (${fork})"
+                  range="${fork}..${head}"
+                elif resolves "$head"; then
+                  echo "the previous tip is unreachable and there is no fork point; scanning the pushed head's reachable history"
+                  range="${head}"
+                else
+                  echo "the previous tip ${base} and the pushed head ${head} cannot both be resolved; refusing to scan nothing."
+                  exit 2
+                fi
+              fi
+            fi
+          fi
+
+          if [ -z "${range}" ] || [ "${range}" = ".." ]; then
+            echo "could not resolve a range to scan; refusing."
+            exit 2
+          fi
+          echo "scanning ${range}"
+          echo "range=${range}" >> "$GITHUB_OUTPUT"
+      - name: scan the pushed commit messages
+        run: python3 tools/scan_private_terms.py --commits "${{ steps.range.outputs.range }}"
+
+  main-source:
+    name: main only accepts pull requests from dev
+    if: github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: the head must be this repository's dev branch
+        env:
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ "$HEAD_REPO" != "$REPO" ] || [ "$HEAD_REF" != "dev" ]; then
+            echo "this pull request targets main from $HEAD_REPO:$HEAD_REF."
+            echo "main accepts pull requests from this repository's dev branch only."
+            exit 1
+          fi
+          echo "the pull request comes from $HEAD_REPO:$HEAD_REF."

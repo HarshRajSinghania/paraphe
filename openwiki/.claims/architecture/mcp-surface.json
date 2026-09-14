@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:e0bdb2c38e1a2a2764056fa1473b76697df68f18d1c545ea5659d30127f77d93",
+  "claims": [
+    {
+      "id": "claim_601e50926ddf41f0ac70478f5ba235df",
+      "statement": "Paraphe's MCP surface is defined by one module-level registry in src/paraphe/inbox/__init__.py — TOOL_NAMES (twelve tool names in served order), TOOL_SCHEMAS and TOOL_DESCRIPTIONS keyed by those names, and the handler map built inside Inbox.call_tool — so a tool exists nowhere else; list_tool_descriptors() emits {name, description, inputSchema} in TOOL_NAMES order and call_tool rejects any name outside TOOL_NAMES with InboxError(\"unknown tool\") before reading arguments.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L400-L445",
+          "version": "repo-lines-v1:sha256:29fad9e4d793c2ac35a875d11bc4f9ec05a762426a916e60e8d0cc134cd2af85:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkMTJkYjg1MjdhMTEzZDA5NDkxOTlhMGRlNzBlMTA1Mzg5NWE5NTNiZGViYzllMTEzOWQ3OGE5ZmIwOGMzMmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3MmY5Njk1Yzc0NjdjNzQ3NzNjOWNlN2ZjNDI5YzVkMGQwZTQ4N2YzYzUxZDE1ZDY2NjhhM2QyNDA3MmJiOTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI1YThkZmFjMTc3MmU3MDBkOGE2NjRlYmQzN2Y3MzE2ODE4YjZiMDM3Y2ZmNGQ2OTlkMTMyMDdlM2E2ZmRlMjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0Mzk1YmUyNDQ4ZmM2OGEzYWE1MTVjN2UzYzdkZTQ5NjFjNDljOTdiZTBlYWEwNDMxMWQwODk0N2QxY2Y4YzcifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L41-L58",
+          "version": "repo-lines-v1:sha256:8fa79ce2341cf167d7cd694ee4440c723566e5ccd78b7818eed8dec5d16e3aa0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBkZDRmY2ExMzQ2M2U4YjM5ODE4Mjc0ODcwMTAzZDIxMGE0ZGY5ZmVlYmY3MTE5NzVlNjIzMTk5MWM1NjYxOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMwYTg3MmNmODY2ZGUyNmI5NjhiNmM4NzNmYzcwY2Y4NThkMWU1MTIzYTdjM2JhMDdlYjJmZDA4OGM1ZjM5NmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhhOGMzMmE3NjZlNmRjYTYxOTU4NjY0NzFjZDIzNGNlNzBkNjNjMzdmYWI2YTU3YTY4NDg3M2FhMTljMGE4OGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk4NjUyZTUyZGNhMDhmNzY5NTFhODA0YmMzODhhOTMyYWVlMmJkNzgyN2Q4YjQxMDUwZTFiMTFjMThmMTI0YTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_261909945e724077a8f55ff72c8d486f",
+      "statement": "TOOL_SCHEMAS is built at import time from frozen per-kind field sets (including ASK_ONLY's choice_notes and the PROVENANCE set), the _LIMITS length table, the enum frozensets and the TTL constants, so tools/list advertises the same schema for every deployment; enforcement is per-instance — _ttl refuses an expires_in_seconds below the configured floor_ttl_seconds while the advertised minimum is the built-in FLOOR_TTL_SECONDS (900), and the card's default life comes from the configured default_ttl_seconds rather than from the schema.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1094-L1104",
+          "version": "repo-lines-v1:sha256:b30b33b6830c868113cf894fc95a46554eef25083507630848028e6d448256c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiYWYxZjkyMjEyMDhkMWNkM2U1MjFkZGJhNDFiYmE1ZGNhZGM1MzEyMjllNGVjODExODAzY2FlYTIyNDI5MTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1N2FjYTc4NDE1ZjRmMmE0ZjIwNzAwYTYyMDE5ZDZmOTM1MjIyMzA4YTJmOTA2ZGIwMGUxZDczM2JiMDRhNjQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJmYjFmMDIzODZiNTY3ZTJjMzEzYmZhODA2NjI1MGUxZjM5NTc0NTJjZDMyNTA4NWJkZmYwYjQ0OGI3MjE5MGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ1ZjE1OTc5N2NlOTM4MjA2OTc0ZDQxYzYwYWRhN2FjOTg1NDgxODY3MzJiNTg1NjkxNzI3YTIzYWQ3MjY3YjcifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L60-L209",
+          "version": "repo-lines-v1:sha256:6e98ca0a27486f5bc83b7b4b8c6591878d727f81666979909fa4cc9000d78808:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUwLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI5NDcyZDM0OWY1Y2FkYjA3ZGIxNTFjNzA2YzViNDk4MDUxMDE0NDFmNWY1YjAxZWQwNzUxM2Y1ZDg4Yzk2MzFjIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJjZDkyNGRkODZlMWM0YTkyMDczN2Y0YWRkNjVmZGM5ZTczOWVjOTYxNDE5OWM4NDdiMjMzYzFjZmYzMjNiNDk2IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJjOGRhMmM1ZTUzYmI0MzdjODFkMzRjZTQyNzAxMThkNTRkZDhkYzQ5YzlkYzA0YTQ3MTg3MDk4ZDY2NDc3ODcxIn0"
+        }
+      ]
+    },
+    {
+      "id": "claim_3521cef9c6444a91a0a6af56be86519f",
+      "statement": "A string field's advertised constraint and its runtime validation come from the same constant — _field_schema reads _LIMITS for maxLength and _require_str looks up the same _LIMITS entry — so the served schema maximum and the enforced maximum cannot drift apart, while the array shapes (choices, choice_notes, links, prohibitions) are written literally in both _field_schema and the array validators.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L116-L183",
+          "version": "repo-lines-v1:sha256:a2a935652e2ee3bc62eafa3e8a392e434c34776882a822e8909344750cccf1d5:eyJzZWxlY3RlZExpbmVDb3VudCI6NjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmOTYxMDQyYjcyMGI5ZjEyY2U5ZmNiNjg1Yzk1OWI3NmNmZjM2NjNmMDcyOWQyYWFhMDdhNTcyYThmYWQ4MTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwMjc0Yzc4YzljNzk2NTk3MjRjYzk5Y2MyNGE0NzUzZjdjZWE0MGE0YzUwOTg5YTE5MDVlZDNiZjQ3NmZhOTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ3MWZkNGQwNzg1OTI0ZDcwYTFmODAzM2Q0NWM3ZDAyY2M4ZjRiZTAxYmYxOTgzMGM0MTE0NjM3NjM2NTNkNWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI0NGI3NDY1OGY4MDE4OGY3MDJmZjY1MmFjYTc2MzUxY2RhN2ZhMTQzOGNlM2JhM2YzOTViMzgzOGQ1MGNmYzQifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1280-L1293",
+          "version": "repo-lines-v1:sha256:9fa69024fa9001c04ce742d1f113900d285488dfd9d25cb6b8d4b4b46bc051b2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliZDYyN2JjYTljN2M0ZjA0YWY2NmZlNTg1OTExY2MyZmU5MGYwNmZhNDk4ZGVlMGExMzBiMTI0YTFlNTIzM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFlM2NmY2ViMzNlMDExZjliNjk1MDg4ZTBiM2FhODNiMTYwM2Q2OWRiNGRjNjU4MDNhYTgzNjM1M2U4MWIwZDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3MjYwOGQxODY5OTVjODRkNjliNjE4YjlkNWUzOGQxMDc4MDExOWU4MmNkYWM3NDJiMGNhM2U4M2E1ZDg4ZjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0MjMxNzk4NjU3NmI4ZDUyNzJkNWRlNjg1ODg3MDE3MGI2MjE4MGQxZjdjOGVmOGE5NDg3MTI2MjEzMDY1ZDIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1300-L1363",
+          "version": "repo-lines-v1:sha256:872f6f888401f827d2311ff8d2f8b08b41639c9dbee84039bd83e5e5a96d9cd5:eyJzZWxlY3RlZExpbmVDb3VudCI6NjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI0ZGQyOTU0ZGQ1NDQ5NWQyNWRiNGQyNTExMTYyNzU5MTRkMmFkOTcxNTJhNTU3ZmE3MzI1ZGQzNjUzZjg2ZmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyNTMzODE4MzYzZmE0ODk3MDhmMTQ2NGE2MjQ2MjEzODBjNTg2NzQ1ZWI1YjIzNTc3MjJiMjFlOTkyZTIzYjQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkNTgxOTE4ZjVmMjVjZGFhZjQ5NjAwYTJhZGM2YTliNGE2Y2Y4MTZhYmQwOWU1MjE3Zjk1YjlmMjc3ZmMxZDQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYzZThiNWFhYTk4NGQxNmEzZTVhNmY3MTYwMmE1NTM2N2I5NzdhYzM0NmRiNTIwYTBiNmY2ZDBlZDdmN2U5MTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6507cf1796a2467ca0996f7fc8ff344e",
+      "statement": "Every tool rejects parameters outside its own field set with InboxError(\"unknown parameter\") before any value is interpreted, which is what makes the served schema's field set the whole field set.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1271-L1274",
+          "version": "repo-lines-v1:sha256:3fcb5de3c430ea78b6a806c8ae8021631f934b04b8409dbd4d26f2963daa25c9:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTBhYzUyMzAyYWJmMGM4NzgzYWMwZWM0YWI4YzgyY2Y2NmUzMzkzYjk0YTY0MGVlMTY0NzYxYzI4MzJlMjE1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjBkNDBkOTMzYmZjM2NmOTNlODQ1YTIyYjJhNmUxOGNiZjMzZjI4ZWY2ZjAyOWYzYzY4MmIwMzFiNGIwMzkxYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGVhM2ViYmM5ZDNmNzFmNzQ2YjVlODAxN2IzMTBmOGEyNTFiYzFhODQ2YTljNWZhNWRkMDVjOGFlMDU1NTU2NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTJlZmQ4MzdmYjg5NDQwNjdhM2E5Y2Y3MzI1ZjYzZTQ3NDc5NDRlN2UwNjU0ZTZmZjdiMzVhNjBiMDIyMzQ5ZSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L789-L833",
+          "version": "repo-lines-v1:sha256:3065f7e42dd9c92cc19ba3602b03ed771b5963b4b3040544513f5c57e4e43e23:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0MDhiNWZmNjA4YzY3MmViMDE3NjUzZmRjNWE1Yzg3NWFmYjZlZmJmM2FjNDM4NTQ3ZTkwNDRkY2U5ZjgyMDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY4NzM5MDIwZTBjYjExMWFjMDM5ZDk1Y2M2NDBlZTFlNjI1YmQ3NDk5NTRmOWRlZWE0OTQzOTY5ZWUwMTU1MmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjMTE1YjczNTg5MDViYjAzZjI2YTc4NmZkNjc3NjFhNDBiODViMDc4MGIzOGYzMmE2OWQyMGE1ZGU1MDE5MjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkNGNhNmIwYzk5N2FmODhjYjU3ZTFiMjZmNDRiNDczMzQ5ZjY0NzE0ZWQyZGQ5Mzk0OWQwNWFlNzc1MTQ5ZTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e8010f080a2e4dad9b6ff14daf4c4c26",
+      "statement": "Kind-specific field sets refuse to mix: on the four create tools the refusal is normally the unknown-parameter check (a title on ask_question is simply not in its allowed set, so the explicit _reject_keys call is defensive), while on update_request UPDATE_FIELDS admits title, details and choices for every caller and the kind check against the loaded card is what refuses title/details on a question card and the ask set including choices on an approval card; UPDATE_FIELDS omits question, context, allow_freeform, agent_name and wait_seconds, and a feedback card takes neither branch, so a revise of one accepts title, details and choices alike.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1271-L1278",
+          "version": "repo-lines-v1:sha256:840e8b40b227310b831f83ec668688436207d0b52afe025cd1975f1b15157db5:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTBhYzUyMzAyYWJmMGM4NzgzYWMwZWM0YWI4YzgyY2Y2NmUzMzkzYjk0YTY0MGVlMTY0NzYxYzI4MzJlMjE1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTVlMjU1Y2I1YjUyMzg0YzgyMGQwZGFkYTkzNWE0M2RmMTY5MDM4N2QxM2JmOWRkNThkMmNkMDU1Yjc5YTdhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGVhM2ViYmM5ZDNmNzFmNzQ2YjVlODAxN2IzMTBmOGEyNTFiYzFhODQ2YTljNWZhNWRkMDVjOGFlMDU1NTU2NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjQxZTQ4NWZjNjU1NTIxZTY0NWVlN2Q4MjlkYjYwMTQ4MjI0NDIxNzQ0YTgxNTUzZjc5MTMzYTc3ZDVlYjZkMCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L789-L832",
+          "version": "repo-lines-v1:sha256:3ddb3e99faf6d41942e798935bbe992d403658f73cea6589ba9a809361963398:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0MDhiNWZmNjA4YzY3MmViMDE3NjUzZmRjNWE1Yzg3NWFmYjZlZmJmM2FjNDM4NTQ3ZTkwNDRkY2U5ZjgyMDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxZGQ2ZmRmNTI0M2NiYjk5YjMzYTI5MTYwMDNiN2YyZThkMTQxY2EzZmRmMjNiNTQ4ZGRhZjA5YjkzZGQyMzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjMTE1YjczNTg5MDViYjAzZjI2YTc4NmZkNjc3NjFhNDBiODViMDc4MGIzOGYzMmE2OWQyMGE1ZGU1MDE5MjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIxMDVmNjA2OTRjNjhlZmIyOTUzMTBlN2M4MDkyMzkxMTIxYTY4MTlmYTIwYjZmZWJlMmQyNGQwMDk4ODFkYjcifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L84-L109",
+          "version": "repo-lines-v1:sha256:3d010f48c0cb3facd28b80b7bf70569948e5848112403ceef13d52040882ed87:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwNzdkZmZmMTJjYTBjNTkwZTljNWM1NzIzZDZkYjA1MjZhMjM5YzEyMDgyNmQ1Njk5YjA2MzE0M2JiMDE0OWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlZDQ3MmRlZWY4MTQ5MzRmMDQzYmM1NThkZGM0YzcyYmU2YTU5OTU0YWIyNTY3ZGM0MjM3NmIxZTNjMWU2MzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkOGMwOTRkMWJjMWQzZjAyNjYwYzZjYzUzZDRhNjE5NjQ4ZDIxMjBkMjVmOWQ5NWE3ODBlOTkyZjdkZjUxYjIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L929-L945",
+          "version": "repo-lines-v1:sha256:1d11fe9c1cfc2ca1105a084be9962cdbda79a6eb39f185dceb73c27b007d98f2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5NDJjOGYxZWRmZTFmYWNiMDcwNjViYTQ1NjIyYjg0Y2UzZTdiNmRiOGE1ZDBkNmNmYTQwODcyYzg3MTFiNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgzOTE5MDM2NWJjYTM4YzQ3MDg5ZDg3NWZkOWEwODk1MGEzYTNmZTgzNmM4OTk3NzAyNmVlMDFhOGI5Yzc5MzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ0ODY3ODEyZTRlMGU2YWIyY2RjZTkxZDVlYjQ2NTgzMGRlOGNkZTE0YzJlNDg5YjQwYzM2NGNmMmFhMDhhNTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE4MWM2MGYzYjU3NWZlYmE1MzM4ZTg4MDc2YjIxNGNhN2U3MTc1NDUxZDYzYTZhY2E1YzRlYWQzYzZhYzgwNGUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3b42fca2171b4cd5814e3c56c92d8773",
+      "statement": "Every string, array and enum field is validated by the handlers: question/title ≤200 non-blank; context/details/message ≤2000 (absent or null allowed, a present blank refused); recommendation/consequence/note ≤1000; project ≤120; runtime ≤40; repo/worktree ≤120; source_thread/external_id/rule_key/ticket ≤200; agent_name ≤60; commit_message ≤500; choices ≤4 items of ≤40 non-blank; choice_notes ≤4 items of ≤120 whose length must equal choices; links ≤8 items of ≤500 each containing \"://\"; prohibitions ≤8 of ≤200; wait_seconds a number in 0–60 with booleans refused; expires_in_seconds an integer between the configured floor and 2 592 000 that is refused rather than clamped; expected_version an integer ≥1.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1094-L1104",
+          "version": "repo-lines-v1:sha256:b30b33b6830c868113cf894fc95a46554eef25083507630848028e6d448256c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiYWYxZjkyMjEyMDhkMWNkM2U1MjFkZGJhNDFiYmE1ZGNhZGM1MzEyMjllNGVjODExODAzY2FlYTIyNDI5MTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1N2FjYTc4NDE1ZjRmMmE0ZjIwNzAwYTYyMDE5ZDZmOTM1MjIyMzA4YTJmOTA2ZGIwMGUxZDczM2JiMDRhNjQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJmYjFmMDIzODZiNTY3ZTJjMzEzYmZhODA2NjI1MGUxZjM5NTc0NTJjZDMyNTA4NWJkZmYwYjQ0OGI3MjE5MGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ1ZjE1OTc5N2NlOTM4MjA2OTc0ZDQxYzYwYWRhN2FjOTg1NDgxODY3MzJiNTg1NjkxNzI3YTIzYWQ3MjY3YjcifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L116-L183",
+          "version": "repo-lines-v1:sha256:a2a935652e2ee3bc62eafa3e8a392e434c34776882a822e8909344750cccf1d5:eyJzZWxlY3RlZExpbmVDb3VudCI6NjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmOTYxMDQyYjcyMGI5ZjEyY2U5ZmNiNjg1Yzk1OWI3NmNmZjM2NjNmMDcyOWQyYWFhMDdhNTcyYThmYWQ4MTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwMjc0Yzc4YzljNzk2NTk3MjRjYzk5Y2MyNGE0NzUzZjdjZWE0MGE0YzUwOTg5YTE5MDVlZDNiZjQ3NmZhOTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ3MWZkNGQwNzg1OTI0ZDcwYTFmODAzM2Q0NWM3ZDAyY2M4ZjRiZTAxYmYxOTgzMGM0MTE0NjM3NjM2NTNkNWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI0NGI3NDY1OGY4MDE4OGY3MDJmZjY1MmFjYTc2MzUxY2RhN2ZhMTQzOGNlM2JhM2YzOTViMzgzOGQ1MGNmYzQifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1280-L1373",
+          "version": "repo-lines-v1:sha256:1919aa054276c034be3ac4470e23c7edd1be7269cddb09a9fd68ce0431079918:eyJzZWxlY3RlZExpbmVDb3VudCI6OTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliZDYyN2JjYTljN2M0ZjA0YWY2NmZlNTg1OTExY2MyZmU5MGYwNmZhNDk4ZGVlMGExMzBiMTI0YTFlNTIzM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3ZjFjNzM1MzIwOTNmMWQ5ZDgyMzE3OGE2MzEwZTg2MDBiYTFkYTkyN2NiNTZhODUwYWY2NTk2ZTdiYzY1YTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3MjYwOGQxODY5OTVjODRkNjliNjE4YjlkNWUzOGQxMDc4MDExOWU4MmNkYWM3NDJiMGNhM2U4M2E1ZDg4ZjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc0ZjkyNWQ5ODdhZDZiNjkzYmU5YzhlYjBhYWI1YzcxODc2NzdjNjkyN2Y0ZjIxN2I3MDhmMmIxYTMwMmJiNGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cfe7beacb0274f8a80211b1e3ce2b096",
+      "statement": "The result object accepted by report_execution and notify_user is validated against a closed key set (outcome, files_changed, tests_passed, tests_failed, commit_message, duration_seconds): outcome is required and one of success|failure|partial, files_changed is at most 50 strings of at most 300, the three counters must be non-negative integers with booleans refused, commit_message is at most 500, and any extra key refuses the call.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1226-L1256",
+          "version": "repo-lines-v1:sha256:58421b22d7425773a8651fce35f1338f2fd1e27d72e95a25c4bbf68d8e5b0cb8:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwZmI5ZDk3OTkwODM2Yjg0YjliYjE5NTJiZDkyMTk1NDQ3MTZlNGMyZDVlZTRiYjM1NmVmNzUzNmYzMTAwYTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ0OTU1M2M3ZGViYmU2NDg1N2UxMTBhMDM4Y2I5MTJkMWU4YzhjZmJlNmJhMGYzMGM5MDNjODE2ZmNmOWMyZDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJkMzQyNTk1OTRlNDRhYTZmNjVkMTUzMzQwNWUzMTI0ODM0YzY3YWVkZjMzY2U0OTdlMzU2ZjQxYTNlY2E3YzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L795-L815",
+          "version": "repo-lines-v1:sha256:e4e60ff52f3b08ada15096aa8685f623ae57ab3d47c6f7035b39b13fb9a34bd0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyN2M4M2NmNTRhYTA2NTE4YThmZDkxMGE4ZDBlNThjODk5MDRlYzhhN2ZhMzZkZTlhNTQwYzYwNjc3ZDEwNDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczYWNlMmMwODA2MGViOGM0ZDc0NmY4NzMxOTc5NjA4ZjRjOTViMzg3YWUyNTYxYmRkYTY3N2UzMGJlMzA2YWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0ZTU2N2RlMTkxNjcwY2Y5ZmI1NDE5NjM5YTkwNDFiNjZkNjQzNTNkZDI1NzI0NTg2ZDA3YzQ1OWEzZWY1ODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIzMzU3ZjQ5MmU0YjA0YTUyNjA3YTQ4ZTZjOGZmZjM0MzM5YjRkNTBmOTZlNjM0ZGIzOTI0OTM5NDI1MWJjZjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0e6befb1b5a24544b5c5c8df0a5e6347",
+      "statement": "rule_key is accepted and then ignored: it is listed in SHARED_CREATE and UPDATE_FIELDS and validated as a string of at most 200 characters, but neither _opt_shared nor _apply_shared copies it into the card and Card has no such field, so always-allow is not product.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1028-L1092",
+          "version": "repo-lines-v1:sha256:1e5380d8581b0da104caecd233c9f1d60fef0f9ebdd6ce6ad2661a1aa2d71441:eyJzZWxlY3RlZExpbmVDb3VudCI6NjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxMjBlNmE1Yzc4YTAzMzk3ZDhmZGEyNGNhNTJlNjg3MzllOWZmZmY3OTg1ZTczYmQxYzgxYWUyOGQyYjg5YjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4YTkwZjUxNzg2M2JhNzE3NmE1MTNkYTI4NzkxZGRhMzBmMWQwYmQyZmFhODRmYjkzY2U5ZjJiYzhmMzIxYzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU2OGI3MDMwMjE1OTNjMTNkOThmMWMwZTI3ODlkMWI1NmZiNjIyMTY3MDYwYjI2NzBiNWZiYTEyZGExZjNjOTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI2ODY2NGRjMzM1NDI3YzJkMGE1MzM3NGI3N2U3OWFmNzYxMjlhYjhkNTdjNzU3MTg0MzJmODQ1MTA0MjAzODQifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L64-L109",
+          "version": "repo-lines-v1:sha256:4b7f6a20b3447fe269dde2927d8b33cf1ff448ed876119a77193db3f354707e0:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjZGEzMjY5NjZlY2RhOGM4ZDMwMWYwMjk4MDY4ZGYwMDZlY2I0MzhkODRlMzFiNjMzMDM5ZmFhYzI0NzkwNzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVkZTU4NzcxMWQzZWE4OTE0NDA3NWRlMTNmYmE0ZWYwMTA2ODMzZTJmOTI0ODUxNTE4ZTljYmRjNDkwYTU4NWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkOGMwOTRkMWJjMWQzZjAyNjYwYzZjYzUzZDRhNjE5NjQ4ZDIxMjBkMjVmOWQ5NWE3ODBlOTkyZjdkZjUxYjIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/card.py#L9-L51",
+          "version": "repo-lines-v1:sha256:ae1e9b36a927f7873860a2f2b7155b07b2b53e11359c294ea5d858147de10e54:eyJzZWxlY3RlZExpbmVDb3VudCI6NDMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI2ZmJhZTBiOTFkNDRmYzBkNDlmNWRlNjkxZGE2ZmM0MzFmMjYwMTM0YmY3MzFlMGUyMWY3NjQ4MDk0MzM0Y2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0NTFlOGVjMjk4OWZlNTNkZDFkMGJkYzgzYTBiMjIwZDY0NjJjYTAxNzQ2YzljM2ExYmNmYTNhMGE5YTg1N2EiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkMzdhMzNkMDczYWI4ZGEyOWRjNzRjZTZhODkxMzE4MThhNTJhNWMxNjVkMTZmMzFkOTkxOTk3ZjBlNjZjZjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_744141b8f7c44a2abb12f0a9cf57272f",
+      "statement": "Inbox._envelope returns exactly request_id, status, version, response, processed_at, execution_status, kind and pending; response is null unless the card is tapped or carries a recorded choice or text, in which case it is {choice, text, responded_at, responded_via}, and pending is true only while the persisted state is open.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L993-L1011",
+          "version": "repo-lines-v1:sha256:b9c569275181ceeda67e1c4f45985c7b0ed9f1c76a472e903b29c34527a2dad7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkYmRiZGIyNTEwZjljODc5N2YyNzFiMTNhYzk1ZTQ4YjM5ZTFiNmJkMjI5MWM1NmJlYThjNmUzMTE1MzRkYzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2YjA0NDkxNDY5NzIyZTgzNjNhOTRlNDA0NDUzOGUwMTNhMmEyMTdlMzZiMWU1NjhiYTYwYWNiN2I0YzhmMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIyYzQyNTdiYzMxNzAwYmJkMmZjMGIyYWQ0ZTJmZDk4NjBiYzdlZGNiZWY1MzA5MzBmY2M2MjA3YzUyN2RhMzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE1ODZhOTNlYWNhMmJhNjJiNGMzMTJlNjkyN2Q1Y2RhOWQ3NjI1ODk5MTg0NGMzZTUzNTdhYzE3NzliNDU3MWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_302cf173ec5e4395a38bbebee78833e8",
+      "statement": "_status derives the served status with the precedence acknowledged (processed_at set), answered (state tapped), cancelled, expired, and pending as the fallback, so closeout changes the status without erasing the recorded answer in response.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1013-L1022",
+          "version": "repo-lines-v1:sha256:4db22c4462bd2598cecd7083be6833497011feca428cf97a0962c56687e29f5b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwZWM2ODMxZjg4NzMyNTQ2OGJlMTI2YzQyYzlhZGI2ZDY0NzhkZjQ2NjFlZDEyZGM3MzJlOTgzNzk2YjFmZDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5MWY3N2FhNDU5YzdhY2FiNGJhYTA3YTJiNTMwZTA3MTgyMWNkYzQzNmI0NWVmMWZkZDQzMzgyZTVkOGVlMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEwMjNjZGJiMDMyZDk1ZTUyZGVkNWRjMWE4ZTAzZDIxNTE5ZGJkM2UwYWY4ZTNkMzA2YjYxNDQxYzYzZDlhMTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3YTEzOTlhODdiMTZmZTE0NzMxYTEyZTYxODhmYjMxODM0ZjQyZTIwNjA5ZDVlYjNkMTI1NGU4MmJlMGE1NWUifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L263-L282",
+          "version": "repo-lines-v1:sha256:d1982ac381a150a1997492cf722853b2a63c7859c312ed7d93be7c9f357cd80a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0M2NjNWEwNjM0NTVlNTQwNTlhZGI1ZDBkYzIxM2UxNmJiMmMzMTkwN2RmNzQyM2VmNWY4ZWQxYzI5MWU3MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEyYmJkOGE3MmNhZTE3YTZhOTcxMWQ3YmMzZDdjN2I0MDhlYzc4NjFhMzZiNGEwOTM1MTA3NTJmZjZmNmM0OGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJlODg4MGRkYjA0MzVhMDg4YmQ5ZjExYWFhMWI2OGM1YWMzYzlkNzNmOTdjZmE2ODk5YjRiZmNlZTE5NzRjNjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgzYThmYmYzY2ZkNTUwNTViODFhZTM3MTE1NjhmNDI2YTg3YzNiNDRhNjY4NjllNTM0MGE2M2Q3ZGRmM2Q4ZWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_14632796d0e44ef4ae19fdaac9032367",
+      "statement": "Reads never consume an answer: _envelope only reads the card, get_response returns the same response.choice on repeated calls, list_unprocessed re-derives tapped cards with processed_at null on every call, list_pending refreshes expiry and returns the still-open cards newest first, and processed_at is written only by mark_processed, idempotently.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L754-L793",
+          "version": "repo-lines-v1:sha256:b998cd9e544d2c26b6acd7686bac5e00d295b6b0ebf9d0a206328cfd50aa1825:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0MGY3NDkwZDI2ODEwNjE5YWViY2I3MTA2OGM0NGMyM2NiMzA4OWIzNGZkNjMxYTczNTE2YjU1MTdmZGEwYWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjOTZiODJlNzc3NWRkMzBlMDhhODliYTUzNmEzYjk4MTdhMmI3YWMwZGM4MzZjNDBlZDViNGI5OWJmNDg1YzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwMGNlOTBhZTcxZmYxYTY3Yjk4YThjMGFlZDMwMjI2ZTgwNmMzODE2YTFiOTNmMWY1MTIyZmVhNTkwNjUzZGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFiNjVlM2JhODU1Y2YzMGMxY2U5OTE3YzBlMzg3OTdjNGU3MjUzYWJmMGRjMDBlMjFlYjE2ODQ3N2M3MDUwZTIifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L213-L227",
+          "version": "repo-lines-v1:sha256:ac5f142d213955d8d17235d969f740981b530c5f746ceeb0cc869fc995973812:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxZDU0M2EyY2MxN2UzZjY2NGNiYmNhY2NmYmU2NGI1ODgzMmJjNmE4YmVhNWVkYmRiMGU3MDA2ODRjZjY5YzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQwZDRmZjQxYzA0ZmVmM2I0ODU1NzMwNzI2MTdlZTZhOGM4ZDU0ZTZlODRkZjA0MjIwYmQ3MWZjNjg1NjNkNzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE2MTg4MDQyMjUzMjg4Njk3MWJhMjI2OWI2Y2NlYTg0NGMyMDQwODdjMjY2OWVkMmQ1Y2M4YTI3YTFhMTg4YmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIxOGE2MzFhYzA5YmIxZmVhYmMwNjgzMmI4ZDc5NjU4Yjg3YTYzNGNhNGRlNGU2ZWFhMTc3NWJjMzRmYTYzZjIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_17f35c47ffd449dbb24fd0e01d7de5cd",
+      "statement": "Inbox._create_view is the second served response shape, returning request_id, version, duplicate, pending, status, kind and read_with: \"get_response\"; every create and update_request returns it (with duplicate false for a revise), while notify_user returns {ok, duplicate, kind: \"notify\"} because it creates no card.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1106-L1115",
+          "version": "repo-lines-v1:sha256:44093a7cad56ca0d42701b6e7a3cd79bf024fb0a241a66edd2c1b64afa88f89d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1OWRhNzNjZTJlYjhhMDhkYjRjYTdlZWY2NGE1MzNjOTVjYjU5MzBhMTFkOGJjMDRjNjgzNmFkMzkyMTQ3NjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2YjA0NDkxNDY5NzIyZTgzNjNhOTRlNDA0NDUzOGUwMTNhMmEyMTdlMzZiMWU1NjhiYTYwYWNiN2I0YzhmMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQwNGNlN2VlNWVlMmFhMzQ1OWI3NmIwNGE4N2YyMmM4ZTIyMzQ0ZmQ3MmFkZjg3YWI1ZThhNTEzOGNhNGNiMmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk4MjE3NTNlMjA0NjVlMDQyNGVlYWJiZGIxNTY3Mzk4MWY4YzEzMWQ4MTY0OWQ2NTAyMTNjZTNhZjJlNWI4YzkifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L789-L864",
+          "version": "repo-lines-v1:sha256:b2d52ac85dc135c448358c5beb8cfd7b2d1f3867c108bec36b03c1de96dfa413:eyJzZWxlY3RlZExpbmVDb3VudCI6NzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0MDhiNWZmNjA4YzY3MmViMDE3NjUzZmRjNWE1Yzg3NWFmYjZlZmJmM2FjNDM4NTQ3ZTkwNDRkY2U5ZjgyMDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdjMTY2MzMwYzNkZTc5NjUzZWIxMjc5NDc1ZDRhMjk3YTI2YjkwNWVjMzViYmEyM2M0NGNlYmE4MjdhNGM0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjMTE1YjczNTg5MDViYjAzZjI2YTc4NmZkNjc3NjFhNDBiODViMDc4MGIzOGYzMmE2OWQyMGE1ZGU1MDE5MjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1MTYyMDUxOWUyZTA0NGE0NzczN2E1NmMxMWIyZTE3NWZjOTYzOTBjOGFiZjNiNjM5ZjZlNjNlMzM0MDljOWIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L998-L1026",
+          "version": "repo-lines-v1:sha256:6b2d829b60f3141e5cff780e07ec1ac79a001f9c008b2f4c093ac78ce05d302c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1YzY5Y2NhZjQ1Y2NiYWQwMGMwZTEyZmQ2NWMzYzIwNGJjYzJjZmNkYzZjZmM4ZDc0MTAzYWRhM2M4Y2ZmOTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1YmY0MDAyNzA5NWEyYWRhNDI3NTBiY2EwNjk2MjM3ODlhMGI5ZWYyYjAxNWMyNTVlNGUzMWQ1NjJhMDNmNWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0ZTU2N2RlMTkxNjcwY2Y5ZmI1NDE5NjM5YTkwNDFiNjZkNjQzNTNkZDI1NzI0NTg2ZDA3YzQ1OWEzZWY1ODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjlkNWVjNGRiNGNkNGFkMmEyM2FjZTYyMWUzMzI4Nzc2MTc3M2I5NzA1ZDFiMjZkMGNjNGIwMzljODc0MDcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9ec69274b1fd45b6a5f18cb8b61ad742",
+      "statement": "Inbox.call_tool replaces the handler's result with the reading envelope when the tool is in WAIT_TOOLS (ask_question, request_approval, get_response), the handler returned a dict carrying request_id, and the validated wait_seconds is greater than zero — so a waited create answers with status/response/pending rather than duplicate/read_with, while wait_seconds 0 or absent returns the handler's own result without sleeping.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L413-L445",
+          "version": "repo-lines-v1:sha256:6be55b4318520c204e89495d59604478e28aa62d8ea5084fda5d3a9a054e1465:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmYjdhYzM0NjFlMTFiZTQ0YTY2YTcyNTc5OGNlMDgzNzY1ODFmODcyZjhlNTY5YjMyZmEwNTI0MDBlNzJlMTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3MmY5Njk1Yzc0NjdjNzQ3NzNjOWNlN2ZjNDI5YzVkMGQwZTQ4N2YzYzUxZDE1ZDY2NjhhM2QyNDA3MmJiOTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEwNDFjYmY3OTA5ZjlmZWViMGQ1YWE2YmNkOTM5OGE5NmIxZTc3NjVmMTkxNWM3YThlY2ViMzEzMGI3ZjdmZGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0Mzk1YmUyNDQ4ZmM2OGEzYWE1MTVjN2UzYzdkZTQ5NjFjNDljOTdiZTBlYWEwNDMxMWQwODk0N2QxY2Y4YzcifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L56-L58",
+          "version": "repo-lines-v1:sha256:496a59488c1244d386420d770893dd236c86d8f2868124c1040e578cb5c578d6:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA5ZDc2NzUyOWQwNzhkMzE5NDM4NDljOGJjZGU5ZDRkNTU3ZWIzNTE2NGMxMzdmMzlhNTcyNzVjMmQ2NDhhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzBhODcyY2Y4NjZkZTI2Yjk2OGI2Yzg3M2ZjNzBjZjg1OGQxZTUxMjNhN2MzYmEwN2ViMmZkMDg4YzVmMzk2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTY4YTM2OTBjNGRjZmI0ODU1YzMxMTkwZDUzMmNlZjI3NGZkMjc3MTY3NzIyYmM1ZTE5ZDgyOGVjYzU5Y2FhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTg2NTJlNTJkY2EwOGY3Njk1MWE4MDRiYzM4OGE5MzJhZWUyYmQ3ODI3ZDhiNDEwNTBlMWIxMWMxOGYxMjRhMiJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L115-L149",
+          "version": "repo-lines-v1:sha256:bd48997810c1263a62eab73aa379d3fc6ad778f019018413d4e3fbcdc173db1b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1ZTI2NjdlMDBiYzE2MzkwN2JmN2JhNmY3MjNlMDRhZTExNGViY2IxM2ZmNmUyMWQyNDlkYWUyYTI1MGUzY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdhMjg0MmMzYzZjYjAzMDQ5YzIxMjI5MDU3MmE4ZjA1MjgyNzJlZmNlZWY1YmFjYmQxNGJiYWJjN2JiYTU2MzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRhMjYzZTY5ODk4MjVmYTg0NjA1ZDBmM2UzOWQ2NTYxOTM4ZjEzNWQxNjY3ZTZjMzIzMWY4NmVhYTEyNDBlMjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3NTA4MTExNWViOTJlZTFjNjc0ZTZiMWY3ZWIwNjRjMGQyOWY4OTVlMDE1N2Q0OGQzZTQ3NjIzNjE5NTRjMWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d47e84d5ff484fa497499591817bacf9",
+      "statement": "The wait parks outside the inbox lock so a parked call does not block the store, and serve_inbox runs a ThreadingHTTPServer so other requests are served while one call is parked.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L438-L445",
+          "version": "repo-lines-v1:sha256:5c2a837e98e34a35f1e1ada4055f5df343450e310c47e2af85cb779a85c9445f:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjE4YTQ5M2E1MTFmYzgxZDk5OWYzMTkxMjNjYWRhNzg1MDBiZTFlN2UzMjBkOWI4MDdkOThjMTBhOTM4NTZmYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzcyZjk2OTVjNzQ2N2M3NDc3M2M5Y2U3ZmM0MjljNWQwZDBlNDg3ZjNjNTFkMTVkNjY2OGEzZDI0MDcyYmI5NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjNhZDM4MmEzMTE2NTYwZTg5ZDBlZTVhODhkOWY1N2Q0YTlkOGExOTBjMWY4YjYxNDQ0NjNhMTI2MGUzOWU4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzQzOTViZTI0NDhmYzY4YTNhYTUxNWM3ZTNjN2RlNDk2MWM0OWM5N2JlMGVhYTA0MzExZDA4OTQ3ZDFjZjhjNyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L84-L97",
+          "version": "repo-lines-v1:sha256:325edff0b433dc2be195bbe5f1255fdf041aca2d19692e94e2331866dce8f393:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNDBkMWVkOTU0MGNmYmUyNTkwNWY0MTM3YzdiNTcyNmU0OWE5ZjQyMmQ1ZTkzZDc4ODQ0Zjc3MWNhZDY2NmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjZDc5YTVkNTA2NDI1NzExM2RmMzg5N2MwMTE1MzEyYTQyODE2ODU2NTQ5MDczZTUwNWQxNGY5OGI2ZDhiMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3YmVkYjdiYjg0ZmFiNzYwODQ5MzE1ZDQyOTk2OGUzOWZmZDNjOWVmMTE5MzVmMTZiNjIyNDI2OGM1NDZhMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1ZjVkOWYzZWYzZWYwNzA0Mzk2OGNjOTJlMDYyMDhjNDAwYWY5ZTcwZmZkZTdlNTVlMjgzMmQ3ODViNDlmYzYifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L251-L273",
+          "version": "repo-lines-v1:sha256:8837cca3446b5364e626df7f772ebb17fee2fe2508a74375eed090f22c53e43b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlZmM5MzUyMDE2ZDIxY2JlYzMxMGJmYzdmZmRkMGQzYmI3OGRhMGE1YmFmZGI1MGFkNWI0ZTBiYTZiMjdiNDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxZWUxZGM5ODVhYzM1NWUxNTgyY2ZhY2UxYjcyZTY2OGM1ZTU4ZDBmNjgyN2RjNGM1ODUzYzQ5MWJmYjgwN2EiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5MTQzNmVhNGQ0ZjQzMjQ2ZTgxMDY2OTI0ZjVhODc3MGNkY2NiZWUyMmY0YzFiNWJlMzI3M2M5N2NlOWEzZDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZlOTU1MmU2MGI2NGMzODY1Y2Q0Y2I2NDg0ZmMwNzRhNjk2YzYxMGVhYjBiYzQ5ZDFjMjkzNDRhOThhMjY1NGEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ea637749d3fe4eb3bd05531a345c3ebf",
+      "statement": "The MCP surface is POST /mcp, POST / and POST /mcp/ under the create bearer compared with secrets.compare_digest; a missing or wrong bearer is 401, an authenticated POST to any other path is 404, GET on an MCP path is 405, and the refusals close the connection so the unread body cannot be parsed as the next request, while POST /answer is routed to the owner answer path before the bearer check.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L100-L121",
+          "version": "repo-lines-v1:sha256:a66994515f869af205610cc896b0ed4c0e4bf2eaccc0485fed59b9fe91b209ed:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4YmY2ZDc1MDIyMzQxY2VjZDUzOTM5YjdiZmM1ZDA3ZmZkOGJiZmFjOWNmMTc3ZjA0ODc0MGUxNTM0M2E5ZTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5YjliMjdmMjM1NGNiNzExYjU0MjY1YjFjNDYxYTM2OGNmNjY0YmM3ODc1NjhlYjdjNjU4NTk5ZDgyZjQ5ZTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjMmQwN2FkY2QwYTEwYjYxNGEyZTJiYTU0YjUwNTdlZTRkMWM3Njk4MDA5Y2Y5YWJlMjMxNzY4ZjUwMDEzZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYyMzNjZTY2MjM4M2U0YjllM2ExNjg0ODg4ZDI5ZWQwY2EyYTczMjdkZGRmYWE5ODg4ZTFkZmZkYTM1NTMwYzAifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L135-L165",
+          "version": "repo-lines-v1:sha256:3cce599efc4fd99e7c8c09af4b391de42bbdff3c8f7c0214c79d038898cdee9b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1NWMwMGFlYTFjZmUxM2JmNmRkYjY4ZjYyOGYzNzZjYTIyZjY3MTNjNDY5OGZjOGNlMDU2ZmQ5ODAzYmFhYjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlmMGUyMWMxNTY1ODE1YzdkOWQ3MjRlZDAzMDY1MmQ5MTJjZTRjYWUwNjkzM2QwYTkwOGViNmQwN2E4M2VlNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRjMWQ5MjlkYTI2MGZiODczMGYzZGJiZTdlNmQzYTE0ZDlkZjE5ZTg2NmNhYzAyYzhmMTY5MzMxMWJjZGQyNzUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L204-L206",
+          "version": "repo-lines-v1:sha256:c0d3bbc631ce828ff4086efa481b6cb254be3d529abb428c58e91b15bb8cfba4:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDM0NDQ4NWM3MGI5Zjk4OWEwNWYxY2QwNzk5MzVkNWE5N2JiOWVlNTg4ODRkYjZmNzQ1MTQ3OWM4NzkwYTYxMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzA3NWJlZDM4YmRjNmQ4M2VlMjdjOGI0Y2NiZDAwMDg5YjM5YjJhMzQ2NmYzMmQzNzI5NTYxNjFlYWIxOTQxYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjRhY2QyMGI5OWY1NDI2NTljMjExNjQzMTg4ZjFlM2ExOTUyMWYzOTNiZTQ1NDk1NDQ2MGFlMzJjNzBkYWViMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjM2M2IxMmY3MjNjZjMyODMzZDE4OGQ0MmRjZjIzM2U0OGJjYzIwZDJjNDVhZDg0OTI2NTVkMTFhYzEyMDgwYiJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L610-L645",
+          "version": "repo-lines-v1:sha256:2d3da56a8c3da8dc5a022470d90211820e137fc8c5ec2c0e445aee9873c3727c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2ODU2MWU2ZjU3YmFlMWQzZGRmYjhiNWI1YmQ3YTgzMjg1MTYzY2NjYzdjYTYxYzE5NDc2MDgyYTZlNmU0MTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4MzQ1OTM4OWUwYTE4MGVjZTE1ODkxZmY4ODVhZTg0YzRiOTNlN2E4OTYwNGQ4MGJhNWUxMDA3OTZjMTFkOTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3M2NiNDM2ZDdmYjczNWNjNjQ4MmNmM2M4M2I3ZDg1OTZmNzE4NzRjZjA5YjBhODFiNTFlNmI3NDAyZmFhN2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI3M2ZjNDkyMzc5N2IzYzQ0MzZlYmE3MDQ0NmUxYmY3OTdlM2FhMGQ5YWI2YTVlNzU2MGJiZjU4YzIzMzA0OWMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0b995b2a453c4884a4af2a2703495ec0",
+      "statement": "check_bearer refuses every request when no create bearer is configured on the inbox, and only the four create handlers re-check it via _require_create_bearer while every other handler ignores the bearer argument — so the handler-level check matters to a direct call_tool caller, not to an HTTP client the transport has already authenticated.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L610-L628",
+          "version": "repo-lines-v1:sha256:34cf2b5eef3cbdb42d5efa65eb7f4a62abd784d78504728d32e38088f4e94a2b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMwZTFjNDdkZjI5ZjljOGEyNjVlNDk0MzM2YjBjNDFkNjgyNGNlY2ZhYmE5YTY3NmU1OTE1ZDk2ODgwMDRjMzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3MWIyZGVkZmMxMTJiMTVlNmI0NmU2ZGRhZjQ0Mzc5ZDM1NmMxNGQ1ODUzNWFiY2UyMmM2N2Y5ZDc2MThlYWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJlOGQyNjkwYTZkNzJiMjFjYjJiYjdmYjliMjQwMzRjOTMxYzAwYzk1YzYzZTNjYmI4YWYxYmJmMzA0NDE0OWIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L687-L688",
+          "version": "repo-lines-v1:sha256:631fda7fe87953c4c436b0dd93171bc2d1d589498912a1b69d4b13df93b0a43f:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTQwOGI1ZmY2MDhjNjcyZWIwMTc2NTNmZGM1YTVjODc1YWZiNmVmYmYzYWM0Mzg1NDdlOTA0NGRjZTlmODIwMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzQ1M2JhMTZhOTllNTdhYjc3OWZmMWJiOGJlNmMyOGE2ZWY4YTFhYzUzYjFhNDk4MWNhNjFkNDdlMzM1YjVjNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmMxMTViNzM1ODkwNWJiMDNmMjZhNzg2ZmQ2Nzc2MWE0MGI4NWIwNzgwYjM4ZjMyYTY5ZDIwYTVkZTUwMTkyOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2NiZGExZjk4NzVhZTQ1MjMxYzVmNTg5MzgzYzQwM2JhZjNlZGM1ODM3MGQ4OWI4NmNlNGU0NmFiZGJiNGI4OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d9c093efec0742a5bd934919529f4ff6",
+      "statement": "_dispatch serves initialize (protocolVersion 2024-11-05, capabilities.tools.listChanged false, serverInfo name paraphe version 0.1.0), ping (an empty result), tools/list (the descriptors) and tools/call; notifications/initialized and any notifications/* carrying no id produce no reply and are answered HTTP 202 with an empty body; an unparsable body is -32700, a payload that is not a JSON object is -32600, and any other method is -32601.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L146-L157",
+          "version": "repo-lines-v1:sha256:6481e1fdecb750c93a644b0a5fb63a3fe6ac93c8d7fcad8f8110c46ec227126c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwOTAyNThmNzA5YjJiN2E4NjEyN2JhOGM1MWZlMGQzMjIyOTU2YjMyOGI1YWRlM2IwYmI1MDkyZWMwZGY4MDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYyYWI1NmFjMGE4NjliZjgwOWVlZTFiZGRjZTM4OGFmMDc3YzlmYjM2NzI1MjFkYzdmYzk1ZTIwOWExMTc3Y2EiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE2ODYwZWMwMzY0YzRlNTZiZThhNGYxNzYyMDJlYzE4YWM1MmZkY2Y2YjU1YjBlMmQ4M2QyOWJmNzBkZWFjNmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkNzBhOTRhZWYxMDA2ODJkYTM1MzUyZDYzZmU1OTZlOGY3MmJmYWY0NTQwMjk0NDNhNTE1MjE5N2JhNzg4MzMifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L239-L290",
+          "version": "repo-lines-v1:sha256:40e9f03377d3a042d29a8ee462c1cf01e773adaf605410a803f41824997c7b2d:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY3NWY1ZTFjNzIxODkzZTY1YTE2Y2I5NTU3Y2YzNjEwYjk1Y2Y3NjI1MmE4MDcyMzJkZDY5ZDZmMzgzZTNhNzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgwNGNmMzYzNWIxYTVmNzA5MjAxMzUzNTBjY2Q3M2QyMWI1N2I2Zjg4NDhlZWI4Zjc4YTI5YWZjZTA2MjgxYjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b6964e5dbefd4743a6d8fa9dec6ce20b",
+      "statement": "Any exception raised by call_tool becomes a JSON-RPC result with isError true and content[0].text set to str(exc) (or \"tool error\") under HTTP 200, so the surface's refusal vocabulary is the message text — unknown parameter, kind fields do not mix, external_id is required, card is not open, expected_version does not match, unknown request_id — and a wrong bearer is the only refusal expressed as an HTTP status; successful results are json.dumps of the handler value except how_to_use, whose string is returned verbatim.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1024-L1029",
+          "version": "repo-lines-v1:sha256:af743abdab8dc9052d34743ebfc7869eb24cb85045a0ea1028f91ab041b1aac6:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTdiNGQyYjA4MThiYzVkNjMyYjEyZDU2YjM2ZWIzNTQ5ZWQ5YjRkNjlhNjJmNmQ2MWYyOTZhMzYyMjNkNWVkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI0NjA5YzViYzg4YmIzOTYwNjRkYTM0NjBiNzUxYTk5MDU5MmI2NzljY2U3MTczYTRiMzkxOTdkOGY1YzkxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWZjMGQ4ZTlkMDhhZjY1MmRlMzU4OTBjOWQwYzRkYzBjOWY3MDU5YTk0YjE2OGQwZWNlNzM1NmYzYmJjODY3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWZhYWJlZWZiNWY0MWVhNzM0Njc1MTdiYWRhOTMwZTE0MDQwNzgxZWRlZDk5ZmU3Y2ViOWIwYzRmMjdkMTA4MSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L817-L830",
+          "version": "repo-lines-v1:sha256:9d9be69d187dd9d0e7ad1f2a0658ed61cbb871125c585f1f3b2dda01555dda0e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5NDJjOGYxZWRmZTFmYWNiMDcwNjViYTQ1NjIyYjg0Y2UzZTdiNmRiOGE1ZDBkNmNmYTQwODcyYzg3MTFiNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiZGMzYzA2MDNlMThiZWFjYWE1MGNiZjU1ZWJjYmZhOGNmZDgxYjdmZTMzNTExM2YzMjJlODQ2YmY2YmYzMzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ0ODY3ODEyZTRlMGU2YWIyY2RjZTkxZDVlYjQ2NTgzMGRlOGNkZTE0YzJlNDg5YjQwYzM2NGNmMmFhMDhhNTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwN2FjNzg1NTNmZGZmZjIzYWNiMjA0OTZlNTMzNWQ3MjAxOGU2ZTA0MjhjODc4ZGMzYzBhMDNlODgwYWEwZWEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L262-L285",
+          "version": "repo-lines-v1:sha256:e37e535a604b2bc4527917710a072fdd05f0cb9f9c763087b4a00015fd3c01b8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5MzFjNjM1ZmZkOWRkYWRjNTI2ZTE2M2Q1YWRhMzQ0MTlhMGMyMWM3OTExNWYxOWNiMDA0Yjg5ZTcyMWMxOWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2YjA0NDkxNDY5NzIyZTgzNjNhOTRlNDA0NDUzOGUwMTNhMmEyMTdlMzZiMWU1NjhiYTYwYWNiN2I0YzhmMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRhOTE4NTY3N2MxYjQwMWZlZmNhMDIzMDAwZWQxM2QzZDUzYTU2ZDgzYTBjZGMwMjEwMzI2NDJiYzdkMjQ0YzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEyYWIzY2MwYTUxOWNhNTUxY2I1N2ZlMGFkOTZhN2M5NjQ1MDRiOTgwYmQ0YWYxNGJkYTUxMDQxZTkwY2UxYzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e6d3080301b84349bc472b1d14c732da",
+      "statement": "The request body is length-signalled only by Content-Length and capped at 65 536 bytes: a larger (or negative) value is refused with 413 payload too large without reading the body and without echoing secrets, a non-integer value is 400 bad content-length, both close the connection, and an absent or zero length is treated as an empty JSON object that falls through to method-not-found.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L123-L133",
+          "version": "repo-lines-v1:sha256:bd99b4658701173b49864c2cd0e6adcb0a9a76c1270f624eaf6fc155047e9c55:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzZWY4NzAzMDY0NzIxOTdiMTE3ODk1ZDA3NzE1ZjY1ZmMwOWQ5N2YzYWFmMmZjYzg4YjY0ZThjNTczZTg1N2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwNWZhODA2ZjhhODRlZGZiNTg3NGY4YTBlN2Q0MDlkMmYxZGYyZGE1N2JhMThiMjNmOWQ0MmMxMWFjNDZjMGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZjNTI5YWEzY2Q0ZDMwNmFlMzQxNzg5ZjE1NDU1NmUxMzFjMzgzZWFjYTRhOWY2ZDhlOTQxZjIzYjRkZGE2YmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU2ZjZmZmZkNzA4MTI5ZjMxOGJiMjNhMjA3NThmNGNlMjUzM2JjNGVkNWM1ODc1MTczYWIyNjM3MDc1ZjYxNDAifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L20-L20",
+          "version": "repo-lines-v1:sha256:f5d4d14ebff7a50a4b32f15edbee664728a79c42bfb4b8d01aa3fe7b1a1f3295:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVkNGQxNGViZmY3YTUwYTRiMzJmMTVlZGJlZTY2NDcyOGE3OWM0MmJmYjRiOGQwMWFhM2ZlN2IxYTFmMzI5NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVkNGQxNGViZmY3YTUwYTRiMzJmMTVlZGJlZTY2NDcyOGE3OWM0MmJmYjRiOGQwMWFhM2ZlN2IxYTFmMzI5NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODI3NjZiYzc4YTRmY2NjZGZiZGQ3MzA4NmU0YWE3ODhmZjE2OTFkNGU4MDBmNDQ2ODJhMGVkZGFkOWJkZjNjNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGIwYWUwZmJiZGNjNDUyYjk5MzY1ZGVmMmQ2ZWE4NjQzODllOGJlMGE4MjkyZjg2OWZmNzI4YTBhNDBiMjRiMyJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L592-L608",
+          "version": "repo-lines-v1:sha256:e0d7eefa63e9e4a9a39e2d0a57fb29027231ac1bd2d5e5cd912481d0064b4044:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmMzE4NmU3MTg3NGFmZmI2MTMzYmYwNzM4MWVlNjQzNTVlOWY5OTliM2Q2NzdkYWRlNTJhNGEyNGU3MjlmNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5NzEwNjRiNDQwZTlmYWNmOTAwMDQ3NmIyMjFkZTFkMzIxOTMwYzg0ZjE1NzY3N2ZmOGQ0MzZmNmQzYTdiNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMxMWVmZGJjYWNlNzdlOWViZmEzY2U2M2FlMzI5NjNhZWUwNGUxNWJjN2NkYzBjNjJiMmVkZThhZWMyYWM3NjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYwMTAyMTY3Yjc4ZDVkZGZmODQwOTkxZDFjZDRjNjZkNjdlMjZkNDUyNjg5MzJkMDgyYzlmZjQ1Yzc4YjhkMmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_41c094e6271045398f655b64eccd0fa7",
+      "statement": "Response framing follows the request's Accept header: text/event-stream without application/json produces an event: message / data: <json> frame with Content-Type text/event-stream, otherwise application/json; every accepted MCP response carries Mcp-Session-Id, a per-process 32-hex-character id generated in serve_inbox that the server never validates, while the error responses do not carry it.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L154-L164",
+          "version": "repo-lines-v1:sha256:bc352b283f26eaf4f61f0e9daf60887897f583ea3dc4950892074020d98fd00f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjZTk2MjM4YzViZTMxNGY0YWI3NjdlYmIzNjdiNTVlMGQwNmNkYjRhNjhkNWRiYTU1MGFmNmRmYjEwODYxNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3NTE4YWQwNTZlMjkxY2Y5M2UyZDQ1MWZhMjI1MDhlZTg5NWU3YWQ3YmRhNTVkOTNkOTg0NTVlMjFjZjU2ZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY3YWVhNGVhNWU1YmU3YzdlYjM0MjZhZjY1OWIyNTRmNjQ2NjliNWNjYTQyMjg5ZjRmNmIzMDhkYzBlYWI4NTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMxZjAxNjU2NjAwN2FhMDVmZjE0YWQ2MTk0NjUwOWYyZmNjMTM5OGUxYjA1MjdjM2MzODY5MTRmNThkZmQ3ZDUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L84-L97",
+          "version": "repo-lines-v1:sha256:325edff0b433dc2be195bbe5f1255fdf041aca2d19692e94e2331866dce8f393:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNDBkMWVkOTU0MGNmYmUyNTkwNWY0MTM3YzdiNTcyNmU0OWE5ZjQyMmQ1ZTkzZDc4ODQ0Zjc3MWNhZDY2NmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjZDc5YTVkNTA2NDI1NzExM2RmMzg5N2MwMTE1MzEyYTQyODE2ODU2NTQ5MDczZTUwNWQxNGY5OGI2ZDhiMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3YmVkYjdiYjg0ZmFiNzYwODQ5MzE1ZDQyOTk2OGUzOWZmZDNjOWVmMTE5MzVmMTZiNjIyNDI2OGM1NDZhMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1ZjVkOWYzZWYzZWYwNzA0Mzk2OGNjOTJlMDYyMDhjNDAwYWY5ZTcwZmZkZTdlNTVlMjgzMmQ3ODViNDlmYzYifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L391-L428",
+          "version": "repo-lines-v1:sha256:78ad29e572566222996046ba93a145a975d6c854805b565e190e7b911930044a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAwZTg4MTFlMjc4MTYyYTcxMGI5OGM0ZDY5MzBjYjVkYzc3MzFmODBmM2JjODlhOGU3NTlhNDc1YmZlMGY0OTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI5NjA0NTg0MGIzNDNlZDYyY2U2Y2UzY2E0MWRlMmI5ZjE4ZjE3ZDhjNzkwZjFlNTYzMDc1NDc4MTMwOWFkZWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkYTg0MDVjM2Q4ZWM2YjRiMDUxZWY2NGU4MWNmMGJkMjM1MDZjZGNlOTA1YjYyYjIyNDE3Zjk4MzNiNmM3Y2YifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b9606dc4fe954d94a6e7b2d99ef805c5",
+      "statement": "serve_inbox refuses a public listener with BindError(\"public bind refused\") and accepts only loopback names and addresses plus the Tailscale ranges 100.64.0.0/10 and fd7a:115c:a1e0::/48, choosing the socket family from the host; the returned ServerHandle.url always reports http://127.0.0.1:<port>/mcp regardless of the bound host.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L18-L19",
+          "version": "repo-lines-v1:sha256:914b73288ca04ab93af53009b21570b52b9279936d91bc88275197c84d8275d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWZjNTBjNGI2Y2UzYWUyZTg0MDliZDZhNmMxNDAwM2IxM2MxMGJhY2E0ZGQwZjQzNjMwNjcxZWE2MGQ2NmIzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWZhYTExNmU4OWE4YWE3MjVkMzcxYWJhMWM1MzdkYzIzOWZhMzdlNWRjOTU3NzQ1OWRkN2EzNGY3OTk4NGYyNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGQ2ODVlNWM4NjliMWU5N2I2YzcyZjJkMThlZTJjMWY1M2Y1ZTQ0NGFhOWQxNWQ2NTU4MjllZjIzZmNmNmVlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzU4MjY4NjRkMDE5ZWUzZDI0M2E4NjM2NDA4ZjVmNGU4YTA4YzViNWFiZDM1Yzk3ZTVmODYwZDlhZTdiZWY1MyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L44-L97",
+          "version": "repo-lines-v1:sha256:5b7d059c3ba9568e523223d17981fb36530eb18498fa3b9d5c637bc69e996985:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNzZlNTQ0MGRmOWM3OWZjMjgwYzQxZjM1YjQzN2ZmOTA4MTU1ZjJjMDhiYmNkMTUwNTA3OTM4NWE3MzBhZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjZDc5YTVkNTA2NDI1NzExM2RmMzg5N2MwMTE1MzEyYTQyODE2ODU2NTQ5MDczZTUwNWQxNGY5OGI2ZDhiMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBhZjdmODdiOTcxNzBkODdjNTQ2NzQxMTQ1YjIyZjljNTMyODQ2NDBlMTNiNGZkM2YzNjkzMmI1Mjk4MjI2OGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1ZjVkOWYzZWYzZWYwNzA0Mzk2OGNjOTJlMDYyMDhjNDAwYWY5ZTcwZmZkZTdlNTVlMjgzMmQ3ODViNDlmYzYifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L430-L434",
+          "version": "repo-lines-v1:sha256:31f89252451a285daa5a98d07e8dfcc8ebb98d48de65060a75201107fdadaa71:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMThmZDM3YTU2OWM3YzZmMzIwZjYxYzhjOGFhMmIwMGNiZmM3ZGZlMDBlZTgzZWRmYTZmNGE2MjJiMDdjNGQ0YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzcwMmY3NzU5YTIwOTQzMGQxMzNlNzg0MmU1YmU2ODI4NjM0ODUzYmMzNGMzOTg3ZmRiY2Y3YTQ2YzZjNGJjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWQ5ZjliZTNmZTA1MWQ5YmRjMGQ3YzI1OTQ4MDZmZTAxNjllM2M5NjMyODg5ZjIzZjdlNTI3OWEyZDMzMzFmZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzJkMmU0ZWQyZjE3OWRiNjAxMWI3MTdjOTZiODc0YWM1NGZiNDQzZTRjZjdhNjgxYjVmYjBhMWUwYjZhMGU4OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_453b808500e842859bb0475b3678371c",
+      "statement": "A JSON-RPC payload whose params is not an object raises out of _dispatch, because params.get is called unconditionally, so the handler exception escapes to the server's error hook and the connection is closed with no JSON-RPC reply instead of an isError result.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L239-L244",
+          "version": "repo-lines-v1:sha256:4210961cb297b81bc24ef99087c2ccc3da9a25e192570ae72d924f850895e6b2:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjc1ZjVlMWM3MjE4OTNlNjVhMTZjYjk1NTdjZjM2MTBiOTVjZjc2MjUyYTgwNzIzMmRkNjlkNmYzODNlM2E3NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFkMjkwODdlNGYzM2NiYjhjYTYzYjg2NmZkMDk2M2YzMjBkMWZhNTI3NjQyM2EzMzIyMGQ2YTM2MDcwZjI0ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODA0Y2YzNjM1YjFhNWY3MDkyMDEzNTM1MGNjZDczZDIxYjU3YjZmODg0OGVlYjhmNzhhMjlhZmNlMDYyODFiNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTUzNjRhN2YwN2NkM2Y3MTg3ZDFkMjU5MzkxMmJkMGE3YTYxNzY3ZjAzNGQxOTM2ZjI0NjFhYjg1MWIxNTc4ZCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L262-L266",
+          "version": "repo-lines-v1:sha256:326ce35f02a51d974814beb2e4e5b52d0192d1f44996fce0114fea38dbbf5989:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTkzMWM2MzVmZmQ5ZGRhZGM1MjZlMTYzZDVhZGEzNDQxOWEwYzIxYzc5MTE1ZjE5Y2IwMDRiODllNzIxYzE5ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGVkNTMxZjY5ZGE1NzllODFlODUwYzk2ODliZjNjMzQ2MDU3ZDBmNjI0ZmMzZDExZTYyMDZlYWQ1ZjExNDFlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGE5MTg1Njc3YzFiNDAxZmVmY2EwMjMwMDBlZDEzZDNkNTNhNTZkODNhMGNkYzAyMTAzMjY0MmJjN2QyNDRjNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzkyOTg4Zjg0N2MyZjVhYTY5NjUzNjNmZDc4MDQ2ZWJkMjBkMWFjMDczNDhlYmM4MTNlMzg2NjFiY2NiNGUzNSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L203-L208",
+          "version": "repo-lines-v1:sha256:65aecbedc47f1e4b99f53d27c775831b92b416f2a7c0afd978e38585b6c63f3b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTI3NmU0NTM5NzE3NzY2OTYxNmZjNTQ5YTY1NjI5OGZlNjFhMzY3NTY1ZDQ5MThhYzZiZTMxYjQ1OWMzYjc4NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE4ZGNiNmM3NWNiYjMwYTg3M2JjOTBlODM0MTE1MDA3OTU2YzRiYjVmNWMxY2IwMzM1MDllZjg1NmE5NjI2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGQ1NjRlMGJlNGI1Y2UwZjc3NWFiODFlMGFkYThmMmEwY2FhN2M3M2Y0MDFlMzFhY2ZhYzgwMDZjNmU3NjQyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjJlNmQ4YjFlYThiZTRjZGRhOWM3YTJkMzU2YTYxOWIxZDU3MDhhNjY1ODhmMmE3YmVkMjY5Y2RmMjg0MmE0ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6936992f74d44cefa64f117ac609e4e9",
+      "statement": "TOOL_DESCRIPTIONS and Inbox._how_to_use are the served text written for a client that reads nothing else: the asking tools say to record the returned request_id and name get_response and wait_seconds, the four tools that take provenance say to pass runtime/repo/worktree/ticket, get_response adds response.choice, the reply arriving as response.text with responded_via telegram-reply and the drain rule (which list_unprocessed also carries), and the guide adds the phone rendering and the reply rule (explain, then re-ask), the paraphe wait command with its exit codes, the credential one-liner, \"reads do not consume answers\", rule_key accepted and ignored, the strictness rule and a pointer at docs/tools.md.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0011-answer-returns-through-the-ask.md#L35-L38",
+          "version": "repo-lines-v1:sha256:543e293d9c9caa1af94f584a060eb4b7749eaa9d47cea0f4c1006483745a6fce:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmUxNWMxNjYzMDg2MjU5MTk1ODVhZmQzMDcxOThkMTE2ZmE0ZmJjNTRjOTg3MTA3MjcyNDQ2MTM1MDk5NDM3MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDg1N2U1NDQwMTA2NjMwNjcxZWRmZjBlYmE1ZTIyZGY2OGVjZGZjMDA5ZDIxYTE3MDNjODhlOTkxZDYyZmRjNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2I3MGNlZjgzMDAxODMyNDA4NTIwMjQ0NTcxMTlmNjk2NWU3Nzk1YmVjMWFiM2Y5YTViMmM5MjU5YzE4ZjVjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTY3ZDc4NDljMGE3OGRiYmZkMWQ2ZGIzZmFhZTQwODRlMDEyMDhjODU4Mjc0M2FlMjVmOTU4NGE5MGRkZDYzYiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L211-L260",
+          "version": "repo-lines-v1:sha256:7e5852cf7bcf2182e9c64a85443b36c05b328ccd057e0bf69ca6dc7a7c9b4333:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3YWQ4ZGFiODFjNWQ3YWJkMzU4OGUyOWVjMjNiYTVmMzNiMDJlZGY0NzM0M2Y3NDRkMjkwNTRkMjY4N2Y5YzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRkNzBlMDQyYzUyNjQwYjI1ZjNmNjlkYmE0YTNiYjVmMThjYmYzODZlOGQwZGVkZDUzZDQ4MTM5ZGZkNjZjNjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNjMjJkMjExNTZjODk4ZDZiNWViYmQ1MTU3YzYxNjUxOWQ0ZDQ0ZmFhMzM4NjRmYmJmMWM4ZDc3MDVkOTAzM2MifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L742-L787",
+          "version": "repo-lines-v1:sha256:93b7444d9bef7c63b28ce2cda9484ffd7458d568254ac986c1b7acdfa2be9972:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxZmQ4MDdlYTg2NzFlOGI0ZTM3ZjIxM2I2OWIwMGZjNjFhYjY2ZGM5OWI2OGNlMmUxZjQ2NzBmYmE5NWJlZDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYwZjZiYThmYjczZTg4ZTNlMTg2ZTY1OTZhOWVlODk3MWFhOWZjMzQ2NjM3Nzg1ODdlNGNjYTUyZjljODg2ZWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgxYzhmZmE4NTc0ODQxYjFiMDFkMjZmZjg3Y2UxNDQ2OTAxNmVlYzA1ZDQ5ZDc5ZjlhZWQ2MjkyNWNlY2ZmZTkifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L73-L94",
+          "version": "repo-lines-v1:sha256:31ea674631bab3aec28962a6a92b35c9dd5ebbf562130b6b59223390e0cb68f5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzMzM3NWVkNWE4YzkzNDUxNTQ5OGQ1NDczYjA0N2ZmMDY5MzFmMzRkNTc5OTdlYzFmZTU2YzI3MWFiYzVjZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmN2Q4ODc1MmQ5YmIzM2Y5NjI2NWY3NTU1YmJlMmYxMzE3NGZkYTUzMDg4N2JkNmQ3YTY3YWMzYjY5NDBjZTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjljY2MwNGYyY2YxZWJjYzQ0ZmMxZGYwOTc5YzgzNWNmNmMwMWQ1ZDRkZWMxNGZlZThhOWRmMWI5NTE3OGI3MzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0MjIzYTJjMDRiMzQ4Y2VkODMyZWI3OTI0ZjhiN2FkYTQ0YzU0ZmQ1YzI2YTUzODI0MGYxNDRmMWJhY2ZlOWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_82ba217f8f8648689e4e18689cc08988",
+      "statement": "tests/inbox/test_surface_contract.py is the drift gate: it parses the tool names out of the ## Tools table of docs/tools.md and asserts that set equals TOOL_NAMES and that list_tools() returns TOOL_NAMES in order, pins that every served tool has a non-empty description distinct from its own name, checks the async-protocol language in the served text, that the served text teaches the provenance fields and the reply rule, and that no served tool name carries answer or claim as an underscore-separated segment.",
+      "evidence": [
+        {
+          "resource": "repo://docs/tools.md#L59-L74",
+          "version": "repo-lines-v1:sha256:1312449a531b951c0472f2fafaf562fd8a67ffa8d44d3182e8e08868b5c247fa:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0ZDY2Zjk4OWU0Zjk2MDEyZmY5ODg1MGU2OGZmNjI4YWI4YWM2ODBkYjkxNWUzZTI3Y2QyZTdhZjM3MWMwZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwMjcxZGFkZmU5YTNlNzU2NGQxY2EwZTdiNGFmNzU5YTg2NmIxMTcxZTUzYjNmNmIwZTEzNzFlYWFmN2ViYmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIyODAyZDBlNTg5YmQ0YWI1NWIzNzZjOTU5NmNhMjY2ZjEyMjRmYjM5MWVhNDIwM2FhNzUwZTc3YTc2MjRiOTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2ZTBjMDlhMjlhMzhmOWEzNTlmZjFlMDdmOTVjYTNiNDU1YzMxNDk1MGNjNTBlOTA3ZWIyMzVlNDNmMDBiYWYifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L129-L141",
+          "version": "repo-lines-v1:sha256:c1859bd6739a062a3bd4b55d5830664f99d9fc04131d22c58b97c5454e1a5308:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3NDY5MjgzNThiMzUyMWNjNWNmMDcwYmZkZGU4YzhjZWI2ZTVhZjMyZWFiOTQ1ZTQ5ZGFiMDkwNGMxMGVjODUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU4YjllNmI1MTViOGY1NzEyOGJhNDA4MmJhMmM1NjJlMTJmZjY3NzIxOTMwMDE2OTMyODk1YTEzZTliMjE1ZDkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJjZGYwNmExMWQ4MGNlNmEyZDVhNDA3ODJiNThlZTllNWI5MWYzOTUzMDBkYjk0NThjOTZmM2UxYjc4NmVjNDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFhYTBlNzM1OWE4ZWNkY2FiN2I0MWIwNDUxOGRkMjlhMWE5NTEwNGYzN2FiZmU1OWFkYjYxMTQ1OGRiNWIzMmUifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L25-L28",
+          "version": "repo-lines-v1:sha256:200116cd774c226f5df922a2f70f7c489205483e124580408c185a4c13ddee9d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk0YTJmOGE4NDczOTdhYjgwNDBhNjc5ZTIxM2FiMDQyMGY2Nzk0MzRhYTY5NzBjZGU5OTBiYjE1NDAwMjY1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmZjNGU1ODgxZTU4MDcwMDVmOGZlY2VmOTAxZjZkZDI1ZGFkZGEzNmE5NGVmYzFmZGRlMDk4YWIxOGE2NDYzYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2Q3ZDZhMTAzNTI1YTY2NzQ5ZjUwYWZjZTI4YzgzMjdhZTg3MmMzZTU3Yzk2YzZkNGZhNThiNmJlOTdjMDc0MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTU1ZmJhY2Y4ZDVhNWE4YzFlZDY5MTY0ODU5OTNlYWUwN2U0MDFmODA4NzA3M2YyNzhkZGZmMzM0ZWVlMzQxOSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L59-L71",
+          "version": "repo-lines-v1:sha256:fb60c7b466135d0ae35a3bb747399e3f961cc47021190d0f86e2d063cc74fa65:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUzNWJjYmY2YzZmOGIyNjNmY2RkYjI3MDI0MDdjNTZlZTlhYTdhZGMwYTA2YjY5OTE3ZjBkMWUwNjBiNmJiODIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NjE4ZTdhZDIzZWI0ODYyMThhYWRmNzM1NmQ5ZDQ5MDc0MzMwYWU2MzcwZDg0ZTQ1MDZiYzFmZGRhZTNiNjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY5N2RhMWE5ZDVmNTYwY2Y3OWE5ZjdlNDBlMTg3MjNiNGUwZmZlOWZjNWUyZGNiODUzOGViNWFlMjJiMzE4MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAxZjNlOGIwZmY4ZjY1NmY0NDM1MGNkYTMzZTQzNWY0NWM0NzlmODIxNTA5MTFjMWVhMDQ5NzQzNWI2MTZiNWYifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L73-L94",
+          "version": "repo-lines-v1:sha256:31ea674631bab3aec28962a6a92b35c9dd5ebbf562130b6b59223390e0cb68f5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzMzM3NWVkNWE4YzkzNDUxNTQ5OGQ1NDczYjA0N2ZmMDY5MzFmMzRkNTc5OTdlYzFmZTU2YzI3MWFiYzVjZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmN2Q4ODc1MmQ5YmIzM2Y5NjI2NWY3NTU1YmJlMmYxMzE3NGZkYTUzMDg4N2JkNmQ3YTY3YWMzYjY5NDBjZTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjljY2MwNGYyY2YxZWJjYzQ0ZmMxZGYwOTc5YzgzNWNmNmMwMWQ1ZDRkZWMxNGZlZThhOWRmMWI5NTE3OGI3MzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0MjIzYTJjMDRiMzQ4Y2VkODMyZWI3OTI0ZjhiN2FkYTQ0YzU0ZmQ1YzI2YTUzODI0MGYxNDRmMWJhY2ZlOWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7ccb28dbcfc047539a7255425164abbc",
+      "statement": "PROVENANCE (runtime, repo, worktree, ticket) is served on ask_question, request_approval, request_feedback and update_request only: notify_user is the one create tool whose schema advertises none of the four and whose _reject_unknown refuses them as unknown parameters, while the four tools that take them advertise maxLength 40 (runtime), 120 (repo, worktree) and 200 (ticket).",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L196-L209",
+          "version": "repo-lines-v1:sha256:32287a2de94b40fd7c69a5c0a1c5c4d79afe2c02d47ed860ddaceb914f0b3d19:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRhODQ1ZDQzNzM5MThkOGM3NzFmMDMxOGZhNmI1MjkyMWNjYThmMWZjOGYzYTQzYmI0NWM3MWRjZTg3MWQ3MWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM5ZjY4Yjk2MTJiY2ZjNDk0MWViZTZmMThkMmY1M2YxNGU5OTc4MzJkNjNkNDg2ZjFmNDIxZmMwYWRlMTRiNjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4ZGEyYzVlNTNiYjQzN2M4MWQzNGNlNDI3MDExOGQ1NGRkOGRjNDljOWRjMDRhNDcxODcwOThkNjY0Nzc4NzEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L81-L83",
+          "version": "repo-lines-v1:sha256:6ed472deef814934f043bc558ddc4c72be6a59954ab2567dc42376b1e3c1e639:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODIzMDUwNGZkZmE5MjVhZDVjNzg4YzVjODZkZjZiY2ZiNmFjN2E5YjIzYzZhYmNlZjE1Mzg4MTJiMTIyMGRmMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQxMjRhODA2MWNkMGNiN2ZmMTAzMDE3NDhjNzRmN2EwZTdlZmVjYzFiN2M4ZjYxN2ZkYWE4YTExZDY2MWQ4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTllZTQ2NmI3ZjkyNjAwNzRhZmYzZmViNTVlMTZjOGQ2ZjgwZGFjMzIyZTVkOTVmNmY2MzgzMjVjZjMyNDRlZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTdkOTU0MzU5MjQxMGQxZGFmNjVmNDBmNjJkYWNjNWIzYWI5ODgxNmM1YTMzOTM3YzkzZjlkZjlmMzY5M2UxZSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L817-L833",
+          "version": "repo-lines-v1:sha256:2bc9d6c4b7c34361b3d9c0766182bb87b57934315b705e0ab610209b376517cd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2ZWQ3ZDk3ZDA2YTVmNTcxNGJmY2NmODRiODZjYzBlMDg5YzNjMGY2YjIxMjVhMTk3YjgwZmM4NmNjMTM4M2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY4NzM5MDIwZTBjYjExMWFjMDM5ZDk1Y2M2NDBlZTFlNjI1YmQ3NDk5NTRmOWRlZWE0OTQzOTY5ZWUwMTU1MmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0OTEzNjg4OGZjY2RjNjdjMTZlYzY2MzRjMTk0OWVkMzY2NWFmNmI0N2YyNTMzNmIyOGI3ODY5ZjBlYTU1ZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkNGNhNmIwYzk5N2FmODhjYjU3ZTFiMjZmNDRiNDczMzQ5ZjY0NzE0ZWQyZGQ5Mzk0OWQwNWFlNzc1MTQ5ZTAifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L571-L620",
+          "version": "repo-lines-v1:sha256:28dd2065bad2d0852d85034c955a19ae20619b6207a487e493b1f4219ef46138:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNiZWFmMzMxNmQ3ZTJmMjlhZjA4OGM1YjRlMTYyMWUwY2IyMDhkODQxMGRiYTdhMmE0ZjU3Nzc0MjU3OWZkOTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhODBiNzhiM2M5NzUwNzMyY2RhM2ZiMjNmNGMwZDEwZDc3MzcxYjgxZjAzODgyZWY2NjIzOTQ4ZTUzNTc5OTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYzMWE2YTM3ZDgwNjJiZTNkMWM2NDQ3MmE1M2JhNDEwYzE5YjY3YTE0ODk2MTBhMWVkY2MzZmFjMjc4MmI5OTMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c93a360fc48e4851986baa3b7d1e4577",
+      "statement": "Provenance is supplied by the caller and never guessed: _create_card copies the values onto the stored card, _apply_shared on a revise writes only the fields present so a partial update preserves the rest, and _notification_payload forwards all four to the destination, which renders them as the card's identity line; a create that omits them stores and sends nulls and stays valid.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1065-L1092",
+          "version": "repo-lines-v1:sha256:de5f2acc68242447da8de69d0e256b0ad4be9210c1c175b1ab622b7f9a480f8b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4ZmI5MWYzYmVhNDU0Y2E5OWE3NGU1NzcwOGFlMTEzMTRlODAyNzZkYzQwNzY3NjNlZTNkZTYwMDY0YTA4NDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4YTkwZjUxNzg2M2JhNzE3NmE1MTNkYTI4NzkxZGRhMzBmMWQwYmQyZmFhODRmYjkzY2U5ZjJiYzhmMzIxYzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZjNzg4MjhhYzQzOWQ1ZDdkNzU5ZmJlMWE4YWRmOGJlNzU1YWY3MDVhOTg3N2RlNzlkOGJmM2NmN2ZjNGFiNTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI2ODY2NGRjMzM1NDI3YzJkMGE1MzM3NGI3N2U3OWFmNzYxMjlhYjhkNTdjNzU3MTg0MzJmODQ1MTA0MjAzODQifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1203-L1228",
+          "version": "repo-lines-v1:sha256:e7732350ee8355c177d384c3a9aa43e0f567719034b0ee6c1e5db817810d8df9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwYmJmMjkyZjAzODZjMjc4MDg5YzY0ZWZlNzNiNmJjMTViOTE2MjQzYTZmZGU5YWMwODFhY2YzZDUzMDJkNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmMjM0N2NmYWEyYzE1NGI2MmUzZjdkM2M0OWFkNTMyODQ5OWZhNTIxNGYyYWY3ZTM1MjQ2ODk3MTcxOTUwMzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlNzU5ZTVhNTBmZGE4YzRjMDQ1NWI2ODJiZWVhNWRhNzM4NzNiNzYyNGY0NmJhNDdhNWJkOTUyOGM0N2NlMWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVhNjk0OTIxZmNlYzY5MTQ5NzhkNDQ0MDU0ZjNkMGQ1YjkwYmViM2MxYTI3ODdkODYwY2FmYTMzZmZhNzE0MTIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L998-L1026",
+          "version": "repo-lines-v1:sha256:6b2d829b60f3141e5cff780e07ec1ac79a001f9c008b2f4c093ac78ce05d302c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1YzY5Y2NhZjQ1Y2NiYWQwMGMwZTEyZmQ2NWMzYzIwNGJjYzJjZmNkYzZjZmM4ZDc0MTAzYWRhM2M4Y2ZmOTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1YmY0MDAyNzA5NWEyYWRhNDI3NTBiY2EwNjk2MjM3ODlhMGI5ZWYyYjAxNWMyNTVlNGUzMWQ1NjJhMDNmNWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0ZTU2N2RlMTkxNjcwY2Y5ZmI1NDE5NjM5YTkwNDFiNjZkNjQzNTNkZDI1NzI0NTg2ZDA3YzQ1OWEzZWY1ODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjlkNWVjNGRiNGNkNGFkMmEyM2FjZTYyMWUzMzI4Nzc2MTc3M2I5NzA1ZDFiMjZkMGNjNGIwMzljODc0MDcifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/card.py#L30-L33",
+          "version": "repo-lines-v1:sha256:f8bccdd7a0099c60dd354ca65a8322063e1639940c9e8ca1463162ceff229c3f:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTgyNjFhY2M0MmUxMmVlZmNlNTk5ZmM2ZjQzNmQ4ZTRkZjkzMzUxYjNhNDJjMjE1ZjIyNWJlZmYyN2ExOWFkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTZhMjkxMWZmZjliNDczNGQ1M2JkYTMwZGM2Y2VmNmY4OTllNWM5ZDgxZjI1MDY4MWY0NDc1NjUwMzEwZDcyMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzM2YTY0NTk5MTNkMDI1NDgwYzE5ZjY1NjVkNTliYzU4MmNkYTRiZjE2YTg3NGIzZWJmZWRkMjVmYjI1ZmVlZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmNhMmE0M2YyNWE2OTFiZmJmMDVlNjU1ZjBjYjU1NGFkMmNkMzJhZTllM2YwMzBhZDc1N2E5ZmQ0MmQyOTY1MiJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L388-L432",
+          "version": "repo-lines-v1:sha256:56f486b11f1d6003b0aa24a87c39f5ed75bfc7ca2962bea049d2dbc6e17afc87:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmNDEzMTc5YTZiM2FiNzkyYTI0YjE2NzRmMjdlMjdhNjQxNjZiNjE0ZDRlYzdmMmQ1NGY1M2Y2ZGZlYTE1NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmY2E2YTkxMDI1OTUxZGNkMTFlNzNhMGE5ZGUxNmRkYzIxM2IyMDU0MGNiOTc1N2VjNzM5OTE4YjZjNjJjNzUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUyZGQ3NDRmYzIwNTliMTAzY2RlM2RmNGIzYmIxNmNjYWQ3MmQzNTUyOGFmYjZkNDFmZTFlMWZmZDU2YTA2NDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE5ZDJjZDcyM2VkOTZlZDdmZTI1MjYyMmNlZDQ1ZjBiNjExZDEzNjFjZTg4ZjFiYzRjZTkxZDFhNGU0MzAyZDMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_eab7dc5506714e549199c6703ecaaf4d",
+      "statement": "choice_notes is served on ask_question (inside ASK_ONLY) and in UPDATE_FIELDS but on none of the other creates; it is a choices-parallel array of at most 4 notes of at most 120 characters, _opt_choice_notes refuses a list whose length differs from choices, and update_request clears the notes when new choices arrive without notes.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1300-L1328",
+          "version": "repo-lines-v1:sha256:9416c8de2c0b5abedc66daa578a2209154aebab25c2e23f69800e882aca19034:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI0ZGQyOTU0ZGQ1NDQ5NWQyNWRiNGQyNTExMTYyNzU5MTRkMmFkOTcxNTJhNTU3ZmE3MzI1ZGQzNjUzZjg2ZmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEzYWNkNjBkZTg2ODYwM2EwYTdkMTg2ZjhmZGI0MjI5M2M3YzYyMWQ4MmQ5OTgyZjYyNjk0OGQ0OWI5NDE2MjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkNTgxOTE4ZjVmMjVjZGFhZjQ5NjAwYTJhZGM2YTliNGE2Y2Y4MTZhYmQwOWU1MjE3Zjk1YjlmMjc3ZmMxZDQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ0NzMzYWYzNWU4NzZiMTJmZGFhY2E2Mzk1MDIzMTkwNTQ4MGQyNTY2OWIxOTI0NGU1ZDAwZDU3ZGJmYzM0YTYifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L143-L144",
+          "version": "repo-lines-v1:sha256:92baa6adf496415e1a03b873545bf6dcef7e7f19c1adfabdfd69d0bd7968f314:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmYzOGVmMmEwZGVhYWNmOWUyMDcxZGVlMGUwMTU3MDZiZTJjNTYzOWNiMzQ2NDY4ZmY2YzM2MDhlYTY3ZGY5NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E2MmE3ZGNhM2RlNmQ2YTk2ZDc5YTEyZmMxMjE1YzY1NTczMzEzMTA4MGYxZDRjZDg0NGUyNjdmODExMDE1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGUyNDZlNzMwZThhYTcwNWE5NDdkNThkMGMxNzhlYmVkNmZiNDAwMTY4YzliYTQxZjAwNGVkOGQ1NTVkNzkxMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDAwZDJhNDlhYTFiNzk4OTAyODY2Y2VkMDEzZjI2NjYyNGRkMTVmMTgxNjk1NzEzOTcyNTQ4NWFmODAzMzk4NyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L60-L83",
+          "version": "repo-lines-v1:sha256:58a21d1acad14ee909718b3117fba273774acb912ee97c2b9b0c244da051b5e3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0NzJkMzQ5ZjVjYWRiMDdkYjE1MWM3MDZjNWI0OTgwNTEwMTQ0MWY1ZjViMDFlZDA3NTEzZjVkODhjOTYzMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0MTI0YTgwNjFjZDBjYjdmZjEwMzAxNzQ4Yzc0ZjdhMGU3ZWZlY2MxYjdjOGY2MTdmZGFhOGExMWQ2NjFkOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNkOTI0ZGQ4NmUxYzRhOTIwNzM3ZjRhZGQ2NWZkYzllNzM5ZWM5NjE0MTk5Yzg0N2IyMzNjMWNmZjMyM2I0OTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk3ZDk1NDM1OTI0MTBkMWRhZjY1ZjQwZjYyZGFjYzViM2FiOTg4MTZjNWEzMzkzN2M5M2Y5ZGY5ZjM2OTNlMWUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L84-L109",
+          "version": "repo-lines-v1:sha256:3d010f48c0cb3facd28b80b7bf70569948e5848112403ceef13d52040882ed87:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwNzdkZmZmMTJjYTBjNTkwZTljNWM1NzIzZDZkYjA1MjZhMjM5YzEyMDgyNmQ1Njk5YjA2MzE0M2JiMDE0OWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlZDQ3MmRlZWY4MTQ5MzRmMDQzYmM1NThkZGM0YzcyYmU2YTU5OTU0YWIyNTY3ZGM0MjM3NmIxZTNjMWU2MzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkOGMwOTRkMWJjMWQzZjAyNjYwYzZjYzUzZDRhNjE5NjQ4ZDIxMjBkMjVmOWQ5NWE3ODBlOTkyZjdkZjUxYjIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L951-L957",
+          "version": "repo-lines-v1:sha256:66fcac12a62f300e4049ae226f69fb23acccded6270d34cc355e5c1d94ddb2ce:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODViZDFhZDBmOThiOTE5MjY5ZGM0MDY3YmEwYzUyYjlmNzhhMWFiNzczM2ViNjQwNGRkOTk0MWU2NjljMjVmNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjRjOGViNjk2YWZiYjdiMThlYWQxODg0ZGU0NmQ1OGU3OTM4ZWZlM2E2ZWYxNGNhYzYyOTQ1MzIzYzRkZTM2NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTY4NDA2ZjAyMmY2NzM2MDMwZDA3ZTU3NGVlODcwNTU5ZDc2NzA3ZGZmMzZkMTMyMDkxYTliZWMzNmVhODk3MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODZlMzEwMDI5MjQ3YWM4NzRkYjAzZDFlN2RlNTQwMDY0Y2Y4NTY4MzViODllN2NjODQ3ZGJmZGZiYmY4ZTZiNyJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_mcp_lifecycle.py#L352-L386",
+          "version": "repo-lines-v1:sha256:59a9c2a8ca995c3d958026583a625c4af9cc534e15cd297360548b10f1980799:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRkNzhmOGZiNDNhNTQ2NWZhOTg4NjI0ZTE0NWRmMGVkMjRkZTZjMDg3OTQ1YTE3NThmNDVhMDZlNmJjYjUzZDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiOWY4NTljOTk0ZWQ1MDljNTRhYzQ1YjZlMzI4MjExNzZmY2JjZmU0ZTM2N2ZkMDlkZmY4ZmU1M2VjNjJkMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI0MjNmYThhZTc5NTc0M2Q3MDkzYmJlOThkOTFjMDU0NThiNTc5YWVlODc1MDI1ZDhlMTllYjBmMTU4YTZmZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjllNWI3MWZkMTY5ODI5NjNhMDBmYjVhMmYzZjUzNjUyNGU1YTQ1OTdiYjJlM2Y3MTk4ZjYxZDk1YjBkZjQxYjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_225605f46c994521b2c5705e3c63ad3a",
+      "statement": "POST /answer is the only route that bypasses the create-bearer check: it is matched before any bearer check, accepts only the owner answer credential (which refuses the create bearer explicitly), checks that credential before reading the body, answers 400 for a body that does not parse or lacks a non-empty request_id and an integer version, 409 with the refusal reason (or \"refused\") for a refused answer, and 200 with the answered envelope and responded_via answer-path on success — closing the connection in every case, and never serving GET.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L135-L165",
+          "version": "repo-lines-v1:sha256:3cce599efc4fd99e7c8c09af4b391de42bbdff3c8f7c0214c79d038898cdee9b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1NWMwMGFlYTFjZmUxM2JmNmRkYjY4ZjYyOGYzNzZjYTIyZjY3MTNjNDY5OGZjOGNlMDU2ZmQ5ODAzYmFhYjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlmMGUyMWMxNTY1ODE1YzdkOWQ3MjRlZDAzMDY1MmQ5MTJjZTRjYWUwNjkzM2QwYTkwOGViNmQwN2E4M2VlNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRjMWQ5MjlkYTI2MGZiODczMGYzZGJiZTdlNmQzYTE0ZDlkZjE5ZTg2NmNhYzAyYzhmMTY5MzMxMWJjZGQyNzUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L166-L202",
+          "version": "repo-lines-v1:sha256:16761d4e9497b90f4e45390e367af70c53cf996fa0f8e14e93dfc75b4566085e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxZmMzMmIyODUwNmUzMWM1MTgyMjFhY2E2Yjg5ZmI1NDY5MzViZTM2ZjcwYjVhMjI4MGIyYzZhNjJiM2YyZjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjN2Y1MzU1NjllZjUxZGI2OTEyMGIxMzg2YmVmYjBhZWU3YmIxYzgwZDc0ZGJmNmU2YzgzY2ZjODliMmQ2NGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFkNTMxMWI1MDY1YTA5ZTEwYmI4ZGU4Y2M2MTFmMTc4OTI2M2IxNDhjZjc3MjRjN2U1ZTc0OTc0MTIxZmEwOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNlNDIwNmM5OGIxYTUwN2JmNWIxOWQxNTE2OTNmZWQ3ZWU5NTZkMDAwZjY1ZWNhZThiZDBiMDNhZjE3YjkwY2QifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L400-L457",
+          "version": "repo-lines-v1:sha256:c6d11c43b826d3cc3bed5af9ff57b2a667e3c5f371e9485018d71425564c094e:eyJzZWxlY3RlZExpbmVDb3VudCI6NTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3ZWZkNDc5NzQwZjFjNjJiZDQ5MDY3OTlmN2Y1Yzk1MTFiOWQzMGViMTFiYjk5MWM1OTAzZjkwZjVjY2UyNjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3YTUwNzM0NWFiOTliZWM4YzU3MDFlZDgyYzVjNWU3NWM1MzMwMGVmZmJiY2IwMzIxNDRkMjczN2QzZDIzMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2YzQ2ZDU2MTc0MmI2NWQ5OGRhODgyYjFkMDgyZWZhYWFmMDM1MmM4YWY2NWU2NWU4MjIzZjlhOGNjZDI4OGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgxMDBjNGMyYWNhYzlkODI5MDFjYTIwZjQyZGRlODlmODVhOWU5MGU3MjBmMjlmMjAyZDhkYjdjYmIxY2M1ZjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bbbc4129692a410c88e4b00294fbe667",
+      "statement": "The registry's four artefacts are indexed by name: list_tool_descriptors looks TOOL_DESCRIPTIONS and TOOL_SCHEMAS up by name, call_tool indexes the handler map by name, and _field_schema raises KeyError at import time for a field with no schema shape — so a tool rename or a new tool means changing all four places plus the docs/tools.md table that tests/inbox/test_surface_contract.py asserts equal to TOOL_NAMES.",
+      "evidence": [
+        {
+          "resource": "repo://docs/tools.md#L59-L74",
+          "version": "repo-lines-v1:sha256:1312449a531b951c0472f2fafaf562fd8a67ffa8d44d3182e8e08868b5c247fa:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0ZDY2Zjk4OWU0Zjk2MDEyZmY5ODg1MGU2OGZmNjI4YWI4YWM2ODBkYjkxNWUzZTI3Y2QyZTdhZjM3MWMwZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwMjcxZGFkZmU5YTNlNzU2NGQxY2EwZTdiNGFmNzU5YTg2NmIxMTcxZTUzYjNmNmIwZTEzNzFlYWFmN2ViYmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIyODAyZDBlNTg5YmQ0YWI1NWIzNzZjOTU5NmNhMjY2ZjEyMjRmYjM5MWVhNDIwM2FhNzUwZTc3YTc2MjRiOTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2ZTBjMDlhMjlhMzhmOWEzNTlmZjFlMDdmOTVjYTNiNDU1YzMxNDk1MGNjNTBlOTA3ZWIyMzVlNDNmMDBiYWYifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L138-L183",
+          "version": "repo-lines-v1:sha256:59bdc153d699c832b4eb208ee87724a40ed623301e52be16de5b8392cdb81b9b:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJkYzgwYmMxYzFlZTg2YTI5NjdjNmQ2MzhkOTg3Zjg4M2RiNTRjZTIxY2VkYzQ1ZmViZTMxY2QzZWE0ODY1MjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwMjc0Yzc4YzljNzk2NTk3MjRjYzk5Y2MyNGE0NzUzZjdjZWE0MGE0YzUwOTg5YTE5MDVlZDNiZjQ3NmZhOTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5ZjkzMDgzYzE5NzEyMWI5ODI3MDBiYThhZmFiZDE3MjJjZjFkM2U3NDA0NTA5ZTgwZWZhMjcyNDdmNjJmMDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI0NGI3NDY1OGY4MDE4OGY3MDJmZjY1MmFjYTc2MzUxY2RhN2ZhMTQzOGNlM2JhM2YzOTViMzgzOGQ1MGNmYzQifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L186-L209",
+          "version": "repo-lines-v1:sha256:40fa8b1468a0c8580f3a376710d627b4ee3331b668497f3e2a73f7a4d8c93f86:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNiYTY4NjMwNjVkYTI2YWM5OTk5OTliOTc1Y2JkNTFiNDg2M2QyZjE5YTcyODUwNDlhOTRkMzNhMDI0MGQ2NmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU0MmUyZmJlNTFiZGIxMjQ3Y2U0Y2JhY2UxYzMzODhmNmExYWJjNGZkNDU3MjEzYjkzZWVkZWM5ODk0NGUwZjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4ZGEyYzVlNTNiYjQzN2M4MWQzNGNlNDI3MDExOGQ1NGRkOGRjNDljOWRjMDRhNDcxODcwOThkNjY0Nzc4NzEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L420-L458",
+          "version": "repo-lines-v1:sha256:8caad793253b30bef2d18f6629ba8704aa53be86b56dc43672173160e0c137d5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkMTJkYjg1MjdhMTEzZDA5NDkxOTlhMGRlNzBlMTA1Mzg5NWE5NTNiZGViYzllMTEzOWQ3OGE5ZmIwOGMzMmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxOGE0OTNhNTExZmM4MWQ5OTlmMzE5MTIzY2FkYTc4NTAwYmUxZTdlMzIwZDliODA3ZDk4YzEwYTkzODU2ZmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI1YThkZmFjMTc3MmU3MDBkOGE2NjRlYmQzN2Y3MzE2ODE4YjZiMDM3Y2ZmNGQ2OTlkMTMyMDdlM2E2ZmRlMjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA0ZDY4ZjAyNjcxYmQwODliM2FhNTM4OTFlOTIwNTU0OWVkNjI2NGZiN2M0YjA0ODU2MzUxMTAzZjlmODFmNWYifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L25-L28",
+          "version": "repo-lines-v1:sha256:200116cd774c226f5df922a2f70f7c489205483e124580408c185a4c13ddee9d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk0YTJmOGE4NDczOTdhYjgwNDBhNjc5ZTIxM2FiMDQyMGY2Nzk0MzRhYTY5NzBjZGU5OTBiYjE1NDAwMjY1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmZjNGU1ODgxZTU4MDcwMDVmOGZlY2VmOTAxZjZkZDI1ZGFkZGEzNmE5NGVmYzFmZGRlMDk4YWIxOGE2NDYzYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2Q3ZDZhMTAzNTI1YTY2NzQ5ZjUwYWZjZTI4YzgzMjdhZTg3MmMzZTU3Yzk2YzZkNGZhNThiNmJlOTdjMDc0MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTU1ZmJhY2Y4ZDVhNWE4YzFlZDY5MTY0ODU5OTNlYWUwN2U0MDFmODA4NzA3M2YyNzhkZGZmMzM0ZWVlMzQxOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c456a837765a4b1a96d39619b64df90d",
+      "statement": "TOOL_SCHEMAS attaches required only where the call cannot work without the argument — question on ask_question; title on request_approval, request_feedback and notify_user; request_id on get_response, mark_processed, report_execution, update_request and cancel_request, plus expected_version on update_request and outcome on report_execution — while how_to_use, list_unprocessed and list_pending advertise no properties at all.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L196-L209",
+          "version": "repo-lines-v1:sha256:32287a2de94b40fd7c69a5c0a1c5c4d79afe2c02d47ed860ddaceb914f0b3d19:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRhODQ1ZDQzNzM5MThkOGM3NzFmMDMxOGZhNmI1MjkyMWNjYThmMWZjOGYzYTQzYmI0NWM3MWRjZTg3MWQ3MWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM5ZjY4Yjk2MTJiY2ZjNDk0MWViZTZmMThkMmY1M2YxNGU5OTc4MzJkNjNkNDg2ZjFmNDIxZmMwYWRlMTRiNjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4ZGEyYzVlNTNiYjQzN2M4MWQzNGNlNDI3MDExOGQ1NGRkOGRjNDljOWRjMDRhNDcxODcwOThkNjY0Nzc4NzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1764834b1834480982a18ea7de691f0c",
+      "statement": "request_feedback accepts wait_seconds because that field is in the shared create set, but it is not in WAIT_TOOLS, so the value is validated and the call never sleeps on it.",
+      "evidence": [
+        {
+          "resource": "repo://docs/tools.md#L79-L97",
+          "version": "repo-lines-v1:sha256:34dd477b0422043d596c76a5281e339a39be553f0a7a3f96160af28f33e46613:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhYmMzZTQ3YTYxNTA1NWVlNjRlOWU3YzRjYWQ4MjZkZTc4ZmFlZWIyNzRiMjA1NTljZjAwZGU4YjhjM2YxZDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxNjFhZjEzNTc1NzU0ZDI3MTU5Nzc0ZjJkYjZlNDhkYTQ3Y2IwMTUwODM1OTg3YmM5NjEzYjA2ODEwNzVjZTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwYTY3MmRkNTk2ZTdkMDgxMTRkOTk5YjRkNzk5NGU4YjQzNDZhMjZmZGI3MmE0ZDFiYTQ1MjAzZThiMTgyODciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0YWJmMGM5MjNhNzhiYTRmY2NlNGIwYjNmMmUwMGUwYWUzMzMwOTgwZGUwMTBiZDNkNDgzYzk2N2JkMTBiMjIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L56-L58",
+          "version": "repo-lines-v1:sha256:496a59488c1244d386420d770893dd236c86d8f2868124c1040e578cb5c578d6:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA5ZDc2NzUyOWQwNzhkMzE5NDM4NDljOGJjZGU5ZDRkNTU3ZWIzNTE2NGMxMzdmMzlhNTcyNzVjMmQ2NDhhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzBhODcyY2Y4NjZkZTI2Yjk2OGI2Yzg3M2ZjNzBjZjg1OGQxZTUxMjNhN2MzYmEwN2ViMmZkMDg4YzVmMzk2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTY4YTM2OTBjNGRjZmI0ODU1YzMxMTkwZDUzMmNlZjI3NGZkMjc3MTY3NzIyYmM1ZTE5ZDgyOGVjYzU5Y2FhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWQ4ZjI3YWYxOGRiMGNlNGIyNGI3Yjc5MGZmZDJkNzE5ZmM1ZjAxMWMzMjBlMzk5NWZiNmJlODM5YzRiOWM0YSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L817-L827",
+          "version": "repo-lines-v1:sha256:61d7c93120bcd7137174bfdccc2cc8dce75dacb846029cb2b6a75470f147e98a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2ZWQ3ZDk3ZDA2YTVmNTcxNGJmY2NmODRiODZjYzBlMDg5YzNjMGY2YjIxMjVhMTk3YjgwZmM4NmNjMTM4M2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0OTEzNjg4OGZjY2RjNjdjMTZlYzY2MzRjMTk0OWVkMzY2NWFmNmI0N2YyNTMzNmIyOGI3ODY5ZjBlYTU1ZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU3MWM4OGQxNDJjNjllNjE0NGYxY2JjYTQ1MTg0MGE3M2U1NDdhNWE1MDJmNjM4OGU4ZjQxOTJlZDA0ZjQ4ODAifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-11T14:44:51.273Z"
+  }
+}

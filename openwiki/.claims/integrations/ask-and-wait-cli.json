@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:ba24d065db7950d6cb92952589ead4358d23a2a526d860420498ab9875505876",
+  "claims": [
+    {
+      "id": "claim_c8d93189ab184edb93d0778bf02ab212",
+      "statement": "paraphe ask creates a card by calling the ask_question tool over the MCP surface, requires the result to be a dict carrying a truthy request_id, and prints only that id on stdout as the single line a runner needs before backgrounding the waiter.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L1-L7",
+          "version": "repo-lines-v1:sha256:8a7cd46e1be87ac98bb85647dbdbbf9bc18a0279101b58ab1f41753d57a9e045:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGJhOWRlM2M5N2RmMmQ2YjliODg0OGNkODg3ZWM3MGQ2YWFlYmYwMDk0ODkyZGUwN2M1ZmViYmRhNjgzMDBjNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTMwM2VjZGQ0YTRkMTBmMTljNzNmZDQyZmQxMjQzN2ZkMzM1NGE4MjY4MTYwNWRhNTI1NWE5N2EzOTA2OGRiYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTViNmU4NzA2YjQzMDQ3ZjJhNmRiNjdmMTMyNjM4NTk1NjA0ZTY3ZjM2OTY2ODc2Y2UwMTU4ZjAwNTNlNmJkMSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L134-L173",
+          "version": "repo-lines-v1:sha256:204a7c37f7743bb9fd7c3f7cfd67c531a8dbf9f271f78458e79e59aa590b3dd5:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAwODlkYTg1OTA2Yjc5YmQzMjM1NzVkZmFlMzI1NmMyMWMzY2M4NDA5ZWZkYTJlNzc4ODhlNjkyNjVmYTliMGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzZTZlODNjMzUxNTgyMTJlMjE1ODg1ZTJiODJkMTk4ZDBlNjA2Y2Y5NTA4NjFlM2U2OTRiMWFkMTJkMTNhMTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0MzMxYmNkMzM3ZjkzZGNiMjVjY2E4M2E2M2RiNThkYjA3YTU2NjhmOTMzZWU5MmRjODVjNTlkOWNlMWE3NDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk4YzMyNTg0NzkzMDFkOGE3NDFiNjI1M2RmZjZkMTNlOTEzMGI1ZTY2NGMwZjYxNjk5MjM1OTgwMjAxYWJjNjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b70d536f569e46899b9ad5794df8b4c8",
+      "statement": "paraphe wait holds the card's whole lifetime by repeating the bounded get_response window, and when the envelope reports answered or acknowledged it prints that envelope as compact JSON on stdout and exits 0.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0011-answer-returns-through-the-ask.md#L27-L38",
+          "version": "repo-lines-v1:sha256:c4e7b31a676579730f8a7f2682697da93b40915837e9988117fd3e95626e2a80:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkM2RiYzRlN2U3Y2JlNWRkYzg5MWIwODA3MTJmNjM1MWM5NGI3MjhlYzhiZDg1NTZmNDYxMmIwNzBkMjdiNDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4NTdlNTQ0MDEwNjYzMDY3MWVkZmYwZWJhNWUyMmRmNjhlY2RmYzAwOWQyMWExNzAzYzg4ZTk5MWQ2MmZkYzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU0ZGE4NzVmMWQ4MzQ5NDc1YjRjMTE1NTRjYzYyNjBjNzFhODVlOGNiMGJmZGU0YWJiZGZmNjdhZmY0MWEzNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2N2Q3ODQ5YzBhNzhkYmJmZDFkNmRiM2ZhYWU0MDg0ZTAxMjA4Yzg1ODI3NDNhZTI1Zjk1ODRhOTBkZGQ2M2IifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L176-L227",
+          "version": "repo-lines-v1:sha256:5d2e7295480db39a5a5e64ee8cba2eda66107bc2fe3a7915c878594ecd761ab8:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5ZjZhMGQ0Yjg4NTM4ODI2N2VlOWRlN2FmMzRhNWNhYTQzM2Q0ZThiN2E5OTZjMzZhNDM4ZGUzY2Y5OTkzZjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzNTFiYzY5NWY5YjBlYmNlMDZmOTNlZmU1YzAwZTEwN2E4NjViMDQxZTMwYzk1MTYyY2FhYjI1YmU4ZmU5NjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFkZDFhNDkwY2NhYjFjNzQ0ZjhiNDE3YzU2YjI0MTMyYzMxMmMyZjA3NTc3Y2NkMzEyY2UyMmEzNWY0NmQ4ZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyOWJiNGU0OTU4MDE0MTQ0Yzc4NDI0ZGEwYjljYjZhN2QwNjU4MmY3YWU0YTNjM2U5MjRiZmQyZjExZDdlOTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_14064e46b6414f4eb1c3a975c8f9572f",
+      "statement": "The waiter command is a first-class leg of the return path rather than a degraded fallback: ADR 0011 names it beside the waited call and the poll read, and a client that cannot background the command drains the same answer with get_response or list_unprocessed at its next boundary.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0011-answer-returns-through-the-ask.md#L27-L38",
+          "version": "repo-lines-v1:sha256:c4e7b31a676579730f8a7f2682697da93b40915837e9988117fd3e95626e2a80:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkM2RiYzRlN2U3Y2JlNWRkYzg5MWIwODA3MTJmNjM1MWM5NGI3MjhlYzhiZDg1NTZmNDYxMmIwNzBkMjdiNDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4NTdlNTQ0MDEwNjYzMDY3MWVkZmYwZWJhNWUyMmRmNjhlY2RmYzAwOWQyMWExNzAzYzg4ZTk5MWQ2MmZkYzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU0ZGE4NzVmMWQ4MzQ5NDc1YjRjMTE1NTRjYzYyNjBjNzFhODVlOGNiMGJmZGU0YWJiZGZmNjdhZmY0MWEzNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2N2Q3ODQ5YzBhNzhkYmJmZDFkNmRiM2ZhYWU0MDg0ZTAxMjA4Yzg1ODI3NDNhZTI1Zjk1ODRhOTBkZGQ2M2IifQ"
+        },
+        {
+          "resource": "repo://docs/tools.md#L46-L53",
+          "version": "repo-lines-v1:sha256:9e7e728cb357003572fb3fa53bd9bc56982e622c902487696119ee4ddb3b0047:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA5NWQzODQxZjFlYTk0OWE2NmJhMTBkZTFkYTAzODE2NTVkYzczYWYxNjkzMjZmNzM2OWE2YzA4YjhmYmJkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzNmYTM2OWE0OGUzMzRjOThkM2RhMjk3ZDZkZGI2YjE5NTE4ZmJlY2IyNmVlMjNkMzA5NTU4YWFmNjI1NzAxNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjJlMzUzMTgzOTQyMjJhYTM0ZDkyMjBjMDBiNWNmOGQyZTZiYjkwNjE4ODE2NTNhZWRkMWI2ZmUzMjQ4OGU4YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjI4MDJkMGU1ODliZDRhYjU1YjM3NmM5NTk2Y2EyNjZmMTIyNGZiMzkxZWE0MjAzYWE3NTBlNzdhNzYyNGI5MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_768e232880664d77b2d57f0d4dacb281",
+      "statement": "paraphe.__main__:main dispatches ask and wait to paraphe.cli.main before its --config loop, so the client path never consumes --config, needs the service already running, and uses its own 0/1/3/4 exit codes rather than the top-level 2 that --config without a path and a SetupError produce.",
+      "evidence": [
+        {
+          "resource": "repo://pyproject.toml#L28-L29",
+          "version": "repo-lines-v1:sha256:c03c777d61c1b4a2681bd60304ec747414d66b330cdb9cb7aeb1182bb2dbe48e:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGVhYjRlYzYzZGU1MTdkYTRjZDhlNWM4MzA3ZmIyYzc3MzdkMzkxOTBhYjY5ZjMyYTVlOWVmODFlYTQ0MTZkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFhYzNhZGUzMjZlNDA0OTU3MTlmNDdmOWFiMGFhMzFlNDkyOWQ4YmIxZDJjYjk3NGEzZWE2Y2UzNjhlYmQ3ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTI3YThjOTJlYzg4YmZmNTM3Zjk1M2NjY2FmODc4YTVmMzQ3NmNmOGFkMjc4NjIyN2FkZTQ2YmY3ZDVhOWZlYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzJhZGZkYzUzMThjNzgxY2E1MTA5MzhkY2FjOTQzM2E3ZmZlMTQ0ZDE0ZTg0MGEzZDIwNGU3NTVjNmVmNjEyMyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/__main__.py#L45-L58",
+          "version": "repo-lines-v1:sha256:7b60f78dff33b96bd91701aaf32235a880ce48fb674472ccd1da3269468b94dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0NDBhYmY0ZDM3NmViNGUzYWUxZjNiZDU3Y2FhYjlhMTg1OGJlMjBjNTdlNzRmN2YwNGExOGQ1NTI4ZGZmMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyM2E4MjY2YzVlODMyZjA0NDg5MTU3MDkyMGM2NzE1MWMxMjJjODZmNjA2YTI4OGU5NWVjOWZlMTU4NGYyYmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjljYTM0NTM1MDRiODc0NGY5N2Q1NDQ1YmY2ZWNiYjE1ZDI2YTRkNzNhZTJkY2QwOGRiNjA3NGRjZmRiYmQ0YTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk2NjE1NGU4YzkwMGQzMzU4ODQxZjljZjNkYjI2ZTBjYjlhZTJkNjQzMDFkMjJhODgzNGQ3NjU5N2UyOTJhYjUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L29-L32",
+          "version": "repo-lines-v1:sha256:e62673ce14509b445d46f81b34832f4d397da5bdffc07a873440ae0549495744:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM1ODVmYjk2MTIwNzc1Njg3ODk5MTZhMzIyMDFhNzVlNjNjOThmOTYwYWUwMTljZTQwZDM3OTMyMzIyZWU0YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTMyNmE3NzQyZjk3OWVjYWE3ZjEwMGY2MzU5MTU1YmNiMDBlNGRlMjQyYmVjZjc1YzVkM2E3NmMyYmVmMjc5YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzk4YWY5YmU4NzgzODNhZjE5Yjc5YWZhNTI0NDBlNTA2OTU1MWNiMmExYjc3YjBmOGVkODliMjQ3MTVjMzUxMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzQyNDNhM2Q2NmZjMWRkNzA0MzJkODY4Nzk0OGE2YWIwZjllOTgwYzE0YWE2NzU4ZGIzNTE0OGNkNzZkODg5MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b2605caea8d94d549398b9916b7de3a6",
+      "statement": "The parsed surface is one positional per command — a question for ask, a request id for wait — plus --context, repeatable --choice, --external-id, --agent-name and --url for ask and --url for wait; --help or -h anywhere in the tail prints the usage text and exits 0, while an unknown option, a missing option value, a wrong positional count or an unknown command is one paraphe: line on stderr with exit 1 decided before any HTTP call.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L230-L291",
+          "version": "repo-lines-v1:sha256:5dd8d94af2c3215076e1ce4cc9e3181ca2077a46d0e1edab7895da379f42f44b:eyJzZWxlY3RlZExpbmVDb3VudCI6NjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxYzcwMDNkYjI0Yzg4Mzg4NDQ1YzlkMDUyNjFkMTcxYjU1M2YwZTMwN2VlNTViZmQyMTY5ZWUxZjdmZmZhNjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjYTJjYjE2ODE3NzY5NTQxMTdmMjM0YWUwZjAxMTQzZTg4YTY3MmExMjVjZmU2NzY5NWU2M2QyNzk3MzU4YzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhmYjU0YWFkODY5ODBkODc2NWQ4OWFjYjdhODZkNmUwNGFkZDk3Njc3MWY4ZDJlNDZiOGM1ZjRlMjY5MTE3NmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L36-L53",
+          "version": "repo-lines-v1:sha256:8c52531d061e01efcc584313c3fdb270ea3dc8bb429d327dae796225c2282773:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg4YTk5MDliNWNjM2M4NmRlNTgyMjU2ZTY0MjMyZjI1YjZkNTU4MjdmNzU3N2M1ZjM0YjEwYmQyMDljYmQwM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEzMDNlY2RkNGE0ZDEwZjE5YzczZmQ0MmZkMTI0MzdmZDMzNTRhODI2ODE2MDVkYTUyNTVhOTdhMzkwNjhkYmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM0MjQzYTNkNjZmYzFkZDcwNDMyZDg2ODc5NDhhNmFiMGY5ZTk4MGMxNGFhNjc1OGRiMzUxNDhjZDc2ZDg4OTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU4MGJkMWRiY2Q3NWFlOGUyOGVmZTllN2Y5YWE3MjE4ZjU1MzliNzNhZDY5MTM0ZTFmMjFiMjM5MTMxZTdlY2MifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_dc50d69f7f1c40f289cb60981267426d",
+      "statement": "The option parser accepts only the --name value spelling, so a --name=value form is read as an unknown option named name=value and exits 1.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L230-L249",
+          "version": "repo-lines-v1:sha256:d36059d44762abffee142c58a6d3dfc217e6351f09bcb448e482c5316468be0f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxYzcwMDNkYjI0Yzg4Mzg4NDQ1YzlkMDUyNjFkMTcxYjU1M2YwZTMwN2VlNTViZmQyMTY5ZWUxZjdmZmZhNjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjNzcxNGUyZDEyYmE4ZWNjZjllMDk1OGEwMGJlOTUxYjMxZTYyNGQ5NDcwMjNlNTZkYWIyMzZjZTJlNDVhMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhmYjU0YWFkODY5ODBkODc2NWQ4OWFjYjdhODZkNmUwNGFkZDk3Njc3MWY4ZDJlNDZiOGM1ZjRlMjY5MTE3NmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYyZGFiYWE5NzA2Y2I2YTMwY2NjZjQxM2NiYTc5OGEzYmQxNWI3YTA2MGFjNTczOGM2ZmQyMWM0Y2FjNmJjODYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7e9981d800734be8b279515d16ab9dda",
+      "statement": "ask forwards its options as the surface's own field names and does no counting or validation of its own, so the service's limits reach the caller as tool errors with exit 1: at most four choices of 40 characters each, external_id at most 200, agent_name at most 60 and context at most 2000.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L154-L163",
+          "version": "repo-lines-v1:sha256:72274ceb1112458ff1f646b5f287f928f13654eb5b018bc2b13b40f1465f6aad:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMxOTgxNDVkMzlmMDFkM2JmYWNjNWFlZDQ1ZTI2NTI4Y2Y1ZmFhYzdmOTFkYjMyMDhiNmZhNTAwMDJhZjY5ZjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2N2E2ZDg1ZGQxMGVjMDBlMzYxYmRlN2MzY2MzMjM0ODYyOWUxY2UwMGZmZWI1NTJiYTliM2ExM2RhMTdmNGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc4NzA4NzBjZjBkMGU5YjRiZDUzYzY2Yjc2ZjI2Y2NlYTk5MjYzMWU1MjYwZjIyOTYyNmNlMzc5M2U3MDY3NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ1YjZhZDA4YmQ3MmM3ZGYwMmE2YTUzNzFkNzkwMGIzZTZkYjhjYzhlZTFlYTY5MjFlYmY4OWI1YTE4NDgwM2EifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L116-L135",
+          "version": "repo-lines-v1:sha256:382f286d4ef05f865a4ede86b8e75511ad25a867684bbbc6cc2cd3a4674f6799:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmOTYxMDQyYjcyMGI5ZjEyY2U5ZmNiNjg1Yzk1OWI3NmNmZjM2NjNmMDcyOWQyYWFhMDdhNTcyYThmYWQ4MTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ3MWZkNGQwNzg1OTI0ZDcwYTFmODAzM2Q0NWM3ZDAyY2M4ZjRiZTAxYmYxOTgzMGM0MTE0NjM3NjM2NTNkNWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNlMjcxNjA3YjFkNDNiMWMzMzRiMGFlMWQ3NGFhY2FmZmEwNGVkNWU1MjJjZWM5ZDBhZDlhMDFkZGUxMTFmYTIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1300-L1313",
+          "version": "repo-lines-v1:sha256:92ed323c7ec488cb2022938724168324c5e7e54dc80fcb2ffcb32f4a40a10c3d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI0ZGQyOTU0ZGQ1NDQ5NWQyNWRiNGQyNTExMTYyNzU5MTRkMmFkOTcxNTJhNTU3ZmE3MzI1ZGQzNjUzZjg2ZmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5ZWMwODRhYzNkNGQwZDdkMjQxYjdkZTdlNjhlNTlhM2ZmYTg1ZTFhOWU3NWFhNDczMzVjZmVlNGU1ZmU4M2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkNTgxOTE4ZjVmMjVjZGFhZjQ5NjAwYTJhZGM2YTliNGE2Y2Y4MTZhYmQwOWU1MjE3Zjk1YjlmMjc3ZmMxZDQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkNDRmNzQyMGQ3YTk4MzY3YmM4ZmZmNjVjNTBkZThjY2VjNmEyZmY2NDA2Yjg1OGQ2Y2M4Y2I5OWMzMzUwYTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_33e2ded6413643d7b37a6356ed835aa6",
+      "statement": "ask calls only ask_question, so no approval, feedback or notify card can be created from the shell, and without --external-id it generates cli-<uuid4 hex>, which makes each invocation a new card rather than an idempotent repeat; a stable --external-id is what returns the existing card and avoids a second notification.",
+      "evidence": [
+        {
+          "resource": "repo://docs/tools.md#L30-L33",
+          "version": "repo-lines-v1:sha256:5ef43435439c07f399c32d0a3c81793d7bccec6969d3825b7353da72b5f7a36f:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjcxYWE5ODE4NGZlZGZhZGJhMGFiNTAyZmY0MTBhYWYyNDQ2M2FjOGFlOWFjM2I5YzRlMjk1Y2MyYWQ4YTQ5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDkyZGVjZTMwYjE2NTE0YzdlNTE5YjZmMjQwMTI4ZWFhNGZhYWI3OTRkMGRiODViM2M0MWNjMWFmNTZjYzk1NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWFjZWMzNjllZDhjYzdiNDljYTJkNTRhZDNiMjdjYjM3NTVlYjRlOWQyNWZlMTNhYmFlYjU5YjczNmI0OTNlZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTM3ZDNmZjNjNGJkMWE2ZGVhYjRkZGZmOWU5MjlhMzVhMzM4YTRlYjRhNjc5MTMzZjA2N2E5ZDQ5YTNiMzlkZCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L154-L165",
+          "version": "repo-lines-v1:sha256:4a3bc7721e63d749057235f1c0d6575c5f59016dbb72cddb24e1ee7ebefa0b97:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMxOTgxNDVkMzlmMDFkM2JmYWNjNWFlZDQ1ZTI2NTI4Y2Y1ZmFhYzdmOTFkYjMyMDhiNmZhNTAwMDJhZjY5ZjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyMDIzODVmMzU1ZDEzZmM0YzFhYzFlNjU3NGVkM2RiNzkzYmRjYjRkOTJlMzE1ODA2YzYwNjdjZDZlN2E4ODgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc4NzA4NzBjZjBkMGU5YjRiZDUzYzY2Yjc2ZjI2Y2NlYTk5MjYzMWU1MjYwZjIyOTYyNmNlMzc5M2U3MDY3NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZhZjM3ZDMxZDQ2ZDhjMTk4ODQwMTc3YWJhNjEzNzIxY2FjOTAzZGIzNTY5ZmJlNmM1NjdkOGIwOTllNDBlZTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b0e9c82d7432448ebfaacd6b129f2c63",
+      "statement": "The endpoint resolves in order: a non-blank --url, then PARAPHE_MCP_URL, then http://PARAPHE_MCP_HOST:PARAPHE_MCP_PORT/mcp with the 127.0.0.1 and 8787 defaults — the same host and port variables and fallbacks the service binds with — and the client does not range-check the port, where the server validates 0-65535.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L21-L22",
+          "version": "repo-lines-v1:sha256:76dbf34dfbc536128b35103934e67bff435ac194d9d90f7ac8a66b0377136b24:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2I3NzNkMmY2YmMwZDFjMzk0MWZmY2ZhY2JmZmJhODIzNDE0NzU3ZTE3ZjAxZDk1NjhiZWY2MTliZmNiNzA3OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmJhODViYjI4YzZjMzI2OTM5MzkxODJlYjY3NWUyY2FmNzEwYjQ0ZWE2Y2FjYTYzZDQyOGQyNWIwZjQ2YTlmYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDkzMzhlMjE4MzczYmYzOGU2YTU1NjU0Y2JiNjRlYWExMWNlNWQ0YjU4ODEyMmQzNjgyMjMwMTZmNjkyMmZjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjlkNjRmYjk5OTRjNzY3Mjc5ZjhlZGIzMzI3ZjQ1OWJhZjVjOTNmZTI5YzcxNWM3YjY5YTU2ODA4OThkYzE1ZiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L64-L72",
+          "version": "repo-lines-v1:sha256:b337d084a228ae5e1f19fd425cf264e8f81d0829ba46c6fa3159ae077960f297:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzViZjE3M2NjZTdiYTdhMjM2ZWEyYmE3OGNiODU2MTgwYWIyYzFmYWJhZTUyOTFjNGYwNjYxYzA3NjkyNDcxMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU2YTAxYWZlNzIwZTFmOGNjNDEzODQ0M2M4YWEwZjhmZWVkYjQ3MzI2YWQ4YzA2OTAxYmNiMDgyNTZiYjQyMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGY1MGExZGYxNjdhZmJiYzJlNzRiNjI2MmRmMGIxNjhjNDc5ZTllOWYyNzZmMjg3YTc1YzAyOTExMjMwYzVjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTg1MjNlNjY0YTY4ODY1ZDRlOWYwNzVhZTE0ZWM1OTNlNmQwMjIxM2Y5OWQ1MTBhNmM4MzBhNjdhZmJhMmQ0MSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L150-L153",
+          "version": "repo-lines-v1:sha256:25852ea60d2fd88092e685d7017a43f9a551ddf763ad227a88534fe2cef54ef0:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmQ0Nzk3NWI4NmIxYzg1ZWVhMzFiMjNhYmVjMDQ2N2YyODc1MzQzYWViYTIwZGY5ZWU3Y2Q2MmZhNjdjMzI2YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTkwOWE1M2E2MThkMDI4ZTFkMzAwMGMwYTdhYmNlZWNiZTVmYjM3ZjRlNTExZWZlNDY2NDNmYWQ2ZTY2ODcyZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDk3YTFhMzU3MGM1ODBhZDU1MjAwZTlkZmY1ZWRmYmQ2ZGI0ZjgwMzlhZDk2YTNhMGQ3ZTI3YTNjZWIzZTg0NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjg1MTJlNzNkYWU1YjA2M2ZkZGQ0ZmI3OTZkZmRiNjMyZTYxYmI4YTU3OTE4YTgzN2FmMmRiY2UxMzJhNGE1MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b64ed7e2ed8443538100741f6c21b5f4",
+      "statement": "The credential resolves in order from PARAPHE_MCP_CREATE_BEARER and then mcp_create_bearer in the TOML file named by PARAPHE_CONFIG_PATH or ./paraphe.toml, never from the command line; an absent or unreadable file, invalid TOML and a blank or non-string key all resolve to the same None and produce the 'no create bearer' stderr line with exit 1 before any request is attempted.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L147-L153",
+          "version": "repo-lines-v1:sha256:1d2ab48770b705667235df858617f4a1dd23ac6a4f576e7303d276abc85d4e13:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTU2NDMxMzU3NzYxNTkyMzMyNjBmYWFiZWViZjFmZmZmNjVhNWYyODdlYTQ5MzAyMjUzN2QwNzJjMmFiNDc5ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTM5NTAwOTBhYTA4NzNlZTQwYjIyZmUyNzkyOTA0YmYyNjJlZTljZmViMmQyZDc2MjVkMDBkODJlMTBmZWM1YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTRhZTE5MDE1MzhkYjk1NWI0OGVjOGQ2OTkwOTdjMjJmMDJiMjk4Njg4MmFiZTU4YjAxYzUzYWE2NjViMjAwYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2JmOTllZWQyYTJmMWVmZTQ5ZTdlYTFmN2QzMmU3NjJjZWFmMTdhMWE0YTUzNGRiYjUxZjMwZDJmNjAwZjc0OSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L75-L88",
+          "version": "repo-lines-v1:sha256:6ce1209b9b7ef8655c85fd85d9b50742cd5f0c17b87525cfad60ba65d47d551f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA0YjY2ODIyMDc0OGZjN2MzZGVlYWMwNjBhOGNkNzQyN2UzNzUwNDQ4Njg5NTAwMjFiMWQ5ZTc3YjAzYTQzZjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTYwMGE3M2QyZTAyZjM1MmI5MGZlZjFkOGQ2MzgxMWJhNGE4ZWUwYzFiZWFhN2FlNDY1OGYzNmFhMmUxOTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcxZmY4NGZmNDJhNjE5OTMxOTBjMTk2Y2ExZTI0MjA3MTBiOGZlODdhMTEwYmY5YzI3YzRmMjRhODFlYWQ1YmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3NzRhOGQ1ZjQ3OTljNmQyYzM2ZDI5NzI5MWYyMDYwNDExZTMzZmI1YTI4ODg4NTgxODY1YWIwMWQxZDU2ZTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7c2b8cc78d254763b31a680ada0b9fde",
+      "statement": "Both commands present the create bearer — the credential that creates and reads — and no option accepts the owner credential, so the shell client can create and read but can never answer a decision.",
+      "evidence": [
+        {
+          "resource": "repo://docs/tools.md#L15-L22",
+          "version": "repo-lines-v1:sha256:b755794faf81be62251ab574655e7e578c23ec2a9767f59d454518a9a4556151:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDVkYjA4ZmNiM2UyOWY2YTJmZjZlNzU4M2EyZjk0YjVkNjA4NWM2YjU0YmQ0NmEyZTI0Zjg5N2QzZTc3MzI4ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzEyOTA4MjQ4ZGE4Nzg4YTRiMjU3MmY2N2YwM2Q0ODIwMTAxMjI2OTVjNzBkZGFiMzA1MzE5YjRkNmI4NDlkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzk2ZjYwNGRiZGRhY2NhMWZjYmMwZDk4NDFiMzUyMWQyODM0OGM2OGQ0NTU5ZjE0NmE1NDcxYjJjZDMzZWQ3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTRkMGI1MTk3NDg4MjBhNTIxZmRmNDU2ZDlhNjBhOTY0NGJlOGFmOTU5OGY0OTNiZTk0NDc2YjVmYzQyYTUwYyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L263-L286",
+          "version": "repo-lines-v1:sha256:78dc99f7cf6c48355207857e0ce006876fc32685001c0c04e89971725cebceb5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiYzljMGRkOTdiYTdkYTU3NGY2OTgzY2MxMjcwZjViMGRjZjc3MjBiOGY2NmE4YzEzZTY0ZTFhODdkMTZiOTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MDMyZTk2NGQwOTMyMzUxZTVkMTg1MjY5MjgxYjE3MWEzYTA5YjA4YjI4NmU2NjFlYTQ3MDMyM2M4MmViNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI1M2NiNmFhZjAyZGQ5Zjg4ODYyZWU1NTgyZThmYWExZTdiOTc0MDNlNjBhYmQyYjA3MDkzNTI3NWNhNGY3MjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxODgyNDk0Mzc2NmRjZWE4N2I5NGVlNWU4NDc4ZWU3OGY0YmE0YjNiNjY1Y2Y3ZjNkNTg0OWFlNTE5NzE3ZWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e658e6eeb54f4476ac86c37be70acea5",
+      "statement": "Each request is a JSON-RPC 2.0 tools/call POST to the endpoint with Bearer authorization and Accept: application/json, and the payload is read from result.content[0].text; the client performs no initialize handshake and sends no Mcp-Session-Id, so it depends only on tools/call being accepted without a session.",
+      "evidence": [
+        {
+          "resource": "repo://docs/tools.md#L8-L11",
+          "version": "repo-lines-v1:sha256:6b61f4c415bca12da7ab0597962c76b1b6ee94c44e50d3294041a2eb3c3f07bb:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I0MGM1ZDE2MzY5YTRhMTQ4YTdjM2Y4ZWZlZTc0NDM4ZjJmNDgwM2VhYjZlNThkMTcyZWI1ZTRlMTYxMWIxMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzNlMTgwODdiNjMyOTg2ZGVlZjkwNjNiODY4MjVmYWM3ZDczZjI3NWEwY2M0MGE1MjA2NzlhZjUyOTM0YThiZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGVhNjcyYmY4YTBlZTUyYmZhODI5OWM4NDlmZTRlNGU2NTZiZTBkMWY1ZTIyODQyZDk3ZDE0Y2JjZTFlOTVhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzk2ZjYwNGRiZGRhY2NhMWZjYmMwZDk4NDFiMzUyMWQyODM0OGM2OGQ0NTU5ZjE0NmE1NDcxYjJjZDMzZWQ3MCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L91-L131",
+          "version": "repo-lines-v1:sha256:22bada6c52839afcf8a0ae256ec8116dc8c2746af3a727c817fe888e0355f778:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NmNkN2U4NmQ0YmVmNzgyYzk1Y2ExZjIzZmI0NjlkOWUyOTAxZWYxNjM0MjEzNzAwZDMwYWQ5Nzk4NDY4ODUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1OWZmMDBiM2JkODFkNmJmNmU1ZDk5ZmZjZjk3ZWNiOTMzNTMyNjE0MzdmNmE4NTY4NmQ5NGFhYmM5MTI3MWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ3MDE0OWUwNjlhZDY3ZWNjZjQ3MzY0NmZmMWM3NTAwNTBkMzI5ZDExMDAxOGRjNTc2Njg3OGVhZmExZDYwN2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ1NzFlZTIzOGM5MjZlMDZlMWZjM2FlOThiYmUyMDA5NGU4ODk2YzAwNDRmMDJhNjE1NGU5Mzg2MGUwMmFkZmMifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L135-L164",
+          "version": "repo-lines-v1:sha256:079570794652533f4c93e6cbdf0dea1ae91fc6e427e60a8382feed54f81df0b3:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1NWMwMGFlYTFjZmUxM2JmNmRkYjY4ZjYyOGYzNzZjYTIyZjY3MTNjNDY5OGZjOGNlMDU2ZmQ5ODAzYmFhYjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3NTE4YWQwNTZlMjkxY2Y5M2UyZDQ1MWZhMjI1MDhlZTg5NWU3YWQ3YmRhNTVkOTNkOTg0NTVlMjFjZjU2ZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlmMGUyMWMxNTY1ODE1YzdkOWQ3MjRlZDAzMDY1MmQ5MTJjZTRjYWUwNjkzM2QwYTkwOGViNmQwN2E4M2VlNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMxZjAxNjU2NjAwN2FhMDVmZjE0YWQ2MTk0NjUwOWYyZmNjMTM5OGUxYjA1MjdjM2MzODY5MTRmNThkZmQ3ZDUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7f151064185b4015a93db1c8df87c015",
+      "statement": "A non-2xx HTTP reply (401 wrong bearer, 404 wrong path) and a connection or socket failure are both raised as CliError, with 'the service refused the call (HTTP <code>)' and 'the service is unreachable' as their respective messages, while a result carrying isError becomes a ToolError holding the server's refusal text.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L108-L131",
+          "version": "repo-lines-v1:sha256:90e9cd7bc6dcf17cd8ba64d9017e92da4d28c3fd5c4d92f0ff723459694d9167:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkYTVjNjZlMTdiMTQ1Mzk3ODM0YjhjODU0ZGM0MTkzZTIxMjUxODBhODk5NmExNGMzMTg4MzMyNmIyZWZiY2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1OWZmMDBiM2JkODFkNmJmNmU1ZDk5ZmZjZjk3ZWNiOTMzNTMyNjE0MzdmNmE4NTY4NmQ5NGFhYmM5MTI3MWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk0ZWU5NDUzMjFiYWNhMzgxNjY5NDhkMTE4YTZlNmQ2MDQxMDhhOGM2OTkzOThhY2RmNmFlYWVjYThkYmNmYWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ1NzFlZTIzOGM5MjZlMDZlMWZjM2FlOThiYmUyMDA5NGU4ODk2YzAwNDRmMDJhNjE1NGU5Mzg2MGUwMmFkZmMifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L262-L276",
+          "version": "repo-lines-v1:sha256:069023b088f5d3fefca49333bc087fabfe1a008d63b9a13491c7ada961ba58c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5MzFjNjM1ZmZkOWRkYWRjNTI2ZTE2M2Q1YWRhMzQ0MTlhMGMyMWM3OTExNWYxOWNiMDA0Yjg5ZTcyMWMxOWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MjJjNDJjZDE5YzZkMDNkODA4YzQ1MjcyMDU1MjgyNWI3ZWExYzViNDkxYjIxODUxMWNhYzc0MTVjZjlkOWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRhOTE4NTY3N2MxYjQwMWZlZmNhMDIzMDAwZWQxM2QzZDUzYTU2ZDgzYTBjZGMwMjEwMzI2NDJiYzdkMjQ0YzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk0Mzg1MDQ2NTI5YTBmNTY5NjM4MGFiMDFmZjAxZWM4NDY2ZjE0NzA3YmIxZmM0OTU1ZWYyNGIzMTYwNmRhOWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6d5e59d5cfe44e50adc721f29650d2bf",
+      "statement": "ask sends no wait_seconds, so the create returns as soon as the card exists and ask never sleeps; the park applies only to a call that asked for a window, and a create result without a request_id is reported as an invalid response with exit 1.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L154-L173",
+          "version": "repo-lines-v1:sha256:64a6c93da0f288c00723bfb015d7790fc16b3574ca8fdf13d1ebe5ff02582a4e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMxOTgxNDVkMzlmMDFkM2JmYWNjNWFlZDQ1ZTI2NTI4Y2Y1ZmFhYzdmOTFkYjMyMDhiNmZhNTAwMDJhZjY5ZjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzZTZlODNjMzUxNTgyMTJlMjE1ODg1ZTJiODJkMTk4ZDBlNjA2Y2Y5NTA4NjFlM2U2OTRiMWFkMTJkMTNhMTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc4NzA4NzBjZjBkMGU5YjRiZDUzYzY2Yjc2ZjI2Y2NlYTk5MjYzMWU1MjYwZjIyOTYyNmNlMzc5M2U3MDY3NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk4YzMyNTg0NzkzMDFkOGE3NDFiNjI1M2RmZjZkMTNlOTEzMGI1ZTY2NGMwZjYxNjk5MjM1OTgwMjAxYWJjNjYifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L439-L445",
+          "version": "repo-lines-v1:sha256:aa52a565b6f5258a3e466a00739af782fb1e2f09a669c784bb2479d68f15c3c0:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTZkNDJjYjBiNGJiOTBmYjQyMzdjZGMxMDg5MmIwYjk0YTIzZjVkZjEyYmJiMDUwM2FhMGMxOTc4YTUwMTQ4OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzcyZjk2OTVjNzQ2N2M3NDc3M2M5Y2U3ZmM0MjljNWQwZDBlNDg3ZjNjNTFkMTVkNjY2OGEzZDI0MDcyYmI5NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGI3ZDBhZmI1MmM4MjU0ZDEzZDdlMzJkZWUzZTA0NTYxN2U3YTU5Mjg0MzY3MjU2YjdhYzQ3OWI3Yzg2ZTk4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzQzOTViZTI0NDhmYzY4YTNhYTUxNWM3ZTNjN2RlNDk2MWM0OWM5N2JlMGVhYTA0MzExZDA4OTQ3ZDFjZjhjNyJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L130-L138",
+          "version": "repo-lines-v1:sha256:1b008c11e285074c342e6ad48e6aa9969d1df488bef2ac13e13582e8cf3a178c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmZjNGU1YWY1ZDNjNzBmNTRmNzMzYTExOTMzMDg2ZWFjMzQ0YjcyODgwYTI2MDRmOTNlNzU1MzdiYTcyNWVkNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWZhMDVhNGVhMTdmYjk0NTUxZDA0MGQ5MGE1MjMzZTIxNmZmOGZiNDJjODEwOWY0YzRjYTI1ZDNjYzdhZmFhZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzhlYmYwZWIxY2EzNDA5NjQwOTFmYTI0ZGM0OWJjN2JlMDllYmNhYmQzMGUwNmM2ZDdiZGFiYjFlMjE2MjAwNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzViMjY1YmJhZjBhNzljMDg1MGRiOTZjNmJhNmIxZWMzYmQ5MTlhYjhhODkyM2RlNDk3NWQ1Y2Q1OTIyMDFiZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_27bad1d1de134bc3a0b758fc6d212840",
+      "statement": "wait clamps its window to at most WINDOW_SECONDS (60 s) before the first call, so it can never ask the service for a wait_seconds value the surface would refuse, and it treats every status other than answered, acknowledged, expired or cancelled — including pending — as still open and holds another bounded window.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L194-L227",
+          "version": "repo-lines-v1:sha256:cb5b700509796fb4f291a6f6a2899768864fda8fa57e86a42d11c0fc4a6ca359:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmMDkyZGNhNWNhNTYwZDFjNTI1NDZhYzJkMGJkNjAzMTI5NjEwZWE2NjdkMTA1MWJjMjAzZjhmMTA4MmEwNmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzNTFiYzY5NWY5YjBlYmNlMDZmOTNlZmU1YzAwZTEwN2E4NjViMDQxZTMwYzk1MTYyY2FhYjI1YmU4ZmU5NjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwNWY1ZjBlZjJiNzZjOTJmZWFkY2NiNTdiZWZkZTMyNjQzNmFiYzVkNWE3NDkzZDJlMGJjMDI0NGRmM2MxMzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyOWJiNGU0OTU4MDE0MTQ0Yzc4NDI0ZGEwYjljYjZhN2QwNjU4MmY3YWU0YTNjM2U5MjRiZmQyZjExZDdlOTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_695b5e762a1c46089c58b0e85aaac31f",
+      "statement": "Each HTTP call from wait uses the module constant REQUEST_TIMEOUT, defined as WINDOW_SECONDS + 30 (90 s), as its socket timeout; the value is derived from the maximum window rather than recomputed from the window argument.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L108-L110",
+          "version": "repo-lines-v1:sha256:c9d27de25341b7e981cddcf7bd8b3414e03213f6bb2842680219f258daf53c28:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRhNWM2NmUxN2IxNDUzOTc4MzRiOGM4NTRkYzQxOTNlMjEyNTE4MGE4OTk2YTE0YzMxODgzMzI2YjJlZmJjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTllZjE4ODY5NTgyOWIyNDQ4ODA3Mjk3NjdjODdiMGUyMDJiYjk5MzZhZDI3NzM0YjIxYjcyMDI3ODFiYzVkZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTRlZTk0NTMyMWJhY2EzODE2Njk0OGQxMThhNmU2ZDYwNDEwOGE4YzY5OTM5OGFjZGY2YWVhZWNhOGRiY2ZhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDY3ZWM3OTk5ZjQ1MzdlOTk0MGFlZTRmY2Q3Mzg4NDc4MDZmMzEzMmFlOWRmNGNkNGQ0ZWE5MjYzYzg0MTIyNiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L24-L27",
+          "version": "repo-lines-v1:sha256:ef24d9e099271b5e35d9cf3a8724785f18e11ec186026a5eb338458632256fa0:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDIxNzEyMjE3YWZjNmQxZWE2YjJiODE0MjJjOWIyMTRhYzRjZTMxMWZjN2U2Y2QwZmJiYTkwYjBjN2FiZGU4MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWZiZTk1ODZmMWRlYjM1NDBhNzc3MmQwOWM5MWQyOWZjZDc0NWZkZGMyMWFjZjM5YTJiZmU1ZWU3MGFmMzlhYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzYxMDU2ODc5NGYxMjgyODk4ZWNiODAxMGM3ZTU1ZTZhZGQxNmNhOTkzY2M0MDhjMzkwNDdiMWRkZjU3ZDhmZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmIwNjM4ZmY0YWM2NDgzN2QwODlkYzE5MTllOGIyMjk3NzllZTJmMThlZjZhZjdiNTBjNzJjY2IwOGQwMWZjNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_88497c30f475427fa5365bfb1e4c85df",
+      "statement": "wait retries a CliError up to TRANSPORT_ATTEMPTS (20) consecutive times with a 3-second sleep between attempts, resets the failure counter after any successful call, and after the twentieth consecutive failure prints the error and exits 1, while a ToolError is never retried.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L195-L216",
+          "version": "repo-lines-v1:sha256:35d83d523ce185e1104f69c241decb5838ab946d7706614f07ca09088e89a6ad:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZhMzUyMmQ2MWRiMzNmNGE1YjJkYThmOTRkZTUyYjdiNTA2YTdkM2MwNTQwNGM0OTQ0ZDk3NDk4MmFlODE2NDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjljNGNhNjgzMzg3Y2FmZThiNTQ0Njg1ZjllNTY1NTc3YTBlMGUzMDRkYjc2NDhhOWJmYWFlODFmN2RjNDc2OGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI3MTYxZDZjNDQ5MmFmYjQ5ZThlNTE2Y2QzODEwMDRjMjE5ZWFlYzM5NWEyNjVmNDIwZjM4ZWYxYzk2ZDcwNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0NWM2YmM0YjhiOTZkZWIzMzc2NmY3ZGVlYTc0ZjU1YzVjZDRjZjE2MzdiYTcxZjhiZWQ3ZTQ2MWNjZTVhZDMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c5a7c12935f74e02976142a2c793497d",
+      "statement": "Because an HTTP error status is classified as a CliError, wait retries a rejected credential or a wrong URL path on the same roughly twenty-attempt budget before exiting 1, whereas ask reports the identical failure immediately with exit 1.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L108-L114",
+          "version": "repo-lines-v1:sha256:af86573eaec88ce06674df2311ec7af7d3c43b7b3284d078ccd069974be28066:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRhNWM2NmUxN2IxNDUzOTc4MzRiOGM4NTRkYzQxOTNlMjEyNTE4MGE4OTk2YTE0YzMxODgzMzI2YjJlZmJjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGRlYzcwNDI0Njc3MzUyMDQ3NzEwNzc4OTQ3YWUwNmYxOTkxYjY5NTQ1ZjVmYzYxOWZjZDMyMTkzYWFjM2IwMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTRlZTk0NTMyMWJhY2EzODE2Njk0OGQxMThhNmU2ZDYwNDEwOGE4YzY5OTM5OGFjZGY2YWVhZWNhOGRiY2ZhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzMwZTE2ZDY0ZmNiYjRhYTMyMmY2MmYyNmE2N2QwOWYxYzNlMmU0YzAxODlmY2Y2OGM2ODhiNTg0MDc2NWYwMSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L164-L168",
+          "version": "repo-lines-v1:sha256:601c3cbdc522c9695ac6cd4224450c3ad93672a80a1ba2caff2b3458d3cfbf01:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRhNWM2NmUxN2IxNDUzOTc4MzRiOGM4NTRkYzQxOTNlMjEyNTE4MGE4OTk2YTE0YzMxODgzMzI2YjJlZmJjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTM5NTAwOTBhYTA4NzNlZTQwYjIyZmUyNzkyOTA0YmYyNjJlZTljZmViMmQyZDc2MjVkMDBkODJlMTBmZWM1YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTQzNjQyMzA3ZjcyNTk3Y2NiYjViN2Q5OWRjZGJlZDU1MGE2YmQ1YTE2NTAyYzA2ZjNmZTYyMWU0MGQ4YjZmNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzdhNTAxZWU0NjJkY2QyYTIwMzI5NzA5ZTgzZjlhNjc4NTk0Yzg3YTEyNTk1MTNiOTIyOGIzNWI0YjlkYjE1ZCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L205-L211",
+          "version": "repo-lines-v1:sha256:f5d5eb863b78f91828bb0e5b4f61cda3403c8ab98f1a51b3ae63c22ee1cac50f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDY4NGY4OWUzMTcwZDkxZDA3OGJjM2ZlYzMzYjYxZTg1NWFkMmQ2NjgzYzk5NmU3YmI1ZWU4YjZjOWQ1Y2ZiMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZhZDA1MmM0NGI5NTNmMGQ4MzI4NmEyZGRkZWMyMTg1ZTdmMTg5ZGIwZTRmNTAyYzZmMDZmMzQ3NTg0NTRhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzIzMGRmYTNiNmE3YzM2MjAzY2EzMTgxZGE4YTg1NGFlZDllN2QxMmIwZDZlMTk5ZjhhOGIyZjAzNjkyMDI2YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDc3ZWIyYWMzM2M5OTIyOTRjN2I3ZjVkNDc4N2RhMDllMjA1MWE4ZGE1ZWM2NTYwMDM0YWYxOTY1NzBkYWEyNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_dcf09156923949f297e92e6c0d7cbd80",
+      "statement": "Exit 4 is decided by the content of the tool error text: a message containing 'unknown request_id' exits 4 and every other refusal exits 1, and either way the error text is printed first as one 'paraphe: <text>' line on stderr with nothing on stdout; that message originates in the store lookup and reaches the client as a JSON-RPC result with isError under HTTP 200.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L212-L216",
+          "version": "repo-lines-v1:sha256:518c8e13a79462e24edaec4a701eec5ec18f23e1f279774968a9b439937b0c10:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTE3NzU5MzJjY2NlNDY4YWQyOTQxYjA3YzBhMmIxNTc4ZTM3NzQ5NWE3OWExNDkzMGFkM2Q4MjQ2NzY0ZTUyMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWM0Y2E2ODMzODdjYWZlOGI1NDQ2ODVmOWU1NjU1NzdhMGUwZTMwNGRiNzY0OGE5YmZhYWU4MWY3ZGM0NzY4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGU4ODU0Mzk1NGJlZmRhNjgxNDRmNGQ3MTMwN2Q4NGEyYzBiOTcwNDBhYmE3MjRjMjkzNDljZTE5NTJmYWFjOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTQ1YzZiYzRiOGI5NmRlYjMzNzY2ZjdkZWVhNzRmNTVjNWNkNGNmMTYzN2JhNzFmOGJlZDdlNDYxY2NlNWFkMyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L34-L34",
+          "version": "repo-lines-v1:sha256:b1ab90f209975a77aca03432f59584d340f162798645c45f8958f3945a1bcdef:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFhYjkwZjIwOTk3NWE3N2FjYTAzNDMyZjU5NTg0ZDM0MGYxNjI3OTg2NDVjNDVmODk1OGYzOTQ1YTFiY2RlZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFhYjkwZjIwOTk3NWE3N2FjYTAzNDMyZjU5NTg0ZDM0MGYxNjI3OTg2NDVjNDVmODk1OGYzOTQ1YTFiY2RlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDE5YjZmMzAwOWEyNDViM2FlN2QyZTFlZGQ2YmIwNTIxZjk0MWQ1ZDliZGE1NjRjMGY4Y2I0NWYyMDhhMTg4NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWZhODk3Mzk1ZWMyZGMyYzgwNTk1N2U3MTJhMzMzMDJlZWVjOTVlYmQxYmYzNmNlYmQyOWU4OWI5ZmFjOGYxMSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1148-L1153",
+          "version": "repo-lines-v1:sha256:af743abdab8dc9052d34743ebfc7869eb24cb85045a0ea1028f91ab041b1aac6:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTdiNGQyYjA4MThiYzVkNjMyYjEyZDU2YjM2ZWIzNTQ5ZWQ5YjRkNjlhNjJmNmQ2MWYyOTZhMzYyMjNkNWVkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI0NjA5YzViYzg4YmIzOTYwNjRkYTM0NjBiNzUxYTk5MDU5MmI2NzljY2U3MTczYTRiMzkxOTdkOGY1YzkxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWZjMGQ4ZTlkMDhhZjY1MmRlMzU4OTBjOWQwYzRkYzBjOWY3MDU5YTk0YjE2OGQwZWNlNzM1NmYzYmJjODY3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWZhYWJlZWZiNWY0MWVhNzM0Njc1MTdiYWRhOTMwZTE0MDQwNzgxZWRlZDk5ZmU3Y2ViOWIwYzRmMjdkMTA4MSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L262-L276",
+          "version": "repo-lines-v1:sha256:069023b088f5d3fefca49333bc087fabfe1a008d63b9a13491c7ada961ba58c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5MzFjNjM1ZmZkOWRkYWRjNTI2ZTE2M2Q1YWRhMzQ0MTlhMGMyMWM3OTExNWYxOWNiMDA0Yjg5ZTcyMWMxOWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MjJjNDJjZDE5YzZkMDNkODA4YzQ1MjcyMDU1MjgyNWI3ZWExYzViNDkxYjIxODUxMWNhYzc0MTVjZjlkOWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRhOTE4NTY3N2MxYjQwMWZlZmNhMDIzMDAwZWQxM2QzZDUzYTU2ZDgzYTBjZGMwMjEwMzI2NDJiYzdkMjQ0YzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk0Mzg1MDQ2NTI5YTBmNTY5NjM4MGFiMDFmZjAxZWM4NDY2ZjE0NzA3YmIxZmM0OTU1ZWYyNGIzMTYwNmRhOWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_06483ea793c9465d8938b4e5db50881d",
+      "statement": "The exit-code contract is 0 for answered or acknowledged (envelope printed to stdout) and for a successful create or a help request, 1 for a missing bearer, bad options, an unreachable or refusing service, an invalid reply and every other tool error, 3 for expired or cancelled (one stderr line, nothing on stdout) and 4 for an unknown request id; ask never produces 3 or 4.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L220-L226",
+          "version": "repo-lines-v1:sha256:5b7696a00b2cd6527f2a3b7d7223d82e4b3ad37e31df42575c10b33666d218f3:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjFiNTg4MjEyNWQ5N2I5YmVmODJiMmFmYTViYWE4ZGEwMDhiNjVjMmU5NzlkYjkzOWUyYWMyZGNmM2ZmM2FiOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjc0NTRiYWRmYmNiMTY3NDc0ZWE3N2E1ZTljNmE1YTJmZWM1NzhkYjFjMDIwMjI3MzViMzZiM2Q0MTViZDQ4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTQ1YzZiYzRiOGI5NmRlYjMzNzY2ZjdkZWVhNzRmNTVjNWNkNGNmMTYzN2JhNzFmOGJlZDdlNDYxY2NlNWFkMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGZiNTRhYWQ4Njk4MGQ4NzY1ZDg5YWNiN2E4NmQ2ZTA0YWRkOTc2NzcxZjhkMmU0NmI4YzVmNGUyNjkxMTc2YiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L287-L291",
+          "version": "repo-lines-v1:sha256:4cf281ba7cfe9d0446a5c3c48b10b933b5c3d8562e710e996ccb795bce603082:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTI4YjI1YzI0ZGVmY2Q4ZWU3OTZhYmY0MTViMDkzMTVjZGQwOTdjODAwNTA5ZWRjYTZhZTAxZmFkMmIyNDBiOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NhMmNiMTY4MTc3Njk1NDExN2YyMzRhZTBmMDExNDNlODhhNjcyYTEyNWNmZTY3Njk1ZTYzZDI3OTczNThjMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmRmNzZjZmNjZDM5YjZiZDU4Zjg4OWQ4ZDc3NWFmZTZjMGZhMTZmZjk2MGZiMDVhYTZiMmRkODNjZjc4ZTBiNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L29-L34",
+          "version": "repo-lines-v1:sha256:c8e4dcee3448cf15876d32d85f2dc87a86e2f0d7588de740784de6a8e351be34:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM1ODVmYjk2MTIwNzc1Njg3ODk5MTZhMzIyMDFhNzVlNjNjOThmOTYwYWUwMTljZTQwZDM3OTMyMzIyZWU0YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFhYjkwZjIwOTk3NWE3N2FjYTAzNDMyZjU5NTg0ZDM0MGYxNjI3OTg2NDVjNDVmODk1OGYzOTQ1YTFiY2RlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzk4YWY5YmU4NzgzODNhZjE5Yjc5YWZhNTI0NDBlNTA2OTU1MWNiMmExYjc3YjBmOGVkODliMjQ3MTVjMzUxMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWZhODk3Mzk1ZWMyZGMyYzgwNTk1N2U3MTJhMzMzMDJlZWVjOTVlYmQxYmYzNmNlYmQyOWU4OWI5ZmFjOGYxMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_69b79365446f437baac6bb48e13e2d57",
+      "statement": "TestWaitCommand in tests/inbox/test_wait_engine.py pins the command's observable contract: ask printing the created card's request id with its question, context and choices, wait exiting 0 with the answered envelope and empty stderr, 3 for an expired card with empty stdout, 4 for an unknown request id, the loop over more than one window until a later tap, the config-file bearer fallback, and the no-bearer refusal with exit 1.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L312-L438",
+          "version": "repo-lines-v1:sha256:c8ed24591ebb8271b46965c9f616ef394ee45ee70d23a1d4e20520e4b0b9e4f0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTI3LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJkYTQ4OWRiMjRjZDM3ZWVhYzUyZWY2YWVmY2QzYzgwZjZjZTYwYmJjYjFjYzMwMmY3ZjU1OTdmOWM1ZGNhMmY5IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJhY2RmMjIzZjVhYzg5OWFjZTM5YzM4ZDQ0NjM5ZTkwNTc2NDk3NmM4ZDIxMTcyMGFiNGJjZThkMmUzYjIzYTM4IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIyNWY3MWIyODI5NzdlYzgzZTA2OTRlZDM0YjQ4ZWFmZDMxZDlmNjM0NGRhOThmZTY3ZmVjOTllZjhmNGY5M2U4IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIzZDQxMzQwY2MyMzlhMTU5Y2U5YjYwMjJlOWY2MzIyODMyZTJlYWQ3NmNhZTllNDc1NGQyMTBlYjhmYjZkNWU4In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_fdfc10cdcc644225bcf88b918eaf02f0",
+      "statement": "The commands are importable as functions — cli.main(argv) for dispatch, ask(...) with injected out and err streams, and wait_for_answer(...) with injected streams plus a window — which is how the suite drives them in-process instead of spawning the command, and the window argument is not reachable from the command line.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L134-L146",
+          "version": "repo-lines-v1:sha256:86f9cebadc153a610e1683daca298d911f80c3d1abce18b016a9bc1ce21531f9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAwODlkYTg1OTA2Yjc5YmQzMjM1NzVkZmFlMzI1NmMyMWMzY2M4NDA5ZWZkYTJlNzc4ODhlNjkyNjVmYTliMGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJmYzBhY2U5YmY0OWIyMTEyMGY3NjE5MmFiZDk4ZTBmNTE4MzkzZDBhZjBiMzc2Mjk4YWYzN2QyMGI1ZWM4NWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0MzMxYmNkMzM3ZjkzZGNiMjVjY2E4M2E2M2RiNThkYjA3YTU2NjhmOTMzZWU5MmRjODVjNTlkOWNlMWE3NDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMyNTNjZTU1NzFlZmIyY2JlY2RlNTQ4NmFhZTRhMzViODkxZGE5YjBlMTEzMjQxNmM4OTI4ZmVmNjNjNWQ3YTAifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L176-L184",
+          "version": "repo-lines-v1:sha256:ab597dcf1a3f7426e9e779d576d75606f5e49301960d9ab6e09184d494db02c6:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTlmNmEwZDRiODg1Mzg4MjY3ZWU5ZGU3YWYzNGE1Y2FhNDMzZDRlOGI3YTk5NmMzNmE0MzhkZTNjZjk5OTNmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTM2MGNjNDIxYjFlYjg4OGFhZWE4ZTcwMWM3MDc3MmQ1N2I4MDI1MDM3M2MzYzAxZGM1YTgzZDZkMDg3ZTNjMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWRkMWE0OTBjY2FiMWM3NDRmOGI0MTdjNTZiMjQxMzJjMzEyYzJmMDc1NzdjY2QzMTJjZTIyYTM1ZjQ2ZDhlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjQyMTc3MDEzNjZmYzAzM2FlN2M5Njg2NjZhMWZiZjFiZTM0OTMxYjM0NTg0MmM5M2FlODE4OTAzZGI1NzBhMiJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_wait_engine.py#L394-L416",
+          "version": "repo-lines-v1:sha256:f8611df5c0b33e42b06f42ddfc9046d6bd261f0dcfe52be1de87c74f1bae28f4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MDc4MDQzZDgzOWIwZGY5MjgwOTFkYjUyOGExMjE0MjE3ZDdiYjAzZDY3MTEyNTVlYjM3MzVlNDVjMGE0ZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OGQ0MjY5Y2FmN2RmM2QxNjcwOGYwMTFlYzM3ZGNjYzc5YzIxOWEwNGQ3Nzk1MWZmNmEwNGRlMDJjMTNkYTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNiYzZlM2Q3MGNkZTMwYzllZDM3ZjIxZDE5YTQ2MDI0NGFlNjU4NTg2MjFjOTE5MjQ5NzdmMjIyYmY0ZTM4NWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI5NTNiYmI5OGIyZjFmYjQzMGQ5M2MyNTk5MWI5ZDNiNzQwOTJjZTg3MWVkNWQyZWYyZWI3ZWUyMTlkYmFkOWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1757f57fa5f545f2b31e9c70cc78615f",
+      "statement": "The served how_to_use text names paraphe wait <request_id> and its exit codes, so an MCP client that can background a command discovers the waiter from the surface itself rather than only from the shell.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0011-answer-returns-through-the-ask.md#L29-L38",
+          "version": "repo-lines-v1:sha256:725a387d07a350d45a7d990b36271042b7f6adc6abcf78277f321c1d0aaa856e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5MDA2N2YyNzgzMjBkNzQ1MGIwNzIzN2FkNmNkZmZhMjEwNDYzZWJhZjNlOGQ0NjhiMWI0NjJkYTExOGE5MjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4NTdlNTQ0MDEwNjYzMDY3MWVkZmYwZWJhNWUyMmRmNjhlY2RmYzAwOWQyMWExNzAzYzg4ZTk5MWQ2MmZkYzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNiMTU3YTZkMjc2N2ZmN2Y0MTMzZWUyNzY1MTM2N2M2ZmRmZjdhYjRmZDliYTNjYjQyNjJlMmFhNDQ5MGNjYTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2N2Q3ODQ5YzBhNzhkYmJmZDFkNmRiM2ZhYWU0MDg0ZTAxMjA4Yzg1ODI3NDNhZTI1Zjk1ODRhOTBkZGQ2M2IifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L774-L778",
+          "version": "repo-lines-v1:sha256:c3504db39cb5406409640b06031e0c60a2d3d5a199adcc9bb030aa7486c058e6:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWUyMzg2Yzk2ODBiZGVhMzljNTI1N2YwMzViM2Q2OTYzM2Q1ZDEwOWQzODQ0YWQ0NDQzYmNmOTFhYTQ2MGEwYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmE2NTgyNzI1OTBiMzgwNTgxMmJmZjhhYjgwMzMyZTYwODkzMWQ2YjhmOWU3N2IxZmYxNWU3ZmIxMTUzYmJlYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTVhMThhODhhMGRhYTY3YjZkZGUwYTk3ZDYyOTI0MWY0ZWY5OTJjM2I5ZTY0MWE0OTIxMDk1ZTdmYzYxZDliNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTM2OTYwNGQ1NTM3NmY0NTY4NzVmNzM2NTZlODY2MDMwZmRkMzgzMjhmZWMyZGVjMTI3YTIxNjQ0MThjZGZkOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6b5e54eacc764c4db090484094b48a40",
+      "statement": "A 200 reply whose body is not JSON is caught by the same client-side except clause as a socket failure because json.loads runs inside the urlopen block, so _call reports 'the service is unreachable' rather than an invalid response, and wait therefore charges that misclassification to its transport retry budget instead of failing fast.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L108-L114",
+          "version": "repo-lines-v1:sha256:af86573eaec88ce06674df2311ec7af7d3c43b7b3284d078ccd069974be28066:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRhNWM2NmUxN2IxNDUzOTc4MzRiOGM4NTRkYzQxOTNlMjEyNTE4MGE4OTk2YTE0YzMxODgzMzI2YjJlZmJjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGRlYzcwNDI0Njc3MzUyMDQ3NzEwNzc4OTQ3YWUwNmYxOTkxYjY5NTQ1ZjVmYzYxOWZjZDMyMTkzYWFjM2IwMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTRlZTk0NTMyMWJhY2EzODE2Njk0OGQxMThhNmU2ZDYwNDEwOGE4YzY5OTM5OGFjZGY2YWVhZWNhOGRiY2ZhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzMwZTE2ZDY0ZmNiYjRhYTMyMmY2MmYyNmE2N2QwOWYxYzNlMmU0YzAxODlmY2Y2OGM2ODhiNTg0MDc2NWYwMSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L205-L211",
+          "version": "repo-lines-v1:sha256:f5d5eb863b78f91828bb0e5b4f61cda3403c8ab98f1a51b3ae63c22ee1cac50f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDY4NGY4OWUzMTcwZDkxZDA3OGJjM2ZlYzMzYjYxZTg1NWFkMmQ2NjgzYzk5NmU3YmI1ZWU4YjZjOWQ1Y2ZiMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZhZDA1MmM0NGI5NTNmMGQ4MzI4NmEyZGRkZWMyMTg1ZTdmMTg5ZGIwZTRmNTAyYzZmMDZmMzQ3NTg0NTRhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzIzMGRmYTNiNmE3YzM2MjAzY2EzMTgxZGE4YTg1NGFlZDllN2QxMmIwZDZlMTk5ZjhhOGIyZjAzNjkyMDI2YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDc3ZWIyYWMzM2M5OTIyOTRjN2I3ZjVkNDc4N2RhMDllMjA1MWE4ZGE1ZWM2NTYwMDM0YWYxOTY1NzBkYWEyNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ed46350635124bf7aacdc72422f44a84",
+      "statement": "The ready line reports the address the service bound to — 127.0.0.1 by default, but a Tailnet address or 0.0.0.0 when so configured — which is not necessarily an address a remote client can dial, so such a client is handed the reachable URL explicitly through --url or PARAPHE_MCP_URL.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/cli.py#L64-L72",
+          "version": "repo-lines-v1:sha256:b337d084a228ae5e1f19fd425cf264e8f81d0829ba46c6fa3159ae077960f297:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzViZjE3M2NjZTdiYTdhMjM2ZWEyYmE3OGNiODU2MTgwYWIyYzFmYWJhZTUyOTFjNGYwNjYxYzA3NjkyNDcxMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU2YTAxYWZlNzIwZTFmOGNjNDEzODQ0M2M4YWEwZjhmZWVkYjQ3MzI2YWQ4YzA2OTAxYmNiMDgyNTZiYjQyMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGY1MGExZGYxNjdhZmJiYzJlNzRiNjI2MmRmMGIxNjhjNDc5ZTllOWYyNzZmMjg3YTc1YzAyOTExMjMwYzVjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTg1MjNlNjY0YTY4ODY1ZDRlOWYwNzVhZTE0ZWM1OTNlNmQwMjIxM2Y5OWQ1MTBhNmM4MzBhNjdhZmJhMmQ0MSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/http.py#L84-L97",
+          "version": "repo-lines-v1:sha256:325edff0b433dc2be195bbe5f1255fdf041aca2d19692e94e2331866dce8f393:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNDBkMWVkOTU0MGNmYmUyNTkwNWY0MTM3YzdiNTcyNmU0OWE5ZjQyMmQ1ZTkzZDc4ODQ0Zjc3MWNhZDY2NmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjZDc5YTVkNTA2NDI1NzExM2RmMzg5N2MwMTE1MzEyYTQyODE2ODU2NTQ5MDczZTUwNWQxNGY5OGI2ZDhiMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3YmVkYjdiYjg0ZmFiNzYwODQ5MzE1ZDQyOTk2OGUzOWZmZDNjOWVmMTE5MzVmMTZiNjIyNDI2OGM1NDZhMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1ZjVkOWYzZWYzZWYwNzA0Mzk2OGNjOTJlMDYyMDhjNDAwYWY5ZTcwZmZkZTdlNTVlMjgzMmQ3ODViNDlmYzYifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L282-L287",
+          "version": "repo-lines-v1:sha256:d7ba4c7521e1b38484b72f69c233ea14ce0a5bb50b939d535ccaa81b4c846605:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzIyMjk1OTdlNWJiNzA3MjM2OTYyYTQ1MTIzM2VkMzU2ODFjZTY0NjNiMWI3Njg1OGU1MzExZGJkOGMxZWYwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBjMWYxODhmMTQyZWQ3YTgyNDY4MGIyMDcxNzJjNTUxOWJjNjE0YTQ4ZmRhN2NmMTY3ZWRiOGRkZjc5OTU2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjRiZjY3ODVhNmRlZWYxOGQ1ZDg1NzBkNTAzY2FjNTI4YWY4MGFmNDhkZmE0ODg5NzFkZWY2NzA4ZmE1ZWVkZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U1ZGFiMTJhYjE0NmNkNjkyODFmNjI5MWY1ZjU5ZDE0NDc1MzNiM2NkOTM4YWQzZTcyNzk0MDUyNzJhYjQ4MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cd7fb630532241ad9b9738d75d50e18d",
+      "statement": "tests/inbox/test_setup.py pins the top-level entry point that the client path is dispatched ahead of: an empty environment prints the usage text and exits 0, and an environment holding only PARAPHE_OWNER_TELEGRAM_ID fails closed with a paraphe: line and exit 2.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/__main__.py#L45-L71",
+          "version": "repo-lines-v1:sha256:226f783cd5dd500132cd09c47f19c918c4892cad87e213e8bec1fbde338149b8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0NDBhYmY0ZDM3NmViNGUzYWUxZjNiZDU3Y2FhYjlhMTg1OGJlMjBjNTdlNzRmN2YwNGExOGQ1NTI4ZGZmMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmOGY4ZmQ4Yjg2M2JkOGJhNDJlZTgwNGUxOTE5MDg3Njc4NzIxY2EyNzVkMGVjMTQ2NTkyNGNlMDA1MDIxZjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjljYTM0NTM1MDRiODc0NGY5N2Q1NDQ1YmY2ZWNiYjE1ZDI2YTRkNzNhZTJkY2QwOGRiNjA3NGRjZmRiYmQ0YTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkNDEzNDBjYzIzOWExNTljZTliNjAyMmU5ZjYzMjI4MzJlMmVhZDc2Y2FlOWU0NzU0ZDIxMGViOGZiNmQ1ZTgifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L322-L334",
+          "version": "repo-lines-v1:sha256:9ffd234a6e2d8f92584216d0e1c8427df26c116a2fe6aabdcd538fbcf493b801:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzOWU3OGZjYzljMDY4NGNmMTk5OTJmNDBhODljMzExNmIzZTBkNDE4MmRmMDI4NzFjMDc4N2NjMWZmZDJmMjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2NzVhOTcyM2NiYTkxNTU3NGQxYjk2ZWM2N2RiMTA3YmRkZDg2MjBkMWY0MGU0MjJkYzZlOWVlNGE3NzYxNTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1YWI5YzAyMjFlNWRkOWYwNDIwODJjZTY0NzVkOGZiYmIzMGIyNWRlZjIzN2YxZjUwN2VjZmVhNWE2NGZiYWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNlNzQxYTk3ODNhZmRlNDEzMDdjMTYwYWY0ZDliMjFjM2U5N2ZlNjkxYmY2NzFmOTY4OTExODM4NzEzODUwZDQifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-11T14:44:51.273Z"
+  }
+}

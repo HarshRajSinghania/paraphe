@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:5a8c5def5b14b47d16b0560606e8b52fcd022622b8a1245ed1093330394dc6bf",
+  "claims": [
+    {
+      "id": "claim_f50376f4f86244a2af3bd6abd50d6a6a",
+      "statement": "render_card in src/paraphe/adapters/telegram.py is the layout owner the destination holds: a pure function from the notification payload to Telegram HTML text, called only by TelegramAdapter.notify, which ships that text with parse_mode=\"HTML\" and performs the network call, so the renderer itself does no I/O and knows nothing about chat ids, message ids or card versions.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L191-L197",
+          "version": "repo-lines-v1:sha256:a3ec7954c1e8c6794ae48306f7b21882d5adc6f7253d7791773cfa8796ea5070:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGRhNTE0YzM5ZDE5OGMxMDFkMDM5OGQ2MjJmNTdhNDMyNTRjMWIzNWY4NDg3OTZkYmE5MTE2Njg4MWQ5YjZjZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTZhNzE1MjU3MmVlODRmMTA5MDZjNzRiOWYyYTkyNDM0ZGRhYjBlM2M0MjgxM2IwNGU1OTdlZmNlYzk1MWIyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDkyMDZhYjc1MDc1Mzk1YmQzMmVmMTg1NWU1YmVmYTFiNmE4YTIxZGUxZDZhOTRhYmM0MjRmOWZjOGQxNjViZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmM5MGNkYWE2M2JiM2IwMjlhZmQxNDI5MTk4Y2Y3YTcyYTYxNDZiYmEwMzhjZWExOWQ5ZGJlNzBhYWI5ODViNCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L289-L323",
+          "version": "repo-lines-v1:sha256:9277e51fb5e5dc0680296d2d79154adfd4ae320ccfa6721ef4f3cfbc75665442:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkZjMzMDkwNmYzODk1NmU4MjJiNDM5YzUyMzE2MGVjYzQyZTFhYmExM2Q1M2ZhZTEwMmUwNzc3YjZmMmNiNWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEzNTQwMzQ2NjZlMjhlYTExNWY0NTk3NTQ5M2U2YzJiNDZhZTQzNzUxOWI1ZDI1NDIwN2NhMDlhODQyNTY5NGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5YjA2NjgzYzI5NDM4NmFkOTM1OGY0MTY0NWRlZTUwZDUzOTFiNGU3ZDJiYTNkNTg1M2QxZDk5MjcxMDNjOGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg3OWZmNjQ3ODYyN2IyNGE4MDg0YmM5NzdhZDk0NjdiZjYzMTY4ZGM4MGE0NTIxZTE2OGE0N2ViZjYzMGFiYmUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L47-L62",
+          "version": "repo-lines-v1:sha256:d3a0ec64fe26b14d64b38eabe8d8a8d119b940ee32937d1a73a69a17742f80f0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAwNjFlYmIyNDAyYWQ2MmExNzg4OGE2MWI2N2ZhMzQxMDRlYzNmYzNkYTIwMjllMWZjODBmZDJhYjAzZDFmYmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3MmY5Njk1Yzc0NjdjNzQ3NzNjOWNlN2ZjNDI5YzVkMGQwZTQ4N2YzYzUxZDE1ZDY2NjhhM2QyNDA3MmJiOTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjljZGJkMmY1ZTE2NDNlZTRjZWMzZjIyMTg4Y2MwODU2Nzc1OGNjZTEyNGYwMTQxYzhiNmE4NDFkMTdhMDNjY2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0ZGU0ZTMxZDNiZTg4MjczNTJlNzdjMWVkNzk0ZWZkMWJhNzhmZjg3NTJlMWFjNzdkYmU4ZGY1N2JhY2MzZTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b5c5de9aaaf94987b6eace296a0f3a0d",
+      "statement": "render_card composes a decision card in a fixed section order — identity line, kind line, bold title, context, numbered options with their notes, Recommended, If approved, Limits, links, reply hint, expiry — joining the non-empty sections with a blank line and omitting a section whose data is absent.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L138-L139",
+          "version": "repo-lines-v1:sha256:93222e09e34d3306e2fb020435081660adee6ed8af3309c029dd2135b96ac6e4:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDNlZjcxMmI5ZGJjZTU3OTg2NTg5NWM2Y2MzZThkZTViMDJjODc2NDZkN2YxZmY5ODI4YWI4ZDQzNWMxNGU1YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmFhOTI2ODdmNGVlMjNjMDAyZWQ5YjhhZThiYTMxNWU3ZGZmM2E0NGY5MzViMjA0MzQ1NWQyZWUyM2Y2MjhhMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTQ4NDg3N2NhZmIyZjcxMjZiNjJhODRjMWZhMGU4ZDYwY2I5Nzc4M2RmYTY1Y2RiZjUxYzQ1NDU3ODBkM2ViZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTg1MDA4MGNmMWFiYTA0ZGQxODQ2MjY0NDZjOGI4NGFmZjNiOTdlMTkxYTg1N2M3NTQyZmVkNWIxYmM4NjJhYSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L198-L247",
+          "version": "repo-lines-v1:sha256:51d67b2b23b9560e8e86b38d0224d01d9e0f954cba9b1e0e108bc245ad9b62ec:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiMzgyMGFhNTQ1YTg2NTZjZjg2NmRhYWQxZjc3YjU1OWQ5MDRhNTA4Y2EzZDQ3YzZlYjM2ODFjOWRlOGE5YmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4NDRkZmE0YjA0MTVhYWU2MjU2Y2I3Njc4OGU2MTIwYzc4ZWViMzZmNzA0ODE2ZmE1OTVjMjQzM2UzNzdlOTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3NTUyNTRmZmJjYzlhODI5YmU2YmM3ZDdiNDcwZDM0ZDFmMjc5NjViMDVhYTk2OTVmZjM2ODlmNzZhY2YzMjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwYjZjNDVhMTU1MzFlM2QzZjNkZWJhNmVmYzg2Y2NkZTc2OWI2ZmFkZDc5MTVkYWM3NmU2MTBlNmY0OTQ1ZmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e21c7b41527147cdb36accc429d560e4",
+      "statement": "A status payload (kind == \"notify\") renders only the identity line, the kind line (Status), the bold title and the message body — no options, no reply hint and no expiry — and Inbox._notify_user builds that payload with just kind, title, message, agent_name and risk, so a status message's identity line carries at most the agent name.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L208-L211",
+          "version": "repo-lines-v1:sha256:173b3fbe6b5d1079ad8c57725886f92c054f95c55062b09626e5c836c796467b:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFiODJiOGNlYjFmYmZjZDczZjZjOGNmN2RjMGIxM2M4MDQ3NTAzOGZmNmQ0NzhmYTU0MjI4NDU5YTYyMmY1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGJlODk5M2VlMGEyZDhkY2EyNmE4Yzg0ZTdjM2ZhMTE1YTk3ZTk4NTZkZjRkZjkzZjY5YjVkYTdjNTM4Mzc5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODM4MDVkZDI0ZjdlNTIxZjNlODJkOGJmYzUwM2M3MDU5MTVhZmJhNDBjY2Q0MjVmZWUzZDE4MTI4NDlkMzRhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGQ2MjE5MWNiODI2NjIwYjljZDZmODU3ZjU0NDMzODMwMzJmNTE5YWRiYjRjYzEyNDE1MGE4MjM1NTVmZDI5OCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L846-L854",
+          "version": "repo-lines-v1:sha256:5088b6eb1d93560417390dc311cf546b414d940a21a08aafc2879c5c4c2822ed:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTJiNDFjM2RiMjMyZWEzMWVlNjQxMDgwMjE3MWM1ZTU0OWMyNmJmMWZlZTA1Y2Y5Nzk4Y2E1MDE3NTVjZWI2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTUwMzJlOTY0ZDA5MzIzNTFlNWQxODUyNjkyODFiMTcxYTNhMDliMDhiMjg2ZTY2MWVhNDcwMzIzYzgyZWI0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzdlZDJiZDk2ZWM0MjFlZGEzOGFhN2UzZWE1MDhmZWZiZTVhNDhiMmYyNWQyMDllNzQwOTczYmZjNTY3Y2JiZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzMyNjlkNmY5MzViZWU5Nzc3YjliMTBjMzcyZDVhY2UwY2JmZWFiM2RkMThiNmM3YzdkZDFlMTZhNGNlYTY1ZiJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_card_renderer.py#L217-L237",
+          "version": "repo-lines-v1:sha256:68e3789b3677da51424ebb6a8344e7ed70ce9191fdb534d0e114532a01de3c34:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkNThhNDZmNmI2ZDM4MWJiMWZjZDNlYzM2YWZjMGE4Y2VmMzliMzBlMmYwZThjOTk2ZjczODdmZTc3ZjBiZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI2ZmRkYTE0NzYwOGNmMWQzNzkzMWY5NzdiNjNmNmVhNGUxNTk1Mzk1MTI5MzY4YWVkZjkxNjAxNzJlODhhYjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc1ZTZjZDFkMGRlZGMzYmZmMmZhZjUxMDM0NDdhYTQ3Njk4ZTQ4YTk0YmIyYjYwMGY4OGExOThjMTFmYmM2YzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkNDEzNDBjYzIzOWExNTljZTliNjAyMmU5ZjYzMjI4MzJlMmVhZDc2Y2FlOWU0NzU0ZDIxMGViOGZiNmQ1ZTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6e9d429e7f0640a09251e724294442b0",
+      "statement": "_identity_line joins the present identity fields in the order agent_name · runtime · repo · worktree · ticket, omits absent values instead of inventing them (so the line shrinks to nothing on a card with no provenance), and renders a ticket containing \"://\" as a tappable anchor while a plain ticket renders as escaped text.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L58-L68",
+          "version": "repo-lines-v1:sha256:a552e785ce236321c826049cf4b1740020b346c01fadfab01db276a472f3c0e8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2ODExOWExYTdhMzY5MWQ1YzdjZmIyNTE5OWYwMTMzOWJlZDBjNjBjM2U5OWE3YTY0NDhmMDFlZTA0ODNiYjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmNjE0NDEyM2IyODRlNjVlYzU3MjE4OWU3YTQ1Nzc1MzQ2NzVjNmVlNDYzNDI3MjdiOTM4M2RmNTAwNTgzMDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVhOWZiYmMyMmMxYjE0YThkNWFmMzg3Y2QwZGFiZjBlNDY1ZTI4OGU5YjkxYzUyNTk4OTZlMjMxM2RjMmY2ZmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc0ZWYzZTExYWI4M2Y3Yjc5ZTIwOWQxMTMwZDQ5MWQ1NmY2NjE3OGU4NzMzMjA0ZTRiNTU1MWQwNWMxYzkzMDQifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_card_renderer.py#L88-L133",
+          "version": "repo-lines-v1:sha256:f392082729f38274bf2078d129a524bd75b1fee778416f17ba56b45c747f0c21:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2N2ZhYjE4ZmYyODdhNzI0ZTA0NDcyNGZhNjZlNWNiMjBhNTk4MTUzZTFiMGM2N2RiNWY4N2ZkMTUwYmJlMjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYzMjNjZDczMzYyYTRkODI3YTQyMmI0OTM1OTNkODEwZGE5ZGM2YTg1OGZlYzkyYzA1MjFmYjJkZjI0MGNlZWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ2NDlhOGFkZjMwYmEyYzNkNGRlNTBiNTU4M2ZhNWM5NmI3MGQ5ZjU0NTRkZmFiODVlNTAwMWI4NTUwYmQxZmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a0032620fae149b594255e031087a2c8",
+      "statement": "_kind_line maps the kind through KIND_LABELS (question/approval/feedback/notify to Question/Approval/Feedback/Status, else kind.capitalize()) and appends \"· risk <word>\" only when risk is high or critical; an empty kind yields an empty label and no kind line.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L24-L29",
+          "version": "repo-lines-v1:sha256:efce05899ab126bf257a5a1a609476bce5b9ec8545daf52af36a4d0c8975f3d4:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTkyNDQ3YWFjNjdmMjhkNDdmZDZhMDRhYTBmMzA0OTcyY2RmYTcyNTk4NDIxMThjNGI2MDlmNWFmYmM3OTQ2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDhmNGNmMWQ4NzIyZjU0NWFkNmM2YmNiMjA1ZDVkZTRhZGY4NjBiMDhlYjhkMzMyNmNkNjkyYjAyYzZlODJlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWRkZDg5NWE3MTY5ZDhmNzY3M2EzMjRiOTdhYTZjMDUwZWI3NTJhNGU3YjY0YzVlODE4NjYwOTg4YWMwODVjZSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L71-L77",
+          "version": "repo-lines-v1:sha256:01110ae31ac0bb6c5af061ec1b102381f1b78985f2c980b6d029e5fedfd589b3:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWRiZmFmNDIzZjM5ZWU0ZjQwZTc2Mzk3NzhhOTM5OWRlMzVjN2NhNDlmMTk4YjA4MDFjMzJjNDc2ZDkzYmViOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNjOGQ4YmU0ODhjMGY3ZGI2MDQzY2NlNzY2ZmJlNGI1YTJiZDEwMjI3ZmE1NjkxZjM4NzUxZjBmZTFmZGM5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmFhZWRjYTk0ZTNmY2VkNjYxYzk4NzAwYmZhMGI4Y2M1MDNkMmY5N2I1MzcyMDg0MTY1YWZlNDc1ODQxZDM2NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzIwZDA0NGZiNTRmZGI3OTFjZjcyZDA0Y2NiMzg1ZmZmYWMxOTcyYTcyYjNjNmM4ZWE3NjM2YTE4ZTNiNDBjOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e14219ab096d43698735361c52dde058",
+      "statement": "_options_lines numbers the choices from 1, appends \" (recommended)\" to the first choice whose stripped text equals the stripped recommendation (leaving every option unmarked when nothing matches), appends the parallel choice_notes entry after an em dash, and returns nothing when the payload carries no choices so the options section is omitted.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L216-L218",
+          "version": "repo-lines-v1:sha256:9bfc1ce3064bd4849dc2bf88d6325d2dc658cffad3a664a4b9a065ba3b5b5362:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjMxYTIzZDRlZTEwY2U5YzlmYjY4YmQyN2RlNzAxNGExNDc4MzM2N2VlNWYyZjE3YmM4MTQ1YjM3OWJkNjRiMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODBjMGY1ZGRiYmMwNDIxMjVjYzBkMzYwZjVkZmE1Mjk0YzA1YTNjODVlZjgyYTJjNTc2YTJhYWFmNjA4ZmUyMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjFlMWViMjI1MmRhNGNlOTkxMDkyYzQxNmI4NjQ0ODY2OTgzZTAyZmNiZWIyNTZkMmIzMjQyNWEyYWM3ODZmZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzAyNDQzNmI5OWU3Mjg3MWM5NmM5MDZlZGM0ZGM4OTZiMzI4ZWY2M2YyNmIyNmQ2MmQxMWRkOTNkYjVkMzFlMyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L87-L109",
+          "version": "repo-lines-v1:sha256:c0c61d67dda16373806f52f69a61f6f57daadacc8201242541d19511695b66be:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRmZWZjNTg4NmMxNTBlYmQ4M2EwMmEyMjM0ZTdjYTZmZDAzMmFhNWU0YWE5NTY4OWZjYjQwY2UzM2JiZGFlZjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjMGIzNmFmZGU0Y2NlNDQxNDYxYzZiNzQwMTFiZmFkNjI5NGUyZDZkZjcyZTM3ZDJiNmI1ZmE3MzRhNTFjMDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUwNWEyZTU1MWU5ODc0ZTk0YzFhNDVlMDEyMzE0ZjBjNzlhMGQ0NmJkMjYxNzNkOTNhNjk5ZDVhYmUwZWE5ZWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ3ZGUwZDY5MDUzNmU3Y2JiMWZmNWYyOWJkYjgzNGE0MjVlMzcwNjA2NGZkNzcxY2IwN2EzMTEyYWJlZWUyODgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2874f84acc0440cc919e5f1590d48094",
+      "statement": "A card with no choices gets no numbered list in its text while both the inline keyboard (_markup) and the inbox's claim validation (_claim_locked) fall back to [\"Approve\", \"Deny\"]; since request_approval and request_feedback reject choices at create time and only ask_question and update_request set them, an approval card's options normally exist only as buttons.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L296-L307",
+          "version": "repo-lines-v1:sha256:06aea2c09b1182a9bf3276761540bb1e030eb4184023774ecd745c77b73cf232:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVjMjE3MGI3NzdhMjk3ZjllMTRjYTFjNDM2ZjEwZTMzODQyN2Q4Y2RmNGIwNTFmZmM0MWVmNWMxM2Y1Y2RlMGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlMDIzY2NmZGQ5MmQ1OGZmY2IyNjkzNDliOWY1MjE3MDFiOTM2MDg1NTY3MjM3ZWFiZGFmZDJjYjRmM2NjZjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY2MmI2OTMxYzgwODNiZWVmZTZkN2RkMjU3ZWNkNzlhYzhiYTgxM2E4ZTdmYjM0MzFhNGIwZGRlZjg5NzE2M2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzOWQxOTFlZWZkNjUzNmQ5NThiYTUyOGE0NTBjYTY2NzdkNmE5ZTg4OTRhNTQ5MzBkMzg0OGE5MGU2MzYyMTEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L581-L590",
+          "version": "repo-lines-v1:sha256:5a62ee63b88a1107a760fe8d5cfd4505bc42bf3992084f8e0d12b71200fceee3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIxODlhNjQyNTRiMWUyMTQzYWNmOGRkMGE5ODg2OWI4NDVhMjIyZTFhMmYyZTEwZDc0NDM0NjgwMmIzMmQ5YjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5OGE5NmE3NDhkOGZhMGExNTZkZDE2YmNiNDNmOTU5YzViYjEzZjkwMzQ0MzI1YWI4ODEwNmNlMzc3YjU1NTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk4ZmY0YWY1NTU3NjE5YjVlZDhhODViYTE4ZTY4ZTJmOGFkMmNiYWY3NmI5YWI5NmE5NDFmNDkxNWQ5YTkwMjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyM2QxZGU5ZjQ2MGVmZDE5ODU4MjlmNGJmZTIyOWFlMzdiZTU1ZTJjM2RkYWNiMmQ4YzlmNjU5YWRlZjlmOWUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L805-L827",
+          "version": "repo-lines-v1:sha256:36c27b1ab564f5ba6572f0742359396223f54b189707587f1cbf627ba2dafbf2:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE4OTgwNTBjMGU3NWEwOTY1NWY1OWY3ZWQxZmJlNmU4YTg2YWE2ODZkOWQ3MWE3MjJlOWFhNDEyZWM4ZmZlNjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZlZjE3NzdlMjg2OGI5ZmNjNzVkOTBhYzlmNGNjYjg1MjNlNDU4OWI0ZjE3ZDIzYTE3M2JlZDY4MDMxZGRlY2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU3MWM4OGQxNDJjNjllNjE0NGYxY2JjYTQ1MTg0MGE3M2U1NDdhNWE1MDJmNjM4OGU4ZjQxOTJlZDA0ZjQ4ODAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5db6aba2e42147abb6f92f4a4cc87ce4",
+      "statement": "The numbered options are a legend for the buttons, not the answer channel: the number is the choice's list position, the same order _markup enumerates into the version-bound callback_data token, and an answer resolves as a choice index against the card's own choices at claim time, so no number in the rendered text is ever parsed back as an answer.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L100-L109",
+          "version": "repo-lines-v1:sha256:c6f21a5bb6154f6a7fea3a879e4b2027de1c513351c0114e7f4e65b56f3c5585:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYyNWUxZTFiNmFkNzhmNWE2ZWM1ODU1MmQ0ZDE1ODZlZjIwZTkzODBiOGY5YmM3OTJlOGIyM2ViYjc2OTNkYjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjMGIzNmFmZGU0Y2NlNDQxNDYxYzZiNzQwMTFiZmFkNjI5NGUyZDZkZjcyZTM3ZDJiNmI1ZmE3MzRhNTFjMDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwOWJiMzJmMDM0NzNlOWZkMDM1N2RjZjU1NWEwOWJiODg4OWRjZGI5YWMyMzc1OWE5YjJjZTdiYWJhYjI0N2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ3ZGUwZDY5MDUzNmU3Y2JiMWZmNWYyOWJkYjgzNGE0MjVlMzcwNjA2NGZkNzcxY2IwN2EzMTEyYWJlZWUyODgifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L296-L307",
+          "version": "repo-lines-v1:sha256:06aea2c09b1182a9bf3276761540bb1e030eb4184023774ecd745c77b73cf232:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVjMjE3MGI3NzdhMjk3ZjllMTRjYTFjNDM2ZjEwZTMzODQyN2Q4Y2RmNGIwNTFmZmM0MWVmNWMxM2Y1Y2RlMGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlMDIzY2NmZGQ5MmQ1OGZmY2IyNjkzNDliOWY1MjE3MDFiOTM2MDg1NTY3MjM3ZWFiZGFmZDJjYjRmM2NjZjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY2MmI2OTMxYzgwODNiZWVmZTZkN2RkMjU3ZWNkNzlhYzhiYTgxM2E4ZTdmYjM0MzFhNGIwZGRlZjg5NzE2M2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzOWQxOTFlZWZkNjUzNmQ5NThiYTUyOGE0NTBjYTY2NzdkNmE5ZTg4OTRhNTQ5MzBkMzg0OGE5MGU2MzYyMTEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L581-L590",
+          "version": "repo-lines-v1:sha256:5a62ee63b88a1107a760fe8d5cfd4505bc42bf3992084f8e0d12b71200fceee3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIxODlhNjQyNTRiMWUyMTQzYWNmOGRkMGE5ODg2OWI4NDVhMjIyZTFhMmYyZTEwZDc0NDM0NjgwMmIzMmQ5YjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5OGE5NmE3NDhkOGZhMGExNTZkZDE2YmNiNDNmOTU5YzViYjEzZjkwMzQ0MzI1YWI4ODEwNmNlMzc3YjU1NTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk4ZmY0YWY1NTU3NjE5YjVlZDhhODViYTE4ZTY4ZTJmOGFkMmNiYWY3NmI5YWI5NmE5NDFmNDkxNWQ5YTkwMjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyM2QxZGU5ZjQ2MGVmZDE5ODU4MjlmNGJmZTIyOWFlMzdiZTU1ZTJjM2RkYWNiMmQ4YzlmNjU5YWRlZjlmOWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e0c75d08407642f2baef7218544f68ad",
+      "statement": "Every interpolated value passes _sanitize (a utf-8 \"replace\" round-trip that replaces a lone surrogate so a field cannot fail the send) and then html.escape(..., quote=False), while a link's href is escaped with quote=True; the only markup that can survive a hostile field is the renderer's own bold labels, the bold title and its anchors.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L40-L55",
+          "version": "repo-lines-v1:sha256:51fc408fbc137fbb253203d94593fe6f84ee8193dd98e4000d34a6990cda8627:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmMjg0MDY0NzI5YTg0YjA0OTZiN2RiYzU1NDQxY2ViMmNhYmQ2YmU1ZTQzMWNlZmE4NzlhZDU5OGJhMjczODEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwM2FiMDNmOWE0ZGNiODUxYWFhZTc4NGI0YWZmODkyYzkwMzk3ZDNmMWY5NzliZDc1MWE0NTNmN2Q4YmZmYTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwOTMyY2UwZDBiMDA5NmQ2NzVjMGJmY2M5ODg0ZjZmZGI4ZDZmYzhmNWZhYTg4NTBmM2JlOWM3YzNmY2IzZGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE0N2E3YjFjZjQ5NjJhYjViMTVmN2EyZjczY2U3ZDk3MGM4YWU1YzI3NDZiNTUwZTE1MTNhOWE0MzQ4OGMwYzQifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_card_renderer.py#L135-L169",
+          "version": "repo-lines-v1:sha256:f379d36df6ca97bbbfcefcbd094991d5efbc5414f6a09e8953995198354bfabf:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4MmFjZTg2MjdhZGQwMDUyZDhmMzNkMmU2M2M4MTEzODlmMTk1ZGUwMjM5NjdlMjJmNWQ5Mzg0ZDczNjcxOGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ3YjIzODc4MWYyZjM1ZDg3ZDU3NjMxMzIwYTZiMzA3NjIxNDBiOGM1OTY3M2M0OGUwM2QzYzk5YjJjNzg1OTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhkYWE5ZTNiOTMyMTYwYTRhNjVjYzZlM2EzNDc3MzE4NDg3YjdmNjY0M2I5MTMxZjUyOGY5MjNjMmYxY2U1YmMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cd0a247957e0410fa477e01a4194a980",
+      "statement": "Message length is measured by message_units as len(text.encode(\"utf-16-le\")) // 2 — UTF-16 code units, the way Telegram counts — against MESSAGE_BUDGET (3800) beneath PLATFORM_LIMIT (4096), each trimmed section carrying the visible TRIM_MARKER (\"… [trimmed]\"); the inbox bounds an owner reply's length with the same expression.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L12-L34",
+          "version": "repo-lines-v1:sha256:4589c44fe7a88391740592363e9a264ae603be2f623ff9ebb93e460bfce1ed77:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEwZTJlZmExNDQ0NGY4MTE0NjNiNTZmNjFkZTU3MzMxOGE2MGVmNmJkZmJhZjdkNjliMWM0MjlkZDg1YmIyNzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyYWE4ODc4ZjRjZTMyMzJkYjA2ZjdiM2YzZTVkZThlZGY4YmFmMzkxODE1ZDM4Y2QwYmI0NDM0OWU5ZTIzMWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlZmZiYjE3ZDRmNmNmNGNlMzFkYjMwZDc5OTY0MGY2ZmE0Njk1NGUwY2FkNWZiNDE0YzMyN2NlN2U4MTMyYTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjZGUyOWJlZmIzNjhiZmRjMTczZTU4MTNiNDkwYzRiOGZjYzFmNGI3ZGMwMjc1ZGU1ZjU5NGNlNjVjY2M0YTIifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L591-L598",
+          "version": "repo-lines-v1:sha256:75d3e89c6c92ba733f12ce8424d7d97fd9f06e7966e7cc37765580b16d6be35b:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGMzOTlhNzlmNDI1ODM1NDE1Y2ZkOWI0MDIyZGUzZTU0YWUxNzk0MGMwNWIwYjA3NGNmNjVmM2ZkOTM3ZDdmZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTliMzgxOGFhNTBmNjEzYjIyOTZjMTgzNzZkZDgxZWM1NmE2MWNmMWZjNjU1ZmQ5ZWJmMDYxZDQ1MThiM2MyYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzFjMGVkMWFmMjBhMDM5ZjRjZTRmNjYyMTg1YmQ2YzgxMjE3MjUzMmY2ZmJhMjk1ODM2NDJmYjRiMzcwOWY2NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGQxMjI5ZTJlNjNlZjMwYjkwODFjZjhkNDU5MGFmYmU4ZTA0NjMyMTUyMmRlZmI1NGJmMzUxODFhNTdhZTlhOSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_card_renderer.py#L198-L207",
+          "version": "repo-lines-v1:sha256:8bdbaf4807371dfe494d9e586e0523c257f9cba8c2a8d4b9bfa1fa3fce454e76:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3ZGUyNTc0Y2VkN2NmOWNiZTNiMTE0NmI1N2Y5OThmNTEwY2JmYmY3ZWYxOTNlY2NlM2I1YjAyYjdjNmI1MDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdhZDYyM2RmM2U2NTYyYTBhMGY1NTEwODlmYjlhMDE3N2VlOWZhYzIzMGE5N2Y1OTVlYjdjMmVlNTQ4OGYyMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg0NmVkMjk2NTU4ODBmZjc4NWVlYmYxZWQyNDcxODIzN2FhMTE2MWRhYzEzMDJkOGJhMTllZjI5NTUxNTAxNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxNTRhZmZlMTNmZTMyMzQwMTJiODc5NmZiMDJmOTA1MWM3ZGU1ODcwZWEzYzJkYWMyNzY1YzM3Yzk0NzgyNTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c92126813ada48438e9e6b5e2a718a5b",
+      "statement": "_fit recomposes and re-measures the whole message on each round, picks the longest trimmable _Piece above _MIN_TRIM_UNITS + _MARKER_UNITS, and cuts that piece's raw text with _shrink — a binary search for the longest head whose rendered length fits the remaining room with the marker paid for, floored at _MIN_TRIM_UNITS — and when no piece qualifies a safety valve empties the trimmable raws longest-first, so the renderer always returns a string instead of raising.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L112-L188",
+          "version": "repo-lines-v1:sha256:fec3d284bb5e78bd0c3b51face98dc8760fa421c48d409817b4bea6383a92c65:eyJzZWxlY3RlZExpbmVDb3VudCI6NzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZmRjNjY2MzAzNTQ3YTZmODk4ZWVjZDQzY2RiNGVkZmU4ODM5MDQ2NTRjNDkxZWYwY2ExYzk0NDJmZDQ4NzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExOGQ5ZjZkZGJhMDBhNTMwNDQzNTRlYTc1ZjUxMTU5YTBmZWE1MGFmZjk2OWY1ZTUzMTFkNWI3NDhmZTYxMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIyNjlmZmVlY2I5YjYzZDBmZWVlZThhZWJlYzAxYmE4NjQwZTgwNzQ0NDBkN2FlNzE0ZmJjNzk1YzlkZjg5NTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZhZTAxYmY4NmZhN2JmYjk2ZGE1MzMzNmQ4MWU2NzVhNTU1MTk3ZGNmNGJmN2Y3MGQzMjU0MTYwOTExNDA1NDMifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_card_renderer.py#L171-L196",
+          "version": "repo-lines-v1:sha256:7761b40a91cc839eab47329a8fa12371ae0e7e8b2cc02495536d482fc192252c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzYzYwNDdjYmFjMmM4ZTAwZGM2ZjlmMGFmNjExYTJmNWJkMThhYjMzM2MyMzNkNzQzMjkzMmMzY2M1NWRkMjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5OTNlZmEzN2VmYmNjMWZkNzEzZjdiNzE2ZDk4ZmMxNDhkNmVkMTMxMWEzMjlhNGNiMDFlNTU0YmViN2IzYjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY0NGY0Njg5Yzk1MWMxYmJhNDc4MzI2N2I1YWMyODBjNjZmYjBlZTgzN2JhOWNkZTA0NWQxMThkZjJiZmQ2MDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNkZjkxYTg3ZGVjOWM1N2IzMmJkZGQ5YzJkYjkwZWI2ODJhODkwODE4YjI4ZTk0MWJmY2UzZDEzYTQzYTIyMzgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bad243a0706a4742ad07b84d8cc66e9a",
+      "statement": "Trimming can only shorten or drop trimmable sections: the identity line, kind line, bold title, reply hint and expiry are never trimmable, so the reply hint survives on every decision card even after the heaviest trim.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L159-L188",
+          "version": "repo-lines-v1:sha256:9e1ef2e42c4548a58e8b4847b3256b5a9e03c8933cef66cc1c631aa41d6f0f0a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3M2JlZTRkMzc5NzY5YmJkOGM5NDdiZjNlYmY5MDdmNmQwZWE1N2U5M2UxNzUyYzg3YzRmNzZiN2IyMzJjNjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExOGQ5ZjZkZGJhMDBhNTMwNDQzNTRlYTc1ZjUxMTU5YTBmZWE1MGFmZjk2OWY1ZTUzMTFkNWI3NDhmZTYxMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyODgyNDI4ODJlYWY3ZTBmMTRjN2YxYWZiMDA3MzViMzc0YWIxMmI3ODE5NWIyMjVjMzkyMDM5NzUwMTQ2OWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZhZTAxYmY4NmZhN2JmYjk2ZGE1MzMzNmQ4MWU2NzVhNTU1MTk3ZGNmNGJmN2Y3MGQzMjU0MTYwOTExNDA1NDMifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L198-L247",
+          "version": "repo-lines-v1:sha256:51d67b2b23b9560e8e86b38d0224d01d9e0f954cba9b1e0e108bc245ad9b62ec:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiMzgyMGFhNTQ1YTg2NTZjZjg2NmRhYWQxZjc3YjU1OWQ5MDRhNTA4Y2EzZDQ3YzZlYjM2ODFjOWRlOGE5YmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4NDRkZmE0YjA0MTVhYWU2MjU2Y2I3Njc4OGU2MTIwYzc4ZWViMzZmNzA0ODE2ZmE1OTVjMjQzM2UzNzdlOTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3NTUyNTRmZmJjYzlhODI5YmU2YmM3ZDdiNDcwZDM0ZDFmMjc5NjViMDVhYTk2OTVmZjM2ODlmNzZhY2YzMjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwYjZjNDVhMTU1MzFlM2QzZjNkZWJhNmVmYzg2Y2NkZTc2OWI2ZmFkZDc5MTVkYWM3NmU2MTBlNmY0OTQ1ZmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0c36eb0d20554d4f92f0972f830be1c0",
+      "statement": "render_card is deterministic in its payload: the expiry line is formatted from time.gmtime(expires_at) so no local timezone enters the text, the payload's renotify flag and any key the renderer does not read never change the output, and a second render of the same payload is identical.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L80-L84",
+          "version": "repo-lines-v1:sha256:69604414183083e646b93cc8da16960590c36c1b11a24400d47b344f555d0878:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzc4NDZlN2U4MTU3ODhjMGRhNDhhNDFhMzEwOWNmNmFmODViYjk3ODA3MDgwODVmNjgzNjZmMjhjOTg3YWVhOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA1Nzc2OTVmZDYyODE5NjM4YjdiNjliNjI1NGJlMTE3YzcwODUzZTk4ZDhkZDhlZDkwZDQ5MzNmOGU3M2Y0YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmFiODIwMDcxNTZmYzgxMjJjNjkwNWQwOGYyNTcwNWJmODRmYjE0Zjc4YmFlM2VmNTQ0NTVmYzA5NjIyNDM3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmEyNTdmYzJiZTI2NGFlYzgxNDRiYjAxYmQ0ZWM2NzhkYjg1ODAzMTQ1NjY2YWFhMmY0ZmFhYjNkYjE4ZTQyOCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1226-L1228",
+          "version": "repo-lines-v1:sha256:2fcfcd541fdad508a66f12ca4fc5b9950b298f482b1ccb95eb18e1522daaf6ce:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGVlYTI4NWZhZTMxYjczMTdiMTYyNGQ1ZDk0OGQzYTA2ZDNlNTg4NGM5NGMwNGJlZTY1OTY1ZGJiMTBkMTdkNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGYyMzQ3Y2ZhYTJjMTU0YjYyZTNmN2QzYzQ5YWQ1MzI4NDk5ZmE1MjE0ZjJhZjdlMzUyNDY4OTcxNzE5NTAzMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDYyNWJmNjhkMTE3YzkxNDU4ZTE0Y2U4NDMwYzA1MjQ1NzJmYzc5ZDUyNDU0NGI1MTkxYTQ2NWYyYmZmNzAxZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWE2OTQ5MjFmY2VjNjkxNDk3OGQ0NDQwNTRmM2QwZDViOTBiZWIzYzFhMjc4N2Q4NjBjYWZhMzNmZmE3MTQxMiJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_card_renderer.py#L83-L86",
+          "version": "repo-lines-v1:sha256:80e31e39e8cc75b0f51dc6887213c7d6af7b4afdabd98e763cdbebf501a868e9:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE3NDVkYzJiNzc5ZGExYjE5YTU2ZTEzNjg3NTljNTMyZTQxZjdlYTEwNzg1ZTQ5YzVjZmY0M2UxOTliZmE3MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTI5MDk0ZTkzYjY3YmQ2MDAyMzgxMDJlM2I4MWViYzZjMmQxMzNkYjgxMDlkNDMxN2QxOGVkODQyZTQ1YjdkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmJkMzU3NjE3NjNmYzNiMDY2ZjFhNmMwZWUwNzZlOTZhOWRmNGU3NGYwZDQ1MWJmNDk3MzgwZjVlZWU3ZWVlYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTI0NjBhMTFlZjU3NmI0YWZjZGI5ZmQzMzQxY2Q5ZGM5ZTExZWQzNDViZjUxZTE3MjYyYTRmZDUwMGY2NmQ3OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2d1373f927a74302a1a2e4efc7f09515",
+      "statement": "The budget guarantee stops where trimmable content stops: because the identity line, kind line, title, reply hint and expiry cannot be trimmed and escaping expands \"&\" fivefold (a URL ticket is escaped twice, once for the href and once for the visible text), a card whose oversized content sits only in those fields renders over PLATFORM_LIMIT with nothing the loop may cut, and the failure surfaces as a Telegram rejection (NotifyRejected, which rolls the notification reservation back) rather than as an exception in the renderer.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L159-L188",
+          "version": "repo-lines-v1:sha256:9e1ef2e42c4548a58e8b4847b3256b5a9e03c8933cef66cc1c631aa41d6f0f0a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3M2JlZTRkMzc5NzY5YmJkOGM5NDdiZjNlYmY5MDdmNmQwZWE1N2U5M2UxNzUyYzg3YzRmNzZiN2IyMzJjNjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExOGQ5ZjZkZGJhMDBhNTMwNDQzNTRlYTc1ZjUxMTU5YTBmZWE1MGFmZjk2OWY1ZTUzMTFkNWI3NDhmZTYxMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyODgyNDI4ODJlYWY3ZTBmMTRjN2YxYWZiMDA3MzViMzc0YWIxMmI3ODE5NWIyMjVjMzkyMDM5NzUwMTQ2OWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZhZTAxYmY4NmZhN2JmYjk2ZGE1MzMzNmQ4MWU2NzVhNTU1MTk3ZGNmNGJmN2Y3MGQzMjU0MTYwOTExNDA1NDMifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L198-L247",
+          "version": "repo-lines-v1:sha256:51d67b2b23b9560e8e86b38d0224d01d9e0f954cba9b1e0e108bc245ad9b62ec:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiMzgyMGFhNTQ1YTg2NTZjZjg2NmRhYWQxZjc3YjU1OWQ5MDRhNTA4Y2EzZDQ3YzZlYjM2ODFjOWRlOGE5YmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4NDRkZmE0YjA0MTVhYWU2MjU2Y2I3Njc4OGU2MTIwYzc4ZWViMzZmNzA0ODE2ZmE1OTVjMjQzM2UzNzdlOTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3NTUyNTRmZmJjYzlhODI5YmU2YmM3ZDdiNDcwZDM0ZDFmMjc5NjViMDVhYTk2OTVmZjM2ODlmNzZhY2YzMjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwYjZjNDVhMTU1MzFlM2QzZjNkZWJhNmVmYzg2Y2NkZTc2OWI2ZmFkZDc5MTVkYWM3NmU2MTBlNmY0OTQ1ZmEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L50-L51",
+          "version": "repo-lines-v1:sha256:6c6bbb548bec9b3dcafcc3e358eb6c484fe7c74af953f8d6b95f2b468421f6d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzc1NTNkMmIzNTc1NWJmYWIyYTRjZDM1M2NkMjQ0ZTA3ZTkyYjNhN2M5YmI2ZDY4MzFkMzU4Nzg1M2QyNGEzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmJkMWViOTBiMTJmN2FkMDc0NzQ2MmI5MDAxYTAzOTQ0MWQ2YTVhMTNkNzVlZDllYWZjZmUzYmFjZTg4NTM2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDI5NThlNmUyNmY1MGRlOTU2YTQ1YjZkMWEzNmI3OGJhOTgxZmYyYjExNjEzMTgxYmZhMTQ3Mzc5Zjc2OTFlZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWIzOThlMGM5NDU2OGJjYmNjNTY5ZTU3MTQyMTYyYWUzNjdmYzVmNmY5OWY2NzllYjhlYmFkNmRkODBjODMwYiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L116-L135",
+          "version": "repo-lines-v1:sha256:382f286d4ef05f865a4ede86b8e75511ad25a867684bbbc6cc2cd3a4674f6799:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmOTYxMDQyYjcyMGI5ZjEyY2U5ZmNiNjg1Yzk1OWI3NmNmZjM2NjNmMDcyOWQyYWFhMDdhNTcyYThmYWQ4MTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ3MWZkNGQwNzg1OTI0ZDcwYTFmODAzM2Q0NWM3ZDAyY2M4ZjRiZTAxYmYxOTgzMGM0MTE0NjM3NjM2NTNkNWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNlMjcxNjA3YjFkNDNiMWMzMzRiMGFlMWQ3NGFhY2FmZmEwNGVkNWU1MjJjZWM5ZDBhZDlhMDFkZGUxMTFmYTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c5047f4893694026b4102cbeadc3583b",
+      "statement": "tests/inbox/test_card_renderer.py pins the whole composed string for a fully populated card (FULL_EXPECTED) and the exact status-message string, and tests/inbox/test_surface_contract.py renders a payload produced by a real ask_question call and asserts its first line is the identity line, so any change to section order, labels, spacing, escaping or the expiry format must update the fixture deliberately.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_card_renderer.py#L217-L237",
+          "version": "repo-lines-v1:sha256:68e3789b3677da51424ebb6a8344e7ed70ce9191fdb534d0e114532a01de3c34:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkNThhNDZmNmI2ZDM4MWJiMWZjZDNlYzM2YWZjMGE4Y2VmMzliMzBlMmYwZThjOTk2ZjczODdmZTc3ZjBiZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI2ZmRkYTE0NzYwOGNmMWQzNzkzMWY5NzdiNjNmNmVhNGUxNTk1Mzk1MTI5MzY4YWVkZjkxNjAxNzJlODhhYjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc1ZTZjZDFkMGRlZGMzYmZmMmZhZjUxMDM0NDdhYTQ3Njk4ZTQ4YTk0YmIyYjYwMGY4OGExOThjMTFmYmM2YzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkNDEzNDBjYzIzOWExNTljZTliNjAyMmU5ZjYzMjI4MzJlMmVhZDc2Y2FlOWU0NzU0ZDIxMGViOGZiNmQ1ZTgifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_card_renderer.py#L52-L86",
+          "version": "repo-lines-v1:sha256:61491f3f858124e007f9fe835843dada099939e34311d13537c65cbe29edac2e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE5NWU4MTlhN2Y5MTVkOTg0OWFkNDhhMGY3MmU0OTQ0YjZiZTg5YTI3ZGU1ODY2NDc1NGYyMjRlNGYxMzVjM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUyOTA5NGU5M2I2N2JkNjAwMjM4MTAyZTNiODFlYmM2YzJkMTMzZGI4MTA5ZDQzMTdkMThlZDg0MmU0NWI3ZDkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRmYmQwMDkzMTRiYzI3MDg0MTY3MzRhMDJhZTVmZjM5YTFlNDhhMDUwYmU5MWY0M2IyZmFhOTIwMDJjNjJiZmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEyNDYwYTExZWY1NzZiNGFmY2RiOWZkMzM0MWNkOWRjOWUxMWVkMzQ1YmY1MWUxNzI2MmE0ZmQ1MDBmNjZkNzgifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L96-L127",
+          "version": "repo-lines-v1:sha256:096fc1c56eecc01056924e707cf82695814adfd42c0447e42f4d2722aa023cb9:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgzYzYzZjExZmY3ZjAxM2M4ZTg2YzE2NjQ3ZTUzYTQ1Yzg3ZDVhNzVjODEwMjNhYWExNzY3MDQ4OTVjYjM2NzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk5YjJhMWNhOWI0MjExZTFmMTdmMmIwNTM0ODE5ZWY3NGRkNzRkZmFiNDE3ODQyN2I1MWVmOGQ0YTcwNmFkYmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkM2U2NzgzYTRhN2M0ZDVkZTc1YjBjM2FjOTEwMTdmYWJhYmYyYjNmNzI4MGY1OTNhM2Y3ODg4NzA5ZDc4YTMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-11T14:44:51.273Z"
+  }
+}

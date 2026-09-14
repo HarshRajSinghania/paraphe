@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:c1cb9a4366a6ba825df40bf1455174f01308b3b753c7bc7493b6aa887ac40a12",
+  "claims": [
+    {
+      "id": "claim_dabb920e887942a380826bdb9c033d14",
+      "statement": "A destination is two methods: notify to show the card, and edit_and_strip to remove whatever invites an answer once the card is closed.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/console.py#L27-L60",
+          "version": "repo-lines-v1:sha256:899ab05f74c41dadd936137b8fc56603cabf65fe7fd3a4db47e7263bf650ecab:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3MWI5MTYyYzM3ZDI0ZGE3YjY3YzFiOTZhMzY2YTFkZjYxYWM4MDU3ZDRjYjk5MWRkMzNkMjRiMThhZWEyMTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5ZTdmMmI3YWI5NDhlMWQyNGY4NzAwZTA5YjFhOTcwZDMwYTQyY2E5MThhNzJjZWIwNzljOTdjMDgzMzRmMzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c772d0c1cb534a92a5269bbba0cd03d5",
+      "statement": "The console destination prints the card fields and the exact command that answers it, with no network call, which is what lets a first run complete the loop with no external service.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/console.py#L27-L56",
+          "version": "repo-lines-v1:sha256:b393981d263c39b97e26e0f67d1c60a2b5c21c57835d6964fd146f364a9f511f:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5ZTdmMmI3YWI5NDhlMWQyNGY4NzAwZTA5YjFhOTcwZDMwYTQyY2E5MThhNzJjZWIwNzljOTdjMDgzMzRmMzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY0ZjZjZjgxZTAwMjNmZmE0ZjZmN2FmOGYzYzIyNjJmMTA3MzViMTAyOTRhZGNjNjBhYTUxYWZiM2RmMDA0YTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_60262fb552e64de48fe1076a941ff526",
+      "statement": "The Telegram adapter sends the message first and attaches the inline keyboard by editing it, remembering the message location so a later claim can find it.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L50-L99",
+          "version": "repo-lines-v1:sha256:f88d474a9b21ecdac223f0708c2b24524855eae5a7c7060a5dfd9072771e9e51:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkZjMzMDkwNmYzODk1NmU4MjJiNDM5YzUyMzE2MGVjYzQyZTFhYmExM2Q1M2ZhZTEwMmUwNzc3YjZmMmNiNWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5YjA2NjgzYzI5NDM4NmFkOTM1OGY0MTY0NWRlZTUwZDUzOTFiNGU3ZDJiYTNkNTg1M2QxZDk5MjcxMDNjOGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM0NmI1MmJlNTA4ZWY3ZTJkOTlmZGQ5NDZkMGIxNTExZTMxZWZhY2EwNjYwY2RjYTFhNzFhMjY2YjM0N2EyZTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_141be4130a76402688da5687dae6942e",
+      "statement": "The Telegram adapter encodes the card id, the version and the choice into the callback payload, so a button left over from an earlier revision cannot claim anything.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L100-L135",
+          "version": "repo-lines-v1:sha256:ba4d2910c516af2c1f41564df0f544c5b08ecc64a2045d111bd1b655ccbd270a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiNzY3ZDY4OGZhNTliMzYzMzk5OWZlYzVlODBhMGUyYzkxZDQ0MWRjN2ViYWQ1NmQ0MmNlOWQ1OGJmYmJhN2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE0YWUyMDg4NjNjMzdkYzk1YzI5ODZkNDJiZTY2OTdjYWZiOTM3ZTczZDg3Mzg5MGFkMzY5M2Q1NzBmMjM4YTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkzMTVjMTk0OWYxN2FmMDgzN2UxMjBkNjk3MzUxOTc4ZjVlZjFkZjIzYWY3NDA0ZmI3Yjg1NjVjMTg2YThjM2QifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L11-L34",
+          "version": "repo-lines-v1:sha256:e8a4be56127a6d94f6d2a4767e7625d14f02f2d5de4370f3209cd1426452e34c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzOWI4MTEwYzlmMDBkODFjNTllYjNmYTQwY2M3OThmNDM3N2RjMjIxNTU0MGYyNzNhN2EwNWRjNmNmOTgzZDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYwNmRjZjkwNmRkZjBhNmU3MWQ2ZTIwN2ZiNGM2ZDA0NTllMTkyOWMxMTg3Zjk3MWMzMTk4MDRlZTMxZDRhNWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA5YjBiNjVmNDUyZTE3YWQyZDg3YTNjNTIxYjEwZTQ4ZTYwYTYyODZmMzBhYmQ4ZjRkZWY3YTQ5MGU0Mjk2ZmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_876dd20341664d7b8bc9f63ef2393dd7",
+      "statement": "A failed control strip does not fail the answer: the answer is already durable in the store, so a dead destination is an honest miss and a client recovers through the wait or the read.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L550-L554",
+          "version": "repo-lines-v1:sha256:d6055058cd5ee9c7ad7a5bf786f6c4afced906eec116163bba0bc491bcb56d7a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDhhMTcyMGQwYTM1OWEwYmNhM2Q2ZWJmMTYwYThkYzQwZDFiNmY1OTgxNTMwOWY0NDNlMjNlN2U5ODYzYWU3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWU3YmNkMzZlZjUzYjQ0NTIzZTY1ZTk4ZDE5NDQ5OTNlMGZmMTc0NmY1NTM2YzFhNTExNzQ2ZjNlMDFlNzU2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZlMmViM2EzNjU1OWVjNTJmODBhNjQ2NTlkNTkwYmE3MDkxMWY3YzI3NjYzN2M1OWJlMDRlNDQyNzRhYmI0ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDYzMjNjNDM4NzQyZTc4YzQ1Y2Y0MGY4NWI1NWJjNGVjNjc4N2E0OTBlMWNiMDNlNzExYTNhMGIwNjJmOGJjMCJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_tap_claims.py#L188-L207",
+          "version": "repo-lines-v1:sha256:37330b8872cf348bd7ab2d6e858d6b84f40690a6f7a59d5bd53655d8b673063e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxZmMzZjQ0NTI4N2QyNjA4NTFjZTZlMDE4MjQ1YWM0ZjgxNGQxMDE3MGVhNTRjNjA5OWY0MDM1OWExNzZmN2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1N2U1ZTMxZWNhMzVmNWJmZTA5NmJhZTY3NDEzNDNmMGZhMzk2YTcwMDI3NTcxZDQxMWNhN2NlMTkxNTQ1NjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVkYzYwNjVhYzE3MTc0ZjI1OGRjOWI1ZWY4ZDA1YWExMDgwZDZkNjdjMTIwYjVhMzNlZDU0MzRkNjc3MjI1MzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkNDEzNDBjYzIzOWExNTljZTliNjAyMmU5ZjYzMjI4MzJlMmVhZDc2Y2FlOWU0NzU0ZDIxMGViOGZiNmQ1ZTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_434abad5cd39436b8631044a22b48def",
+      "statement": "The served MCP surface is twelve tools: how_to_use, ask_question, request_approval, get_response, list_unprocessed, list_pending, mark_processed, report_execution, update_request, cancel_request, notify_user and request_feedback.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L41-L54",
+          "version": "repo-lines-v1:sha256:d3833ebbaaa9b4fe8c3902afd4aab3eca3b46fbe4f3db5650f135e74ba917548:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBkZDRmY2ExMzQ2M2U4YjM5ODE4Mjc0ODcwMTAzZDIxMGE0ZGY5ZmVlYmY3MTE5NzVlNjIzMTk5MWM1NjYxOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5NDE2ZTA5Zjc4YmEzMTZjMDMyNTY4MjEzYjg1NWVlNzU2ZTQxNTY1ZDkxOGYwOTUxOWM4MWZkNjIwZjQwNjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhhOGMzMmE3NjZlNmRjYTYxOTU4NjY0NzFjZDIzNGNlNzBkNjNjMzdmYWI2YTU3YTY4NDg3M2FhMTljMGE4OGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNjNDY4ZjRjM2YzMDVkMTk3NTgyNDEwNjQ4OWVjMzRkNmI0MmMyOWFhMGM4OTA4YjJiMTE1ZTgyZjJmNDQ3NDUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d3ad760f01484660af8cad58fe33da36",
+      "statement": "The card payload handed to notify is built in _notification_payload and carries request_id, version, kind, title (the card's question or title, else \"Paraphe\"), details (its context or details), choices, choice_notes, recommendation, consequence, prohibitions, links, agent_name, risk, expires_at, runtime, repo, worktree and ticket, plus renotify true when a revised card is re-sent.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1203-L1228",
+          "version": "repo-lines-v1:sha256:e7732350ee8355c177d384c3a9aa43e0f567719034b0ee6c1e5db817810d8df9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwYmJmMjkyZjAzODZjMjc4MDg5YzY0ZWZlNzNiNmJjMTViOTE2MjQzYTZmZGU5YWMwODFhY2YzZDUzMDJkNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmMjM0N2NmYWEyYzE1NGI2MmUzZjdkM2M0OWFkNTMyODQ5OWZhNTIxNGYyYWY3ZTM1MjQ2ODk3MTcxOTUwMzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlNzU5ZTVhNTBmZGE4YzRjMDQ1NWI2ODJiZWVhNWRhNzM4NzNiNzYyNGY0NmJhNDdhNWJkOTUyOGM0N2NlMWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVhNjk0OTIxZmNlYzY5MTQ5NzhkNDQ0MDU0ZjNkMGQ1YjkwYmViM2MxYTI3ODdkODYwY2FmYTMzZmZhNzE0MTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_37501ac78c0e4dbd94aef7f86f8b6d1d",
+      "statement": "notify_user reuses the destination seam with a status payload -- kind notify plus title, message, agent_name and risk -- instead of a card, so a destination branches on kind before treating a payload as a card; the console prints one line for it and the Telegram adapter sends it with no keyboard.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/console.py#L28-L31",
+          "version": "repo-lines-v1:sha256:205e0f927f9f893248a1cf509043203924b4241e831e100ac7fd5aa0f6f0adec:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWRmMzMwOTA2ZjM4OTU2ZTgyMmI0MzljNTIzMTYwZWNjNDJlMWFiYTEzZDUzZmFlMTAyZTA3NzdiNmYyY2I1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWU3YmNkMzZlZjUzYjQ0NTIzZTY1ZTk4ZDE5NDQ5OTNlMGZmMTc0NmY1NTM2YzFhNTExNzQ2ZjNlMDFlNzU2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzI2NjgxODg5MDI5YThlMTNmMjQzZDFkZjA5MmE5MzRkNTNhOWUwOGQ4ODVmYTc5MmUzMTcxMWI4ZTYxN2E3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODkyYWNiZTYxZmI4NGEyNTk5YzYyNmI5NTkwMDQzYTgxYzViMWE5ZmE0Y2UzNThmNDZkZWM4YzAxZTI3ZDEzNyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L289-L294",
+          "version": "repo-lines-v1:sha256:91693ce9e17c34ca33fded43680c34edf0f4f3461a7f66ddeb43c64cf3dcfa06:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWRmMzMwOTA2ZjM4OTU2ZTgyMmI0MzljNTIzMTYwZWNjNDJlMWFiYTEzZDUzZmFlMTAyZTA3NzdiNmYyY2I1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTY1ZmIxYzc1YzNhYWEwYTgwZDNiMTM0ZGQ1ODRlODk3MTQ4MTNmMGYwMGI3ZDVmOWRiYzY2MzVlZjc1NjUyNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTliMDY2ODNjMjk0Mzg2YWQ5MzU4ZjQxNjQ1ZGVlNTBkNTM5MWI0ZTdkMmJhM2Q1ODUzZDFkOTkyNzEwM2M4ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmI2YTFjMzRiNTkyODVkM2YwZjUwZDU0YmM1NTk3MTNhYWJjNjc4MTA4ZTZiYTJhMTkzNWMzNTljMDkwYWEyNyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L846-L854",
+          "version": "repo-lines-v1:sha256:5088b6eb1d93560417390dc311cf546b414d940a21a08aafc2879c5c4c2822ed:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTJiNDFjM2RiMjMyZWEzMWVlNjQxMDgwMjE3MWM1ZTU0OWMyNmJmMWZlZTA1Y2Y5Nzk4Y2E1MDE3NTVjZWI2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTUwMzJlOTY0ZDA5MzIzNTFlNWQxODUyNjkyODFiMTcxYTNhMDliMDhiMjg2ZTY2MWVhNDcwMzIzYzgyZWI0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzdlZDJiZDk2ZWM0MjFlZGEzOGFhN2UzZWE1MDhmZWZiZTVhNDhiMmYyNWQyMDllNzQwOTczYmZjNTY3Y2JiZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzMyNjlkNmY5MzViZWU5Nzc3YjliMTBjMzcyZDVhY2UwY2JmZWFiM2RkMThiNmM3YzdkZDFlMTZhNGNlYTY1ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5d01668452134e878fd12e95aa610bb0",
+      "statement": "Adding a destination is implementing notify and edit_and_strip and injecting the object into the inbox's notifier and tap-port slots: the inbox knows nothing else about it, so a destination cannot change the card lifecycle and the lifecycle cannot require a new method of an existing destination; the only other members the inbox probes for (finalize_message, remember_message) are optional and reached with getattr.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adapters.md#L42-L47",
+          "version": "repo-lines-v1:sha256:ff03a4eecf2265eef325ecea73160dd1e581927096cc99c3f80859ede74c8838:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmE1YjJkMzYwNDZjNGEzNTc1NzZlMDA3ZTIwM2QwNDc5ZTJmZjE5ODFhMWYxY2E0MTVkMjlhYTZmMjNhZjI0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGViNmE4NDMzZTg0ZjcyZGY0ZDdhOGZiZDljYjY1YjA0MTg1ZmIyMTQxNDI5NmNjYjkzYTRiYjhiM2YwZDQwNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2M4ZDYyZmUyMDVhOGMzMzFjYjk3NDE0ZTFjMzEyMWNkYTMwYzk1NjljNDRkOGU0YTlmZGM3ZDdlMjQ5MDY0YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmYzZDI4NGMxMDBjNzg4YjY3YzFjYmIyM2Q1MTBkNTcxMDliYjMzNmFkZjBlNDJmMDY0MTFhM2I1ODg1YTFkNiJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1230-L1233",
+          "version": "repo-lines-v1:sha256:2e1fcc08740be5bd17e8b778a3e31a78d0fa60ad75223f4b8a16f45fbe43b9d4:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGUwNTM3YmRmMmI3NDc5NzdmOWIwYzY0MGViMWU3Mjk3ZTI0M2RlM2QwODE5MTQ0ZjFjYWNiOWU4MDQzNTdkZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjZjNDAzMGM4MjRkNDBhYjEyY2ZmNzdhZjIzNjJhMTAwYzBiOGIzZGI0YTkzZTAxODJkZWE1YmM4NTQyYjE4MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTk3NDVjNTI0MGU5MTVhOGIxMzVkODJlNTdlYzUxYmRmOWNiNmI5ODNjNDA2NDNmZjk0MjBhMmEyMmM1MGEyYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTU1NDczYTEwYjJiYjgwM2UwYWRhZDlhNzIxODFjMDdkNjY5YjlmZDk2NTI3MTlmYTE3Mjc4YzJkNjM4NDc0MCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L296-L300",
+          "version": "repo-lines-v1:sha256:8a9823b33d754a143778b74cbde61c2fa947ab64db2e29dd0855a052bc930c73:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTNmMTViMGM4YTJkZGViMTQwYTE2MGUzMmVjYzU2MGQyNTlkNWU5MmI3OTZhNWMwNWNmZDg5YTI2MmEyMDQxOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk4N2UyOWE5Y2QyMjdjOTkzM2IzMmJkYjJjZjk3OWY5ZDhmOTE3ZWY4YjA0YjQyOWUxNGFiZGM3MGViZmQyZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2FlOGIyMzExNTU2NzlhZTZkM2I4MmNjOGIyZWE1YTk4N2U0NTRkYjdmOWZjZmI5YTZlYjcxNjA4OGNmNWUwYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2MxNDYwYTljNWMzODUwNmI4ZDE2N2MzZTYzZDk3OTgzYWNlY2UzNmExNjg4MWJkZjQzMDFlMTNmZWJkZTJlNSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L353-L362",
+          "version": "repo-lines-v1:sha256:f47e5d33507c833c93bebdca1c45e1573069dc866e0cb5f5e775d40cedba1a81:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyMTZjNDFiOTMzZTdjNjQwMjU1N2MzMjgxMGNhMTk5NjRiOGJjMTU0NjgxZmUxOTAzMWQ2MDhjN2Y4Yjk4NGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhZDZjOGVhYTg1M2RmYjcwNzIwNTFhNWY1OTYyOWJiNzZmMDJkMTMzMDQyZjY0MTQzNDNmYTAxOWFiOGU2ZDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4YmYxNzlkNzk4NmFmMmU4OTQwZGJlODU0OTBhNWQ3MzgwYjZlZmU4ZmFhMTMyMWNjMWFjNDAwYmIwOGExZTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRmMjE5ZDEwOTQ1ZDg3OTIwOGUzOTg1NTJlZGExMmNlM2EzZmRjNTg4NzY1NGQ5ZTE2MGFmZDY0ZDIxZTFkYmUifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L629-L636",
+          "version": "repo-lines-v1:sha256:f0c49c7623d8f2814db3aecba375c997ab497a3956c8626f1dfeb28c13decb59:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjIxNmM0MWI5MzNlN2M2NDAyNTU3YzMyODEwY2ExOTk2NGI4YmMxNTQ2ODFmZTE5MDMxZDYwOGM3ZjhiOTg0YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTEwMzQ4MWM1N2QwZjBkYzBmNzZjZDJjYzhiMzYwNGM0ZTgyOTZkYTQxMjJhZGQxOWU4MTc0NWRjN2UzMzFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDYyMTQ0NzdhNDEzMmIzYTRkNTI2M2M5YmM1ZDZhZmEyYzIwNjRiZGUxYWI3YzViMGNiMDcwYzU2Y2FlNWE2NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzAyMDRlNzkyMmMyYzdjODExMDY5MWFmM2JkZTRjNTg2ZTllNmUxMmRjOWVlMmRmYmVhOTkzZDQyMTFkYTJiMCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/claim.py#L14-L16",
+          "version": "repo-lines-v1:sha256:6ad0725de02e5f904ce05a6571dfcdedd3c82b1e4ae15d05b8c3c2b355797bd2:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzNjOWJiODkwNzk5NzI4MWEzYzFlM2M1YWE0ZDNiOGNkYjExNGQyNzM3ZWYwMGI4MzZiZmFhYWZhNzc3ODNhYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWU3Yzk1N2JjYjQ0ZmI2NzNjOThiMDA1MGE3NWQzODA4MmRiODFkOTE4ZGUzMTNhM2YwN2MxMjM1MzA2ZDdlYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWZiZWM3YzdhODhjOGU1MjllMDU4ZjFmY2RhYThiNTA5ZjFkNWU5ZTdjNTRiZjIwZTIyOWQ4MTk3Y2FhODcyMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE1OGVlZWE5MWYyYjE1YTNhMTkzYzU2NGM0ZGVlM2I4Y2MwNmY2ODU1NDMxNzkyM2MwNGVmMjQyY2Q5ZTQ4MCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L180-L186",
+          "version": "repo-lines-v1:sha256:900a39497a3fe4e1ea1d1fe31b9005968f234858b9824909ba70526214bbdcb2:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjY1OWZmYzNkZGYyNDI0OGRlMjQ0ODljOGJlZTczMjRlNDU1NTg4ZDVjYjMyY2ExY2M1MDM0YmI1ODU2YjE4NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTg0NzZjNDA2YjNhY2U2Y2Y2MzI1MWJiZTc3N2Q5ZjNjZDYwNjk4ZDdkOGEwNmVkMzI4ZjI3M2I4MTMwYTAxYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTQzMTI0Mzc2YTg2MDc2ZTEyNzA1MTM3NGM2ZjMwMTExMmZmYWVhZmNjNzc5Mzk2MzVmYWU5OTcwM2RmOGY5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmJjNGY1OGI0ZWMxZjBhYTAxYzA0MmE4ZWEwNzUwNWVlNjQ2M2ExZjFjZmFkMmMxYTZhNzcxOTkzNmU0ZTUyZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9a937f622ba14fffb55132b9da8a3c1a",
+      "statement": "The inbox calls edit_and_strip when a claim lands, when a refusal finds the card already closed, when a card expires, when cancel_request withdraws one, and to retire the revision an update_request superseded.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1037-L1041",
+          "version": "repo-lines-v1:sha256:75fcb067cb6d1162cecced85c65f2df4c5eb00e7fef7ab7a828bd9f5f9227c5e:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzJkMWJkNmZlY2Q2OTE5ZGFhZjhmOWM3MDExZDZhOWZkMTAzYmY4NDA4NjFmZTZlYjVmMDM0YzBlYThkOTUwYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGRmZWQ3YmYxMmI3YWQ5OTUyYzc5MzczZGNlOTkxMDg4OWVhZTU5MmFhZDRlN2Q3OTllOTJiZGMwMTJhZDg5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTQ2MzU2M2VhOTAzNWVlOTM5MmJjN2E5NWU2MmJlNTI3NGNiNDZlZTFjMzEyODk0ZmVlNmRjYjQ4OGQ5Y2U2MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDIxMjVkOTgxNWE0ZDIyZmMzNGVhOGZkYzFlMzA1ODVhNjBhNTNiNDliYzYxNzQ3NTA2YmQ4ZWNiZGJlYjA4OSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L550-L554",
+          "version": "repo-lines-v1:sha256:d6055058cd5ee9c7ad7a5bf786f6c4afced906eec116163bba0bc491bcb56d7a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDhhMTcyMGQwYTM1OWEwYmNhM2Q2ZWJmMTYwYThkYzQwZDFiNmY1OTgxNTMwOWY0NDNlMjNlN2U5ODYzYWU3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWU3YmNkMzZlZjUzYjQ0NTIzZTY1ZTk4ZDE5NDQ5OTNlMGZmMTc0NmY1NTM2YzFhNTExNzQ2ZjNlMDFlNzU2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZlMmViM2EzNjU1OWVjNTJmODBhNjQ2NTlkNTkwYmE3MDkxMWY3YzI3NjYzN2M1OWJlMDRlNDQyNzRhYmI0ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDYzMjNjNDM4NzQyZTc4YzQ1Y2Y0MGY4NWI1NWJjNGVjNjc4N2E0OTBlMWNiMDNlNzExYTNhMGIwNjJmOGJjMCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L850-L858",
+          "version": "repo-lines-v1:sha256:61ce0ff7ba13245640a9a09953888764d265f9fcbac32f8a3d6a8e5381722c1d:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzY2Y2M1NzZlZTMxODVlYzQ2NDU5OTEyOTRhZDEzODgxYTQ5ZmIyNDFhYzg3MmUzMzVhNTg5OWI0NDAxNmU4ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDE2MWNlOWIxMmM4YzFkZDA5ZTcxNzAxZTM3NTcyOTc4ZTUxZTdhNDdkMDhkMDBjMTAzYmQ4MTY2ZTc1MWM3NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTBmZGFjZGIyZDYyNjI5OGJmNmZhOWFjMTIyODMxNDJkMWUwMjE3MjJkNGE4MzRmZWRmNTExZTI2NDNkNThmMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDZjNWU2Njg2NmVlMDkwM2Y2ZmVjNWE0ZTE4Y2VkZWZlNWEyNmFjMTlkMDZlOGU2MGMxYWY2Njc0N2ZhNDE5NSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L870-L877",
+          "version": "repo-lines-v1:sha256:46116e22b6631fae7abedaa1745894a43b68059a163df511ba88bb3d95c7672a:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTMxOGJlYzNlMDkyODZmZjRmYTEwYzgwMjQ0NTMxZmIxOWJhM2U1NmVhN2VlZDQ4OTk2YWU2OTg2MjAxZGMzNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGRmZWQ3YmYxMmI3YWQ5OTUyYzc5MzczZGNlOTkxMDg4OWVhZTU5MmFhZDRlN2Q3OTllOTJiZGMwMTJhZDg5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWY3N2VkZDkyY2IyMGI1YjcyYTY2YzM5N2U1NTFlMmFmZmNhNDFiZTE1ZjI4ZTQ2YTFjY2M3N2ZkOTIzZmJhNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjRlNTY3ZGUxOTE2NzBjZjlmYjU0MTk2MzlhOTA0MWI2NmQ2NDM1M2RkMjU3MjQ1ODZkMDdjNDU5YTNlZjU4OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b2e4b2d942cf40da92494d0c471b6f26",
+      "statement": "The composition root, not the inbox, chooses the destination from configuration: a bot token means the Telegram tap adapter wired as both the notifier and the tap port, its absence means the console destination with the null tap port.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adapters.md#L34-L36",
+          "version": "repo-lines-v1:sha256:c49432708e635d1ab9f231148c2d5d612f1f31b8fce0dfac7f99a278faaddb5b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2MxZGE2NzRjOWQxNmM3OGViOTliNDRkOTIwOGQ1NTUzMDFhZTllNDM2OThjMGJkOGNiZGE5MjM1MzRlZWQ2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjg0YmZmYjM3MzBmZjc4NmIxNzQ2MjE3MDk1NzllOWQ3YzUzNzVkODAxY2YzY2Y4YjFlZTA5ZGE5YWFkMTAwMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjkzMmNjOGQ0Yjk1YzEzMWZhMmNiNWQ1YzY0MTY3NjM5NGUxZjAyNzdiMzM0MTU1OWI5ZDg4NWI3Y2Q2NWQ1MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDVkNjRkOTJmMmQxODUwNDkyNTY3MTkzNWYwN2Q0OGExMjYwY2FkMGI1NDM4YTg2ZmEyOTBlYjBjZGQwYzczOSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L166-L180",
+          "version": "repo-lines-v1:sha256:c1c1b2e1f039f3f95a99a62aa65a8701c58924c0e8494c415079b09867885d3a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxYTM1MGFkOTYzODcxYWJjOWIyZDRiNGFkMDQ3Y2ZjNjk2MjQxMTAzYmZmYzJkZThlYWYzN2JhNzgzZDlkOGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk4NDc2YzQwNmIzYWNlNmNmNjMyNTFiYmU3NzdkOWYzY2Q2MDY5OGQ3ZDhhMDZlZDMyOGYyNzNiODEzMGEwMWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJhZDUzZGE4OTE2YTk3ZjJjMDZlZDE5MzgxOWYwOWY4ZTJkMWQ5MmI1OTBlYzFlYzBlZWI2ZTEzZDFiYjVhODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiYzRmNThiNGVjMWYwYWEwMWMwNDJhOGVhMDc1MDVlZTY0NjNhMWYxY2ZhZDJjMWE2YTc3MTk5MzZlNGU1MmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_35c4ddcd0d7e4cd3a8b9b1607f5b60eb",
+      "statement": "The inbox's notifier and tap-port slots default to no-ops (_NullNotifier, NullTelegramPort), so an inbox with no destination wired still serves creates and answers, notifying nobody.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L251-L279",
+          "version": "repo-lines-v1:sha256:04e26cb64da6b5fde8e20687472ce12082f49e879ce1c7af705cf9d406b94b24:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNiOTUzNjk5MTBkYzVmYWM4OTQ1YmFkYjc1MmNjZDc1NGVlOTM2ZmQ3NzliNDNkM2M3YjIwOTgxMDg2ZjRjYWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiYjgxOTRlNDU3MTlkYzc0YTM2NjVmZjU2YzUyOTBlM2Y4YWFiZDdlZjJmZjhkZDJjMGQ3YzliYmRlNmRlZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNiOTc5OWU0ZjFjYTdkYjg4MjUzNDRmYWE4NGUxMWU4YWZmMDE5NzJhYWU3NzJmNWViODZiMjljMzZiMDE3YTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiNWNmZDk2ZTQ0NTA4NjE4ZjQ3NmM5ZDJiMTU4YzY3NWE3NDYyZDJiM2MzMzg2YzJjOGI2MmJlZjc1MzliN2EifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/claim.py#L14-L16",
+          "version": "repo-lines-v1:sha256:6ad0725de02e5f904ce05a6571dfcdedd3c82b1e4ae15d05b8c3c2b355797bd2:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzNjOWJiODkwNzk5NzI4MWEzYzFlM2M1YWE0ZDNiOGNkYjExNGQyNzM3ZWYwMGI4MzZiZmFhYWZhNzc3ODNhYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWU3Yzk1N2JjYjQ0ZmI2NzNjOThiMDA1MGE3NWQzODA4MmRiODFkOTE4ZGUzMTNhM2YwN2MxMjM1MzA2ZDdlYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWZiZWM3YzdhODhjOGU1MjllMDU4ZjFmY2RhYThiNTA5ZjFkNWU5ZTdjNTRiZjIwZTIyOWQ4MTk3Y2FhODcyMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE1OGVlZWE5MWYyYjE1YTNhMTkzYzU2NGM0ZGVlM2I4Y2MwNmY2ODU1NDMxNzkyM2MwNGVmMjQyY2Q5ZTQ4MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2d4795b299ba45b89c06d98d305bc16f",
+      "statement": "A failing notify rolls back the notification reservation only when the provider proved the send did not happen (NotifyRejected) and no message identity was recorded; otherwise the exception propagates to the caller.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1101-L1125",
+          "version": "repo-lines-v1:sha256:b7dbc4a2afc21faa320cff391cec9d06023e609f95878054f6c246de6f0a3015:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyZTY5OWMxNDk1MDlhNzA3NTNlMWI2MGM5NGRlZDBkNjM1ZTU5Yzg2MzlhOWMyNWRkMzQwZjYyZjZjNWE3NzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyOWM1MjQ0MzRjMDA5YWFmMGQ3ZmU5ZTJmZmU3MjJiMTcwY2Y4ZWIxYzhjMTU3NWU0ZTNiZDUxZTkyNmM3MWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQwMTM3ZWQ5MGQ5YzEwZjliMzM4Njc2NzU5MDA1NDM1ZjdiMzI2MjY3YzZmMmU3YTJhNzZjMTFmNGU0YjY3Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE1MjBlODkxOTkxNmRiYjA3N2Y3MmRiNzg4NzA3OThhMGMwMzFhYWI0YjY4ZTdkZWI5Y2JhOTg3NTUyODBjNjcifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L247-L248",
+          "version": "repo-lines-v1:sha256:774d9ae098aeda0a0d31f71cc64829a8a63ea58eea9e9aed73449607af77386a:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODc1M2FlMjc4MjJiYTM2MDhlMmU0M2MwYjZkZDg0YWIyMjRlNTJkMTA0NzVlNmFmMGFkZmRhN2M1ODI4YmE5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzAwMWU2YWU3OTIzNGM5MzBkMWU0YjZlZjMwNmQ5NjhkYTNkNTE0YTZjMGE0Mjk3ZDI1YzIxNDdhZjgzM2VhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTVmMzgxMzgzZWE3M2MzYTYzZTZkYzMwYjZlNzBmMWNlNzdmNTc0MDE4NDg3OThjNGFmOTExYTc2OGJkMzhiOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWE3MmQwNzU5NmJjMWMwOGMwYTJhMWUxNTY3ZWE0YmU1YmNhNTNlZTFlNTAyMWEyMGEwMmZkYTk3NDZlN2VjMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8d030b3cdb6d46ecbb2b6a1dde3dd299",
+      "statement": "On update_request, a failing strip of the superseded revision writes the previous revision back and propagates, so the store never advertises a revision whose previous message could not be closed.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L850-L858",
+          "version": "repo-lines-v1:sha256:61ce0ff7ba13245640a9a09953888764d265f9fcbac32f8a3d6a8e5381722c1d:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzY2Y2M1NzZlZTMxODVlYzQ2NDU5OTEyOTRhZDEzODgxYTQ5ZmIyNDFhYzg3MmUzMzVhNTg5OWI0NDAxNmU4ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDE2MWNlOWIxMmM4YzFkZDA5ZTcxNzAxZTM3NTcyOTc4ZTUxZTdhNDdkMDhkMDBjMTAzYmQ4MTY2ZTc1MWM3NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTBmZGFjZGIyZDYyNjI5OGJmNmZhOWFjMTIyODMxNDJkMWUwMjE3MjJkNGE4MzRmZWRmNTExZTI2NDNkNThmMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDZjNWU2Njg2NmVlMDkwM2Y2ZmVjNWE0ZTE4Y2VkZWZlNWEyNmFjMTlkMDZlOGU2MGMxYWY2Njc0N2ZhNDE5NSJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_telegram_port.py#L695-L713",
+          "version": "repo-lines-v1:sha256:a925cf02ecc8716615c1109d6158bfd88b85add30b5e47cb5fda50810790d617:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY4YzM2MDI1YTJkZWMyMjRhNmUzY2RlOGFmNjc3Nzc0OWU3M2EzNDgwYzk1YjcxZjlkNWUwNDg2YTQzMGJlNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyOGQ4MmQ5NTIzNTQyODRhZDcwMTYwZjQyZWI2ZThjZDY4YTM5Mzg4MGFhYzQ2MDEyNzU4YzIxYjA5NWM1NzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNiNTAwMjE0MGYzYjQzNDA1YjFiYmE1YTMzMjRmZWNmMmU3YjA3ZmQ3MTZiMTYzM2U1ZjAyYzIzMDhiYWIwMmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMyZTcyMjYxNzg3ZmE1MzI2NTgzMTEwMTk0NjU1ZTIzNTA4MzdhOGJlZWE1ZDllODU4NGE5NzgzMTM5ZDc0MmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_91a75643c07a49f6b4b4393ddb89505b",
+      "statement": "source_thread is descriptive metadata: the card stores the value the caller sent, and nothing is resumed from it.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0011-answer-returns-through-the-ask.md#L44-L46",
+          "version": "repo-lines-v1:sha256:822d81e2fc2be92d4add4699b51c4674598308dd11d83711027aec59cdfb2625:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1YTRkZTNmNjA2YzdiYjdkMjY3NjkyMWNhOWYyODg1MGQ2NTEwZTE2MjRiZDkwOWExYjk4MTM2MmNjZDNmNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E3YTdkZjk0MmE3MDc1NzRmMGY2MTliNjllZGU4MTQ3OTM5OTYzZjhlMTk5MjY0NTkzNDZkMWQwMDM1OTY0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTI4MjNlYWVmYjM0NGNiMzNlMmI1M2Y4M2Q3YzZhZDY0MDczZDA3YzMxMzc3Y2ExNDYxZmI5ZGE4NmEzNDcwYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWY3MzI4OWRlMWJiNWUzYTg0MzRjZmYzNjE2NzM4Zjg1ZTdkNDMyYzkxMzZjYTgwOTQwYjQ1OTgwYThhZWI4ZSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L936-L936",
+          "version": "repo-lines-v1:sha256:d535f0fa753deeeb208ceeae2a1a0f42963998a1b587d9dee78745dcd67be93f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDUzNWYwZmE3NTNkZWVlYjIwOGNlZWFlMmExYTBmNDI5NjM5OThhMWI1ODdkOWRlZTc4NzQ1ZGNkNjdiZTkzZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDUzNWYwZmE3NTNkZWVlYjIwOGNlZWFlMmExYTBmNDI5NjM5OThhMWI1ODdkOWRlZTc4NzQ1ZGNkNjdiZTkzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDRkNmM4NmEzODY1ZGQ4M2ViYmE4Y2YzMDVhOTBiNjcxYTAzZjNhODM5MDUzODg3OWM1MWUxZWYyYWQ0ZTlhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjg5NDM4YTg0Yjk5YTQxYmQyNmY0ZWFlZTAwZmNhYzhkOWM1MDZhNDg5ZjBjZDViNjY5ODZhZTc4MzA2N2Y1YyJ9"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L47-L57",
+          "version": "repo-lines-v1:sha256:d8a52a308b261395bf4b011430b5d187b17390ab2e146a9d297aa9c56580ed93:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0NTI2MDJiM2U3YWI1MjRjZDM2NGFlZWE4ZDNmNzFjNDFlNzE0YmUwMDY4NmE1MTVjMWNjNzA4YTkzOTgyMmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlNTViYmVmNWQ3NTJjYTZhODhlZTZjMmZmNzBiNmNjODI4NGFlYjYyODMyZTFmMTljODJkNDZkNmQ5NTIzYmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRlNzE1NTY0MGQ1YmM3OGYzMzcwZWQ3NDRjMTdiYzZjM2E1NDM5ZWNhYmEyMGZhOTRjZjYwYmRkNDliODQ4NmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxNGE5ODBlNzgzMWJlMmQ5NDExMDIwZDdhNmFmMTBmOGU4MDY5MmEzZmE1YmViNWIwMTM2YjNlMWQzZjJhMzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_83577f89053743af830656699c289d26",
+      "statement": "There is no delivery seam: a destination never carries the answer back, and the answer returns through the ask itself - the waited call (wait_seconds on ask_question, request_approval and get_response), the paraphe wait command with exits 0 answered and 3 not answerable and 4 unknown, or the get_response / list_unprocessed read - with the durable store as the fallback when a wait is missed.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adr/0011-answer-returns-through-the-ask.md#L29-L34",
+          "version": "repo-lines-v1:sha256:fe6c6cc0b0bba8ef7ca8e62320e7b9d9395ffb15aabc973c120ca5a9ffb08bc0:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDkwMDY3ZjI3ODMyMGQ3NDUwYjA3MjM3YWQ2Y2RmZmEyMTA0NjNlYmFmM2U4ZDQ2OGIxYjQ2MmRhMTE4YTkyNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGI5NjhiNjdkMzIxZTMwMjJhZmY2NWNjZDIxMGE3MTk5Mjc4Y2I0NjUyZTIwNGZhMDY3NWQzMjFmZDZhYzlhZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2IxNTdhNmQyNzY3ZmY3ZjQxMzNlZTI3NjUxMzY3YzZmZGZmN2FiNGZkOWJhM2NiNDI2MmUyYWE0NDkwY2NhMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzc3MTNmM2VlZWI3NDUxNzRmY2JlNDVhZDhmNTViOGI3NmM1MDk3MzIzMGVlNTYzYTM5ZjlkMmE1YjU4ZDc2MCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/cli.py#L29-L32",
+          "version": "repo-lines-v1:sha256:e62673ce14509b445d46f81b34832f4d397da5bdffc07a873440ae0549495744:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM1ODVmYjk2MTIwNzc1Njg3ODk5MTZhMzIyMDFhNzVlNjNjOThmOTYwYWUwMTljZTQwZDM3OTMyMzIyZWU0YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTMyNmE3NzQyZjk3OWVjYWE3ZjEwMGY2MzU5MTU1YmNiMDBlNGRlMjQyYmVjZjc1YzVkM2E3NmMyYmVmMjc5YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzk4YWY5YmU4NzgzODNhZjE5Yjc5YWZhNTI0NDBlNTA2OTU1MWNiMmExYjc3YjBmOGVkODliMjQ3MTVjMzUxMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzQyNDNhM2Q2NmZjMWRkNzA0MzJkODY4Nzk0OGE2YWIwZjllOTgwYzE0YWE2NzU4ZGIzNTE0OGNkNzZkODg5MSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L439-L445",
+          "version": "repo-lines-v1:sha256:aa52a565b6f5258a3e466a00739af782fb1e2f09a669c784bb2479d68f15c3c0:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTZkNDJjYjBiNGJiOTBmYjQyMzdjZGMxMDg5MmIwYjk0YTIzZjVkZjEyYmJiMDUwM2FhMGMxOTc4YTUwMTQ4OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzcyZjk2OTVjNzQ2N2M3NDc3M2M5Y2U3ZmM0MjljNWQwZDBlNDg3ZjNjNTFkMTVkNjY2OGEzZDI0MDcyYmI5NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGI3ZDBhZmI1MmM4MjU0ZDEzZDdlMzJkZWUzZTA0NTYxN2U3YTU5Mjg0MzY3MjU2YjdhYzQ3OWI3Yzg2ZTk4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzQzOTViZTI0NDhmYzY4YTNhYTUxNWM3ZTNjN2RlNDk2MWM0OWM5N2JlMGVhYTA0MzExZDA4OTQ3ZDFjZjhjNyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L754-L764",
+          "version": "repo-lines-v1:sha256:c0f32630ad2cf87861fc25ae8753bd002b2b26bb831fe4f87ddcc3c8597eaa93:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0MGY3NDkwZDI2ODEwNjE5YWViY2I3MTA2OGM0NGMyM2NiMzA4OWIzNGZkNjMxYTczNTE2YjU1MTdmZGEwYWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBiYWU5N2RiZmUwMGEwZmUyN2U4ZjdjOGE2NmRiZWI2OTgxYzhkMzQ4NWU0MDFmNDRhYzE4YjRlYmNiN2Q1MTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwMGNlOTBhZTcxZmYxYTY3Yjk4YThjMGFlZDMwMjI2ZTgwNmMzODE2YTFiOTNmMWY1MTIyZmVhNTkwNjUzZGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUyYWUxMTIxNWJjYjVkY2ZhN2I1ZDFlNjg0MzY2N2Y4ZWMxZWFhMjczOWI4ZjI0YzdmNmE4OWUzMjU0Yjk0NGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9bfccc13c2974b128125b1a885dc6537",
+      "statement": "The Telegram adapter strips stale controls when a callback's message no longer matches the card, for a refusal whose reason is stale_message or stale_version.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L131-L134",
+          "version": "repo-lines-v1:sha256:be06de0adc35afb109ee44f739a7c10687dd4364845f7adc5b79d966248c5793:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjE5MTRlYmI1OTBkZTQwNmE4MDRkNTlmZjA4ZTBkYWYyOTQ5NzZiNGVmMWM2Y2EyZGQ5ZTZhOWJjM2JiYzA0MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTY3NGZkZTQ1MmE5NDI0YWI1ZDlmYWUxNjYwMWNhZDRmZTEwYjc2NDkyZjdiODEyNTJhNmZlMDQ3NzY3ZDcyYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTI4NmM4ZDdiODFlOTE4NTgzMDA0OWExMzJhMmE0MDgzYzYzZWNjNDIzZDNjMzVjMjBlMWQ1NzVmNWVlM2YzNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2M2ZDgxZDJiZDE4ZDZiNDQxOThlZWZlNTExNDQyZjRkZGU5ZjExNWIwNWQ4NDg3NzU5MjFlOGEwOGZiZmM3ZSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L207-L220",
+          "version": "repo-lines-v1:sha256:42fe52e58610040ff2fa4bfb4146172494633eb27c7bea02a4beaf452eba29f1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1OWU0MTllNWNmYWRiZDY3YzA4MTgxZDk1OTE3NWIyZGU3ZThiY2EyMGU4NzA5Zjk5NjQ4ZmViZGM4MzI4NDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVlN2JjZDM2ZWY1M2I0NDUyM2U2NWU5OGQxOTQ0OTkzZTBmZjE3NDZmNTUzNmMxYTUxMTc0NmYzZTAxZTc1NmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgwZjJlN2QzMWU0NDNjYWVjMzRjMzY3MTU4NDU1MGMxYWI4ZDc0YTBlMWMzZTI2ZmQ5MzRkN2Q1YmFlMGI4NTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUyZDYxYmUzODdjNDc1MzJhN2JiZjE1MmQyMjZhZGRmNDE3NDg0ZjNiZDU5YzljOWM3YTE1Y2ViYWZkYTkyMDcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b9cc754b02a345538b8423a913b12e9b",
+      "statement": "tests/inbox/test_surface_contract.py pins the destination contract, with the console implementation's notify and edit_and_strip both running through the printed output, and tests/inbox/test_setup.py pins that the printed card carries the request id, the /answer path and PARAPHE_OWNER_ANSWER_TOKEN.",
+      "evidence": [
+        {
+          "resource": "repo://tests/inbox/test_setup.py#L459-L477",
+          "version": "repo-lines-v1:sha256:05c18df955d5ed52fe06ae2fa45042e267a7cfd1af265d250b2a55058f59bd87:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIxOTU0MjE3M2IxYmVlZGY3MjlkZDc1NWUyNzEyNmViMjUzYmEyNjQ3MmE5ODA4OTM5ZjU0ZWQxMTVkMzc0YTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyYmE2ZDNmOWRlYmU3OGU2N2UyZDI0YzAxYjVlODhkYzhkN2E5ZGMyMjEyMWFhMTRhMTMxMmRiZjZlODcyMGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhhNTJhYWZjOGJmNzdjNzM1ZjFlYzJiMzAyYmVkNjk2ZmU5MTE5OTM3MmI5ZWVkYjUzMGE4NjEzYzhlNTU2YWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkNDEzNDBjYzIzOWExNTljZTliNjAyMmU5ZjYzMjI4MzJlMmVhZDc2Y2FlOWU0NzU0ZDIxMGViOGZiNmQ1ZTgifQ"
+        },
+        {
+          "resource": "repo://tests/inbox/test_surface_contract.py#L92-L100",
+          "version": "repo-lines-v1:sha256:b952ca623fd2cf919b9892766371b265c09e64e3f80db5f0ad01d6f3f0d8de09:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGUyY2JiNGJhMjViOGZiYTdhODY3MjQ5ZmUzMzdjYTBmMmU1YTRmNjg1YjU1YzRlNTYwZGUyZDI2YmIxOTlhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDhkM2NiNzU3OWQ2MjI3MWMyYTYxMzE1NzJhZjQ3MzM5NTMzYWRlOGFhNThkZjAzMzI5Mjc0ZTEwN2JjMWRlMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWQ5NTQ5NGJiYTY3NzZlM2FiZTZjNGI3ZmM0MmJjZTRlZjMwNWY5MTdiMDhlNGViM2I3NDZmM2FmNTI1NWVhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Q0MTM0MGNjMjM5YTE1OWNlOWI2MDIyZTlmNjMyMjgzMmUyZWFkNzZjYWU5ZTQ3NTRkMjEwZWI4ZmI2ZDVlOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_104538a309dc4e44879ae0be679eb552",
+      "statement": "The notify payload is a curated subset of the card: priority, project, source_thread, external_id, allow_freeform, expires_in_seconds and the lifecycle state stay in the store and the deadline travels as expires_at, so priority is the one entry of the docs/adapters.md field list the inbox never sets and destinations must read optional keys tolerantly, as both shipped implementations do with payload.get.",
+      "evidence": [
+        {
+          "resource": "repo://docs/adapters.md#L13-L23",
+          "version": "repo-lines-v1:sha256:8b0226c7effa3805edebd3d1c4190104bf218a97332302fe24d78c27d47873dd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhNmM1YTE4ZmZkNjRhODVkY2MyMzFiNWQ4OTc1NWY3NjBmOTY0ZmRjNDJjYTJjNDU2NTQxYWEzNTFjNTIyYjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1YzNlN2U5ODRjNjdmYTlhMDRkYmYxYzVhZWI5ZGJlMWRmNTA5MzMxY2JmNGUxMTVkMDY4NGQzNzE2MjYyODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU3MjJmMDBmMzFiMGExMjI4ZGFmM2ViY2U2NWM4ZjQyNzk3MGI3ZjBjNmE0NmFiZTg1YzJkZjljODYxNDhjY2UifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/console.py#L28-L57",
+          "version": "repo-lines-v1:sha256:cee0801e9a7a39b6d1073e53508871a5a0e0abb252023080fb15d429c0abdd80:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkZjMzMDkwNmYzODk1NmU4MjJiNDM5YzUyMzE2MGVjYzQyZTFhYmExM2Q1M2ZhZTEwMmUwNzc3YjZmMmNiNWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzZGYxNGQ3YmJkYTE2YzQ5YjU0YzViNDRkOTdkYzI0MjlhZGE2YjNhMmZjMGQyZmU4MWEwY2Y0NTBiYWZmZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMyNjY4MTg4OTAyOWE4ZTEzZjI0M2QxZGYwOTJhOTM0ZDUzYTllMDhkODg1ZmE3OTJlMzE3MTFiOGU2MTdhNzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBhOWU0ZjUwY2U5ZGMxYTAxZTExZWU5ZDhhNzc1OTAxZTBjOWJlYTEzOGFhZjgzMDkzODJkMWYxN2ZhNjU1MWEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L58-L109",
+          "version": "repo-lines-v1:sha256:6aaa101f29f030bebfcd6c63ae3b367f2052e6232d734fee97cc8dce802c4f61:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2ODExOWExYTdhMzY5MWQ1YzdjZmIyNTE5OWYwMTMzOWJlZDBjNjBjM2U5OWE3YTY0NDhmMDFlZTA0ODNiYjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjMGIzNmFmZGU0Y2NlNDQxNDYxYzZiNzQwMTFiZmFkNjI5NGUyZDZkZjcyZTM3ZDJiNmI1ZmE3MzRhNTFjMDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVhOWZiYmMyMmMxYjE0YThkNWFmMzg3Y2QwZGFiZjBlNDY1ZTI4OGU5YjkxYzUyNTk4OTZlMjMxM2RjMmY2ZmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ3ZGUwZDY5MDUzNmU3Y2JiMWZmNWYyOWJkYjgzNGE0MjVlMzcwNjA2NGZkNzcxY2IwN2EzMTEyYWJlZWUyODgifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1203-L1228",
+          "version": "repo-lines-v1:sha256:e7732350ee8355c177d384c3a9aa43e0f567719034b0ee6c1e5db817810d8df9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwYmJmMjkyZjAzODZjMjc4MDg5YzY0ZWZlNzNiNmJjMTViOTE2MjQzYTZmZGU5YWMwODFhY2YzZDUzMDJkNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmMjM0N2NmYWEyYzE1NGI2MmUzZjdkM2M0OWFkNTMyODQ5OWZhNTIxNGYyYWY3ZTM1MjQ2ODk3MTcxOTUwMzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlNzU5ZTVhNTBmZGE4YzRjMDQ1NWI2ODJiZWVhNWRhNzM4NzNiNzYyNGY0NmJhNDdhNWJkOTUyOGM0N2NlMWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVhNjk0OTIxZmNlYzY5MTQ5NzhkNDQ0MDU0ZjNkMGQ1YjkwYmViM2MxYTI3ODdkODYwY2FmYTMzZmZhNzE0MTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_54cd89608fce47c89b2b0a848c46696b",
+      "statement": "notify_user never creates a card: it de-duplicates the delivery on external_id through the store's notification-id table, and a NotifyRejected carrying an external_id drops that reservation so a later call sends again.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L837-L863",
+          "version": "repo-lines-v1:sha256:d3be04fc37d514133f0ddd8f8c8e808b85699feb1523f4af07012f2d39c08b50:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwODU0YWI3NGFmZDdkOGU2MGNhODEwYWQwMTIzZmUwYjg0NGRlNWMzYjI5ODE2MjI4MTc5NjM0MWIwZjA3MzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyOWM1MjQ0MzRjMDA5YWFmMGQ3ZmU5ZTJmZmU3MjJiMTcwY2Y4ZWIxYzhjMTU3NWU0ZTNiZDUxZTkyNmM3MWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRkNGNhNmIwYzk5N2FmODhjYjU3ZTFiMjZmNDRiNDczMzQ5ZjY0NzE0ZWQyZGQ5Mzk0OWQwNWFlNzc1MTQ5ZTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJjZjcyMmYzZWQ5ZjFiMjFjMmM1NTcyYjQzMzhjZjdlMDAwZjRiMGEzZTIzNmFiMzU1ZjdjOTE0ZjM3YTU4YzQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_087272818219415695e8a2f2d0f1aff4",
+      "statement": "The destination seam is two independently injected slots: the notifier receives only notify and the tap port only edit_and_strip, so Runtime.start wires the console destination as notifier only while the tap port stays NullTelegramPort and a running console-mode server never calls its edit_and_strip.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L296-L300",
+          "version": "repo-lines-v1:sha256:8a9823b33d754a143778b74cbde61c2fa947ab64db2e29dd0855a052bc930c73:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTNmMTViMGM4YTJkZGViMTQwYTE2MGUzMmVjYzU2MGQyNTlkNWU5MmI3OTZhNWMwNWNmZDg5YTI2MmEyMDQxOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk4N2UyOWE5Y2QyMjdjOTkzM2IzMmJkYjJjZjk3OWY5ZDhmOTE3ZWY4YjA0YjQyOWUxNGFiZGM3MGViZmQyZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2FlOGIyMzExNTU2NzlhZTZkM2I4MmNjOGIyZWE1YTk4N2U0NTRkYjdmOWZjZmI5YTZlYjcxNjA4OGNmNWUwYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2MxNDYwYTljNWMzODUwNmI4ZDE2N2MzZTYzZDk3OTgzYWNlY2UzNmExNjg4MWJkZjQzMDFlMTNmZWJkZTJlNSJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L640-L644",
+          "version": "repo-lines-v1:sha256:d6055058cd5ee9c7ad7a5bf786f6c4afced906eec116163bba0bc491bcb56d7a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDhhMTcyMGQwYTM1OWEwYmNhM2Q2ZWJmMTYwYThkYzQwZDFiNmY1OTgxNTMwOWY0NDNlMjNlN2U5ODYzYWU3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWU3YmNkMzZlZjUzYjQ0NTIzZTY1ZTk4ZDE5NDQ5OTNlMGZmMTc0NmY1NTM2YzFhNTExNzQ2ZjNlMDFlNzU2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzAyMDRlNzkyMmMyYzdjODExMDY5MWFmM2JkZTRjNTg2ZTllNmUxMmRjOWVlMmRmYmVhOTkzZDQyMTFkYTJiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDYzMjNjNDM4NzQyZTc4YzQ1Y2Y0MGY4NWI1NWJjNGVjNjc4N2E0OTBlMWNiMDNlNzExYTNhMGIwNjJmOGJjMCJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L180-L186",
+          "version": "repo-lines-v1:sha256:900a39497a3fe4e1ea1d1fe31b9005968f234858b9824909ba70526214bbdcb2:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjY1OWZmYzNkZGYyNDI0OGRlMjQ0ODljOGJlZTczMjRlNDU1NTg4ZDVjYjMyY2ExY2M1MDM0YmI1ODU2YjE4NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTg0NzZjNDA2YjNhY2U2Y2Y2MzI1MWJiZTc3N2Q5ZjNjZDYwNjk4ZDdkOGEwNmVkMzI4ZjI3M2I4MTMwYTAxYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTQzMTI0Mzc2YTg2MDc2ZTEyNzA1MTM3NGM2ZjMwMTExMmZmYWVhZmNjNzc5Mzk2MzVmYWU5OTcwM2RmOGY5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmJjNGY1OGI0ZWMxZjBhYTAxYzA0MmE4ZWEwNzUwNWVlNjQ2M2ExZjFjZmFkMmMxYTZhNzcxOTkzNmU0ZTUyZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d88a147c3435408b8e8f29c6dc9025cb",
+      "statement": "The inbox notifies each card revision at most once: its notified reservation is stored before notify is called, so a duplicate create or a restart does not re-send, and only update_request with renotify clears the flag and sends the new revision with renotify true.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L1235-L1242",
+          "version": "repo-lines-v1:sha256:7505b0ed403355b5738ebbfdeba8ec2b271884db9c53e8c06e62ab2ab0ac52ea:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODJlNjk5YzE0OTUwOWE3MDc1M2UxYjYwYzk0ZGVkMGQ2MzVlNTljODYzOWE5YzI1ZGQzNDBmNjJmNmM1YTc3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGU4YjZlOTkzOWRhNmQ0Yjg1NzBiYzdmNTU4ZTdhYTIxNjViYzZlZmQzNDkyMzUyMjNiY2Q5YTllNzI2YmY5NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDAxMzdlZDkwZDljMTBmOWIzMzg2NzY3NTkwMDU0MzVmN2IzMjYyNjdjNmYyZTdhMmE3NmMxMWY0ZTRiNjdjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjE4ZDYxNjY1NmMwZGUwZDA1NWNmMGIxMmQ2NWRiOTc1YmFhM2FlMTg3MGE4Mzg4ZTg2NzBlZGY2MmQzODA0NyJ9"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L962-L977",
+          "version": "repo-lines-v1:sha256:dea7d7c014d91dfdd0db98ae9a1bf6c00bc88d72a9adbcc05d91bff2d7ae36d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1Y2UwNTMxOWEyYTg2ZmI2MjYxODMzN2MwNDZiZmM4YTk0OWMxMmViOTg0OWVkOTQ1N2I2YjY4ZjliNjY1MWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkODJmYjJmZGQzMmVjMmViZTZmYjI4ZDdjZGY1ZTU4NmY5YTY0MGUwZGM4NjEyNWM1OGY5Y2FjNmJhZGQyOTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUxMzAxZjRjODBiMzk4MGRhMmQ4MjExNDFkNWQ1MTU1M2ZlMzlkNWY0ZTg3M2U5ZmQ3MzJmODE2NTY4NGY1NWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMwNTM2MDgwNTQ4NmYyMjc5MzE0ZTA4NjZiZGNhNDAzZmVhNjczMjc5NTVhMjg3NzMyNjU4OTU1NzI4NDRkMWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8dcd8c7980af4cb58cea894e00fc1621",
+      "statement": "At startup, reconcile_notifications strips every card that is no longer open, so a card that closed while the process was down has its controls removed on the next start.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L349-L376",
+          "version": "repo-lines-v1:sha256:44f9ab9d9f4af5c4f07ecb61e7d84a72c853aed0d0866b3dd668df3f29c1260d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYzYWEwZTMyNmM3YzYzYzk4YmQ1MDZhYjgxZDdkYjMyM2JjMDhhZTc2ZDdhY2FlOTI1YmUzY2RiOWE1NjdkMzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIwY2Q5NTdhMjRkYWNjMWU3ZTA4N2E2ZDU2ZmM5Y2VmOTEyNjUyYjZlOTViMTgwODA2ZjdjMmZhYzA0NmY3YzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg5YWRlYmNhZjk2ZTEzNTkwZjBkMWI0YTE2ZjY5ZDkzMzBjOGE5MGY0YTU4MDU2NzQzODI0OTlhYjg5NWI0MmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1MWFmMDc0OWI2MzY2NjFlMjk4YTZhZjY1MTM5MmUzM2NkZmYwOTIxM2RmYzg1YmVjYjcyNmU4MzEzZGU1YTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0fd68246dbc24b668625015b03af6190",
+      "statement": "An owner's reply to a card message is recorded as that card's answer -- Inbox.claim_reply with responded_via telegram-reply -- with the same lifecycle writes a tap makes, and a reply to a status message resolves to no card; the reply enters through the adapter and never passes through notify.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/telegram.py#L394-L417",
+          "version": "repo-lines-v1:sha256:45f70a473bc824be4bac512be770b47d28cf0753c363031a74834fbf192a773b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2NGFlZjlhNDQzZmIxNjU1YjI3N2VkOWNhZDMwMzFmMWE1YjA2NmVhZDZmNmY4ZjZlOThiNmU4OGY2ZjFiZjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxNjFjZTliMTJjOGMxZGQwOWU3MTcwMWUzNzU3Mjk3OGU1MWU3YTQ3ZDA4ZDAwYzEwM2JkODE2NmU3NTFjNzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0N2ZmZTc3OTVhYjIwMTU4NGM5ZTA3ZDEzOWJlODRmOWYwZWViMTRkMDhjYWIzNDY5MDg3MjRjNjM4NDY5MzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkyMTNhNDk3OGE2YzE5MzE0ZWYyNzI5NjYwOGFkMDA3Yzk2YWRkMWU5MjAzYjgyOTA0N2RhYTgwYzgzZTM5NWEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/__init__.py#L520-L548",
+          "version": "repo-lines-v1:sha256:50aa0f27877bab20b951863055c741f9c676c744fb39a28b1297e97afd9bbe0f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4MTA1OGE2ODk3MTRkMjBmYTdhNDllMzk2NjFhZjVjY2VlYzlmNTVmODAxYWExZjE3MjExMGU3OWNiOGZiNjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MDMyZTk2NGQwOTMyMzUxZTVkMTg1MjY5MjgxYjE3MWEzYTA5YjA4YjI4NmU2NjFlYTQ3MDMyM2M4MmViNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZmYmIyOGI1YTJjODRkYmFmNjhlMGExZDZiYzhhM2Q2Yzg3YmI2NzY4YmFjYWMwOTljNmZlY2IwOTc0NGMzYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA3OGRkYWEzMDVjNGZlNjVjZDBmOTQ1MjMxM2IxYTRhMGZiNzlhYzBkNzQ2NjE3MmU1MDU5MmI5ZGJmNjg1NjkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8ec275388cce41e5801553c76437a10c",
+      "statement": "ConsoleDestination is constructed with the host and port the runtime binds and accepts an injectable write callable and answer path, so the answer command it prints points at the bind actually serving the answer path.",
+      "evidence": [
+        {
+          "resource": "repo://src/paraphe/adapters/console.py#L14-L26",
+          "version": "repo-lines-v1:sha256:84d626914b2a5293a510734eef2c4940107850d48afbc8abc11d63f752bc57de:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MDUyMjE3MDU5ZjQyNjQ1MmFkYmU4MTAzN2ExZTlhNDM0ODM3M2JiNjI4NDVjZmUyODRhZmVmYjU0MjM1MWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFlNzU4MDVhNzhlMjIwNDdkMTIwY2Q4YzA0ZjRlMzU5MTczNzUwMTdhODIxODhjNjFmYTQxYWQ1MmNhNjQ2MjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJjMWRlMzJmYWNmOTRjOTBlNmVhNThhZjU3ZTczZGFhYzE4YjhhZDI3NjhjOGU0YWI2YjNiMGU1NmNiNTdjMzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ5ZGFiNjRhZjg1MTE1ZWUxNzMzODI3YjQzZGE0MWM2YmJjNmJmM2NiOGM3MjNiZDAzYTA2ZmEwOGMwZDg5MDEifQ"
+        },
+        {
+          "resource": "repo://src/paraphe/inbox/runtime.py#L181-L186",
+          "version": "repo-lines-v1:sha256:a434020e46328ceeb5f1887f5a0a2b65b59b24f1640efc81b3e4c717345a4974:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTk3YjQ3YmI4MWNlOTNjYmE2N2FmYzA4Njk4YTgwY2ZhMDkzYTg2NjdlOWM5Zjk2NTMzNzgxOGQ2NTc4ZDE4NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTg0NzZjNDA2YjNhY2U2Y2Y2MzI1MWJiZTc3N2Q5ZjNjZDYwNjk4ZDdkOGEwNmVkMzI4ZjI3M2I4MTMwYTAxYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjY0NTllNTgzOGQ3ZDFjNmQxY2JlNjU0MDAwMGRlNGUzOWQ0YTE0NWMxMmQ5ZGUzOTIxMzEwYjQ2MDY3MTBmYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmJjNGY1OGI0ZWMxZjBhYTAxYzA0MmE4ZWEwNzUwNWVlNjQ2M2ExZjFjZmFkMmMxYTZhNzcxOTkzNmU0ZTUyZiJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-11T14:44:51.273Z"
+  }
+}
