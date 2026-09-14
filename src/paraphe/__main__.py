@@ -10,7 +10,7 @@ from pathlib import Path
 DEFAULT_CONFIG_FILENAME = "paraphe.toml"
 HELP_FLAGS = frozenset({"-h", "--help", "help"})
 VERSION_FLAGS = frozenset({"-V", "--version", "version"})
-USAGE = """\\
+USAGE = """\
 Paraphe - the self-hosted owner decision inbox an agent asks and you answer.
 
   paraphe [--config PATH]   start the server
